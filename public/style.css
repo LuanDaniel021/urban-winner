@@ -1,11 +1,162 @@
 
+
+:root {
+    --bg-main: #080E0B;
+    --bg-sect: #0C1210;
+    --bg-card: #101B14;
+    --bg-eed: #163D27;
+    --bg-dec: #24633A;
+    --bg-bed: #4BD982;
+    --bg-tei: #54DF87;
+    --bg-eei: #8CE9A9;
+    --bg-tes: #A0AFA5;
+    --bg-tem: #F1F7F2;
+
+    --ink: #17352d;
+    --muted: #5c7169;
+    --green: #176b50;
+    --lime: #d8f36a;
+    --paper: #f7f8f2;
+    --white: #fff;
+    --line: #dce5dc;
+    --soft: #eaf2e9;
+    --orange: #f4a261
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, sans-serif
+}
+
+a {
+    font-weight: 650
+}
+
+.button {
+    border: 0;
+    border-radius: 999px;
+    background: var(--green);
+    color: #000;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px
+}
+.button:hover {
+    filter: brightness(1.08)
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #080E0B;
+    width: 100%;
+    margin: auto;
+    padding: 18px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+#header.hidden {
+    transform: translateY(-100%);
+}
+
+.brand {
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: -.04em;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.brandmark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 1.3rem
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap
+}
+
+.links a {
+    text-decoration: none;
+    font-size: .93rem
+}
+
+.page {
+    min-height: 100svh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+.line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    #080E0B,
+    #54DF87,
+    #080E0B
+  );
+}
+
+#home {
+    background: radial-gradient(
+        ellipse at 80% 45%,
+        #17472b 0%,
+        #10251a 35%,
+        #080E0B 75%
+    );
+    color: white;
+}
+
+#about {
+    background: #10251a;
+    color: white;
+}
+
+#project {
+    background: #163D27;
+    color: white;
+}
+
+footer {
+    display:flex;
+    background-color: #080E0B;
+    color: white;
+    text-align: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
 #map {
     width: 100%;
     height: 500px;
     border-radius: 8px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
 }
