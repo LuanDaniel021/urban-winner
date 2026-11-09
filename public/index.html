@@ -1,91 +1,666 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080E0B">
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-            content="
-                Guia gratuito de descarte correto de eletroeletrônicos, 
-                checklist antes do descarte e localizadores de pontos de 
-                recebimento no Brasil.
-            "
-        />
+  <title>Descarte Certo | Descarte eletrônico consciente</title>
 
-        <title> Guia de lixo eletrônico </title>
+  <!-- STYLES -->
 
-        <link rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-            crossorigin="anonymous"
-        />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        <script defer
-            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"
-        ></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
 
-        <script defer src="script.js"></script>
+  <!-- SCRIPTS -->
 
-    </head>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="script.js"></script>
 
-    <body>
+</head>
 
-        <header id="header">
-            <a class="brand" href="#">
-                <span class="brandmark">↻</span>
-                Guia de lixo eletrônico
+<body>
+
+  <!-- HEADER -->
+
+  <header class="topbar" id="topbar">
+    <a href="#inicio" class="brand">
+      <span class="brand-icon">
+        <i class="fa-solid fa-recycle"></i>
+      </span>
+      <span>Descarte <span>Certo</span></span>
+    </a>
+
+    <nav class="nav">
+      <a href="#inicio">Início</a>
+      <a href="#guia">Equipamentos</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#pontos">Pontos de coleta</a>
+      <a href="#folder">Folder</a>
+      <a href="#consciente" class="nav-cta">Descarte consciente</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- INÍCIO -->
+
+    <section class="hero" id="inicio">
+      <div class="wrap">
+        <div class="hero-content">
+
+          <span class="eyebrow">Consumo responsável · Meio ambiente</span>
+
+          <h1>
+            Seu eletrônico<br>
+            merece um<br>
+            <span>destino certo.</span>
+          </h1>
+
+          <p class="hero-description">
+            Equipamentos eletrônicos não devem terminar no lixo comum.
+            Descubra como preparar seus aparelhos, encontrar pontos de
+            coleta e contribuir para um futuro mais sustentável.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#guia" class="btn btn-primary">
+              Conhecer os equipamentos
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <nav class="links" aria-label="Navegação principal">
-                <a href="#home">Início</a>
-                <a href="#about">Sobre</a>
-                <a href="#project">Projeto</a>
-            </nav>
-            <a href="#project" class="button">Encontrar ponto ↗</a>
-        </header>
 
-        <main class="scroll-container">
-            <section id="home"    class="page">
-                <h1>Inicio</h1>
-                <div>
-                    <div style="
-                    height: 1px;
-                    background: linear-gradient(
-                        to right,
-                        transparent,
-                        #54DF87
-                    );
-                    "></div>
-                    Prepare Entregue Reaproveite
-                    <div style="
-                    height: 1px;
-                    background: linear-gradient(
-                        to right,
-                        #54DF87,
-                        transparent
-                    );
-                    "></div>
-                </div>
-            </section>
-            <div class="line"></div>
-            <section id="about"   class="page">
-                <h1>Sobre</h1>
-            </section>
-            <div class="line"></div>
-            <section id="project"   class="page">
-                <h1>Projeto</h1>
-            </section>
-            <div class="line"></div>
-        </main>
+            <a href="#pontos" class="btn btn-secondary">
+              Encontrar pontos de coleta
+              <i class="fa-solid fa-location-dot"></i>
+            </a>
+          </div>
 
-        <footer> 
-            <span>↻ descarte certo — informação para fazer a escolha correta.</span>
-            <span>Projeto educativo de acesso aberto.</span>            
-        </footer>
+          <div class="steps-divider">
+            Prepare · Entregue · Reaproveite
+          </div>
 
-    </body>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- GUIA DE EQUIPAMENTOS -->
+
+    <section class="section" id="guia">
+      <div class="wrap section-content">
+
+        <div class="section-heading">
+          <span class="eyebrow">Guia de descarte</span>
+          <h2>O que pode ser descartado?</h2>
+          <p>
+            Consulte alguns dos equipamentos que fazem parte da cadeia
+            de resíduos eletroeletrônicos. Pesquise pelo nome ou filtre
+            por categoria.
+          </p>
+        </div>
+
+        <div class="search-area">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="search"
+              id="search"
+              placeholder="Buscar equipamento..."
+              autocomplete="off"
+            >
+          </div>
+
+          <button class="clear-button" id="clear" title="Limpar pesquisa">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="filters">
+          <button class="filter active" data-filter="todos">Todos</button>
+          <button class="filter" data-filter="informatica">Informática</button>
+          <button class="filter" data-filter="imagem">Imagem e áudio</button>
+          <button class="filter" data-filter="casa">Casa</button>
+          <button class="filter" data-filter="pessoal">Cuidados pessoais</button>
+          <button class="filter" data-filter="ferramentas">Ferramentas</button>
+        </div>
+
+        <div id="equipmentGrid"></div>
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CHECKLIST -->
+
+    <section class="section dark-section" id="checklist">
+      <div class="wrap section-content">
+
+        <div class="section-heading">
+          <span class="eyebrow">Antes de descartar</span>
+          <h2>Prepare seu equipamento.</h2>
+          <p>
+            Antes de levar seu eletrônico até um ponto de coleta,
+            confira estes cuidados importantes.
+          </p>
+        </div>
+
+        <div class="checklist-layout">
+
+          <div class="checklist-items">
+
+            <div class="check-item">
+              <input type="checkbox" id="c1">
+              <label for="c1">
+                Faça backup dos arquivos importantes.
+              </label>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" id="c2">
+              <label for="c2">
+                Apague seus dados pessoais e restaure o aparelho,
+                quando aplicável.
+              </label>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" id="c3">
+              <label for="c3">
+                Remova chips e cartões de memória.
+              </label>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" id="c4">
+              <label for="c4">
+                Separe cabos, carregadores e acessórios.
+              </label>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" id="c5">
+              <label for="c5">
+                Consulte se o ponto de coleta aceita seu equipamento.
+              </label>
+            </div>
+
+          </div>
+
+          <aside class="progress-card">
+            <h3>Seu progresso</h3>
+            <p>
+              Marque as etapas concluídas para acompanhar
+              a preparação do seu equipamento.
+            </p>
+
+            <div class="progress-track">
+              <div id="progressBar"></div>
+            </div>
+
+            <div class="progress-info">
+              <span id="progress">0 de 5 concluídos</span>
+              <span id="progressLabel">0%</span>
+            </div>
+
+            <button class="reset-button" id="resetChecks">
+              <i class="fa-solid fa-rotate-left"></i>
+              Reiniciar checklist
+            </button>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- PONTOS DE COLETA -->
+
+    <section class="section" id="pontos">
+      <div class="wrap section-content">
+
+        <div class="section-heading">
+          <span class="eyebrow">Onde descartar</span>
+          <h2>Encontre um destino adequado.</h2>
+          <p>
+            Consulte as iniciativas de logística reversa e os
+            localizadores oficiais para encontrar pontos de recebimento.
+          </p>
+        </div>
+
+        <div class="map-container">
+          <div id="map" aria-label="Mapa interativo de referência"></div>
+        </div>
+
+        <p class="map-note">
+          Mapa de referência geográfica. Os marcadores de pontos de
+          recebimento devem ser adicionados somente após confirmação
+          das informações nos localizadores oficiais.
+        </p>
+
+        <div class="locator-grid">
+
+          <article class="locator-card">
+            <span class="eyebrow">Localizador oficial</span>
+            <h3>ABREE</h3>
+            <p>
+              A ABREE disponibiliza informações sobre pontos de
+              recebimento de produtos eletroeletrônicos e
+              eletrodomésticos em seu sistema de logística reversa.
+            </p>
+            <a href="https://abree.org.br/" target="_blank" rel="noopener">
+              Consultar ABREE
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
+
+          <article class="locator-card">
+            <span class="eyebrow">Localizador oficial</span>
+            <h3>Green Eletron</h3>
+            <p>
+              A Green Eletron atua na logística reversa de produtos
+              eletroeletrônicos, pilhas e baterias, disponibilizando
+              informações sobre pontos de entrega.
+            </p>
+            <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">
+              Consultar Green Eletron
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+
+    <div class="section-divider"></div>
+
+    <!-- FOLDER DE CAMPANHA -->
+    <section class="section brochure-section" id="folder">
+      <div class="wrap section-content">
+        <div class="section-heading">
+          <span class="eyebrow">Material de campanha</span>
+          <h2>Leve a informação com você.</h2>
+          <p>Um folder educativo para compartilhar, imprimir ou distribuir. Ele foi pensado como uma peça independente da página.</p>
+        </div>
+
+        <div class="brochure-toolbar">
+          <span><i class="fa-solid fa-file-lines"></i> Folder informativo · formato A4 paisagem</span>
+          <button class="btn btn-primary" id="downloadBrochure" type="button">
+            <i class="fa-solid fa-download"></i> Baixar / imprimir folder
+          </button>
+        </div>
+
+        <article class="brochure" id="brochure">
+          <section class="brochure-panel brochure-cover">
+            <span class="brochure-brand"><i class="fa-solid fa-recycle"></i> DESCARTE CERTO</span>
+            <div class="brochure-cover-art"><i class="fa-solid fa-mobile-screen-button"></i><i class="fa-solid fa-laptop"></i><i class="fa-solid fa-plug"></i></div>
+            <span class="brochure-overline">Consumo responsável · Meio ambiente</span>
+            <h3>Seu eletrônico merece um <em>destino certo.</em></h3>
+            <p>Pequenas atitudes ajudam a evitar a contaminação do ambiente e permitem recuperar materiais valiosos.</p>
+            <span class="brochure-stamp">INFORMAÇÃO<br>QUE TRANSFORMA</span>
+          </section>
+
+          <section class="brochure-panel">
+            <span class="brochure-number">01 — PREPARE</span>
+            <h3>Antes de entregar</h3>
+            <p>Alguns cuidados protegem suas informações e facilitam o encaminhamento do equipamento.</p>
+            <ul>
+              <li>Faça backup e apague seus dados pessoais.</li>
+              <li>Remova chips e cartões de memória.</li>
+              <li>Separe cabos e acessórios.</li>
+              <li>Não abra nem desmonte baterias.</li>
+            </ul>
+            <div class="brochure-tip"><strong>Atenção</strong><br>Baterias estufadas, quentes ou danificadas exigem orientação especializada. Não perfure nem transporte soltas.</div>
+          </section>
+
+          <section class="brochure-panel">
+            <span class="brochure-number">02 — ENTREGUE</span>
+            <h3>Escolha um ponto adequado</h3>
+            <p>Procure um local que confirme o recebimento do tipo de eletrônico que você deseja entregar.</p>
+            <div class="brochure-mini-step"><i class="fa-solid fa-location-dot"></i><span><strong>ABREE</strong><br>Consulte os pontos de recebimento em <u>abree.org.br</u>.</span></div>
+            <div class="brochure-mini-step"><i class="fa-solid fa-recycle"></i><span><strong>Green Eletron</strong><br>Encontre pontos para eletrônicos, pilhas e baterias em <u>greeneletron.org.br</u>.</span></div>
+            <span class="brochure-number">03 — REAPROVEITE</span>
+            <p>Quando possível, repare, doe ou reutilize. Quando não for mais útil, encaminhe à logística reversa.</p>
+            <strong class="brochure-footer-call">O destino correto começa com você.</strong>
+          </section>
+        </article>
+        <p class="brochure-caption">Prévia do material. Use “Baixar / imprimir folder” e selecione “Salvar como PDF” para gerar um arquivo independente e compartilhar.</p>
+      </div>
+    </section>
+
+    <!-- DESCARTE CONSCIENTE -->
+
+    <section class="section dark-section" id="consciente">
+      <div class="wrap section-content">
+
+        <div class="section-heading">
+          <span class="eyebrow">Um ciclo mais sustentável</span>
+          <h2>Descarte consciente começa com pequenas atitudes.</h2>
+          <p>
+            O destino correto de um equipamento depende de algumas
+            etapas. Conheça melhor cada uma delas.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+
+          <article
+            class="step"
+            id="step-prepare"
+            data-modal="prepare"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+          >
+            <span class="step-number">01</span>
+            <h3>Prepare</h3>
+            <p>
+              Organize seu equipamento, proteja seus dados e
+              separe os componentes antes do descarte.
+            </p>
+            <span class="step-more">
+              Saiba mais
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </article>
+
+          <article
+            class="step"
+            id="step-entregue"
+            data-modal="entregue"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+          >
+            <span class="step-number">02</span>
+            <h3>Entregue</h3>
+            <p>
+              Encaminhe seus resíduos a um ponto de recebimento
+              apropriado e verifique as condições de entrega.
+            </p>
+            <span class="step-more">
+              Saiba mais
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </article>
+
+          <article
+            class="step"
+            id="step-reaproveite"
+            data-modal="reaproveite"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+          >
+            <span class="step-number">03</span>
+            <h3>Reaproveite</h3>
+            <p>
+              Prolongue a vida útil dos equipamentos sempre que
+              possível, por meio de reparo, doação ou reutilização.
+            </p>
+            <span class="step-more">
+              Saiba mais
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FONTES -->
+
+  <section class="sources">
+    <div class="wrap sources-inner">
+      <p>Consulte também as iniciativas oficiais de logística reversa.</p>
+      <div>
+        <a href="https://abree.org.br/" target="_blank" rel="noopener">ABREE</a>
+        <span> · </span>
+        <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">Green Eletron</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Descarte Certo · Informação e conscientização ambiental.
+  </footer>
+
+  <!-- AÇÕES FLUTUANTES -->
+
+  <div class="quick-actions">
+
+    <button class="quick-action" data-section="pontos" id="mapPointsButton">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Pontos</span>
+    </button>
+
+    <button class="quick-action" data-section="guia" id="equipmentButton">
+      <i class="fa-solid fa-laptop"></i>
+      <span>Equipamentos</span>
+    </button>
+
+    <button class="quick-action" data-section="checklist" id="checklistButton">
+      <i class="fa-solid fa-list-check"></i>
+      <span>Checklist</span>
+    </button>
+
+    <button class="quick-action share-button" id="shareButton">
+      <i class="fa-solid fa-share-nodes"></i>
+      <span>Compartilhar</span>
+    </button>
+
+    <button class="quick-action explore-toggle" id="explorerToggle">
+      <i class="fa-solid fa-compass"></i>
+      <span>Explorar página</span>
+    </button>
+
+  </div>
+
+  <div class="action-feedback" id="actionFeedback" role="status"></div>
+
+  <!-- EXPLORADOR DA PÁGINA - ESQUERDA -->
+
+  <div class="explorer-overlay" id="explorerOverlay"></div>
+
+  <aside class="page-explorer" id="pageExplorer">
+    <div class="explorer-header">
+      <div>
+        <span class="eyebrow">Navegação</span>
+        <h2>Explorar página</h2>
+        <p>Acesse diretamente os assuntos abordados.</p>
+      </div>
+
+      <button class="sidebar-close" id="closeExplorer" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="explorer-tree">
+
+      <a href="#inicio" class="tree-link">
+        <i class="fa-solid fa-house"></i>
+        Início
+      </a>
+
+      <button class="tree-toggle" data-tree="treeGuide">
+        <i class="fa-solid fa-laptop"></i>
+        Guia de equipamentos
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="tree-children" id="treeGuide">
+        <a href="#guia" class="tree-link">Catálogo de equipamentos</a>
+        <a href="#search" class="tree-link">Pesquisa</a>
+        <a href="#equipmentGrid" class="tree-link">Lista de itens</a>
+      </div>
+
+      <button class="tree-toggle" data-tree="treeChecklist">
+        <i class="fa-solid fa-list-check"></i>
+        Checklist
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="tree-children" id="treeChecklist">
+        <a href="#c1" class="tree-link">Backup dos arquivos</a>
+        <a href="#c2" class="tree-link">Apagar dados</a>
+        <a href="#c3" class="tree-link">Remover cartões e chips</a>
+        <a href="#c4" class="tree-link">Separar acessórios</a>
+        <a href="#c5" class="tree-link">Confirmar recebimento</a>
+      </div>
+
+      <button class="tree-toggle" data-tree="treePoints">
+        <i class="fa-solid fa-location-dot"></i>
+        Pontos de coleta
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="tree-children" id="treePoints">
+        <a href="#map" class="tree-link">Mapa</a>
+        <a href="#pontos" class="tree-link">ABREE</a>
+        <a href="#pontos" class="tree-link">Green Eletron</a>
+      </div>
+
+      <a href="#folder" class="tree-link"><i class="fa-solid fa-file-lines"></i> Folder de campanha</a>
+
+      <a href="#folder" class="tree-link"><i class="fa-solid fa-file-lines"></i> Folder de campanha</a>
+
+      <button class="tree-toggle" data-tree="treeConscious">
+        <i class="fa-solid fa-leaf"></i>
+        Descarte consciente
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="tree-children" id="treeConscious">
+        <a href="#step-prepare" class="tree-link">Prepare</a>
+        <a href="#step-entregue" class="tree-link">Entregue</a>
+        <a href="#step-reaproveite" class="tree-link">Reaproveite</a>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- BARRAS LATERAIS DIREITAS -->
+
+  <div class="side-overlay" id="sideOverlay"></div>
+
+  <!-- EQUIPAMENTOS -->
+
+  <aside class="right-sidebar" id="equipmentSidebar">
+    <div class="sidebar-header">
+      <div>
+        <span class="modal-eyebrow">CATÁLOGO</span>
+        <h2>Equipamentos</h2>
+        <p>Selecione um item para consultar seus detalhes.</p>
+      </div>
+
+      <button class="sidebar-close" id="closeEquipmentSidebar" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        type="search"
+        id="sidebarEquipmentSearch"
+        placeholder="Buscar equipamento..."
+      >
+    </div>
+
+    <div class="sidebar-list" id="sidebarEquipmentList"></div>
+  </aside>
+
+  <!-- PONTOS -->
+
+  <aside class="right-sidebar" id="mapSidebar">
+    <div class="sidebar-header">
+      <div>
+        <span class="modal-eyebrow">MAPA INTERATIVO</span>
+        <h2>Pontos de coleta</h2>
+        <p>Consulte os localizadores e encontre opções de recebimento.</p>
+      </div>
+
+      <button class="sidebar-close" id="closeMapSidebar" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-list">
+
+      <article class="map-point-card">
+        <span class="point-category">Localizador oficial</span>
+        <h3>ABREE</h3>
+        <p>
+          Consulte informações sobre os pontos de recebimento
+          de eletroeletrônicos e eletrodomésticos participantes
+          do sistema de logística reversa.
+        </p>
+        <a href="https://abree.org.br/" target="_blank" rel="noopener">
+          Consultar locais
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </article>
+
+      <article class="map-point-card">
+        <span class="point-category">Localizador oficial</span>
+        <h3>Green Eletron</h3>
+        <p>
+          Consulte os pontos de entrega voluntária e as informações
+          de recebimento de equipamentos eletrônicos, pilhas e baterias.
+        </p>
+        <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">
+          Consultar locais
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </article>
+
+      <p class="map-note">
+        A disponibilidade e os tipos de produtos aceitos podem variar
+        de acordo com cada ponto. Confirme as informações antes de sair.
+      </p>
+
+    </div>
+  </aside>
+
+  <!-- MODAL DOS CARTÕES -->
+
+  <div class="modal-overlay" id="stepModal" aria-hidden="true">
+    <div
+      class="step-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <button class="modal-close" id="modalClose" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="modal-eyebrow">DESCARTE CONSCIENTE</span>
+
+      <h2 id="modalTitle"></h2>
+
+      <p class="modal-description" id="modalDescription"></p>
+
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+</body>
 </html>
