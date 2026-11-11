@@ -1,8 +1,5 @@
 
-/* =========================================
-   BASE DE EQUIPAMENTOS
-========================================= */
-
+//#region : BASE DE EQUIPAMENTOS
 const equipment = [
     {
         name: "Celulares e smartphones",
@@ -110,12 +107,10 @@ const equipment = [
         tip: "Confirme o porte aceito pelo ponto de coleta."
     }
 ];
+//#endregion
 
-
-/* =========================================
-   RENDERIZAÇÃO DO CATÁLOGO
-========================================= */
-
+//#region : RENDERIZAÇÃO DO CATÁLOGO
+{
 const grid = document.getElementById("equipmentGrid");
 const search = document.getElementById("search");
 
@@ -252,12 +247,11 @@ document.getElementById("clear").addEventListener("click", () => {
 
 renderEquipment();
 renderEquipmentTree();
+}
+//#endregion
 
-
-/* =========================================
-   CHECKLIST
-========================================= */
-
+//#region : CHECKLIST
+{
 const checks = [
     ...document.querySelectorAll(
         '#checklist input[type="checkbox"]'
@@ -286,13 +280,12 @@ document.getElementById("resetChecks").addEventListener("click", () => {
     checks.forEach(check => check.checked = false);
     updateProgress();
 });
-
 updateProgress();
+}
+//#endregion
 
-
-/* =========================================
-   MAPA LEAFLET
-========================================= */
+//#region : MAPA LEAFLET
+{
 
 const map = L.map("map", {
     scrollWheelZoom: false
@@ -317,10 +310,11 @@ const mapObserver = new IntersectionObserver(entries => {
 
 mapObserver.observe(document.getElementById("map"));
 
+}
+//#endregion
 
-/* =========================================
-   FOLDER E COMPARTILHAMENTO
-========================================= */
+//#region : FOLDER E COMPARTILHAMENTO
+{
 
 const shareModalOverlay = document.getElementById("shareModalOverlay");
 const shareModalClose = document.getElementById("shareModalClose");
@@ -365,10 +359,11 @@ document.getElementById("copyShareUrl").addEventListener("click", async () => {
     }
 });
 
-/* =========================================
-   FEEDBACK
-========================================= */
+}
+//#endregion
 
+//#region : FEEDBACK
+{
 const feedback = document.getElementById("feedback");
 let feedbackTimer;
 
@@ -382,14 +377,11 @@ function showFeedback(message) {
         feedback.classList.remove("show");
     }, 2500);
 }
+}
+//#endregion 
 
-
-
-
-/* =========================================
-   PAINÉIS LATERAIS
-========================================= */
-
+//#region : PAINÉIS LATERAIS
+{
 const overlay = document.getElementById("overlay");
 
 const drawers = [
@@ -441,12 +433,11 @@ document.querySelectorAll("[data-close-drawer]").forEach(button => {
 });
 
 overlay.addEventListener("click", closeDrawer);
+}
+//#endregion
 
-
-/* =========================================
-   DETALHES E CONEXÃO EQUIPAMENTO ↔ MAPA
-========================================= */
-
+//#region : DETALHES E CONEXÃO EQUIPAMENTO ↔ MAPA
+{
 let selectedEquipment = null;
 
 // A lista permanece vazia até que os pontos reais sejam fornecidos.
@@ -535,11 +526,11 @@ function highlightCompatiblePoints(showMessage = true) {
         );
     }
 }
+}
+//#endregion
 
-/* =========================================
-   CATÁLOGO NA SIDEBAR
-========================================= */
-
+//#region : CATÁLOGO NA SIDEBAR
+{
 const sidebarList = document.getElementById("sidebarList");
 const sidebarSearch = document.getElementById("sidebarSearch");
 
@@ -586,12 +577,11 @@ function renderSidebar(query = "") {
 sidebarSearch.addEventListener("input", event => {
     renderSidebar(event.target.value);
 });
+}
+//#endregion
 
-
-/* =========================================
-   ÁRVORE DO EXPLORADOR
-========================================= */
-
+//#region : ÁRVORE DO EXPLORADOR
+{
 document.querySelectorAll(".tree-toggle").forEach(button => {
     button.addEventListener("click", () => {
         const tree = document.getElementById(button.dataset.tree);
@@ -608,12 +598,11 @@ document.querySelectorAll(".tree-link").forEach(link => {
         }
     });
 });
+}
+//#endregion
 
-
-/* =========================================
-   MODAIS INFORMATIVOS
-========================================= */
-
+//#region : MODAIS INFORMATIVOS
+{
 const modalData = {
     prepare: {
         title: "Prepare seu equipamento",
@@ -725,12 +714,11 @@ modalOverlay.addEventListener("click", event => {
         closeModal();
     }
 });
+}
+//#endregion
 
-
-/* =========================================
-   AÇÕES CONTEXTUAIS
-========================================= */
-
+//#region : AÇÕES CONTEXTUAIS
+{
 const contextualButtons = document.querySelectorAll(
     ".quick-action[data-section]"
 );
@@ -780,12 +768,11 @@ document.getElementById("checklistButton").addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+}
+//#endregion
 
-
-/* =========================================
-   MENU MOBILE, SEÇÃO ATIVA E PROGRESSO DA PÁGINA
-========================================= */
-
+//#region : MENU MOBILE, SEÇÃO ATIVA E PROGRESSO DA PÁGINA
+{
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
@@ -878,11 +865,11 @@ updatePageProgress();
 
 backToTop.classList.toggle(
         "visible", window.scrollY > window.innerHeight * 0.7 && !nearBottom);
+}
+//#endregion
 
-/* =========================================
-   HEADER: ESCONDE AO DESCER
-========================================= */
-
+//#region : HEADER: ESCONDE AO DESCER
+{
 const topbar = document.getElementById("topbar");
 let previousScroll = window.scrollY;
 
@@ -900,12 +887,11 @@ window.addEventListener("scroll", () => {
 
     previousScroll = current;
 }, { passive: true });
+}
+//#endregion
 
-
-/* =========================================
-   TECLA ESC
-========================================= */
-
+//#region : TECLA ESC
+{
 document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
 
@@ -923,11 +909,11 @@ document.addEventListener("keydown", event => {
         closeDrawer();
     }
 });
+}
+//#endregion
 
-/* =========================================
-    MODAL DE VÍDEO NO FOOTER
-========================================= */
-
+//#region : MODAL DE VÍDEO NO FOOTER
+{
 const videoModalOverlay = document.getElementById("videoModalOverlay");
 const openVideoModalBtn = document.getElementById("rafaelVideoTrigger");
 const videoModalClose = document.getElementById("videoModalClose");
@@ -972,3 +958,6 @@ document.addEventListener("keydown", event => {
         closeVideoModal();
     }
 });
+
+}
+//#endregion
