@@ -27,17 +27,19 @@
 
 <body>
 
-    <header class="topbar" id="topbar">
+    <header id="topbar" class="topbar">
+
         <div class="logos">
-            <div class="institution">
-                Uniuv
-            </div>
-            <div class="institution">
-                <i class="fa-solid fa-leaf"></i> UNESPAR
-            </div>
+
+            <span class="institution"> UNIUV </span>
+
+            <i class="fa-solid fa-leaf"></i>
+
+            <span class="institution"> UNESPAR </span>
+
         </div>
 
-        <nav class="nav" id="mainNav" aria-label="Navegação principal">
+        <nav id="mainNav" class="nav" aria-label="Navegação principal">
             <a href="#inicio">Início</a>
             <a href="#ciclo">Ciclo</a>
             <a href="#guia">Guia</a>
@@ -46,17 +48,18 @@
             <a href="#noticias">Notícias</a>
         </nav>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"
-            aria-controls="mainNav">
-            <span></span><span></span><span></span>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+
     </header>
 
     <main>
 
         <!-- HERO -->
-
-        <section class="hero" id="inicio">
+        <section id="inicio" class="hero" >
             <div class="container">
                 <div class="hero-content">
                     <span class="eyebrow" style="color:#dffff0">
@@ -88,12 +91,11 @@
             </div>
         </section>
 
-        <!-- INTRODUÇÃO -->
-
         <!-- DESCARTE CONSCIENTE -->
-
         <section class="section" id="consciente">
+
             <div class="container">
+
                 <div class="section-heading">
                     <span class="eyebrow">Um ciclo sustentável</span>
                     <h2>Um ciclo sustentável começa antes do descarte.</h2>
@@ -107,6 +109,7 @@
                 </div>
 
                 <div class="steps-grid">
+
                     <article class="step" data-modal="prepare" tabindex="0" role="button">
                         <span class="step-number">01</span>
                         <h3>Prepare</h3>
@@ -375,7 +378,6 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="container" style="flex-direction: column; align-items: stretch; gap: 20px;">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
             <div class="logos">
@@ -396,261 +398,336 @@
         </div>
     </footer>
 
-
-    <!-- MODAL DE VÍDEO -->
-    <div class="modal-overlay" id="videoModalOverlay">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"
-            style="max-width: 450px; padding: 20px;">
-            <button class="modal-close" id="videoModalClose" aria-label="Fechar">
-                <i class="fa-solid fa-xmark"></i>
+    <!-- INTERFACE -->
+    <div id="interface" class="interface">
+        
+        <!-- AÇÕES FLUTUANTES -->
+        <div class="quick-actions" id="quickActionsContainer">
+            <button class="quick-action" data-section="guia" id="equipmentButton">
+                <i class="fa-solid fa-laptop"></i> Equipamentos
             </button>
 
-            <div
-                style="width: 100%; aspect-ratio: 9/16; max-height: 70vh; margin-top: 15px; border-radius: 12px; overflow: hidden; background: #000;">
-                <iframe id="videoIframe" src="" title="YouTube Video Player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- AÇÕES FLUTUANTES -->
-
-    <div class="quick-actions" id="quickActionsContainer">
-        <button class="quick-action" data-section="guia" id="equipmentButton">
-            <i class="fa-solid fa-laptop"></i> Equipamentos
-        </button>
-
-        <button class="quick-action" data-section="checklist" id="checklistButton">
-            <i class="fa-solid fa-list-check"></i> Checklist
-        </button>
-
-        <button class="quick-action" data-section="mapa" id="mapButton">
-            <i class="fa-solid fa-location-dot"></i> Pontos
-        </button>
-
-        <button class="quick-action fixed" id="shareButton">
-            <i class="fa-solid fa-share-nodes"></i> Compartilhar
-        </button>
-
-        <button class="quick-action fixed" id="explorerToggle">
-            <i class="fa-solid fa-compass"></i> Explorar página
-        </button>
-    </div>
-
-    <div class="action-feedback" id="feedback" role="status"></div>
-
-    <div class="page-progress-container" id="pageProgressContainer">
-        <button type="button" class="back-to-top" id="backToTop" aria-label="Voltar ao início">
-            <i class="fa-solid fa-arrow-up"></i>
-        </button>
-
-        <div class="page-progress" id="pageProgress" aria-live="off">
-            <div class="page-progress-meta">
-                <span id="pageProgressLabel">explorado</span>
-                <span id="pageProgressValue">0%</span>
-            </div>
-            <div class="page-progress-track"><span id="pageProgressBar"></span></div>
-        </div>
-    </div>
-
-
-    <!-- OVERLAY E PAINEL LATERAL -->
-
-    <div class="overlay" id="overlay"></div>
-
-    <aside class="drawer" id="drawer">
-        <div class="drawer-header">
-            <div>
-                <span class="eyebrow">Navegação</span>
-                <h2>Explorar página</h2>
-                <p>Acesse diretamente os assuntos abordados.</p>
-            </div>
-
-            <button class="drawer-close" id="closeDrawer" aria-label="Fechar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-
-        <nav class="tree">
-            <a href="#inicio" class="tree-link">
-                <i class="fa-solid fa-house"></i> Início
-            </a>
-
-            <button class="tree-toggle" data-tree="treeGuide">
-                <i class="fa-solid fa-laptop"></i> Guia de equipamentos
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-
-            <div class="tree-children" id="treeGuide">
-                <a href="#guia" class="tree-link">Catálogo</a>
-                <a href="#search" class="tree-link">Pesquisa</a>
-                <a href="#equipmentGrid" class="tree-link">Lista de equipamentos</a>
-            </div>
-
-            <button class="tree-toggle" data-tree="treeChecklist">
+            <button class="quick-action" data-section="checklist" id="checklistButton">
                 <i class="fa-solid fa-list-check"></i> Checklist
-                <i class="fa-solid fa-chevron-down"></i>
             </button>
 
-            <div class="tree-children" id="treeChecklist">
-                <a href="#c1" class="tree-link">Backup dos arquivos</a>
-                <a href="#c2" class="tree-link">Apagar dados</a>
-                <a href="#c3" class="tree-link">Remover cartões e chips</a>
-                <a href="#c4" class="tree-link">Separar acessórios</a>
-                <a href="#c5" class="tree-link">Confirmar recebimento</a>
-            </div>
-
-            <button class="tree-toggle" data-tree="treeMap">
-                <i class="fa-solid fa-location-dot"></i> Pontos de coleta
-                <i class="fa-solid fa-chevron-down"></i>
+            <button class="quick-action" data-section="mapa" id="mapButton">
+                <i class="fa-solid fa-location-dot"></i> Pontos
             </button>
 
-            <div class="tree-children" id="treeMap">
-                <a href="#mapa" class="tree-link">Mapa</a>
-                <a href="https://abree.org.br/" target="_blank" class="tree-link">ABREE</a>
-                <a href="https://greeneletron.org.br/" target="_blank" class="tree-link">Green Eletron</a>
-            </div>
-
-            <button type="button" class="tree-link" id="folderShareButton">
-                <i class="fa-solid fa-file-lines"></i> Folder de campanha
+            <button class="quick-action fixed" id="shareButton">
+                <i class="fa-solid fa-share-nodes"></i> Compartilhar
             </button>
 
-            <button class="tree-toggle" data-tree="treeConscious">
-                <i class="fa-solid fa-leaf"></i> Descarte consciente
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-
-            <div class="tree-children" id="treeConscious">
-                <a href="#consciente" class="tree-link">Prepare</a>
-                <a href="#consciente" class="tree-link">Entregue</a>
-                <a href="#consciente" class="tree-link">Reaproveite</a>
-            </div>
-
-            <a href="#noticias" class="tree-link">
-                <i class="fa-solid fa-newspaper"></i> Notícias
-            </a>
-
-            <a href="#referencias" class="tree-link">
-                <i class="fa-solid fa-book"></i> Referências
-            </a>
-        </nav>
-    </aside>
-
-    <!-- PAINEL DE EQUIPAMENTOS -->
-
-    <aside class="drawer" id="equipmentDrawer">
-        <div class="drawer-header">
-            <div>
-                <span class="eyebrow">Catálogo</span>
-                <h2>Equipamentos</h2>
-                <p>Selecione um item para consultar cuidados e preparação.</p>
-            </div>
-
-            <button class="drawer-close" data-close-drawer>
-                <i class="fa-solid fa-xmark"></i>
+            <button class="quick-action fixed" id="explorerToggle">
+                <i class="fa-solid fa-compass"></i> Explorar página
             </button>
         </div>
 
-        <div class="drawer-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="sidebarSearch" placeholder="Buscar equipamento...">
-        </div>
-
-        <div class="drawer-list" id="sidebarList"></div>
-    </aside>
-
-    <!-- PAINEL DE DETALHES DO EQUIPAMENTO -->
-
-    <aside class="drawer equipment-detail-drawer" id="equipmentDetailDrawer" aria-label="Detalhes do equipamento">
-        <div class="drawer-header">
-            <div>
-                <span class="eyebrow">Guia por equipamento</span>
-                <h2 id="equipmentDetailTitle">Equipamento</h2>
-                <p id="equipmentDetailCategory"></p>
-            </div>
-            <button class="drawer-close" data-close-drawer aria-label="Fechar painel">
-                <i class="fa-solid fa-xmark"></i>
+        <div class="page-progress-container" id="pageProgressContainer">
+            <button type="button" class="back-to-top" id="backToTop" aria-label="Voltar ao início">
+                <i class="fa-solid fa-arrow-up"></i>
             </button>
+
+            <div class="page-progress" id="pageProgress" aria-live="off">
+                <div class="page-progress-meta">
+                    <span id="pageProgressLabel">explorado</span>
+                    <span id="pageProgressValue">0%</span>
+                </div>
+                <div class="page-progress-track"><span id="pageProgressBar"></span></div>
+            </div>
         </div>
-        <div class="equipment-detail-body">
-            <div class="equipment-detail-visual" id="equipmentDetailEmoji" aria-hidden="true">♻️</div>
-            <section>
-                <h3>O que está incluído</h3>
-                <p id="equipmentDetailExamples"></p>
-            </section>
-            <section>
-                <h3>Cuidados antes da entrega</h3>
-                <p id="equipmentDetailTip"></p>
-            </section>
-            <section>
-                <h3>Como preparar</h3>
-                <ul id="equipmentDetailSteps"></ul>
-            </section>
-            <section>
-                <h3>Onde entregar</h3>
-                <p>Consulte os localizadores oficiais da <a href="https://abree.org.br/" target="_blank"
-                        rel="noopener">ABREE</a> e da <a href="https://greeneletron.org.br/" target="_blank"
-                        rel="noopener">Green Eletron</a>. A aceitação varia conforme o ponto; confirme antes de se
-                    deslocar.</p>
-            </section>
-            <div class="equipment-detail-actions">
-                <button type="button" class="btn btn-primary" id="compatiblePointsButton">
-                    <i class="fa-solid fa-location-dot"></i> Ver pontos compatíveis
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- DRAWERS -->
+    <div id="drawers" class="drawers">
+
+        <aside id="drawer" class="drawer">
+
+            <div class="drawer-header">
+                
+                <div>
+                    <span class="eyebrow">Navegação</span>
+                    <h2>Explorar página</h2>
+                    <p>Acesse diretamente os assuntos abordados.</p>
+                </div>
+
+                <button class="drawer-close" aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
                 </button>
-                <button type="button" class="detail-back-button" id="backToEquipmentList">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar ao catálogo
+
+            </div>
+
+            <nav class="tree">
+                <a href="#inicio" class="tree-link">
+                    <i class="fa-solid fa-house"></i> Início
+                </a>
+
+                <button class="tree-toggle" data-tree="treeGuide">
+                    <i class="fa-solid fa-laptop"></i> Guia de equipamentos
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="tree-children" id="treeGuide">
+                    <a href="#guia" class="tree-link">Catálogo</a>
+                    <a href="#search" class="tree-link">Pesquisa</a>
+                    <a href="#equipmentGrid" class="tree-link">Lista de equipamentos</a>
+                </div>
+
+                <button class="tree-toggle" data-tree="treeChecklist">
+                    <i class="fa-solid fa-list-check"></i> Checklist
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="tree-children" id="treeChecklist">
+                    <a href="#c1" class="tree-link">Backup dos arquivos</a>
+                    <a href="#c2" class="tree-link">Apagar dados</a>
+                    <a href="#c3" class="tree-link">Remover cartões e chips</a>
+                    <a href="#c4" class="tree-link">Separar acessórios</a>
+                    <a href="#c5" class="tree-link">Confirmar recebimento</a>
+                </div>
+
+                <button class="tree-toggle" data-tree="treeMap">
+                    <i class="fa-solid fa-location-dot"></i> Pontos de coleta
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="tree-children" id="treeMap">
+                    <a href="#mapa" class="tree-link">Mapa</a>
+                    <a href="https://abree.org.br/" target="_blank" class="tree-link">ABREE</a>
+                    <a href="https://greeneletron.org.br/" target="_blank" class="tree-link">Green Eletron</a>
+                </div>
+
+                <button type="button" class="tree-link" id="folderShareButton">
+                    <i class="fa-solid fa-file-lines"></i> Folder de campanha
+                </button>
+
+                <button class="tree-toggle" data-tree="treeConscious">
+                    <i class="fa-solid fa-leaf"></i> Descarte consciente
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="tree-children" id="treeConscious">
+                    <a href="#consciente" class="tree-link">Prepare</a>
+                    <a href="#consciente" class="tree-link">Entregue</a>
+                    <a href="#consciente" class="tree-link">Reaproveite</a>
+                </div>
+
+                <a href="#noticias" class="tree-link">
+                    <i class="fa-solid fa-newspaper"></i> Notícias
+                </a>
+
+                <a href="#referencias" class="tree-link">
+                    <i class="fa-solid fa-book"></i> Referências
+                </a>
+            </nav>
+
+        </aside>
+
+        <!-- PAINEL DE EQUIPAMENTOS -->
+        <aside id="equipmentDrawer" class="drawer">
+
+            <div class="drawer-header">
+                <div>
+                    <span class="eyebrow">Catálogo</span>
+                    <h2>Equipamentos</h2>
+                    <p>Selecione um item para consultar cuidados e preparação.</p>
+                </div>
+        
+                <button class="drawer-close" data-close-drawer>
+                    <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <p class="detail-map-hint" id="compatiblePointsHint">
-                Os pontos fixos serão exibidos aqui quando forem cadastrados no mapa.
+        
+            <div class="drawer-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="sidebarSearch" placeholder="Buscar equipamento...">
+            </div>
+
+            <div id="equipmentTreeGuide" class="tree">
+                <button type="button" class="tree-toggle" data-tree="tree-informatica">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Informática
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div id="tree-informatica" class="tree-children">
+                    <button type="button" class="tree-link"><i
+                            class="fa-solid fa-microchip"></i> Celulares e smartphones
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Computadores e periféricos
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Impressoras e scanners
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Cabos e carregadores
+                    </button>
+                </div>
+                
+                <button type="button" class="tree-toggle" data-tree="tree-imagem">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Imagem e áudio
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div id="tree-imagem" class="tree-children">
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Televisores e monitores
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Áudio e vídeo
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Videogames
+                    </button>
+                </div>
+                
+                <button type="button" class="tree-toggle" data-tree="tree-casa">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Casa
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div id="tree-casa" class="tree-children">
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Geladeiras e refrigeradores
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Lavadoras e cuidados com roupas
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Cozinha e preparo de alimentos
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Limpeza doméstica
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Ventilação e climatização
+                    </button>
+                </div>
+
+                <button type="button" class="tree-toggle" data-tree="tree-pessoal">
+                    <i class="fa-solid fa-folder-open"></i> Cuidados pessoais
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div id="tree-pessoal" class="tree-children">
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Cuidados pessoais
+                    </button>
+                </div>
+
+                <button type="button" class="tree-toggle" data-tree="tree-ferramentas">
+                    <i class="fa-solid fa-folder-open"></i> Ferramentas
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div id="tree-ferramentas" class="tree-children">
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Ferramentas elétricas
+                    </button>
+                    <button type="button" class="tree-link">
+                        <i class="fa-solid fa-microchip"></i> Jardim e área externa
+                    </button>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- PAINEL DE DETALHES DO EQUIPAMENTO -->
+        <aside id="equipmentDetailDrawer" class="drawer equipment-detail-drawer" aria-label="Detalhes do equipamento">
+            <div class="drawer-header">
+                <div>
+                    <span class="eyebrow">Guia por equipamento</span>
+                    <h2 id="equipmentDetailTitle">Equipamento</h2>
+                    <p id="equipmentDetailCategory"></p>
+                </div>
+                <button class="drawer-close" data-close-drawer aria-label="Fechar painel">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="equipment-detail-body">
+                <div class="equipment-detail-visual" id="equipmentDetailEmoji" aria-hidden="true">♻️</div>
+                <section>
+                    <h3>O que está incluído</h3>
+                    <p id="equipmentDetailExamples"></p>
+                </section>
+                <section>
+                    <h3>Cuidados antes da entrega</h3>
+                    <p id="equipmentDetailTip"></p>
+                </section>
+                <section>
+                    <h3>Como preparar</h3>
+                    <ul id="equipmentDetailSteps"></ul>
+                </section>
+                <section>
+                    <h3>Onde entregar</h3>
+                    <p>Consulte os localizadores oficiais da <a href="https://abree.org.br/" target="_blank"
+                            rel="noopener">ABREE</a> e da <a href="https://greeneletron.org.br/" target="_blank"
+                            rel="noopener">Green Eletron</a>. A aceitação varia conforme o ponto; confirme antes de se
+                        deslocar.</p>
+                </section>
+                <div class="equipment-detail-actions">
+                    <button type="button" class="btn btn-primary" id="compatiblePointsButton">
+                        <i class="fa-solid fa-location-dot"></i> Ver pontos compatíveis
+                    </button>
+                    <button type="button" class="detail-back-button" id="backToEquipmentList">
+                        <i class="fa-solid fa-arrow-left"></i> Voltar ao catálogo
+                    </button>
+                </div>
+                <p class="detail-map-hint" id="compatiblePointsHint">
+                    Os pontos fixos serão exibidos aqui quando forem cadastrados no mapa.
+                </p>
+            </div>
+        </aside>
+
+        <!-- PAINEL DE PONTOS -->
+        <aside id="mapDrawer" class="drawer">
+            <div class="drawer-header">
+                <div>
+                    <span class="eyebrow">Localizadores</span>
+                    <h2>Pontos de coleta</h2>
+                    <p>Consulte os sistemas oficiais de recebimento.</p>
+                </div>
+
+                <button class="drawer-close" data-close-drawer>
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="drawer-list">
+                <article class="drawer-item">
+                    <h3>ABREE</h3>
+                    <p>Localizador de pontos de recebimento de eletroeletrônicos.</p>
+                    <a href="https://abree.org.br/" target="_blank" rel="noopener">
+                        Consultar locais →
+                    </a>
+                </article>
+
+                <article class="drawer-item">
+                    <h3>Green Eletron</h3>
+                    <p>Pontos de recebimento de eletrônicos, pilhas e baterias.</p>
+                    <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">
+                        Consultar locais →
+                    </a>
+                </article>
+            </div>
+
+            <p class="map-note">
+                A disponibilidade e os produtos aceitos variam conforme o ponto.
+                Confirme as informações antes de sair.
             </p>
-        </div>
-    </aside>
+        </aside>
 
-    <!-- PAINEL DE PONTOS -->
+    </div>
 
-    <aside class="drawer" id="mapDrawer">
-        <div class="drawer-header">
-            <div>
-                <span class="eyebrow">Localizadores</span>
-                <h2>Pontos de coleta</h2>
-                <p>Consulte os sistemas oficiais de recebimento.</p>
-            </div>
+    <!-- MODALS -->
+    <div id="modals" class="modals">
 
-            <button class="drawer-close" data-close-drawer>
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-
-        <div class="drawer-list">
-            <article class="drawer-item">
-                <h3>ABREE</h3>
-                <p>Localizador de pontos de recebimento de eletroeletrônicos.</p>
-                <a href="https://abree.org.br/" target="_blank" rel="noopener">
-                    Consultar locais →
-                </a>
-            </article>
-
-            <article class="drawer-item">
-                <h3>Green Eletron</h3>
-                <p>Pontos de recebimento de eletrônicos, pilhas e baterias.</p>
-                <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">
-                    Consultar locais →
-                </a>
-            </article>
-        </div>
-
-        <p class="map-note">
-            A disponibilidade e os produtos aceitos variam conforme o ponto.
-            Confirme as informações antes de sair.
-        </p>
-    </aside>
-
-    <!-- MODAL DE COMPARTILHAMENTO -->
-
-    <div class="modal-overlay" id="shareModalOverlay">
-        <div class="modal share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+        <!-- MODAL DE COMPARTILHAMENTO -->
+        <div id="share-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
             <button class="modal-close" id="shareModalClose" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -725,21 +802,120 @@
                 Role para cima ou para baixo para visualizar todo o conteúdo detalhado do folder oficial.
             </p>
         </div>
-    </div>
 
-    <!-- MODAL -->
-
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <!-- MODAL Prepare- -->
+        <div id="prepare" class="modal info" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                    
             <button class="modal-close" id="modalClose" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <span class="eyebrow">Descarte consciente</span>
-            <h2 id="modalTitle"></h2>
-            <p class="modal-description" id="modalDescription"></p>
-            <div class="modal-content" id="modalContent"></div>
+            
+            <h2>Prepare seu equipamento</h2>
+
+            <p class="modal-description">
+                Alguns cuidados ajudam a proteger seus dados e facilitam o processo de descarte.
+            </p>
+
+            <div class="modal-content" >
+
+                <h3>1. Proteja seus dados</h3>
+                <p>Faça backup dos arquivos importantes. Em celulares e computadores, restaure as configurações de fábrica ou apague os dados pessoais de forma segura.</p>
+
+                <h3>2. Separe os componentes</h3>
+                <p>Remova chips e cartões de memória. Pilhas e baterias removíveis devem ser encaminhadas conforme as orientações específicas de recebimento.</p>
+
+                <h3>3. Organize os equipamentos</h3>
+                <p>Junte cabos e acessórios relacionados para facilitar a identificação e o transporte.</p>
+
+                <h3>Antes de continuar</h3>
+                <p>Não desmonte equipamentos perigosos ou componentes que você não saiba manusear com segurança.</p>
+
+            </div>
+
         </div>
+
+        <!-- MODAL Entregue- -->
+        <div id="entregue" class="modal info" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            
+            <button class="modal-close" id="modalClose" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="eyebrow">Descarte consciente</span>
+            
+            <h2>Entregue no local correto</h2>
+
+            <p class="modal-description">
+            O encaminhamento correto evita o descarte inadequado e permite que os resíduos recebam tratamento apropriado.
+            </p>
+
+            <div class="modal-content" >
+
+                <h3>1. Encontre um ponto de coleta</h3>
+                <p>Consulte os localizadores oficiais da ABREE e da Green Eletron.</p>
+
+                <h3>2. Confirme o que é aceito</h3>
+                <p>Nem todos os pontos recebem todos os tipos de equipamentos. Verifique categorias, horários e restrições.</p>
+
+                <h3>3. Transporte com cuidado</h3>
+                <p>Proteja telas e componentes frágeis. Equipamentos grandes podem exigir uma modalidade específica de coleta.</p>
+
+                <h3>Importante</h3>
+                <p>Não abandone eletrônicos em calçadas, terrenos ou locais sem autorização.</p>
+
+            </div>
+
+        </div>
+
+        <!-- MODAL Reaproveite- -->
+        <div id="reaproveite" class="modal info" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            
+            <button class="modal-close" id="modalClose" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="eyebrow">Descarte consciente</span>
+            
+            <h2>Reaproveite sempre que possível</h2>
+
+            <p class="modal-description">
+                Nem todo equipamento sem uso precisa ser descartado imediatamente.
+            </p>
+
+            <div class="modal-content" >
+
+                <h3>1. Avalie se ainda funciona</h3>
+                <p>Um equipamento em boas condições pode continuar sendo utilizado por outra pessoa.</p>
+
+                <h3>2. Considere reparar</h3>
+                <p>Quando for viável e seguro, avalie a possibilidade de conserto.</p>
+
+                <h3>3. Doe ou compartilhe</h3>
+                <p>Equipamentos funcionais podem ser doados ou destinados a projetos que aproveitem seus componentes.</p>
+
+                <h3>4. Recicle quando necessário</h3>
+                <p>Quando não houver possibilidade de reutilização, encaminhe o equipamento para um sistema adequado de logística reversa.</p>
+            </div>
+
+        </div>
+
+        <!-- MODAL DE VÍDEO -->
+        <div id="videoModalOverlay" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"
+            style="max-width: 450px; padding: 20px;">
+            <button class="modal-close" id="videoModalClose" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div
+                style="width: 100%; aspect-ratio: 9/16; max-height: 70vh; margin-top: 15px; border-radius: 12px; overflow: hidden; background: #000;">
+                <iframe id="videoIframe" src="" title="YouTube Video Player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+
     </div>
 
 </body>

@@ -1,112 +1,189 @@
 
-//#region : BASE DE EQUIPAMENTOS
+//#region : interface
+{}
+//#endregion
+
+//#region : overlay
+
+const overlay = document.getElementById("overlay");
+
+function overlayOpen() {
+    if ( !overlay.classList.contains("open") ) {
+        overlay.classList.add("open");
+    }
+}
+
+function overlayClose() {
+    if ( overlay.classList.contains("open") ) {
+        overlay.classList.remove("open");
+    }
+}
+
+function overlayToggle() {
+    overlay.classList.toggle("open");
+}
+
+//#endregion
+
+//#region : drawers
+
+function openDrawer(drawer) {
+    overlayOpen();
+    drawer.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+document.querySelectorAll(".drawer")
+    .forEach(
+        drawer => {
+            drawer.querySelector(".drawer-close")
+                .addEventListener( "click",
+                    () => {
+                        overlayClose();
+                        drawer.classList.toggle("open");
+                        document.body.style.overflow = "";
+                    }
+                );
+        }
+    );
+
+//#endregion
+
+//#region : modals
+
+document.querySelectorAll(".modal")
+    .forEach(
+        modal => {
+            modal.querySelector(".modal-close")
+                .addEventListener( "click",
+                    () => {
+                        overlayToggle();
+                        modal.classList.toggle("open");
+                        document.body.style.overflow = "";
+                    }
+                );
+        }
+    );
+
+//#endregion
+
+//#region : BASE PARA EQUIPAMENTOS
+
+const category = {
+    informatica: "Informática",
+    imagem: "Imagem e áudio",
+    casa: "Casa",
+    pessoal: "Cuidados pessoais",
+    ferramentas: "Ferramentas"
+};
 const equipment = [
     {
         name: "Celulares e smartphones",
-        cat: "informatica",
+        cat: category.informatica,
         emoji: "📱",
         examples: "Celulares, smartphones, tablets e acessórios.",
         tip: "Apague os dados pessoais e remova chip e cartão de memória."
     },
     {
         name: "Computadores e periféricos",
-        cat: "informatica",
+        cat: category.informatica,
         emoji: "💻",
         examples: "Computadores, notebooks, teclados e mouses.",
         tip: "Faça backup e apague os dados antes da entrega."
     },
     {
         name: "Impressoras e scanners",
-        cat: "informatica",
+        cat: category.informatica,
         emoji: "🖨️",
         examples: "Impressoras, scanners e equipamentos semelhantes.",
         tip: "Confirme se o ponto recebe equipamentos de maior porte."
     },
     {
         name: "Cabos e carregadores",
-        cat: "informatica",
+        cat: category.informatica,
         emoji: "🔌",
         examples: "Cabos, carregadores, adaptadores e conectores.",
         tip: "Agrupe os acessórios para facilitar o transporte."
     },
     {
         name: "Televisores e monitores",
-        cat: "imagem",
+        cat: category.imagem,
         emoji: "📺",
         examples: "Televisores, monitores e telas eletrônicas.",
         tip: "Evite impactos e confirme os limites de tamanho do ponto."
     },
     {
         name: "Áudio e vídeo",
-        cat: "imagem",
+        cat: category.imagem,
         emoji: "🎧",
         examples: "Rádios, caixas de som, fones e amplificadores.",
         tip: "Separe controles e cabos e confirme a aceitação."
     },
     {
         name: "Videogames",
-        cat: "imagem",
+        cat: category.imagem,
         emoji: "🎮",
         examples: "Consoles, controles e acessórios de jogos.",
         tip: "Remova contas e dados pessoais antes da entrega."
     },
     {
         name: "Geladeiras e refrigeradores",
-        cat: "casa",
+        cat: category.casa,
         emoji: "🧊",
         examples: "Geladeiras, frigobares e refrigeradores domésticos.",
         tip: "Consulte opções de coleta para equipamentos volumosos."
     },
     {
         name: "Lavadoras e cuidados com roupas",
-        cat: "casa",
+        cat: category.casa,
         emoji: "🧺",
         examples: "Máquinas de lavar, secadoras e ferros elétricos.",
         tip: "Confirme previamente o recebimento de eletrodomésticos grandes."
     },
     {
         name: "Cozinha e preparo de alimentos",
-        cat: "casa",
+        cat: category.casa,
         emoji: "🍳",
         examples: "Liquidificadores, cafeteiras, torradeiras e micro-ondas.",
         tip: "Desligue e retire alimentos ou líquidos."
     },
     {
         name: "Limpeza doméstica",
-        cat: "casa",
+        cat: category.casa,
         emoji: "🧹",
         examples: "Aspiradores de pó e equipamentos elétricos de limpeza.",
         tip: "Esvazie reservatórios e acondicione acessórios separadamente."
     },
     {
         name: "Ventilação e climatização",
-        cat: "casa",
+        cat: category.casa,
         emoji: "❄️",
         examples: "Ventiladores, ar-condicionado e aquecedores.",
         tip: "Equipamentos grandes podem exigir logística específica."
     },
     {
         name: "Cuidados pessoais",
-        cat: "pessoal",
+        cat: category.pessoal,
         emoji: "🪒",
         examples: "Barbeadores, depiladores e secadores.",
         tip: "Separe pilhas removíveis e proteja partes cortantes."
     },
     {
         name: "Ferramentas elétricas",
-        cat: "ferramentas",
+        cat: category.ferramentas,
         emoji: "🛠️",
         examples: "Furadeiras, parafusadeiras e ferramentas elétricas.",
         tip: "Retire baterias somente quando isso for seguro."
     },
     {
         name: "Jardim e área externa",
-        cat: "ferramentas",
+        cat: category.ferramentas,
         emoji: "🌱",
         examples: "Aparadores de grama e equipamentos elétricos de jardim.",
         tip: "Confirme o porte aceito pelo ponto de coleta."
     }
 ];
+
 //#endregion
 
 //#region : RENDERIZAÇÃO DO CATÁLOGO
@@ -115,55 +192,6 @@ const equipment = [
     const search = document.getElementById("search");
 
     let activeFilter = "todos";
-
-    const categoryNames = {
-        informatica: "Informática",
-        imagem: "Imagem e áudio",
-        casa: "Casa",
-        pessoal: "Cuidados pessoais",
-        ferramentas: "Ferramentas"
-    };
-
-    const equipmentTree = document.getElementById("treeGuide");
-
-    function renderEquipmentTree() {
-        if (!equipmentTree) return;
-
-        equipmentTree.replaceChildren();
-
-        Object.entries(categoryNames).forEach(([category, label]) => {
-            const categoryToggle = document.createElement("button");
-            categoryToggle.type = "button";
-            categoryToggle.className = "tree-toggle";
-            categoryToggle.dataset.tree = `tree-${category}`;
-            categoryToggle.innerHTML = `
-            <i class="fa-solid fa-folder-open"></i>
-            ${label}
-            <i class="fa-solid fa-chevron-down"></i>
-        `;
-
-            const childGroup = document.createElement("div");
-            childGroup.id = `tree-${category}`;
-            childGroup.className = "tree-children";
-
-            equipment
-                .filter(item => item.cat === category)
-                .forEach(item => {
-                    const itemLink = document.createElement("button");
-                    itemLink.type = "button";
-                    itemLink.className = "tree-link";
-                    itemLink.innerHTML = `<i class="fa-solid fa-microchip"></i> ${item.name}`;
-                    itemLink.addEventListener("click", () => {
-                        openEquipmentDetail(item);
-                        closeDrawer();
-                    });
-                    childGroup.appendChild(itemLink);
-                });
-
-            equipmentTree.append(categoryToggle, childGroup);
-        });
-
-    }
 
     function renderEquipment() {
         const query = search.value.toLowerCase().trim();
@@ -208,7 +236,7 @@ const equipment = [
         `;
 
             card.querySelector(".equipment-category").textContent =
-                categoryNames[item.cat] || "Equipamento";
+                category[item.cat] || "Equipamento";
             card.querySelector(".equipment-emoji").textContent = item.emoji;
             card.querySelector(".equipment-name").textContent = item.name;
             card.addEventListener("click", () => openEquipmentDetail(item));
@@ -246,7 +274,7 @@ const equipment = [
     });
 
     renderEquipment();
-    renderEquipmentTree();
+    // renderEquipmentTree();
 }
 //#endregion
 
@@ -315,33 +343,18 @@ const equipment = [
 
 //#region : FOLDER E COMPARTILHAMENTO
 {
-
-    const shareModalOverlay = document.getElementById("shareModalOverlay");
-    const shareModalClose = document.getElementById("shareModalClose");
+    const shareModal = document.getElementById("share-modal");
     const shareUrl = document.getElementById("shareUrl");
 
     function openShareModal() {
+        overlayOpen();
         shareUrl.value = location.href;
-        shareModalOverlay.classList.add("open");
+        shareModal.classList.toggle("open");
         document.body.style.overflow = "hidden";
-        shareModalClose.focus();
-    }
-
-    function closeShareModal() {
-        shareModalOverlay.classList.remove("open");
-
-        if (!activeDrawer && !modalOverlay.classList.contains("open")) {
-            document.body.style.overflow = "";
-        }
     }
 
     document.getElementById("shareButton").addEventListener("click", openShareModal);
     document.getElementById("folderShareButton").addEventListener("click", openShareModal);
-    shareModalClose.addEventListener("click", closeShareModal);
-
-    shareModalOverlay.addEventListener("click", event => {
-        if (event.target === shareModalOverlay) closeShareModal();
-    });
 
     document.getElementById("copyShareUrl").addEventListener("click", async () => {
         try {
@@ -358,82 +371,23 @@ const equipment = [
             }
         }
     });
-
 }
 //#endregion
 
-//#region : FEEDBACK
-{
-    const feedback = document.getElementById("feedback");
-    let feedbackTimer;
-
-    function showFeedback(message) {
-        feedback.textContent = message;
-        feedback.classList.add("show");
-
-        clearTimeout(feedbackTimer);
-
-        feedbackTimer = setTimeout(() => {
-            feedback.classList.remove("show");
-        }, 2500);
-    }
-}
-//#endregion 
-
 //#region : PAINÉIS LATERAIS
-{
-    const overlay = document.getElementById("overlay");
 
-    const drawers = [
-        document.getElementById("drawer"),
-        document.getElementById("equipmentDrawer"),
-        document.getElementById("equipmentDetailDrawer"),
-        document.getElementById("mapDrawer")
-    ];
+document.getElementById("explorerToggle").addEventListener("click", () => {
+    openDrawer(document.getElementById("drawer"));
+});
 
-    let activeDrawer = null;
+document.getElementById("equipmentButton").addEventListener("click", () => {
+    openDrawer(document.getElementById("equipmentDrawer"));
+});
 
-    function openDrawer(drawer) {
-        closeDrawer();
-
-        activeDrawer = drawer;
-        drawer.classList.add("open");
-        overlay.classList.add("open");
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeDrawer() {
-        drawers.forEach(drawer => drawer.classList.remove("open"));
-
-        overlay.classList.remove("open");
-        activeDrawer = null;
-
-        if (!document.getElementById("modalOverlay").classList.contains("open")) {
-            document.body.style.overflow = "";
-        }
-    }
-
-    document.getElementById("explorerToggle").addEventListener("click", () => {
-        openDrawer(document.getElementById("drawer"));
-    });
-
-    document.getElementById("equipmentButton").addEventListener("click", () => {
-        renderSidebar();
-        openDrawer(document.getElementById("equipmentDrawer"));
-    });
-
-    document.getElementById("mapButton").addEventListener("click", () => {
-        openDrawer(document.getElementById("mapDrawer"));
-    });
-
-    document.getElementById("closeDrawer").addEventListener("click", closeDrawer);
-
-    document.querySelectorAll("[data-close-drawer]").forEach(button => {
-        button.addEventListener("click", closeDrawer);
-    });
-
-    overlay.addEventListener("click", closeDrawer);
-}
+document.getElementById("mapButton").addEventListener("click", () => {
+    openDrawer(document.getElementById("mapDrawer"));
+});
+    
 //#endregion
 
 //#region : DETALHES E CONEXÃO EQUIPAMENTO ↔ MAPA
@@ -449,7 +403,7 @@ const equipment = [
 
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent =
-            categoryNames[item.cat] || "Equipamento";
+            category[item.cat] || "Equipamento";
         document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
         document.getElementById("equipmentDetailExamples").textContent = item.examples;
         document.getElementById("equipmentDetailTip").textContent = item.tip;
@@ -481,7 +435,8 @@ const equipment = [
     }
 
     document.getElementById("backToEquipmentList").addEventListener("click", () => {
-        renderSidebar(sidebarSearch.value);
+        // renderSidebar(sidebarSearch.value);
+        renderEquipment();
         openDrawer(document.getElementById("equipmentDrawer"));
     });
 
@@ -531,52 +486,52 @@ const equipment = [
 
 //#region : CATÁLOGO NA SIDEBAR
 {
-    const sidebarList = document.getElementById("sidebarList");
-    const sidebarSearch = document.getElementById("sidebarSearch");
+    // const sidebarList = document.getElementById("sidebarList");
+    // const sidebarSearch = document.getElementById("sidebarSearch");
 
-    function renderSidebar(query = "") {
-        const normalized = query.toLowerCase().trim();
+    // function renderSidebar(query = "") {
+    //     const normalized = query.toLowerCase().trim();
 
-        const filtered = equipment.filter(item => {
-            return [
-                item.name,
-                item.examples,
-                item.tip,
-                item.cat
-            ].join(" ").toLowerCase().includes(normalized);
-        });
+    //     const filtered = equipment.filter(item => {
+    //         return [
+    //             item.name,
+    //             item.examples,
+    //             item.tip,
+    //             item.cat
+    //         ].join(" ").toLowerCase().includes(normalized);
+    //     });
 
-        sidebarList.replaceChildren();
+    //     sidebarList.replaceChildren();
 
-        if (!filtered.length) {
-            const empty = document.createElement("p");
-            empty.className = "empty-state";
-            empty.textContent = "Nenhum equipamento encontrado.";
-            sidebarList.appendChild(empty);
-            return;
-        }
+    //     if (!filtered.length) {
+    //         const empty = document.createElement("p");
+    //         empty.className = "empty-state";
+    //         empty.textContent = "Nenhum equipamento encontrado.";
+    //         sidebarList.appendChild(empty);
+    //         return;
+    //     }
 
-        filtered.forEach(item => {
-            const card = document.createElement("button");
-            card.type = "button";
-            card.className = "drawer-item explorer-equipment-item";
+    //     filtered.forEach(item => {
+    //         const card = document.createElement("button");
+    //         card.type = "button";
+    //         card.className = "drawer-item explorer-equipment-item";
 
-            const category = document.createElement("span");
-            category.className = "equipment-category";
-            category.textContent = categoryNames[item.cat] || "Equipamento";
+    //         const category = document.createElement("span");
+    //         category.className = "equipment-category";
+    //         category.textContent = category[item.cat] || "Equipamento";
 
-            const title = document.createElement("strong");
-            title.textContent = `${item.emoji} ${item.name}`;
+    //         const title = document.createElement("strong");
+    //         title.textContent = `${item.emoji} ${item.name}`;
 
-            card.append(category, title);
-            card.addEventListener("click", () => openEquipmentDetail(item));
-            sidebarList.appendChild(card);
-        });
-    }
+    //         card.append(category, title);
+    //         card.addEventListener("click", () => openEquipmentDetail(item));
+    //         sidebarList.appendChild(card);
+    //     });
+    // }
 
-    sidebarSearch.addEventListener("input", event => {
-        renderSidebar(event.target.value);
-    });
+    // sidebarSearch.addEventListener("input", event => {
+    //     renderSidebar(event.target.value);
+    // });
 }
 //#endregion
 
@@ -603,117 +558,22 @@ const equipment = [
 
 //#region : MODAIS INFORMATIVOS
 {
-    const modalData = {
-        prepare: {
-            title: "Prepare seu equipamento",
-            description:
-                "Alguns cuidados ajudam a proteger seus dados e facilitam o processo de descarte.",
-            content: `
-            <h3>1. Proteja seus dados</h3>
-            <p>Faça backup dos arquivos importantes. Em celulares e computadores, restaure as configurações de fábrica ou apague os dados pessoais de forma segura.</p>
+     document.querySelectorAll(".step[data-modal]")
+        .forEach(
+            card => {
 
-            <h3>2. Separe os componentes</h3>
-            <p>Remova chips e cartões de memória. Pilhas e baterias removíveis devem ser encaminhadas conforme as orientações específicas de recebimento.</p>
+                const modal = document.getElementById( card.dataset.modal );
 
-            <h3>3. Organize os equipamentos</h3>
-            <p>Junte cabos e acessórios relacionados para facilitar a identificação e o transporte.</p>
+                card.addEventListener("click",
+                    () => {
+                        overlayToggle();
+                        modal.classList.toggle("open");
+                        document.body.style.overflow = "hidden";
+                    }
+                );
 
-            <h3>Antes de continuar</h3>
-            <p>Não desmonte equipamentos perigosos ou componentes que você não saiba manusear com segurança.</p>
-        `
-        },
-
-        entregue: {
-            title: "Entregue no local correto",
-            description:
-                "O encaminhamento correto evita o descarte inadequado e permite que os resíduos recebam tratamento apropriado.",
-            content: `
-            <h3>1. Encontre um ponto de coleta</h3>
-            <p>Consulte os localizadores oficiais da ABREE e da Green Eletron.</p>
-
-            <h3>2. Confirme o que é aceito</h3>
-            <p>Nem todos os pontos recebem todos os tipos de equipamentos. Verifique categorias, horários e restrições.</p>
-
-            <h3>3. Transporte com cuidado</h3>
-            <p>Proteja telas e componentes frágeis. Equipamentos grandes podem exigir uma modalidade específica de coleta.</p>
-
-            <h3>Importante</h3>
-            <p>Não abandone eletrônicos em calçadas, terrenos ou locais sem autorização.</p>
-        `
-        },
-
-        reaproveite: {
-            title: "Reaproveite sempre que possível",
-            description:
-                "Nem todo equipamento sem uso precisa ser descartado imediatamente.",
-            content: `
-            <h3>1. Avalie se ainda funciona</h3>
-            <p>Um equipamento em boas condições pode continuar sendo utilizado por outra pessoa.</p>
-
-            <h3>2. Considere reparar</h3>
-            <p>Quando for viável e seguro, avalie a possibilidade de conserto.</p>
-
-            <h3>3. Doe ou compartilhe</h3>
-            <p>Equipamentos funcionais podem ser doados ou destinados a projetos que aproveitem seus componentes.</p>
-
-            <h3>4. Recicle quando necessário</h3>
-            <p>Quando não houver possibilidade de reutilização, encaminhe o equipamento para um sistema adequado de logística reversa.</p>
-        `
-        }
-    };
-
-    const modalOverlay = document.getElementById("modalOverlay");
-    const modalClose = document.getElementById("modalClose");
-
-    let lastFocused = null;
-
-    function openModal(type, card) {
-        const data = modalData[type];
-        if (!data) return;
-
-        lastFocused = card || document.activeElement;
-
-        document.getElementById("modalTitle").textContent = data.title;
-        document.getElementById("modalDescription").textContent = data.description;
-        document.getElementById("modalContent").innerHTML = data.content;
-
-        modalOverlay.classList.add("open");
-        document.body.style.overflow = "hidden";
-        modalClose.focus();
-    }
-
-    function closeModal() {
-        modalOverlay.classList.remove("open");
-
-        if (!activeDrawer && !shareModalOverlay.classList.contains("open")) {
-            document.body.style.overflow = "";
-        }
-
-        if (lastFocused?.focus) {
-            lastFocused.focus();
-        }
-    }
-
-    document.querySelectorAll(".step[data-modal]").forEach(card => {
-        card.addEventListener("click", () => {
-            openModal(card.dataset.modal, card);
-        });
-
-        card.addEventListener("keydown", event => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                openModal(card.dataset.modal, card);
             }
-        });
-    });
-
-    modalClose.addEventListener("click", closeModal);
-
-    modalOverlay.addEventListener("click", event => {
-        if (event.target === modalOverlay) {
-            closeModal();
-        }
-    });
+        );
 }
 //#endregion
 
@@ -759,7 +619,7 @@ const equipment = [
     });
 
     document.getElementById("equipmentButton").addEventListener("click", () => {
-        renderSidebar();
+        // renderSidebar();
         openDrawer(document.getElementById("equipmentDrawer"));
     });
 
@@ -837,9 +697,10 @@ const equipment = [
         pageProgressValue.textContent = `${percent}%`;
         pageProgressBar.style.width = `${percent}%`;
 
-        pageProgressContainer.classList.toggle(
-            "visible", window.scrollY > window.innerHeight * 0.7
-        );
+        pageProgressContainer.classList
+            .toggle(
+                "visible", window.scrollY > window.innerHeight * 0.10
+            );
 
         // Se estiver a menos de 300px do fim, começa a empurrar o elemento para cima de forma dinâmica
         if (distanceFromBottom < 300) {
@@ -860,11 +721,9 @@ const equipment = [
     backToTop.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
     updatePageProgress();
 
-
-    backToTop.classList.toggle(
-        "visible", window.scrollY > window.innerHeight * 0.7 && !nearBottom);
 }
 //#endregion
 
@@ -890,74 +749,30 @@ const equipment = [
 }
 //#endregion
 
-//#region : TECLA ESC
-{
-    document.addEventListener("keydown", event => {
-        if (event.key !== "Escape") return;
-
-        if (shareModalOverlay.classList.contains("open")) {
-            closeShareModal();
-            return;
-        }
-
-        if (modalOverlay.classList.contains("open")) {
-            closeModal();
-            return;
-        }
-
-        if (activeDrawer) {
-            closeDrawer();
-        }
-    });
-}
-//#endregion
-
 //#region : MODAL DE VÍDEO NO FOOTER
 {
     const videoModalOverlay = document.getElementById("videoModalOverlay");
     const openVideoModalBtn = document.getElementById("rafaelVideoTrigger");
-    const videoModalClose = document.getElementById("videoModalClose");
     const videoIframe = document.getElementById("videoIframe");
 
-    // URL de exibição embutida (Embed) do vídeo do YouTube Shorts
-    const videoUrl = "https://www.youtube.com/embed/egYTYpleY0U?autoplay=1";
-
     function openVideoModal() {
-        videoIframe.src = videoUrl;
+        overlayOpen();
+        videoIframe.src = "https://www.youtube.com/embed/egYTYpleY0U?autoplay=1";
         videoModalOverlay.classList.add("open");
         document.body.style.overflow = "hidden";
-        videoModalClose.focus();
     }
 
-    function closeVideoModal() {
-        videoIframe.src = ""; // Interrompe a reprodução do áudio/vídeo ao fechar
-        videoModalOverlay.classList.remove("open");
-
-        if (!activeDrawer && !shareModalOverlay.classList.contains("open") && !modalOverlay.classList.contains("open")) {
-            document.body.style.overflow = "";
-        }
-    }
-
-    if (openVideoModalBtn) {
-        openVideoModalBtn.addEventListener("click", openVideoModal);
-    }
-
-    if (videoModalClose) {
-        videoModalClose.addEventListener("click", closeVideoModal);
-    }
-
-    if (videoModalOverlay) {
-        videoModalOverlay.addEventListener("click", event => {
-            if (event.target === videoModalOverlay) closeVideoModal();
-        });
-    }
-
-    // Suporte para fechar com a tecla ESC
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape" && videoModalOverlay.classList.contains("open")) {
-            closeVideoModal();
-        }
-    });
+    openVideoModalBtn.addEventListener("click", openVideoModal);
 
 }
+//#endregion
+
+//#region : TECLA ESC
+
+document.addEventListener("keydown",
+    event => {
+        if (event.key !== "Escape") return;
+    }
+);
+
 //#endregion
