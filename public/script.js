@@ -111,94 +111,94 @@ const equipment = [
 
 //#region : RENDERIZAÇÃO DO CATÁLOGO
 {
-const grid = document.getElementById("equipmentGrid");
-const search = document.getElementById("search");
+    const grid = document.getElementById("equipmentGrid");
+    const search = document.getElementById("search");
 
-let activeFilter = "todos";
+    let activeFilter = "todos";
 
-const categoryNames = {
-    informatica: "Informática",
-    imagem: "Imagem e áudio",
-    casa: "Casa",
-    pessoal: "Cuidados pessoais",
-    ferramentas: "Ferramentas"
-};
+    const categoryNames = {
+        informatica: "Informática",
+        imagem: "Imagem e áudio",
+        casa: "Casa",
+        pessoal: "Cuidados pessoais",
+        ferramentas: "Ferramentas"
+    };
 
-const equipmentTree = document.getElementById("treeGuide");
+    const equipmentTree = document.getElementById("treeGuide");
 
-function renderEquipmentTree() {
-    if (!equipmentTree) return;
+    function renderEquipmentTree() {
+        if (!equipmentTree) return;
 
-    equipmentTree.replaceChildren();
+        equipmentTree.replaceChildren();
 
-    Object.entries(categoryNames).forEach(([category, label]) => {
-        const categoryToggle = document.createElement("button");
-        categoryToggle.type = "button";
-        categoryToggle.className = "tree-toggle";
-        categoryToggle.dataset.tree = `tree-${category}`;
-        categoryToggle.innerHTML = `
+        Object.entries(categoryNames).forEach(([category, label]) => {
+            const categoryToggle = document.createElement("button");
+            categoryToggle.type = "button";
+            categoryToggle.className = "tree-toggle";
+            categoryToggle.dataset.tree = `tree-${category}`;
+            categoryToggle.innerHTML = `
             <i class="fa-solid fa-folder-open"></i>
             ${label}
             <i class="fa-solid fa-chevron-down"></i>
         `;
 
-        const childGroup = document.createElement("div");
-        childGroup.id = `tree-${category}`;
-        childGroup.className = "tree-children";
+            const childGroup = document.createElement("div");
+            childGroup.id = `tree-${category}`;
+            childGroup.className = "tree-children";
 
-        equipment
-            .filter(item => item.cat === category)
-            .forEach(item => {
-                const itemLink = document.createElement("button");
-                itemLink.type = "button";
-                itemLink.className = "tree-link";
-                itemLink.innerHTML = `<i class="fa-solid fa-microchip"></i> ${item.name}`;
-                itemLink.addEventListener("click", () => {
-                    openEquipmentDetail(item);
-                    closeDrawer();
+            equipment
+                .filter(item => item.cat === category)
+                .forEach(item => {
+                    const itemLink = document.createElement("button");
+                    itemLink.type = "button";
+                    itemLink.className = "tree-link";
+                    itemLink.innerHTML = `<i class="fa-solid fa-microchip"></i> ${item.name}`;
+                    itemLink.addEventListener("click", () => {
+                        openEquipmentDetail(item);
+                        closeDrawer();
+                    });
+                    childGroup.appendChild(itemLink);
                 });
-                childGroup.appendChild(itemLink);
-            });
 
-        equipmentTree.append(categoryToggle, childGroup);
-    });
+            equipmentTree.append(categoryToggle, childGroup);
+        });
 
-}
-
-function renderEquipment() {
-    const query = search.value.toLowerCase().trim();
-
-    const filtered = equipment.filter(item => {
-        const categoryMatch =
-            activeFilter === "todos" ||
-            item.cat === activeFilter;
-
-        const searchMatch = [
-            item.name,
-            item.examples,
-            item.tip,
-            item.cat
-        ].join(" ").toLowerCase().includes(query);
-
-        return categoryMatch && searchMatch;
-    });
-
-    grid.replaceChildren();
-
-    if (!filtered.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty-state";
-        empty.textContent = "Nenhum equipamento encontrado.";
-        grid.appendChild(empty);
-        return;
     }
 
-    filtered.forEach(item => {
-        const card = document.createElement("button");
-        card.type = "button";
-        card.className = "equipment-card";
-        card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
-        card.innerHTML = `
+    function renderEquipment() {
+        const query = search.value.toLowerCase().trim();
+
+        const filtered = equipment.filter(item => {
+            const categoryMatch =
+                activeFilter === "todos" ||
+                item.cat === activeFilter;
+
+            const searchMatch = [
+                item.name,
+                item.examples,
+                item.tip,
+                item.cat
+            ].join(" ").toLowerCase().includes(query);
+
+            return categoryMatch && searchMatch;
+        });
+
+        grid.replaceChildren();
+
+        if (!filtered.length) {
+            const empty = document.createElement("div");
+            empty.className = "empty-state";
+            empty.textContent = "Nenhum equipamento encontrado.";
+            grid.appendChild(empty);
+            return;
+        }
+
+        filtered.forEach(item => {
+            const card = document.createElement("button");
+            card.type = "button";
+            card.className = "equipment-card";
+            card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
+            card.innerHTML = `
             <span class="equipment-category"></span>
             <span class="equipment-card-main">
                 <span class="equipment-emoji"></span>
@@ -207,108 +207,108 @@ function renderEquipment() {
             </span>
         `;
 
-        card.querySelector(".equipment-category").textContent =
-            categoryNames[item.cat] || "Equipamento";
-        card.querySelector(".equipment-emoji").textContent = item.emoji;
-        card.querySelector(".equipment-name").textContent = item.name;
-        card.addEventListener("click", () => openEquipmentDetail(item));
+            card.querySelector(".equipment-category").textContent =
+                categoryNames[item.cat] || "Equipamento";
+            card.querySelector(".equipment-emoji").textContent = item.emoji;
+            card.querySelector(".equipment-name").textContent = item.name;
+            card.addEventListener("click", () => openEquipmentDetail(item));
 
-        grid.appendChild(card);
-    });
-}
-
-search.addEventListener("input", renderEquipment);
-
-document.querySelectorAll(".filter").forEach(button => {
-    button.addEventListener("click", () => {
-        document.querySelectorAll(".filter").forEach(item => {
-            item.classList.remove("active");
+            grid.appendChild(card);
         });
+    }
 
-        button.classList.add("active");
-        activeFilter = button.dataset.filter;
-        renderEquipment();
-    });
-});
-
-document.getElementById("clear").addEventListener("click", () => {
-    search.value = "";
-    activeFilter = "todos";
+    search.addEventListener("input", renderEquipment);
 
     document.querySelectorAll(".filter").forEach(button => {
-        button.classList.toggle(
-            "active",
-            button.dataset.filter === "todos"
-        );
+        button.addEventListener("click", () => {
+            document.querySelectorAll(".filter").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+            activeFilter = button.dataset.filter;
+            renderEquipment();
+        });
+    });
+
+    document.getElementById("clear").addEventListener("click", () => {
+        search.value = "";
+        activeFilter = "todos";
+
+        document.querySelectorAll(".filter").forEach(button => {
+            button.classList.toggle(
+                "active",
+                button.dataset.filter === "todos"
+            );
+        });
+
+        renderEquipment();
     });
 
     renderEquipment();
-});
-
-renderEquipment();
-renderEquipmentTree();
+    renderEquipmentTree();
 }
 //#endregion
 
 //#region : CHECKLIST
 {
-const checks = [
-    ...document.querySelectorAll(
-        '#checklist input[type="checkbox"]'
-    )
-];
+    const checks = [
+        ...document.querySelectorAll(
+            '#checklist input[type="checkbox"]'
+        )
+    ];
 
-function updateProgress() {
-    const completed = checks.filter(item => item.checked).length;
-    const percent = Math.round(completed / checks.length * 100);
+    function updateProgress() {
+        const completed = checks.filter(item => item.checked).length;
+        const percent = Math.round(completed / checks.length * 100);
 
-    document.getElementById("progress").textContent =
-        `${completed} de ${checks.length} concluídos`;
+        document.getElementById("progress").textContent =
+            `${completed} de ${checks.length} concluídos`;
 
-    document.getElementById("progressLabel").textContent =
-        `${percent}%`;
+        document.getElementById("progressLabel").textContent =
+            `${percent}%`;
 
-    document.getElementById("progressBar").style.width =
-        `${percent}%`;
-}
+        document.getElementById("progressBar").style.width =
+            `${percent}%`;
+    }
 
-checks.forEach(check => {
-    check.addEventListener("change", updateProgress);
-});
+    checks.forEach(check => {
+        check.addEventListener("change", updateProgress);
+    });
 
-document.getElementById("resetChecks").addEventListener("click", () => {
-    checks.forEach(check => check.checked = false);
+    document.getElementById("resetChecks").addEventListener("click", () => {
+        checks.forEach(check => check.checked = false);
+        updateProgress();
+    });
     updateProgress();
-});
-updateProgress();
 }
 //#endregion
 
 //#region : MAPA LEAFLET
 {
 
-const map = L.map("map", {
-    scrollWheelZoom: false
-}).setView([-26.25, -51.07], 7);
+    const map = L.map("map", {
+        scrollWheelZoom: false
+    }).setView([-26.25, -51.07], 7);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
 
-// Nenhum ponto fictício.
-// Os pontos reais serão cadastrados futuramente em collectionPoints.
-// A estrutura de filtros/compatibilidade já está preparada para acceptedCategories.
+    // Nenhum ponto fictício.
+    // Os pontos reais serão cadastrados futuramente em collectionPoints.
+    // A estrutura de filtros/compatibilidade já está preparada para acceptedCategories.
 
 
-const mapObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            setTimeout(() => map.invalidateSize(), 150);
-        }
+    const mapObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => map.invalidateSize(), 150);
+            }
+        });
     });
-});
 
-mapObserver.observe(document.getElementById("map"));
+    mapObserver.observe(document.getElementById("map"));
 
 }
 //#endregion
@@ -316,299 +316,299 @@ mapObserver.observe(document.getElementById("map"));
 //#region : FOLDER E COMPARTILHAMENTO
 {
 
-const shareModalOverlay = document.getElementById("shareModalOverlay");
-const shareModalClose = document.getElementById("shareModalClose");
-const shareUrl = document.getElementById("shareUrl");
+    const shareModalOverlay = document.getElementById("shareModalOverlay");
+    const shareModalClose = document.getElementById("shareModalClose");
+    const shareUrl = document.getElementById("shareUrl");
 
-function openShareModal() {
-    shareUrl.value = location.href;
-    shareModalOverlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-    shareModalClose.focus();
-}
-
-function closeShareModal() {
-    shareModalOverlay.classList.remove("open");
-
-    if (!activeDrawer && !modalOverlay.classList.contains("open")) {
-        document.body.style.overflow = "";
+    function openShareModal() {
+        shareUrl.value = location.href;
+        shareModalOverlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+        shareModalClose.focus();
     }
-}
 
-document.getElementById("shareButton").addEventListener("click", openShareModal);
-document.getElementById("folderShareButton").addEventListener("click", openShareModal);
-shareModalClose.addEventListener("click", closeShareModal);
+    function closeShareModal() {
+        shareModalOverlay.classList.remove("open");
 
-shareModalOverlay.addEventListener("click", event => {
-    if (event.target === shareModalOverlay) closeShareModal();
-});
-
-document.getElementById("copyShareUrl").addEventListener("click", async () => {
-    try {
-        await navigator.clipboard.writeText(shareUrl.value);
-        showFeedback("Link copiado!");
-    } catch (error) {
-        shareUrl.focus();
-        shareUrl.select();
-        try {
-            document.execCommand("copy");
-            showFeedback("Link copiado!");
-        } catch (copyError) {
-            showFeedback("Selecione e copie o link manualmente.");
+        if (!activeDrawer && !modalOverlay.classList.contains("open")) {
+            document.body.style.overflow = "";
         }
     }
-});
+
+    document.getElementById("shareButton").addEventListener("click", openShareModal);
+    document.getElementById("folderShareButton").addEventListener("click", openShareModal);
+    shareModalClose.addEventListener("click", closeShareModal);
+
+    shareModalOverlay.addEventListener("click", event => {
+        if (event.target === shareModalOverlay) closeShareModal();
+    });
+
+    document.getElementById("copyShareUrl").addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(shareUrl.value);
+            showFeedback("Link copiado!");
+        } catch (error) {
+            shareUrl.focus();
+            shareUrl.select();
+            try {
+                document.execCommand("copy");
+                showFeedback("Link copiado!");
+            } catch (copyError) {
+                showFeedback("Selecione e copie o link manualmente.");
+            }
+        }
+    });
 
 }
 //#endregion
 
 //#region : FEEDBACK
 {
-const feedback = document.getElementById("feedback");
-let feedbackTimer;
+    const feedback = document.getElementById("feedback");
+    let feedbackTimer;
 
-function showFeedback(message) {
-    feedback.textContent = message;
-    feedback.classList.add("show");
+    function showFeedback(message) {
+        feedback.textContent = message;
+        feedback.classList.add("show");
 
-    clearTimeout(feedbackTimer);
+        clearTimeout(feedbackTimer);
 
-    feedbackTimer = setTimeout(() => {
-        feedback.classList.remove("show");
-    }, 2500);
-}
+        feedbackTimer = setTimeout(() => {
+            feedback.classList.remove("show");
+        }, 2500);
+    }
 }
 //#endregion 
 
 //#region : PAINÉIS LATERAIS
 {
-const overlay = document.getElementById("overlay");
+    const overlay = document.getElementById("overlay");
 
-const drawers = [
-    document.getElementById("drawer"),
-    document.getElementById("equipmentDrawer"),
-    document.getElementById("equipmentDetailDrawer"),
-    document.getElementById("mapDrawer")
-];
+    const drawers = [
+        document.getElementById("drawer"),
+        document.getElementById("equipmentDrawer"),
+        document.getElementById("equipmentDetailDrawer"),
+        document.getElementById("mapDrawer")
+    ];
 
-let activeDrawer = null;
+    let activeDrawer = null;
 
-function openDrawer(drawer) {
-    closeDrawer();
+    function openDrawer(drawer) {
+        closeDrawer();
 
-    activeDrawer = drawer;
-    drawer.classList.add("open");
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-}
-
-function closeDrawer() {
-    drawers.forEach(drawer => drawer.classList.remove("open"));
-
-    overlay.classList.remove("open");
-    activeDrawer = null;
-
-    if (!document.getElementById("modalOverlay").classList.contains("open")) {
-        document.body.style.overflow = "";
+        activeDrawer = drawer;
+        drawer.classList.add("open");
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
     }
-}
 
-document.getElementById("explorerToggle").addEventListener("click", () => {
-    openDrawer(document.getElementById("drawer"));
-});
+    function closeDrawer() {
+        drawers.forEach(drawer => drawer.classList.remove("open"));
 
-document.getElementById("equipmentButton").addEventListener("click", () => {
-    renderSidebar();
-    openDrawer(document.getElementById("equipmentDrawer"));
-});
+        overlay.classList.remove("open");
+        activeDrawer = null;
 
-document.getElementById("mapButton").addEventListener("click", () => {
-    openDrawer(document.getElementById("mapDrawer"));
-});
+        if (!document.getElementById("modalOverlay").classList.contains("open")) {
+            document.body.style.overflow = "";
+        }
+    }
 
-document.getElementById("closeDrawer").addEventListener("click", closeDrawer);
+    document.getElementById("explorerToggle").addEventListener("click", () => {
+        openDrawer(document.getElementById("drawer"));
+    });
 
-document.querySelectorAll("[data-close-drawer]").forEach(button => {
-    button.addEventListener("click", closeDrawer);
-});
+    document.getElementById("equipmentButton").addEventListener("click", () => {
+        renderSidebar();
+        openDrawer(document.getElementById("equipmentDrawer"));
+    });
 
-overlay.addEventListener("click", closeDrawer);
+    document.getElementById("mapButton").addEventListener("click", () => {
+        openDrawer(document.getElementById("mapDrawer"));
+    });
+
+    document.getElementById("closeDrawer").addEventListener("click", closeDrawer);
+
+    document.querySelectorAll("[data-close-drawer]").forEach(button => {
+        button.addEventListener("click", closeDrawer);
+    });
+
+    overlay.addEventListener("click", closeDrawer);
 }
 //#endregion
 
 //#region : DETALHES E CONEXÃO EQUIPAMENTO ↔ MAPA
 {
-let selectedEquipment = null;
+    let selectedEquipment = null;
 
-// A lista permanece vazia até que os pontos reais sejam fornecidos.
-// Cada futuro ponto pode informar: name, lat, lng, address e acceptedCategories.
-const collectionPoints = [];
+    // A lista permanece vazia até que os pontos reais sejam fornecidos.
+    // Cada futuro ponto pode informar: name, lat, lng, address e acceptedCategories.
+    const collectionPoints = [];
 
-function openEquipmentDetail(item) {
-    selectedEquipment = item;
+    function openEquipmentDetail(item) {
+        selectedEquipment = item;
 
-    document.getElementById("equipmentDetailTitle").textContent = item.name;
-    document.getElementById("equipmentDetailCategory").textContent =
-        categoryNames[item.cat] || "Equipamento";
-    document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
-    document.getElementById("equipmentDetailExamples").textContent = item.examples;
-    document.getElementById("equipmentDetailTip").textContent = item.tip;
+        document.getElementById("equipmentDetailTitle").textContent = item.name;
+        document.getElementById("equipmentDetailCategory").textContent =
+            categoryNames[item.cat] || "Equipamento";
+        document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
+        document.getElementById("equipmentDetailExamples").textContent = item.examples;
+        document.getElementById("equipmentDetailTip").textContent = item.tip;
 
-    const steps = [
-        "Desligue o equipamento e desconecte os cabos.",
-        item.cat === "informatica"
-            ? "Faça backup e remova dados pessoais, chips e cartões de memória."
-            : "Retire acessórios e componentes removíveis apenas quando isso for seguro.",
-        "Proteja o equipamento durante o transporte e confirme o que o ponto recebe."
-    ];
+        const steps = [
+            "Desligue o equipamento e desconecte os cabos.",
+            item.cat === "informatica"
+                ? "Faça backup e remova dados pessoais, chips e cartões de memória."
+                : "Retire acessórios e componentes removíveis apenas quando isso for seguro.",
+            "Proteja o equipamento durante o transporte e confirme o que o ponto recebe."
+        ];
 
-    const list = document.getElementById("equipmentDetailSteps");
-    list.replaceChildren();
-    steps.forEach(step => {
-        const li = document.createElement("li");
-        li.textContent = step;
-        list.appendChild(li);
-    });
+        const list = document.getElementById("equipmentDetailSteps");
+        list.replaceChildren();
+        steps.forEach(step => {
+            const li = document.createElement("li");
+            li.textContent = step;
+            list.appendChild(li);
+        });
 
-    const hint = document.getElementById("compatiblePointsHint");
-    hint.textContent = collectionPoints.length
-        ? "Os pontos compatíveis serão destacados no mapa."
-        : "Ainda não há pontos fixos cadastrados. Quando forem adicionados, os locais compatíveis serão destacados no mapa.";
+        const hint = document.getElementById("compatiblePointsHint");
+        hint.textContent = collectionPoints.length
+            ? "Os pontos compatíveis serão destacados no mapa."
+            : "Ainda não há pontos fixos cadastrados. Quando forem adicionados, os locais compatíveis serão destacados no mapa.";
 
-    // A seleção já prepara o destaque; o botão abaixo leva o usuário até o mapa.
-    highlightCompatiblePoints(false);
-    openDrawer(document.getElementById("equipmentDetailDrawer"));
-}
-
-document.getElementById("backToEquipmentList").addEventListener("click", () => {
-    renderSidebar(sidebarSearch.value);
-    openDrawer(document.getElementById("equipmentDrawer"));
-});
-
-document.getElementById("compatiblePointsButton").addEventListener("click", () => {
-    closeDrawer();
-    document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
-    highlightCompatiblePoints();
-});
-
-function highlightCompatiblePoints(showMessage = true) {
-    if (!selectedEquipment || !collectionPoints.length) {
-        if (showMessage) {
-            showFeedback("Os pontos de coleta serão adicionados ao mapa posteriormente.");
-        }
-        return;
+        // A seleção já prepara o destaque; o botão abaixo leva o usuário até o mapa.
+        highlightCompatiblePoints(false);
+        openDrawer(document.getElementById("equipmentDetailDrawer"));
     }
 
-    const compatible = collectionPoints.filter(point =>
-        (point.acceptedCategories || []).includes(selectedEquipment.cat)
-    );
+    document.getElementById("backToEquipmentList").addEventListener("click", () => {
+        renderSidebar(sidebarSearch.value);
+        openDrawer(document.getElementById("equipmentDrawer"));
+    });
 
-    collectionPoints.forEach(point => {
-        if (point.marker) {
-            const isCompatible = compatible.includes(point);
-            point.marker.setOpacity(isCompatible ? 1 : 0.25);
-            if (isCompatible) {
-                const element = point.marker.getElement();
-                if (element) {
-                    element.classList.remove("marker-highlight");
-                    void element.offsetWidth;
-                    element.classList.add("marker-highlight");
+    document.getElementById("compatiblePointsButton").addEventListener("click", () => {
+        closeDrawer();
+        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        highlightCompatiblePoints();
+    });
+
+    function highlightCompatiblePoints(showMessage = true) {
+        if (!selectedEquipment || !collectionPoints.length) {
+            if (showMessage) {
+                showFeedback("Os pontos de coleta serão adicionados ao mapa posteriormente.");
+            }
+            return;
+        }
+
+        const compatible = collectionPoints.filter(point =>
+            (point.acceptedCategories || []).includes(selectedEquipment.cat)
+        );
+
+        collectionPoints.forEach(point => {
+            if (point.marker) {
+                const isCompatible = compatible.includes(point);
+                point.marker.setOpacity(isCompatible ? 1 : 0.25);
+                if (isCompatible) {
+                    const element = point.marker.getElement();
+                    if (element) {
+                        element.classList.remove("marker-highlight");
+                        void element.offsetWidth;
+                        element.classList.add("marker-highlight");
+                    }
                 }
             }
-        }
-    });
+        });
 
-    if (showMessage) {
-        showFeedback(
-            compatible.length
-                ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
-                : "Nenhum ponto cadastrado recebe esta categoria."
-        );
+        if (showMessage) {
+            showFeedback(
+                compatible.length
+                    ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
+                    : "Nenhum ponto cadastrado recebe esta categoria."
+            );
+        }
     }
-}
 }
 //#endregion
 
 //#region : CATÁLOGO NA SIDEBAR
 {
-const sidebarList = document.getElementById("sidebarList");
-const sidebarSearch = document.getElementById("sidebarSearch");
+    const sidebarList = document.getElementById("sidebarList");
+    const sidebarSearch = document.getElementById("sidebarSearch");
 
-function renderSidebar(query = "") {
-    const normalized = query.toLowerCase().trim();
+    function renderSidebar(query = "") {
+        const normalized = query.toLowerCase().trim();
 
-    const filtered = equipment.filter(item => {
-        return [
-            item.name,
-            item.examples,
-            item.tip,
-            item.cat
-        ].join(" ").toLowerCase().includes(normalized);
-    });
+        const filtered = equipment.filter(item => {
+            return [
+                item.name,
+                item.examples,
+                item.tip,
+                item.cat
+            ].join(" ").toLowerCase().includes(normalized);
+        });
 
-    sidebarList.replaceChildren();
+        sidebarList.replaceChildren();
 
-    if (!filtered.length) {
-        const empty = document.createElement("p");
-        empty.className = "empty-state";
-        empty.textContent = "Nenhum equipamento encontrado.";
-        sidebarList.appendChild(empty);
-        return;
+        if (!filtered.length) {
+            const empty = document.createElement("p");
+            empty.className = "empty-state";
+            empty.textContent = "Nenhum equipamento encontrado.";
+            sidebarList.appendChild(empty);
+            return;
+        }
+
+        filtered.forEach(item => {
+            const card = document.createElement("button");
+            card.type = "button";
+            card.className = "drawer-item explorer-equipment-item";
+
+            const category = document.createElement("span");
+            category.className = "equipment-category";
+            category.textContent = categoryNames[item.cat] || "Equipamento";
+
+            const title = document.createElement("strong");
+            title.textContent = `${item.emoji} ${item.name}`;
+
+            card.append(category, title);
+            card.addEventListener("click", () => openEquipmentDetail(item));
+            sidebarList.appendChild(card);
+        });
     }
 
-    filtered.forEach(item => {
-        const card = document.createElement("button");
-        card.type = "button";
-        card.className = "drawer-item explorer-equipment-item";
-
-        const category = document.createElement("span");
-        category.className = "equipment-category";
-        category.textContent = categoryNames[item.cat] || "Equipamento";
-
-        const title = document.createElement("strong");
-        title.textContent = `${item.emoji} ${item.name}`;
-
-        card.append(category, title);
-        card.addEventListener("click", () => openEquipmentDetail(item));
-        sidebarList.appendChild(card);
+    sidebarSearch.addEventListener("input", event => {
+        renderSidebar(event.target.value);
     });
-}
-
-sidebarSearch.addEventListener("input", event => {
-    renderSidebar(event.target.value);
-});
 }
 //#endregion
 
 //#region : ÁRVORE DO EXPLORADOR
 {
-document.querySelectorAll(".tree-toggle").forEach(button => {
-    button.addEventListener("click", () => {
-        const tree = document.getElementById(button.dataset.tree);
-        if (tree) {
-            tree.classList.toggle("open");
-        }
+    document.querySelectorAll(".tree-toggle").forEach(button => {
+        button.addEventListener("click", () => {
+            const tree = document.getElementById(button.dataset.tree);
+            if (tree) {
+                tree.classList.toggle("open");
+            }
+        });
     });
-});
 
-document.querySelectorAll(".tree-link").forEach(link => {
-    link.addEventListener("click", () => {
-        if (link.getAttribute("href")?.startsWith("#")) {
-            closeDrawer();
-        }
+    document.querySelectorAll(".tree-link").forEach(link => {
+        link.addEventListener("click", () => {
+            if (link.getAttribute("href")?.startsWith("#")) {
+                closeDrawer();
+            }
+        });
     });
-});
 }
 //#endregion
 
 //#region : MODAIS INFORMATIVOS
 {
-const modalData = {
-    prepare: {
-        title: "Prepare seu equipamento",
-        description:
-            "Alguns cuidados ajudam a proteger seus dados e facilitam o processo de descarte.",
-        content: `
+    const modalData = {
+        prepare: {
+            title: "Prepare seu equipamento",
+            description:
+                "Alguns cuidados ajudam a proteger seus dados e facilitam o processo de descarte.",
+            content: `
             <h3>1. Proteja seus dados</h3>
             <p>Faça backup dos arquivos importantes. Em celulares e computadores, restaure as configurações de fábrica ou apague os dados pessoais de forma segura.</p>
 
@@ -621,13 +621,13 @@ const modalData = {
             <h3>Antes de continuar</h3>
             <p>Não desmonte equipamentos perigosos ou componentes que você não saiba manusear com segurança.</p>
         `
-    },
+        },
 
-    entregue: {
-        title: "Entregue no local correto",
-        description:
-            "O encaminhamento correto evita o descarte inadequado e permite que os resíduos recebam tratamento apropriado.",
-        content: `
+        entregue: {
+            title: "Entregue no local correto",
+            description:
+                "O encaminhamento correto evita o descarte inadequado e permite que os resíduos recebam tratamento apropriado.",
+            content: `
             <h3>1. Encontre um ponto de coleta</h3>
             <p>Consulte os localizadores oficiais da ABREE e da Green Eletron.</p>
 
@@ -640,13 +640,13 @@ const modalData = {
             <h3>Importante</h3>
             <p>Não abandone eletrônicos em calçadas, terrenos ou locais sem autorização.</p>
         `
-    },
+        },
 
-    reaproveite: {
-        title: "Reaproveite sempre que possível",
-        description:
-            "Nem todo equipamento sem uso precisa ser descartado imediatamente.",
-        content: `
+        reaproveite: {
+            title: "Reaproveite sempre que possível",
+            description:
+                "Nem todo equipamento sem uso precisa ser descartado imediatamente.",
+            content: `
             <h3>1. Avalie se ainda funciona</h3>
             <p>Um equipamento em boas condições pode continuar sendo utilizado por outra pessoa.</p>
 
@@ -659,305 +659,305 @@ const modalData = {
             <h3>4. Recicle quando necessário</h3>
             <p>Quando não houver possibilidade de reutilização, encaminhe o equipamento para um sistema adequado de logística reversa.</p>
         `
-    }
-};
+        }
+    };
 
-const modalOverlay = document.getElementById("modalOverlay");
-const modalClose = document.getElementById("modalClose");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalClose = document.getElementById("modalClose");
 
-let lastFocused = null;
+    let lastFocused = null;
 
-function openModal(type, card) {
-    const data = modalData[type];
-    if (!data) return;
+    function openModal(type, card) {
+        const data = modalData[type];
+        if (!data) return;
 
-    lastFocused = card || document.activeElement;
+        lastFocused = card || document.activeElement;
 
-    document.getElementById("modalTitle").textContent = data.title;
-    document.getElementById("modalDescription").textContent = data.description;
-    document.getElementById("modalContent").innerHTML = data.content;
+        document.getElementById("modalTitle").textContent = data.title;
+        document.getElementById("modalDescription").textContent = data.description;
+        document.getElementById("modalContent").innerHTML = data.content;
 
-    modalOverlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-    modalClose.focus();
-}
-
-function closeModal() {
-    modalOverlay.classList.remove("open");
-
-    if (!activeDrawer && !shareModalOverlay.classList.contains("open")) {
-        document.body.style.overflow = "";
+        modalOverlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+        modalClose.focus();
     }
 
-    if (lastFocused?.focus) {
-        lastFocused.focus();
-    }
-}
+    function closeModal() {
+        modalOverlay.classList.remove("open");
 
-document.querySelectorAll(".step[data-modal]").forEach(card => {
-    card.addEventListener("click", () => {
-        openModal(card.dataset.modal, card);
+        if (!activeDrawer && !shareModalOverlay.classList.contains("open")) {
+            document.body.style.overflow = "";
+        }
+
+        if (lastFocused?.focus) {
+            lastFocused.focus();
+        }
+    }
+
+    document.querySelectorAll(".step[data-modal]").forEach(card => {
+        card.addEventListener("click", () => {
+            openModal(card.dataset.modal, card);
+        });
+
+        card.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openModal(card.dataset.modal, card);
+            }
+        });
     });
 
-    card.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openModal(card.dataset.modal, card);
+    modalClose.addEventListener("click", closeModal);
+
+    modalOverlay.addEventListener("click", event => {
+        if (event.target === modalOverlay) {
+            closeModal();
         }
     });
-});
-
-modalClose.addEventListener("click", closeModal);
-
-modalOverlay.addEventListener("click", event => {
-    if (event.target === modalOverlay) {
-        closeModal();
-    }
-});
 }
 //#endregion
 
 //#region : AÇÕES CONTEXTUAIS
 {
-const contextualButtons = document.querySelectorAll(
-    ".quick-action[data-section]"
-);
+    const contextualButtons = document.querySelectorAll(
+        ".quick-action[data-section]"
+    );
 
-const observedSections = [
-    "inicio",
-    "ciclo",
-    "checklist",
-    "guia",
-    "mapa",
-    "consciente",
-    "noticias"
-].map(id => document.getElementById(id));
+    const observedSections = [
+        "inicio",
+        "ciclo",
+        "checklist",
+        "guia",
+        "mapa",
+        "consciente",
+        "noticias"
+    ].map(id => document.getElementById(id));
 
-function showSectionAction(sectionId) {
-    contextualButtons.forEach(button => {
-        button.classList.toggle(
-            "active",
-            button.dataset.section === sectionId
-        );
-    });
-}
-
-const sectionObserver = new IntersectionObserver(entries => {
-    const visible = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-    if (visible.length) {
-        showSectionAction(visible[0].target.id);
+    function showSectionAction(sectionId) {
+        contextualButtons.forEach(button => {
+            button.classList.toggle(
+                "active",
+                button.dataset.section === sectionId
+            );
+        });
     }
-}, {
-    threshold: [0.2, 0.4, 0.6]
-});
 
-observedSections.forEach(section => {
-    if (section) sectionObserver.observe(section);
-});
+    const sectionObserver = new IntersectionObserver(entries => {
+        const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-document.getElementById("equipmentButton").addEventListener("click", () => {
-    renderSidebar();
-    openDrawer(document.getElementById("equipmentDrawer"));
-});
-
-document.getElementById("checklistButton").addEventListener("click", () => {
-    document.getElementById("checklist").scrollIntoView({
-        behavior: "smooth"
+        if (visible.length) {
+            showSectionAction(visible[0].target.id);
+        }
+    }, {
+        threshold: [0.2, 0.4, 0.6]
     });
-});
+
+    observedSections.forEach(section => {
+        if (section) sectionObserver.observe(section);
+    });
+
+    document.getElementById("equipmentButton").addEventListener("click", () => {
+        renderSidebar();
+        openDrawer(document.getElementById("equipmentDrawer"));
+    });
+
+    document.getElementById("checklistButton").addEventListener("click", () => {
+        document.getElementById("checklist").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
 }
 //#endregion
 
 //#region : MENU MOBILE, SEÇÃO ATIVA E PROGRESSO DA PÁGINA
 {
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
 
-menuToggle.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("open");
-    menuToggle.classList.toggle("open", isOpen);
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-});
-
-mainNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuToggle.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("open");
+        menuToggle.classList.toggle("open", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
     });
-});
-
-const navigationSections = [
-    "inicio", "ciclo", "checklist", "guia", "mapa", "consciente", "noticias"
-].map(id => document.getElementById(id)).filter(Boolean);
-
-const navObserver = new IntersectionObserver(entries => {
-    const current = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-    if (!current) return;
 
     mainNav.querySelectorAll("a").forEach(link => {
-        const active = link.getAttribute("href") === `#${current.target.id}`;
-        link.classList.toggle("active", active);
-        if (active) link.setAttribute("aria-current", "location");
-        else link.removeAttribute("aria-current");
+        link.addEventListener("click", () => {
+            mainNav.classList.remove("open");
+            menuToggle.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
     });
-}, { threshold: [0.25, 0.5, 0.7] });
 
-navigationSections.forEach(section => navObserver.observe(section));
+    const navigationSections = [
+        "inicio", "ciclo", "checklist", "guia", "mapa", "consciente", "noticias"
+    ].map(id => document.getElementById(id)).filter(Boolean);
 
-const pageProgressValue = document.getElementById("pageProgressValue");
-const pageProgressLabel = document.getElementById("pageProgressLabel");
-const pageProgressBar = document.getElementById("pageProgressBar");
-const pageProgress = document.getElementById("pageProgress");
-const backToTop = document.getElementById("backToTop");
-const pageProgressContainer = document.getElementById("pageProgressContainer");
-const quickActionsContainer = document.getElementById("quickActionsContainer");
+    const navObserver = new IntersectionObserver(entries => {
+        const current = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!current) return;
+
+        mainNav.querySelectorAll("a").forEach(link => {
+            const active = link.getAttribute("href") === `#${current.target.id}`;
+            link.classList.toggle("active", active);
+            if (active) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+        });
+    }, { threshold: [0.25, 0.5, 0.7] });
+
+    navigationSections.forEach(section => navObserver.observe(section));
+
+    const pageProgressValue = document.getElementById("pageProgressValue");
+    const pageProgressLabel = document.getElementById("pageProgressLabel");
+    const pageProgressBar = document.getElementById("pageProgressBar");
+    const pageProgress = document.getElementById("pageProgress");
+    const backToTop = document.getElementById("backToTop");
+    const pageProgressContainer = document.getElementById("pageProgressContainer");
+    const quickActionsContainer = document.getElementById("quickActionsContainer");
 
 
-function updatePageProgress() {
-    const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
-    const explored = scrollable > 0
-        ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100))
-        : 0;
-    const percent = Math.round(explored);
-    
-    // Distância atual até o fundo da página (em pixels)
-    const distanceFromBottom = document.documentElement.scrollHeight - (window.innerHeight + window.scrollY);
-    const nearBottom = distanceFromBottom <= 120;
+    function updatePageProgress() {
+        const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+        const explored = scrollable > 0
+            ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100))
+            : 0;
+        const percent = Math.round(explored);
 
-    // Comportamento normal
-    pageProgressLabel.textContent = "explorado";
-    pageProgressValue.textContent = `${percent}%`;
-    pageProgressBar.style.width = `${percent}%`;
+        // Distância atual até o fundo da página (em pixels)
+        const distanceFromBottom = document.documentElement.scrollHeight - (window.innerHeight + window.scrollY);
+        const nearBottom = distanceFromBottom <= 120;
 
-    pageProgressContainer.classList.toggle(
-        "visible", window.scrollY > window.innerHeight * 0.7
-    );
+        // Comportamento normal
+        pageProgressLabel.textContent = "explorado";
+        pageProgressValue.textContent = `${percent}%`;
+        pageProgressBar.style.width = `${percent}%`;
 
-    // Se estiver a menos de 300px do fim, começa a empurrar o elemento para cima de forma dinâmica
-    if (distanceFromBottom < 300) {
-        // Quanto mais perto do 0 o distanceFromBottom fica, maior o incremento na margem
-        const extraMargin = 300 - distanceFromBottom; 
-        pageProgressContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`; 
-        quickActionsContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`; 
-        
-        // Ou você pode manipular o style.marginBottom se preferir
-    } else {
-        pageProgressContainer.style.transform = "translateY(0px)";
-        quickActionsContainer.style.transform = "translateY(0px)";
+        pageProgressContainer.classList.toggle(
+            "visible", window.scrollY > window.innerHeight * 0.7
+        );
+
+        // Se estiver a menos de 300px do fim, começa a empurrar o elemento para cima de forma dinâmica
+        if (distanceFromBottom < 300) {
+            // Quanto mais perto do 0 o distanceFromBottom fica, maior o incremento na margem
+            const extraMargin = 300 - distanceFromBottom;
+            pageProgressContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`;
+            quickActionsContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`;
+
+            // Ou você pode manipular o style.marginBottom se preferir
+        } else {
+            pageProgressContainer.style.transform = "translateY(0px)";
+            quickActionsContainer.style.transform = "translateY(0px)";
+        }
     }
-}
 
-window.addEventListener("scroll", updatePageProgress, { passive: true });
-window.addEventListener("resize", updatePageProgress);
-backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
-updatePageProgress();
+    window.addEventListener("scroll", updatePageProgress, { passive: true });
+    window.addEventListener("resize", updatePageProgress);
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    updatePageProgress();
 
 
-backToTop.classList.toggle(
+    backToTop.classList.toggle(
         "visible", window.scrollY > window.innerHeight * 0.7 && !nearBottom);
 }
 //#endregion
 
 //#region : HEADER: ESCONDE AO DESCER
 {
-const topbar = document.getElementById("topbar");
-let previousScroll = window.scrollY;
+    const topbar = document.getElementById("topbar");
+    let previousScroll = window.scrollY;
 
-window.addEventListener("scroll", () => {
-    const current = window.scrollY;
-    const difference = current - previousScroll;
+    window.addEventListener("scroll", () => {
+        const current = window.scrollY;
+        const difference = current - previousScroll;
 
-    if (current < 80) {
-        topbar.classList.remove("hidden");
-    } else if (difference > 4) {
-        topbar.classList.add("hidden");
-    } else if (difference < -4) {
-        topbar.classList.remove("hidden");
-    }
+        if (current < 80) {
+            topbar.classList.remove("hidden");
+        } else if (difference > 4) {
+            topbar.classList.add("hidden");
+        } else if (difference < -4) {
+            topbar.classList.remove("hidden");
+        }
 
-    previousScroll = current;
-}, { passive: true });
+        previousScroll = current;
+    }, { passive: true });
 }
 //#endregion
 
 //#region : TECLA ESC
 {
-document.addEventListener("keydown", event => {
-    if (event.key !== "Escape") return;
+    document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
 
-    if (shareModalOverlay.classList.contains("open")) {
-        closeShareModal();
-        return;
-    }
+        if (shareModalOverlay.classList.contains("open")) {
+            closeShareModal();
+            return;
+        }
 
-    if (modalOverlay.classList.contains("open")) {
-        closeModal();
-        return;
-    }
+        if (modalOverlay.classList.contains("open")) {
+            closeModal();
+            return;
+        }
 
-    if (activeDrawer) {
-        closeDrawer();
-    }
-});
+        if (activeDrawer) {
+            closeDrawer();
+        }
+    });
 }
 //#endregion
 
 //#region : MODAL DE VÍDEO NO FOOTER
 {
-const videoModalOverlay = document.getElementById("videoModalOverlay");
-const openVideoModalBtn = document.getElementById("rafaelVideoTrigger");
-const videoModalClose = document.getElementById("videoModalClose");
-const videoIframe = document.getElementById("videoIframe");
+    const videoModalOverlay = document.getElementById("videoModalOverlay");
+    const openVideoModalBtn = document.getElementById("rafaelVideoTrigger");
+    const videoModalClose = document.getElementById("videoModalClose");
+    const videoIframe = document.getElementById("videoIframe");
 
-// URL de exibição embutida (Embed) do vídeo do YouTube Shorts
-const videoUrl = "https://www.youtube.com/embed/egYTYpleY0U?autoplay=1";
+    // URL de exibição embutida (Embed) do vídeo do YouTube Shorts
+    const videoUrl = "https://www.youtube.com/embed/egYTYpleY0U?autoplay=1";
 
-function openVideoModal() {
-    videoIframe.src = videoUrl;
-    videoModalOverlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-    videoModalClose.focus();
-}
-
-function closeVideoModal() {
-    videoIframe.src = ""; // Interrompe a reprodução do áudio/vídeo ao fechar
-    videoModalOverlay.classList.remove("open");
-
-    if (!activeDrawer && !shareModalOverlay.classList.contains("open") && !modalOverlay.classList.contains("open")) {
-        document.body.style.overflow = "";
+    function openVideoModal() {
+        videoIframe.src = videoUrl;
+        videoModalOverlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+        videoModalClose.focus();
     }
-}
 
-if (openVideoModalBtn) {
-    openVideoModalBtn.addEventListener("click", openVideoModal);
-}
+    function closeVideoModal() {
+        videoIframe.src = ""; // Interrompe a reprodução do áudio/vídeo ao fechar
+        videoModalOverlay.classList.remove("open");
 
-if (videoModalClose) {
-    videoModalClose.addEventListener("click", closeVideoModal);
-}
+        if (!activeDrawer && !shareModalOverlay.classList.contains("open") && !modalOverlay.classList.contains("open")) {
+            document.body.style.overflow = "";
+        }
+    }
 
-if (videoModalOverlay) {
-    videoModalOverlay.addEventListener("click", event => {
-        if (event.target === videoModalOverlay) closeVideoModal();
+    if (openVideoModalBtn) {
+        openVideoModalBtn.addEventListener("click", openVideoModal);
+    }
+
+    if (videoModalClose) {
+        videoModalClose.addEventListener("click", closeVideoModal);
+    }
+
+    if (videoModalOverlay) {
+        videoModalOverlay.addEventListener("click", event => {
+            if (event.target === videoModalOverlay) closeVideoModal();
+        });
+    }
+
+    // Suporte para fechar com a tecla ESC
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && videoModalOverlay.classList.contains("open")) {
+            closeVideoModal();
+        }
     });
-}
-
-// Suporte para fechar com a tecla ESC
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && videoModalOverlay.classList.contains("open")) {
-        closeVideoModal();
-    }
-});
 
 }
 //#endregion
