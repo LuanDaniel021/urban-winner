@@ -388,7 +388,7 @@
             <div style="text-align: right;">
                 <p style="color: var(--muted); font-size: 0.8rem; line-height: 1.6;">
                     <strong>Grupo 5:</strong> Heider, Eduardo Guerellus Farapo, Luan,
-                    <span id="rafaelVideoTrigger" style="cursor: pointer; text-decoration: none;">Rafael</span>,
+                    <span id="videoModalTrigger" style="cursor: pointer; text-decoration: none;">Rafael</span>,
                     Bruno
                 </p>
                 <p style="color: var(--muted); font-size: 0.75rem; margin-top: 4px;">
@@ -415,7 +415,7 @@
                 <i class="fa-solid fa-location-dot"></i> Pontos
             </button>
 
-            <button class="quick-action fixed" id="shareButton">
+            <button class="quick-action fixed folder-share-button">
                 <i class="fa-solid fa-share-nodes"></i> Compartilhar
             </button>
 
@@ -424,14 +424,14 @@
             </button>
         </div>
 
-        <div class="page-progress-container" id="pageProgressContainer">
-            <button type="button" class="back-to-top" id="backToTop" aria-label="Voltar ao início">
+        <div id="pageProgressContainer" class="page-progress-container">
+            <button id="backToTop" class="back-to-top" type="button" aria-label="Voltar ao início">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
 
-            <div class="page-progress" id="pageProgress" aria-live="off">
+            <div id="pageProgress" class="page-progress"  aria-live="off">
                 <div class="page-progress-meta">
-                    <span id="pageProgressLabel">explorado</span>
+                    <span>Explorado</span>
                     <span id="pageProgressValue">0%</span>
                 </div>
                 <div class="page-progress-track"><span id="pageProgressBar"></span></div>
@@ -502,7 +502,7 @@
                     <a href="https://greeneletron.org.br/" target="_blank" class="tree-link">Green Eletron</a>
                 </div>
 
-                <button type="button" class="tree-link" id="folderShareButton">
+                <button type="button" class="tree-link folder-share-button">
                     <i class="fa-solid fa-file-lines"></i> Folder de campanha
                 </button>
 
@@ -727,20 +727,20 @@
     <div id="modals" class="modals">
 
         <!-- MODAL DE COMPARTILHAMENTO -->
-        <div id="share-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
-            <button class="modal-close" id="shareModalClose" aria-label="Fechar">
+        <div id="shareModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+            <button class="modal-close" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <span class="eyebrow">Compartilhe a informação</span>
-            <h2 id="shareModalTitle">Compartilhar página e folder</h2>
+            <h2>Compartilhar página e folder</h2>
             <p class="modal-description">
                 Copie o endereço da página ou visualize o folder informativo oficial.
             </p>
 
             <div class="share-url-row">
-                <input type="url" id="shareUrl" readonly aria-label="Endereço da página">
-                <button type="button" class="share-copy-button" id="copyShareUrl">
+                <input id="shareUrl" type="url" readonly aria-label="Endereço da página">
+                <button id="copyShareUrl" class="share-copy-button" type="button">
                     <i class="fa-solid fa-copy"></i> Copiar link
                 </button>
             </div>
@@ -902,9 +902,9 @@
         </div>
 
         <!-- MODAL DE VÍDEO -->
-        <div id="videoModalOverlay" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"
+        <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"
             style="max-width: 450px; padding: 20px;">
-            <button class="modal-close" id="videoModalClose" aria-label="Fechar">
+            <button class="modal-close" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 

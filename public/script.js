@@ -1,36 +1,90 @@
 
+const overlay = document.getElementById("overlay");
+
+let _drawer = null;
+
+let _modal = null;
+
+//#region : escape
+
+function _escape() {
+    if ( _drawer ) {
+        closeDrawer(_drawer);
+    }
+    if ( _modal ) {
+        closeModal(_modal);
+    }
+}
+
+document.addEventListener("keydown",
+    event => {
+        if (event.key === "Escape") {
+            _escape();
+        }
+        
+    }
+);
+
+//#endregion
+
 //#region : interface
 {}
 //#endregion
 
 //#region : overlay
 
-const overlay = document.getElementById("overlay");
-
-function overlayOpen() {
+function openOverlay()
+{
     if ( !overlay.classList.contains("open") ) {
         overlay.classList.add("open");
     }
 }
 
-function overlayClose() {
+function closeOverlay()
+{
     if ( overlay.classList.contains("open") ) {
         overlay.classList.remove("open");
     }
 }
 
-function overlayToggle() {
-    overlay.classList.toggle("open");
-}
+overlay.addEventListener("click", _escape);
 
 //#endregion
 
 //#region : drawers
 
-function openDrawer(drawer) {
-    overlayOpen();
-    drawer.classList.add("open");
+function openDrawer( drawer )
+{
+    if ( _drawer ) {
+        closeDrawer( _drawer )
+    }
+
+    if ( _modal ) {
+        closeModal( _modal );
+    }
+
+    openOverlay();
+
+    if ( !drawer.classList.contains("open") ) {
+        drawer.classList.add("open");    
+    }
+
+    _drawer = drawer;
+
     document.body.style.overflow = "hidden";
+}
+
+function closeDrawer( drawer )
+{
+    closeOverlay();
+
+    if ( drawer.classList.contains("open") ) {
+        drawer.classList.remove("open");    
+    }
+
+    _drawer = null;
+    
+    document.body.style.overflow = "";
 }
 
 document.querySelectorAll(".drawer")
@@ -39,9 +93,7 @@ document.querySelectorAll(".drawer")
             drawer.querySelector(".drawer-close")
                 .addEventListener( "click",
                     () => {
-                        overlayClose();
-                        drawer.classList.toggle("open");
-                        document.body.style.overflow = "";
+                        closeDrawer(drawer);
                     }
                 );
         }
@@ -51,15 +103,47 @@ document.querySelectorAll(".drawer")
 
 //#region : modals
 
+function openModal( modal )
+{
+    if ( _modal ) {
+        closeModal( _modal )
+    }
+
+    if ( _drawer ) {
+        closeDrawer( _drawer );
+    }
+
+    openOverlay();
+
+    if ( !modal.classList.contains("open") ) {
+        modal.classList.add("open");    
+    }
+
+    _modal = modal;
+
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal( modal )
+{
+    closeOverlay();
+
+    if ( modal.classList.contains("open") ) {
+        modal.classList.remove("open");    
+    }
+
+    _modal = null;
+
+    document.body.style.overflow = "";
+}
+
 document.querySelectorAll(".modal")
     .forEach(
         modal => {
             modal.querySelector(".modal-close")
                 .addEventListener( "click",
                     () => {
-                        overlayToggle();
-                        modal.classList.toggle("open");
-                        document.body.style.overflow = "";
+                        closeModal( modal );
                     }
                 );
         }
@@ -343,34 +427,37 @@ const equipment = [
 
 //#region : FOLDER E COMPARTILHAMENTO
 {
-    const shareModal = document.getElementById("share-modal");
-    const shareUrl = document.getElementById("shareUrl");
+    const modal = document.getElementById("shareModal");
+    const url = document.getElementById("shareUrl");
 
     function openShareModal() {
-        overlayOpen();
-        shareUrl.value = location.href;
-        shareModal.classList.toggle("open");
-        document.body.style.overflow = "hidden";
+        url.value = window.location.href;
+        openModal(modal);
     }
 
-    document.getElementById("shareButton").addEventListener("click", openShareModal);
-    document.getElementById("folderShareButton").addEventListener("click", openShareModal);
-
-    document.getElementById("copyShareUrl").addEventListener("click", async () => {
-        try {
-            await navigator.clipboard.writeText(shareUrl.value);
-            showFeedback("Link copiado!");
-        } catch (error) {
-            shareUrl.focus();
-            shareUrl.select();
-            try {
-                document.execCommand("copy");
-                showFeedback("Link copiado!");
-            } catch (copyError) {
-                showFeedback("Selecione e copie o link manualmente.");
+    document.querySelectorAll(".folder-share-button")
+        .forEach(
+            button => {
+                button.addEventListener( "click", openShareModal );
             }
-        }
-    });
+        );
+
+    document.getElementById("copyShareUrl")
+        .addEventListener( "click",
+            async () => {
+                try {
+                    await navigator.clipboard.writeText( url.value );
+                }
+                catch (error) {
+                    url.focus();
+                    url.select();
+                    try {
+                        document.execCommand("copy");
+                    }
+                    catch (copyError) {}
+                }
+            }
+        );
 }
 //#endregion
 
@@ -394,8 +481,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
 {
     let selectedEquipment = null;
 
-    // A lista permanece vazia até que os pontos reais sejam fornecidos.
-    // Cada futuro ponto pode informar: name, lat, lng, address e acceptedCategories.
     const collectionPoints = [];
 
     function openEquipmentDetail(item) {
@@ -435,13 +520,12 @@ document.getElementById("mapButton").addEventListener("click", () => {
     }
 
     document.getElementById("backToEquipmentList").addEventListener("click", () => {
-        // renderSidebar(sidebarSearch.value);
         renderEquipment();
         openDrawer(document.getElementById("equipmentDrawer"));
     });
 
     document.getElementById("compatiblePointsButton").addEventListener("click", () => {
-        closeDrawer();
+        closeDrawer(_drawer);
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
         highlightCompatiblePoints();
     });
@@ -484,57 +568,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
 }
 //#endregion
 
-//#region : CATÁLOGO NA SIDEBAR
-{
-    // const sidebarList = document.getElementById("sidebarList");
-    // const sidebarSearch = document.getElementById("sidebarSearch");
-
-    // function renderSidebar(query = "") {
-    //     const normalized = query.toLowerCase().trim();
-
-    //     const filtered = equipment.filter(item => {
-    //         return [
-    //             item.name,
-    //             item.examples,
-    //             item.tip,
-    //             item.cat
-    //         ].join(" ").toLowerCase().includes(normalized);
-    //     });
-
-    //     sidebarList.replaceChildren();
-
-    //     if (!filtered.length) {
-    //         const empty = document.createElement("p");
-    //         empty.className = "empty-state";
-    //         empty.textContent = "Nenhum equipamento encontrado.";
-    //         sidebarList.appendChild(empty);
-    //         return;
-    //     }
-
-    //     filtered.forEach(item => {
-    //         const card = document.createElement("button");
-    //         card.type = "button";
-    //         card.className = "drawer-item explorer-equipment-item";
-
-    //         const category = document.createElement("span");
-    //         category.className = "equipment-category";
-    //         category.textContent = category[item.cat] || "Equipamento";
-
-    //         const title = document.createElement("strong");
-    //         title.textContent = `${item.emoji} ${item.name}`;
-
-    //         card.append(category, title);
-    //         card.addEventListener("click", () => openEquipmentDetail(item));
-    //         sidebarList.appendChild(card);
-    //     });
-    // }
-
-    // sidebarSearch.addEventListener("input", event => {
-    //     renderSidebar(event.target.value);
-    // });
-}
-//#endregion
-
 //#region : ÁRVORE DO EXPLORADOR
 {
     document.querySelectorAll(".tree-toggle").forEach(button => {
@@ -549,7 +582,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     document.querySelectorAll(".tree-link").forEach(link => {
         link.addEventListener("click", () => {
             if (link.getAttribute("href")?.startsWith("#")) {
-                closeDrawer();
+                closeDrawer( _drawer );
             }
         });
     });
@@ -560,19 +593,11 @@ document.getElementById("mapButton").addEventListener("click", () => {
 {
      document.querySelectorAll(".step[data-modal]")
         .forEach(
-            card => {
-
-                const modal = document.getElementById( card.dataset.modal );
-
-                card.addEventListener("click",
-                    () => {
-                        overlayToggle();
-                        modal.classList.toggle("open");
-                        document.body.style.overflow = "hidden";
-                    }
-                );
-
-            }
+            card => card.addEventListener(
+                "click", openModal(
+                    document.getElementById( card.dataset.modal )
+                )
+            )
         );
 }
 //#endregion
@@ -619,7 +644,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
     });
 
     document.getElementById("equipmentButton").addEventListener("click", () => {
-        // renderSidebar();
         openDrawer(document.getElementById("equipmentDrawer"));
     });
 
@@ -631,7 +655,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 }
 //#endregion
 
-//#region : MENU MOBILE, SEÇÃO ATIVA E PROGRESSO DA PÁGINA
+//#region : MENU MOBILE
 {
     const menuToggle = document.getElementById("menuToggle");
     const mainNav = document.getElementById("mainNav");
@@ -671,29 +695,24 @@ document.getElementById("mapButton").addEventListener("click", () => {
     }, { threshold: [0.25, 0.5, 0.7] });
 
     navigationSections.forEach(section => navObserver.observe(section));
+}
+//#endregion
 
+//#region : PROGRESSO DA PÁGINA
+{
     const pageProgressValue = document.getElementById("pageProgressValue");
-    const pageProgressLabel = document.getElementById("pageProgressLabel");
     const pageProgressBar = document.getElementById("pageProgressBar");
-    const pageProgress = document.getElementById("pageProgress");
-    const backToTop = document.getElementById("backToTop");
     const pageProgressContainer = document.getElementById("pageProgressContainer");
     const quickActionsContainer = document.getElementById("quickActionsContainer");
 
-
-    function updatePageProgress() {
+    function progress() {
         const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
         const explored = scrollable > 0
             ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100))
             : 0;
         const percent = Math.round(explored);
-
-        // Distância atual até o fundo da página (em pixels)
         const distanceFromBottom = document.documentElement.scrollHeight - (window.innerHeight + window.scrollY);
-        const nearBottom = distanceFromBottom <= 120;
 
-        // Comportamento normal
-        pageProgressLabel.textContent = "explorado";
         pageProgressValue.textContent = `${percent}%`;
         pageProgressBar.style.width = `${percent}%`;
 
@@ -702,77 +721,74 @@ document.getElementById("mapButton").addEventListener("click", () => {
                 "visible", window.scrollY > window.innerHeight * 0.10
             );
 
-        // Se estiver a menos de 300px do fim, começa a empurrar o elemento para cima de forma dinâmica
         if (distanceFromBottom < 300) {
-            // Quanto mais perto do 0 o distanceFromBottom fica, maior o incremento na margem
             const extraMargin = 300 - distanceFromBottom;
             pageProgressContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`;
             quickActionsContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`;
-
-            // Ou você pode manipular o style.marginBottom se preferir
-        } else {
+        }
+        else {
             pageProgressContainer.style.transform = "translateY(0px)";
             quickActionsContainer.style.transform = "translateY(0px)";
         }
     }
 
-    window.addEventListener("scroll", updatePageProgress, { passive: true });
-    window.addEventListener("resize", updatePageProgress);
-    backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    window.addEventListener("scroll", progress, { passive: true });
 
-    updatePageProgress();
+    window.addEventListener("resize", progress);
 
+    document.getElementById("backToTop")
+        .addEventListener(
+            "click", window.scrollTo({ top: 0, behavior: "smooth" })
+        );
+
+    progress();
 }
 //#endregion
 
 //#region : HEADER: ESCONDE AO DESCER
 {
-    const topbar = document.getElementById("topbar");
-    let previousScroll = window.scrollY;
+    const header = document.getElementById("topbar");
+    let previousY = window.scrollY;
 
-    window.addEventListener("scroll", () => {
-        const current = window.scrollY;
-        const difference = current - previousScroll;
+    window.addEventListener( "scroll",
+        () => {
+            const current = window.scrollY;
+            const difference = current - previousY;
 
-        if (current < 80) {
-            topbar.classList.remove("hidden");
-        } else if (difference > 4) {
-            topbar.classList.add("hidden");
-        } else if (difference < -4) {
-            topbar.classList.remove("hidden");
-        }
+            if (current < 80 || difference < -4) {
+                header.classList.remove("hidden");
+            }
+            else if (difference > 4) {
+                header.classList.add("hidden");
+            }
 
-        previousScroll = current;
-    }, { passive: true });
+            previousY = current;
+        }, { passive: true }
+    );
 }
 //#endregion
 
 //#region : MODAL DE VÍDEO NO FOOTER
 {
-    const videoModalOverlay = document.getElementById("videoModalOverlay");
-    const openVideoModalBtn = document.getElementById("rafaelVideoTrigger");
-    const videoIframe = document.getElementById("videoIframe");
+    const src = "https://www.youtube.com/embed/egYTYpleY0U?autoplay=1";
+    const modal = document.getElementById("videoModal");
+    const iframe = document.getElementById("videoIframe");
 
     function openVideoModal() {
-        overlayOpen();
-        videoIframe.src = "https://www.youtube.com/embed/egYTYpleY0U?autoplay=1";
-        videoModalOverlay.classList.add("open");
-        document.body.style.overflow = "hidden";
+        iframe.src = src;
+        openModal(modal);
     }
 
-    openVideoModalBtn.addEventListener("click", openVideoModal);
+    function closeVideoModal() {
+        iframe.src = "";
+        closeModal(modal);
+    }
+
+    document.getElementById("videoModalTrigger")
+        .addEventListener( "click", openVideoModal);
+    
+    modal.querySelector(".close-modal")
+        .addEventListener( "click", closeVideoModal );
 
 }
-//#endregion
-
-//#region : TECLA ESC
-
-document.addEventListener("keydown",
-    event => {
-        if (event.key !== "Escape") return;
-    }
-);
-
 //#endregion
