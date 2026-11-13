@@ -810,41 +810,96 @@
         </aside>
 
         <!-- PAINEL DE PONTOS -->
-        <aside id="mapDrawer" class="drawer">
+        <aside id="mapDrawer" class="drawer map-drawer">
             <div class="drawer-header">
                 <div>
                     <span class="eyebrow">Localizadores</span>
                     <h2>Pontos de coleta</h2>
-                    <p>Consulte os sistemas oficiais de recebimento.</p>
+                    <p>Consulte os sistemas oficiais e explore os pontos cadastrados.</p>
                 </div>
 
-                <button class="drawer-close" data-close-drawer>
+                <button class="drawer-close" data-close-drawer aria-label="Fechar">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <div class="drawer-list">
-                <article class="drawer-item">
+            <div class="drawer-list map-provider-list">
+                <article class="drawer-item map-provider-card">
                     <h3>ABREE</h3>
                     <p>Localizador de pontos de recebimento de eletroeletrônicos.</p>
-                    <a href="https://abree.org.br/" target="_blank" rel="noopener">
-                        Consultar locais →
-                    </a>
+                    <a href="https://abree.org.br/" target="_blank" rel="noopener">Consultar locais →</a>
                 </article>
 
-                <article class="drawer-item">
+                <article class="drawer-item map-provider-card">
                     <h3>Green Eletron</h3>
                     <p>Pontos de recebimento de eletrônicos, pilhas e baterias.</p>
-                    <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">
-                        Consultar locais →
-                    </a>
+                    <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">Consultar locais →</a>
                 </article>
             </div>
 
+            <div class="map-drawer-tree">
+                <div class="map-tree-heading">
+                    <h3><i class="fa-solid fa-location-dot"></i> Pontos no mapa</h3>
+                    <span>1 ponto</span>
+                </div>
+                <div class="map-point-tree">
+                    <button type="button" class="map-point-link" data-open-point="ponto-demo">
+                        <span class="map-point-tree-icon"><i class="fa-solid fa-recycle"></i></span>
+                        <span>
+                            <strong>Ponto demonstrativo</strong>
+                            <small>Porto União · SC</small>
+                        </span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
             <p class="map-note">
-                A disponibilidade e os produtos aceitos variam conforme o ponto.
-                Confirme as informações antes de sair.
+                O ponto listado é fictício e serve apenas para demonstrar a navegação.
+                A disponibilidade e os produtos aceitos variam conforme cada local.
             </p>
+        </aside>
+
+        <!-- DETALHES DO PONTO DE COLETA -->
+        <aside id="collectionPointDrawer" class="drawer collection-point-drawer" aria-label="Detalhes do ponto de coleta">
+            <div class="drawer-header">
+                <div>
+                    <span class="eyebrow">Ponto de coleta</span>
+                    <h2 id="collectionPointTitle">Ponto demonstrativo</h2>
+                    <p id="collectionPointSubtitle">Porto União · Santa Catarina</p>
+                </div>
+                <button class="drawer-close" data-close-drawer aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="collection-point-status">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Ponto fictício para demonstração</span>
+            </div>
+
+            <div class="collection-point-info">
+                <div>
+                    <span class="collection-point-label">Endereço</span>
+                    <p>Localização ilustrativa, região central de Porto União - SC.</p>
+                </div>
+                <div>
+                    <span class="collection-point-label">Materiais recebidos</span>
+                    <div class="collection-point-tags">
+                        <span>Eletrônicos</span>
+                        <span>Pilhas</span>
+                        <span>Baterias</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="collection-point-label">Funcionamento</span>
+                    <p>Horário não definido — informação demonstrativa.</p>
+                </div>
+            </div>
+
+            <button type="button" class="collection-point-map-button" id="focusCollectionPoint">
+                <i class="fa-solid fa-map-location-dot"></i> Ver no mapa
+            </button>
         </aside>
 
     </div>
