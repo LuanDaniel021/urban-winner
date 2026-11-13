@@ -2250,3 +2250,70 @@ main > .section#mapa .container {
 .collection-point-map-button:hover {
     filter: brightness(.94);
 }
+
+
+/* IMPORTAÇÃO, EXPORTAÇÃO E ORDENAÇÃO DO CHECKLIST */
+
+.checklist-file-actions {
+    display: flex;
+    gap: 9px;
+    margin: 0 0 18px;
+}
+
+.checklist-file-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--green);
+    background: white;
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.checklist-file-actions button:hover {
+    border-color: var(--green);
+    background: var(--soft);
+}
+
+.checklist-task-actions {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex: 0 0 auto;
+}
+
+.checklist-task-move,
+.checklist-task-remove {
+    display: grid;
+    place-items: center;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--muted);
+    background: transparent;
+    cursor: pointer;
+}
+
+.checklist-task-move:hover:not(:disabled) {
+    color: var(--green);
+    background: var(--soft);
+}
+
+.checklist-task-move:disabled {
+    opacity: .28;
+    cursor: not-allowed;
+}
+
+@media (max-width: 420px) {
+    .checklist-file-actions { flex-direction: column; }
+    .checklist-task { align-items: flex-start; }
+}
