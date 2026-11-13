@@ -2066,3 +2066,187 @@ main > .section#mapa .container {
     .footer-meta { text-align: left; }
     .brochure-preview { padding: 10px; }
 }
+
+
+/* DRAWER DO MAPA E PONTOS DE COLETA */
+
+.map-provider-list {
+    gap: 8px;
+    margin-top: 17px;
+}
+
+.map-provider-card {
+    padding: 13px 15px;
+}
+
+.map-provider-card h3 {
+    margin-bottom: 5px;
+    font-size: .86rem;
+}
+
+.map-provider-card p {
+    font-size: .76rem;
+    line-height: 1.45;
+}
+
+.map-provider-card a {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--green);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.map-drawer-tree {
+    margin-top: 25px;
+    padding-top: 19px;
+    border-top: 1px solid var(--line);
+}
+
+.map-tree-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.map-tree-heading h3 {
+    font-size: .9rem;
+}
+
+.map-tree-heading h3 i {
+    margin-right: 6px;
+    color: var(--green);
+}
+
+.map-tree-heading > span {
+    color: var(--muted);
+    font-size: .72rem;
+}
+
+.map-point-tree {
+    display: grid;
+    gap: 5px;
+}
+
+.map-point-link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 11px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--text);
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.map-point-link:hover {
+    border-color: var(--green);
+    background: var(--soft);
+}
+
+.map-point-tree-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    color: var(--green);
+    background: var(--soft);
+}
+
+.map-point-link > span:nth-child(2) {
+    display: grid;
+    flex: 1;
+    gap: 3px;
+}
+
+.map-point-link strong {
+    font-size: .8rem;
+}
+
+.map-point-link small {
+    color: var(--muted);
+    font-size: .72rem;
+}
+
+.map-point-link > i {
+    color: var(--muted);
+    font-size: .72rem;
+}
+
+.collection-point-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 20px 0;
+    padding: 12px;
+    border-radius: 10px;
+    color: #805b12;
+    background: #fff7df;
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.collection-point-info {
+    display: grid;
+    gap: 19px;
+}
+
+.collection-point-label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--muted);
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.collection-point-info p {
+    font-size: .86rem;
+    line-height: 1.6;
+}
+
+.collection-point-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.collection-point-tags span {
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: var(--green);
+    background: var(--soft);
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.collection-point-map-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    background: var(--green);
+    font: inherit;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.collection-point-map-button:hover {
+    filter: brightness(.94);
+}
