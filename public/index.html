@@ -638,15 +638,10 @@
                 <p id="checklistProgressText">0 de 5 etapas concluídas</p>
             </div>
 
-            <div class="checklist-file-actions">
-                <button type="button" id="exportChecklist">
-                    <i class="fa-solid fa-file-arrow-down"></i> Exportar
-                </button>
-                <button type="button" id="importChecklist">
-                    <i class="fa-solid fa-file-arrow-up"></i> Importar
-                </button>
-                <input id="checklistFileInput" type="file" accept=".json,application/json" hidden>
-            </div>
+            <button type="button" id="checklistModeToggle" class="checklist-mode-toggle" aria-pressed="true">
+                <i class="fa-solid fa-eye"></i>
+                <span>Modo de visualização</span>
+            </button>
 
             <form id="checklistForm" class="checklist-add-form">
                 <input id="checklistInput" type="text" maxlength="120" placeholder="Adicionar uma etapa..." autocomplete="off" required>
@@ -658,6 +653,16 @@
             <button type="button" class="checklist-reset-button" id="resetChecks">
                 <i class="fa-solid fa-rotate-left"></i> Reiniciar checklist
             </button>
+
+            <div class="checklist-file-actions">
+                <button type="button" id="exportChecklist">
+                    <i class="fa-solid fa-file-arrow-down"></i> Exportar
+                </button>
+                <button type="button" id="importChecklist">
+                    <i class="fa-solid fa-file-arrow-up"></i> Importar
+                </button>
+                <input id="checklistFileInput" type="file" accept=".json,application/json" hidden>
+            </div>
         </aside>
 
         <!-- PAINEL DE EQUIPAMENTOS -->
