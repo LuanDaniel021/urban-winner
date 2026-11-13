@@ -638,6 +638,16 @@
                 <p id="checklistProgressText">0 de 5 etapas concluídas</p>
             </div>
 
+            <div class="checklist-file-actions">
+                <button type="button" id="exportChecklist">
+                    <i class="fa-solid fa-file-arrow-down"></i> Exportar
+                </button>
+                <button type="button" id="importChecklist">
+                    <i class="fa-solid fa-file-arrow-up"></i> Importar
+                </button>
+                <input id="checklistFileInput" type="file" accept=".json,application/json" hidden>
+            </div>
+
             <form id="checklistForm" class="checklist-add-form">
                 <input id="checklistInput" type="text" maxlength="120" placeholder="Adicionar uma etapa..." autocomplete="off" required>
                 <button type="submit" aria-label="Adicionar etapa"><i class="fa-solid fa-plus"></i></button>
