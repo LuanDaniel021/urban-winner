@@ -272,6 +272,7 @@ function showFeedback(message) {
     const list = document.getElementById("checklistItems");
     const form = document.getElementById("checklistForm");
     const input = document.getElementById("checklistInput");
+    const fileInput = document.getElementById("checklistFileInput");
     const progressBar = document.getElementById("checklistProgressBar");
     const progressText = document.getElementById("checklistProgressText");
     const progressLabel = document.getElementById("checklistProgressLabel");
@@ -283,6 +284,14 @@ function showFeedback(message) {
         progressBar.style.width = `${percent}%`;
         progressText.textContent = `${completed} de ${tasks.length} etapas concluídas`;
         progressLabel.textContent = `${percent}%`;
+    }
+
+    function moveTask(index, direction) {
+        const nextIndex = index + direction;
+        if (nextIndex < 0 || nextIndex >= tasks.length) return;
+
+        [tasks[index], tasks[nextIndex]] = [tasks[nextIndex], tasks[index]];
+        renderTasks();
     }
 
     function renderTasks() {
@@ -308,6 +317,27 @@ function showFeedback(message) {
             text.textContent = task.text;
             label.append(checkbox, text);
 
+            const actions = document.createElement("div");
+            actions.className = "checklist-task-actions";
+
+            const up = document.createElement("button");
+            up.type = "button";
+            up.className = "checklist-task-move";
+            up.disabled = index === 0;
+            up.title = "Mover para cima";
+            up.setAttribute("aria-label", `Mover para cima: ${task.text}`);
+            up.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            up.addEventListener("click", () => moveTask(index, -1));
+
+            const down = document.createElement("button");
+            down.type = "button";
+            down.className = "checklist-task-move";
+            down.disabled = index === tasks.length - 1;
+            down.title = "Mover para baixo";
+            down.setAttribute("aria-label", `Mover para baixo: ${task.text}`);
+            down.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+            down.addEventListener("click", () => moveTask(index, 1));
+
             const remove = document.createElement("button");
             remove.type = "button";
             remove.className = "checklist-task-remove";
@@ -318,7 +348,8 @@ function showFeedback(message) {
                 renderTasks();
             });
 
-            item.append(label, remove);
+            actions.append(up, down, remove);
+            item.append(label, actions);
             list.append(item);
         });
 
@@ -339,6 +370,64 @@ function showFeedback(message) {
     document.getElementById("resetChecks").addEventListener("click", () => {
         tasks.forEach(task => task.done = false);
         renderTasks();
+    });
+
+    document.getElementById("exportChecklist").addEventListener("click", () => {
+        const data = {
+            version: 1,
+            tasks: tasks.map(task => ({ text: task.text, done: task.done }))
+        };
+        const file = new Blob([JSON.stringify(data, null, 2)], {
+            type: "application/json"
+        });
+        const url = URL.createObjectURL(file);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "meu-checklist.json";
+        link.click();
+        URL.revokeObjectURL(url);
+    });
+
+    document.getElementById("importChecklist").addEventListener("click", () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener("change", async () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        try {
+            const data = JSON.parse(await file.text());
+            const valid = data &&
+                data.version === 1 &&
+                Array.isArray(data.tasks) &&
+                data.tasks.length <= 500 &&
+                data.tasks.every(task =>
+                    task &&
+                    typeof task.text === "string" &&
+                    task.text.trim().length > 0 &&
+                    task.text.trim().length <= 120 &&
+                    typeof task.done === "boolean"
+                );
+
+            if (!valid) {
+                alert("Arquivo inválido. Selecione um checklist exportado por esta página.");
+                return;
+            }
+
+            if (!confirm("Importar este arquivo vai substituir todas as etapas atuais. Deseja continuar?")) return;
+
+            tasks.splice(0, tasks.length, ...data.tasks.map(task => ({
+                text: task.text.trim(),
+                done: task.done
+            })));
+            renderTasks();
+            showFeedback("Checklist importado com sucesso!");
+        } catch (error) {
+            alert("Não foi possível ler o arquivo. Verifique se ele é um JSON válido.");
+        } finally {
+            fileInput.value = "";
+        }
     });
 
     renderTasks();
