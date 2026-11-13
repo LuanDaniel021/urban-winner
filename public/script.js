@@ -591,14 +591,13 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
 //#region : MODAIS INFORMATIVOS
 {
-     document.querySelectorAll(".step[data-modal]")
-        .forEach(
-            card => card.addEventListener(
-                "click", openModal(
-                    document.getElementById( card.dataset.modal )
-                )
-            )
-        );
+    document.querySelectorAll(".step[data-modal]")
+        .forEach(card => {
+            card.addEventListener("click", () => {
+                const modal = document.getElementById(card.dataset.modal);
+                if (modal) openModal(modal);
+            });
+        });
 }
 //#endregion
 
