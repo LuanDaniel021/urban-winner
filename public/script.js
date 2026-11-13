@@ -367,9 +367,42 @@ function showFeedback(message) {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // Nenhum ponto fictício.
-    // Os pontos reais serão cadastrados futuramente em collectionPoints.
-    // A estrutura de filtros/compatibilidade já está preparada para acceptedCategories.
+    // Ponto fictício para demonstrar a interação com os drawers.
+    const collectionPoints = {
+        "ponto-demo": {
+            name: "Ponto demonstrativo",
+            position: [-26.24, -51.08]
+        }
+    };
+
+    const pointDrawer = document.getElementById("collectionPointDrawer");
+
+    function openCollectionPoint(pointId) {
+        const point = collectionPoints[pointId];
+        if (!point) return;
+
+        document.getElementById("collectionPointTitle").textContent = point.name;
+        document.getElementById("collectionPointSubtitle").textContent = "Porto União · Santa Catarina";
+        openDrawer(pointDrawer);
+    }
+
+    Object.entries(collectionPoints).forEach(([id, point]) => {
+        const marker = L.marker(point.position).addTo(map);
+        marker.bindTooltip(point.name);
+        marker.on("click", () => openCollectionPoint(id));
+    });
+
+    document.querySelectorAll("[data-open-point]").forEach(button => {
+        button.addEventListener("click", () => openCollectionPoint(button.dataset.openPoint));
+    });
+
+    document.getElementById("focusCollectionPoint").addEventListener("click", () => {
+        const point = collectionPoints["ponto-demo"];
+        closeDrawer(pointDrawer);
+        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        map.setView(point.position, 13);
+        setTimeout(() => map.invalidateSize(), 200);
+    });
 
 
     const mapObserver = new IntersectionObserver(entries => {
