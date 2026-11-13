@@ -276,6 +276,26 @@ function showFeedback(message) {
     const progressBar = document.getElementById("checklistProgressBar");
     const progressText = document.getElementById("checklistProgressText");
     const progressLabel = document.getElementById("checklistProgressLabel");
+    const modeToggle = document.getElementById("checklistModeToggle");
+    let viewMode = true;
+
+    function updateMode() {
+        modeToggle.setAttribute("aria-pressed", String(viewMode));
+        modeToggle.classList.toggle("active", viewMode);
+        modeToggle.innerHTML = viewMode
+            ? '<i class="fa-solid fa-eye"></i><span>Modo de visualização</span>'
+            : '<i class="fa-solid fa-pen"></i><span>Modo de edição</span>';
+
+        form.hidden = viewMode;
+        document.getElementById("resetChecks").hidden = viewMode;
+        list.classList.toggle("checklist-view-mode", viewMode);
+    }
+
+    modeToggle.addEventListener("click", () => {
+        viewMode = !viewMode;
+        updateMode();
+        renderTasks();
+    });
 
     function updateProgress() {
         const completed = tasks.filter(task => task.done).length;
@@ -349,6 +369,7 @@ function showFeedback(message) {
             });
 
             actions.append(up, down, remove);
+            actions.hidden = viewMode;
             item.append(label, actions);
             list.append(item);
         });
@@ -430,6 +451,7 @@ function showFeedback(message) {
         }
     });
 
+    updateMode();
     renderTasks();
 }
 //#endregion
