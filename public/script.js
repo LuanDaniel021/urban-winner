@@ -1,3 +1,5 @@
+alert("Teste de alteração via Git funcionando!");
+
 
 const overlay = document.getElementById("overlay");
 
