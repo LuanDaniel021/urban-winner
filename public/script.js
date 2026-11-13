@@ -229,9 +229,9 @@ document.addEventListener("keydown", event => {
         card.addEventListener("click", () => openEquipmentDetail(item));
     });
 
-    document.getElementById("backToEquipmentList").addEventListener("click", () => {
+    document.getElementById("openChecklistFromEquipment").addEventListener("click", () => {
         closeDrawer(detailDrawer);
-        openDrawer(document.getElementById("equipmentDrawer"));
+        openDrawer(document.getElementById("checklistDrawer"));
     });
 
     document.getElementById("compatiblePointsButton").addEventListener("click", () => {
@@ -261,35 +261,98 @@ function showFeedback(message) {
 
 //#region : CHECKLIST
 {
-    const checks = [
-        ...document.querySelectorAll(
-            '#checklist input[type="checkbox"]'
-        )
+    const tasks = [
+        { text: "Verificar o estado do equipamento", done: false },
+        { text: "Desligar e desconectar", done: false },
+        { text: "Separar acessórios e componentes", done: false },
+        { text: "Proteger informações pessoais", done: false },
+        { text: "Confirmar o destino de entrega", done: false }
     ];
 
+    const list = document.getElementById("checklistItems");
+    const form = document.getElementById("checklistForm");
+    const input = document.getElementById("checklistInput");
+    const progressBar = document.getElementById("checklistProgressBar");
+    const progressText = document.getElementById("checklistProgressText");
+    const progressLabel = document.getElementById("checklistProgressLabel");
+
     function updateProgress() {
-        const completed = checks.filter(item => item.checked).length;
-        const percent = Math.round(completed / checks.length * 100);
+        const completed = tasks.filter(task => task.done).length;
+        const percent = tasks.length ? Math.round(completed / tasks.length * 100) : 0;
 
-        document.getElementById("progress").textContent =
-            `${completed} de ${checks.length} concluídos`;
-
-        document.getElementById("progressLabel").textContent =
-            `${percent}%`;
-
-        document.getElementById("progressBar").style.width =
-            `${percent}%`;
+        progressBar.style.width = `${percent}%`;
+        progressText.textContent = `${completed} de ${tasks.length} etapas concluídas`;
+        progressLabel.textContent = `${percent}%`;
     }
 
-    checks.forEach(check => {
-        check.addEventListener("change", updateProgress);
+    function renderTasks() {
+        list.replaceChildren();
+
+        tasks.forEach((task, index) => {
+            const item = document.createElement("div");
+            item.className = "checklist-task";
+            item.classList.toggle("completed", task.done);
+
+            const label = document.createElement("label");
+            label.className = "checklist-task-label";
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = task.done;
+            checkbox.addEventListener("change", () => {
+                task.done = checkbox.checked;
+                renderTasks();
+            });
+
+            const text = document.createElement("span");
+            text.textContent = task.text;
+            label.append(checkbox, text);
+
+            const remove = document.createElement("button");
+            remove.type = "button";
+            remove.className = "checklist-task-remove";
+            remove.setAttribute("aria-label", `Remover etapa: ${task.text}`);
+            remove.innerHTML = '<i class="fa-solid fa-trash"></i>';
+            remove.addEventListener("click", () => {
+                tasks.splice(index, 1);
+                renderTasks();
+            });
+
+            item.append(label, remove);
+            list.append(item);
+        });
+
+        updateProgress();
+    }
+
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+
+        tasks.push({ text, done: false });
+        input.value = "";
+        renderTasks();
+        input.focus();
     });
 
     document.getElementById("resetChecks").addEventListener("click", () => {
-        checks.forEach(check => check.checked = false);
-        updateProgress();
+        tasks.forEach(task => task.done = false);
+        renderTasks();
     });
-    updateProgress();
+
+    renderTasks();
+}
+//#endregion
+
+//#region : IMAGENS DO FOLDER
+{
+    document.querySelectorAll(".brochure-preview-image").forEach(image => {
+        image.addEventListener("error", () => {
+            image.hidden = true;
+            image.nextElementSibling.hidden = false;
+        });
+    });
 }
 //#endregion
 
@@ -385,6 +448,12 @@ document.getElementById("mapButton").addEventListener("click", () => {
         });
     });
 
+    document.querySelectorAll("[data-open-checklist]").forEach(button => {
+        button.addEventListener("click", () => {
+            openDrawer(document.getElementById("checklistDrawer"));
+        });
+    });
+
     document.querySelectorAll(".tree-link").forEach(link => {
         link.addEventListener("click", () => {
             if (link.getAttribute("href")?.startsWith("#")) {
@@ -448,9 +517,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     });
 
     document.getElementById("checklistButton").addEventListener("click", () => {
-        document.getElementById("checklist").scrollIntoView({
-            behavior: "smooth"
-        });
+        openDrawer(document.getElementById("checklistDrawer"));
     });
 }
 //#endregion
