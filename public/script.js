@@ -1,344 +1,210 @@
-alert("Teste de alteração via Git funcionando!");
-
-
+//#region : INTERFACE - MODAIS, PAINÉIS E OVERLAY
 const overlay = document.getElementById("overlay");
-
 let _drawer = null;
-
 let _modal = null;
 
-//#region : escape
-
-function _escape() {
-    if ( _drawer ) {
-        closeDrawer(_drawer);
-    }
-    if ( _modal ) {
-        closeModal(_modal);
-    }
+function updateOverlay() {
+    const active = Boolean(_drawer || _modal);
+    overlay.classList.toggle("open", active);
+    document.body.style.overflow = active ? "hidden" : "";
 }
 
-document.addEventListener("keydown",
-    event => {
-        if (event.key === "Escape") {
-            _escape();
-        }
-        
-    }
-);
-
-//#endregion
-
-//#region : interface
-{}
-//#endregion
-
-//#region : overlay
-
-function openOverlay()
-{
-    if ( !overlay.classList.contains("open") ) {
-        overlay.classList.add("open");
-    }
+function closeActive() {
+    if (_drawer) closeDrawer(_drawer);
+    if (_modal) closeModal(_modal);
 }
 
-function closeOverlay()
-{
-    if ( overlay.classList.contains("open") ) {
-        overlay.classList.remove("open");
-    }
-}
-
-overlay.addEventListener("click", _escape);
-
-//#endregion
-
-//#region : drawers
-
-function openDrawer( drawer )
-{
-    if ( _drawer ) {
-        closeDrawer( _drawer )
-    }
-
-    if ( _modal ) {
-        closeModal( _modal );
-    }
-
-    openOverlay();
-
-    if ( !drawer.classList.contains("open") ) {
-        drawer.classList.add("open");    
-    }
-
+function openDrawer(drawer) {
+    closeActive();
     _drawer = drawer;
-
-    document.body.style.overflow = "hidden";
+    drawer.classList.add("open");
+    updateOverlay();
 }
 
-function closeDrawer( drawer )
-{
-    closeOverlay();
-
-    if ( drawer.classList.contains("open") ) {
-        drawer.classList.remove("open");    
-    }
-
+function closeDrawer(drawer) {
+    if (drawer !== _drawer) return;
+    drawer.classList.remove("open");
     _drawer = null;
-    
-    document.body.style.overflow = "";
+    updateOverlay();
 }
 
-document.querySelectorAll(".drawer")
-    .forEach(
-        drawer => {
-            drawer.querySelector(".drawer-close")
-                .addEventListener( "click",
-                    () => {
-                        closeDrawer(drawer);
-                    }
-                );
-        }
-    );
-
-//#endregion
-
-//#region : modals
-
-function openModal( modal )
-{
-    if ( _modal ) {
-        closeModal( _modal )
-    }
-
-    if ( _drawer ) {
-        closeDrawer( _drawer );
-    }
-
-    openOverlay();
-
-    if ( !modal.classList.contains("open") ) {
-        modal.classList.add("open");    
-    }
-
+function openModal(modal) {
+    closeActive();
     _modal = modal;
-
-    document.body.style.overflow = "hidden";
+    modal.classList.add("open");
+    updateOverlay();
 }
 
-function closeModal( modal )
-{
-    closeOverlay();
-
-    if ( modal.classList.contains("open") ) {
-        modal.classList.remove("open");    
-    }
-
+function closeModal(modal) {
+    if (modal !== _modal) return;
+    modal.classList.remove("open");
+    const iframe = modal.querySelector("iframe");
+    if (iframe) iframe.src = "";
     _modal = null;
-
-    document.body.style.overflow = "";
+    updateOverlay();
 }
 
-document.querySelectorAll(".modal")
-    .forEach(
-        modal => {
-            modal.querySelector(".modal-close")
-                .addEventListener( "click",
-                    () => {
-                        closeModal( modal );
-                    }
-                );
-        }
-    );
+document.querySelectorAll(".drawer").forEach(drawer => {
+    drawer.querySelector(".drawer-close")?.addEventListener("click", () => closeDrawer(drawer));
+});
 
+document.querySelectorAll(".modal").forEach(modal => {
+    modal.querySelector(".modal-close")?.addEventListener("click", () => closeModal(modal));
+});
+
+overlay.addEventListener("click", closeActive);
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeActive();
+});
 //#endregion
 
-//#region : BASE PARA EQUIPAMENTOS
-
-const category = {
-    informatica: "Informática",
-    imagem: "Imagem e áudio",
-    casa: "Casa",
-    pessoal: "Cuidados pessoais",
-    ferramentas: "Ferramentas"
-};
-const equipment = [
-    {
-        name: "Celulares e smartphones",
-        cat: category.informatica,
-        emoji: "📱",
-        examples: "Celulares, smartphones, tablets e acessórios.",
-        tip: "Apague os dados pessoais e remova chip e cartão de memória."
-    },
-    {
-        name: "Computadores e periféricos",
-        cat: category.informatica,
-        emoji: "💻",
-        examples: "Computadores, notebooks, teclados e mouses.",
-        tip: "Faça backup e apague os dados antes da entrega."
-    },
-    {
-        name: "Impressoras e scanners",
-        cat: category.informatica,
-        emoji: "🖨️",
-        examples: "Impressoras, scanners e equipamentos semelhantes.",
-        tip: "Confirme se o ponto recebe equipamentos de maior porte."
-    },
-    {
-        name: "Cabos e carregadores",
-        cat: category.informatica,
-        emoji: "🔌",
-        examples: "Cabos, carregadores, adaptadores e conectores.",
-        tip: "Agrupe os acessórios para facilitar o transporte."
-    },
-    {
-        name: "Televisores e monitores",
-        cat: category.imagem,
-        emoji: "📺",
-        examples: "Televisores, monitores e telas eletrônicas.",
-        tip: "Evite impactos e confirme os limites de tamanho do ponto."
-    },
-    {
-        name: "Áudio e vídeo",
-        cat: category.imagem,
-        emoji: "🎧",
-        examples: "Rádios, caixas de som, fones e amplificadores.",
-        tip: "Separe controles e cabos e confirme a aceitação."
-    },
-    {
-        name: "Videogames",
-        cat: category.imagem,
-        emoji: "🎮",
-        examples: "Consoles, controles e acessórios de jogos.",
-        tip: "Remova contas e dados pessoais antes da entrega."
-    },
-    {
-        name: "Geladeiras e refrigeradores",
-        cat: category.casa,
-        emoji: "🧊",
-        examples: "Geladeiras, frigobares e refrigeradores domésticos.",
-        tip: "Consulte opções de coleta para equipamentos volumosos."
-    },
-    {
-        name: "Lavadoras e cuidados com roupas",
-        cat: category.casa,
-        emoji: "🧺",
-        examples: "Máquinas de lavar, secadoras e ferros elétricos.",
-        tip: "Confirme previamente o recebimento de eletrodomésticos grandes."
-    },
-    {
-        name: "Cozinha e preparo de alimentos",
-        cat: category.casa,
-        emoji: "🍳",
-        examples: "Liquidificadores, cafeteiras, torradeiras e micro-ondas.",
-        tip: "Desligue e retire alimentos ou líquidos."
-    },
-    {
-        name: "Limpeza doméstica",
-        cat: category.casa,
-        emoji: "🧹",
-        examples: "Aspiradores de pó e equipamentos elétricos de limpeza.",
-        tip: "Esvazie reservatórios e acondicione acessórios separadamente."
-    },
-    {
-        name: "Ventilação e climatização",
-        cat: category.casa,
-        emoji: "❄️",
-        examples: "Ventiladores, ar-condicionado e aquecedores.",
-        tip: "Equipamentos grandes podem exigir logística específica."
-    },
-    {
-        name: "Cuidados pessoais",
-        cat: category.pessoal,
-        emoji: "🪒",
-        examples: "Barbeadores, depiladores e secadores.",
-        tip: "Separe pilhas removíveis e proteja partes cortantes."
-    },
-    {
-        name: "Ferramentas elétricas",
-        cat: category.ferramentas,
-        emoji: "🛠️",
-        examples: "Furadeiras, parafusadeiras e ferramentas elétricas.",
-        tip: "Retire baterias somente quando isso for seguro."
-    },
-    {
-        name: "Jardim e área externa",
-        cat: category.ferramentas,
-        emoji: "🌱",
-        examples: "Aparadores de grama e equipamentos elétricos de jardim.",
-        tip: "Confirme o porte aceito pelo ponto de coleta."
-    }
-];
-
-//#endregion
-
-//#region : RENDERIZAÇÃO DO CATÁLOGO
+//#region : CATÁLOGO E DETALHES DE EQUIPAMENTOS
 {
+    const equipment = {
+        celulares: {
+            examples: "Celulares, smartphones, tablets e acessórios.",
+            tip: "Apague os dados pessoais e remova chip e cartão de memória."
+        },
+        computadores: {
+            examples: "Computadores, notebooks, teclados e mouses.",
+            tip: "Faça backup e apague os dados antes da entrega."
+        },
+        impressoras: {
+            examples: "Impressoras, scanners e equipamentos semelhantes.",
+            tip: "Confirme se o ponto recebe equipamentos de maior porte."
+        },
+        cabos: {
+            examples: "Cabos, carregadores, adaptadores e conectores.",
+            tip: "Agrupe os acessórios para facilitar o transporte."
+        },
+        televisores: {
+            examples: "Televisores, monitores e telas eletrônicas.",
+            tip: "Evite impactos e confirme os limites de tamanho do ponto."
+        },
+        audio: {
+            examples: "Rádios, caixas de som, fones e amplificadores.",
+            tip: "Separe controles e cabos e confirme a aceitação."
+        },
+        videogames: {
+            examples: "Consoles, controles e acessórios de jogos.",
+            tip: "Remova contas e dados pessoais antes da entrega."
+        },
+        geladeiras: {
+            examples: "Geladeiras, frigobares e refrigeradores domésticos.",
+            tip: "Consulte opções de coleta para equipamentos volumosos."
+        },
+        lavadoras: {
+            examples: "Máquinas de lavar, secadoras e ferros elétricos.",
+            tip: "Confirme previamente o recebimento de eletrodomésticos grandes."
+        },
+        cozinha: {
+            examples: "Liquidificadores, cafeteiras, torradeiras e micro-ondas.",
+            tip: "Desligue e retire alimentos ou líquidos."
+        },
+        limpeza: {
+            examples: "Aspiradores de pó e equipamentos elétricos de limpeza.",
+            tip: "Esvazie reservatórios e acondicione acessórios separadamente."
+        },
+        ventilacao: {
+            examples: "Ventiladores, ar-condicionado e aquecedores.",
+            tip: "Equipamentos grandes podem exigir logística específica."
+        },
+        pessoal: {
+            examples: "Barbeadores, depiladores e secadores.",
+            tip: "Separe pilhas removíveis e proteja partes cortantes."
+        },
+        ferramentas: {
+            examples: "Furadeiras, parafusadeiras e ferramentas elétricas.",
+            tip: "Retire baterias somente quando isso for seguro."
+        },
+        jardim: {
+            examples: "Aparadores de grama e equipamentos elétricos de jardim.",
+            tip: "Confirme o porte aceito pelo ponto de coleta."
+        }
+    };
+
     const grid = document.getElementById("equipmentGrid");
     const search = document.getElementById("search");
-
+    const cards = [...grid.querySelectorAll("[data-equipment]")];
+    const emptyState = grid.querySelector(".empty-state");
+    const detailDrawer = document.getElementById("equipmentDetailDrawer");
+    const collectionPoints = [];
     let activeFilter = "todos";
+    let selectedEquipment = null;
 
     function renderEquipment() {
         const query = search.value.toLowerCase().trim();
+        let visible = 0;
 
-        const filtered = equipment.filter(item => {
-            const categoryMatch =
-                activeFilter === "todos" ||
-                item.cat === activeFilter;
-
-            const searchMatch = [
-                item.name,
-                item.examples,
-                item.tip,
-                item.cat
-            ].join(" ").toLowerCase().includes(query);
-
-            return categoryMatch && searchMatch;
+        cards.forEach(card => {
+            const item = equipment[card.dataset.equipment];
+            const categoryMatch = activeFilter === "todos" || item.cat === activeFilter;
+            const searchMatch = `${item.name} ${item.examples} ${item.tip} ${item.category}`
+                .toLowerCase().includes(query);
+            const show = categoryMatch && searchMatch;
+            card.hidden = !show;
+            if (show) visible++;
         });
 
-        grid.replaceChildren();
+        emptyState.hidden = visible > 0;
+    }
 
-        if (!filtered.length) {
-            const empty = document.createElement("div");
-            empty.className = "empty-state";
-            empty.textContent = "Nenhum equipamento encontrado.";
-            grid.appendChild(empty);
+    function openEquipmentDetail(item) {
+        selectedEquipment = item;
+        document.getElementById("equipmentDetailTitle").textContent = item.name;
+        document.getElementById("equipmentDetailCategory").textContent = item.category;
+        document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
+        document.getElementById("equipmentDetailExamples").textContent = item.examples;
+        document.getElementById("equipmentDetailTip").textContent = item.tip;
+
+        const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
+        steps[1].textContent = item.cat === "informatica"
+            ? "Faça backup e remova dados pessoais, chips e cartões de memória."
+            : "Retire acessórios e componentes removíveis apenas quando isso for seguro.";
+
+        document.getElementById("compatiblePointsHint").textContent = collectionPoints.length
+            ? "Os pontos compatíveis serão destacados no mapa."
+            : "Ainda não há pontos fixos cadastrados. Quando forem adicionados, os locais compatíveis serão destacados no mapa.";
+
+        highlightCompatiblePoints(false);
+        openDrawer(detailDrawer);
+    }
+
+    function highlightCompatiblePoints(showMessage = true) {
+        if (!selectedEquipment || !collectionPoints.length) {
+            if (showMessage) showFeedback("Os pontos de coleta serão adicionados ao mapa posteriormente.");
             return;
         }
 
-        filtered.forEach(item => {
-            const card = document.createElement("button");
-            card.type = "button";
-            card.className = "equipment-card";
-            card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
-            card.innerHTML = `
-            <span class="equipment-category"></span>
-            <span class="equipment-card-main">
-                <span class="equipment-emoji"></span>
-                <strong class="equipment-name"></strong>
-                <i class="fa-solid fa-chevron-right"></i>
-            </span>
-        `;
+        const compatible = collectionPoints.filter(point =>
+            (point.acceptedCategories || []).includes(selectedEquipment.cat)
+        );
 
-            card.querySelector(".equipment-category").textContent =
-                category[item.cat] || "Equipamento";
-            card.querySelector(".equipment-emoji").textContent = item.emoji;
-            card.querySelector(".equipment-name").textContent = item.name;
-            card.addEventListener("click", () => openEquipmentDetail(item));
-
-            grid.appendChild(card);
+        collectionPoints.forEach(point => {
+            if (!point.marker) return;
+            const isCompatible = compatible.includes(point);
+            point.marker.setOpacity(isCompatible ? 1 : 0.25);
+            if (isCompatible) {
+                const element = point.marker.getElement();
+                if (element) {
+                    element.classList.remove("marker-highlight");
+                    void element.offsetWidth;
+                    element.classList.add("marker-highlight");
+                }
+            }
         });
+
+        if (showMessage) {
+            showFeedback(compatible.length
+                ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
+                : "Nenhum ponto cadastrado recebe esta categoria.");
+        }
     }
 
     search.addEventListener("input", renderEquipment);
-
     document.querySelectorAll(".filter").forEach(button => {
         button.addEventListener("click", () => {
-            document.querySelectorAll(".filter").forEach(item => {
-                item.classList.remove("active");
-            });
-
+            document.querySelector(".filter.active")?.classList.remove("active");
             button.classList.add("active");
             activeFilter = button.dataset.filter;
             renderEquipment();
@@ -348,19 +214,48 @@ const equipment = [
     document.getElementById("clear").addEventListener("click", () => {
         search.value = "";
         activeFilter = "todos";
-
         document.querySelectorAll(".filter").forEach(button => {
-            button.classList.toggle(
-                "active",
-                button.dataset.filter === "todos"
-            );
+            button.classList.toggle("active", button.dataset.filter === "todos");
         });
-
         renderEquipment();
     });
 
+    cards.forEach(card => {
+        const item = equipment[card.dataset.equipment];
+        item.cat = card.dataset.category;
+        item.category = card.querySelector(".equipment-category").textContent;
+        item.name = card.querySelector(".equipment-name").textContent;
+        item.emoji = card.querySelector(".equipment-emoji").textContent;
+        card.addEventListener("click", () => openEquipmentDetail(item));
+    });
+
+    document.getElementById("backToEquipmentList").addEventListener("click", () => {
+        closeDrawer(detailDrawer);
+        openDrawer(document.getElementById("equipmentDrawer"));
+    });
+
+    document.getElementById("compatiblePointsButton").addEventListener("click", () => {
+        closeDrawer(detailDrawer);
+        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        highlightCompatiblePoints();
+    });
+
     renderEquipment();
-    // renderEquipmentTree();
+}
+//#endregion
+
+//#region : FEEDBACK
+function showFeedback(message) {
+    const feedback = document.getElementById("actionFeedback");
+    feedback.textContent = message;
+    feedback.classList.add("show");
+    feedback.setAttribute("aria-hidden", "false");
+
+    clearTimeout(showFeedback.timeout);
+    showFeedback.timeout = setTimeout(() => {
+        feedback.classList.remove("show");
+        feedback.setAttribute("aria-hidden", "true");
+    }, 3000);
 }
 //#endregion
 
@@ -479,97 +374,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
     
 //#endregion
 
-//#region : DETALHES E CONEXÃO EQUIPAMENTO ↔ MAPA
-{
-    let selectedEquipment = null;
-
-    const collectionPoints = [];
-
-    function openEquipmentDetail(item) {
-        selectedEquipment = item;
-
-        document.getElementById("equipmentDetailTitle").textContent = item.name;
-        document.getElementById("equipmentDetailCategory").textContent =
-            category[item.cat] || "Equipamento";
-        document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
-        document.getElementById("equipmentDetailExamples").textContent = item.examples;
-        document.getElementById("equipmentDetailTip").textContent = item.tip;
-
-        const steps = [
-            "Desligue o equipamento e desconecte os cabos.",
-            item.cat === "informatica"
-                ? "Faça backup e remova dados pessoais, chips e cartões de memória."
-                : "Retire acessórios e componentes removíveis apenas quando isso for seguro.",
-            "Proteja o equipamento durante o transporte e confirme o que o ponto recebe."
-        ];
-
-        const list = document.getElementById("equipmentDetailSteps");
-        list.replaceChildren();
-        steps.forEach(step => {
-            const li = document.createElement("li");
-            li.textContent = step;
-            list.appendChild(li);
-        });
-
-        const hint = document.getElementById("compatiblePointsHint");
-        hint.textContent = collectionPoints.length
-            ? "Os pontos compatíveis serão destacados no mapa."
-            : "Ainda não há pontos fixos cadastrados. Quando forem adicionados, os locais compatíveis serão destacados no mapa.";
-
-        // A seleção já prepara o destaque; o botão abaixo leva o usuário até o mapa.
-        highlightCompatiblePoints(false);
-        openDrawer(document.getElementById("equipmentDetailDrawer"));
-    }
-
-    document.getElementById("backToEquipmentList").addEventListener("click", () => {
-        renderEquipment();
-        openDrawer(document.getElementById("equipmentDrawer"));
-    });
-
-    document.getElementById("compatiblePointsButton").addEventListener("click", () => {
-        closeDrawer(_drawer);
-        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
-        highlightCompatiblePoints();
-    });
-
-    function highlightCompatiblePoints(showMessage = true) {
-        if (!selectedEquipment || !collectionPoints.length) {
-            if (showMessage) {
-                showFeedback("Os pontos de coleta serão adicionados ao mapa posteriormente.");
-            }
-            return;
-        }
-
-        const compatible = collectionPoints.filter(point =>
-            (point.acceptedCategories || []).includes(selectedEquipment.cat)
-        );
-
-        collectionPoints.forEach(point => {
-            if (point.marker) {
-                const isCompatible = compatible.includes(point);
-                point.marker.setOpacity(isCompatible ? 1 : 0.25);
-                if (isCompatible) {
-                    const element = point.marker.getElement();
-                    if (element) {
-                        element.classList.remove("marker-highlight");
-                        void element.offsetWidth;
-                        element.classList.add("marker-highlight");
-                    }
-                }
-            }
-        });
-
-        if (showMessage) {
-            showFeedback(
-                compatible.length
-                    ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
-                    : "Nenhum ponto cadastrado recebe esta categoria."
-            );
-        }
-    }
-}
-//#endregion
-
 //#region : ÁRVORE DO EXPLORADOR
 {
     document.querySelectorAll(".tree-toggle").forEach(button => {
@@ -593,11 +397,10 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
 //#region : MODAIS INFORMATIVOS
 {
-    document.querySelectorAll(".step[data-modal]")
+     document.querySelectorAll(".step[data-modal]")
         .forEach(card => {
             card.addEventListener("click", () => {
-                const modal = document.getElementById(card.dataset.modal);
-                if (modal) openModal(modal);
+                openModal(document.getElementById(card.dataset.modal));
             });
         });
 }
@@ -642,10 +445,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
     observedSections.forEach(section => {
         if (section) sectionObserver.observe(section);
-    });
-
-    document.getElementById("equipmentButton").addEventListener("click", () => {
-        openDrawer(document.getElementById("equipmentDrawer"));
     });
 
     document.getElementById("checklistButton").addEventListener("click", () => {
@@ -738,9 +537,9 @@ document.getElementById("mapButton").addEventListener("click", () => {
     window.addEventListener("resize", progress);
 
     document.getElementById("backToTop")
-        .addEventListener(
-            "click", window.scrollTo({ top: 0, behavior: "smooth" })
-        );
+        .addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
     progress();
 }
@@ -776,20 +575,12 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const iframe = document.getElementById("videoIframe");
 
     function openVideoModal() {
-        iframe.src = src;
         openModal(modal);
-    }
-
-    function closeVideoModal() {
-        iframe.src = "";
-        closeModal(modal);
+        iframe.src = src;
     }
 
     document.getElementById("videoModalTrigger")
         .addEventListener( "click", openVideoModal);
     
-    modal.querySelector(".close-modal")
-        .addEventListener( "click", closeVideoModal );
-
 }
 //#endregion
