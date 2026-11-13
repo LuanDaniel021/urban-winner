@@ -62,7 +62,7 @@
         <section id="inicio" class="hero" >
             <div class="container">
                 <div class="hero-content">
-                    <span class="eyebrow" style="color:#dffff0">
+                    <span class="eyebrow" class="eyebrow hero-eyebrow">
                         Consumo responsável · Meio ambiente
                     </span>
 
@@ -137,92 +137,54 @@
         <div class="divider"></div>
 
         <!-- CHECKLIST -->
-
         <section class="section" id="checklist">
             <div class="container">
                 <div class="section-heading">
                     <span class="eyebrow">Antes de descartar</span>
-                    <h2>Lista de verificação: três cuidados antes de entregar o aparelho.</h2>
-                    <p>
-                        Antes de encaminhar seu equipamento, confira os cuidados
-                        importantes para proteger suas informações e facilitar o descarte.
-                    </p>
+                    <h2>Prepare seu equipamento com segurança.</h2>
+                    <p>Alguns cuidados simples ajudam a proteger seus dados e encaminhar cada item corretamente.</p>
                 </div>
 
-                <div class="checklist-banner">
-                    <article class="check-banner-item">
-                        <span class="check-banner-icon">✓</span>
-                        <div>
-                            <h3>Desligue e desconecte</h3>
-                            <p>Retire cabos e acessórios antes de transportar.</p>
-                        </div>
-                    </article>
+                <div class="checklist-showcase">
+                    <div class="checklist-primary-cards">
+                        <article class="checklist-card checklist-card--green">
+                            <span class="checklist-card-icon"><i class="fa-solid fa-power-off"></i></span>
+                            <div>
+                                <h3>Desligue e desconecte</h3>
+                                <p>Desligue o aparelho e retire cabos e acessórios antes de transportar.</p>
+                            </div>
+                        </article>
+                        <article class="checklist-card checklist-card--green">
+                            <span class="checklist-card-icon"><i class="fa-solid fa-battery-half"></i></span>
+                            <div>
+                                <h3>Separe componentes</h3>
+                                <p>Separe pilhas, baterias e peças removíveis quando for seguro.</p>
+                            </div>
+                        </article>
+                        <article class="checklist-card checklist-card--green">
+                            <span class="checklist-card-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                            <div>
+                                <h3>Proteja seus dados</h3>
+                                <p>Faça backup e remova informações pessoais quando aplicável.</p>
+                            </div>
+                        </article>
+                    </div>
 
-                    <article class="check-banner-item">
-                        <span class="check-banner-icon">✓</span>
-                        <div>
-                            <h3>Separe pilhas e baterias</h3>
-                            <p>Encaminhe componentes removíveis conforme as orientações.</p>
-                        </div>
-                    </article>
-
-                    <article class="check-banner-item">
-                        <span class="check-banner-icon">✓</span>
-                        <div>
-                            <h3>Apague seus dados</h3>
-                            <p>Faça backup e restaure o aparelho quando aplicável.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="checklist-layout">
-                    <aside class="progress-card">
-                        <h3>Seu progresso</h3>
-                        <p>
-                            Marque as etapas concluídas para acompanhar a preparação
-                            do seu equipamento.
-                        </p>
-
-                        <div class="progress-track">
-                            <div id="progressBar"></div>
-                        </div>
-
-                        <div class="progress-info">
-                            <span id="progress">0 de 5 concluídos</span>
-                            <span id="progressLabel">0%</span>
-                        </div>
-
-                        <button class="reset-button" id="resetChecks">
-                            <i class="fa-solid fa-rotate-left"></i>
-                            Reiniciar checklist
-                        </button>
-                    </aside>
-
-                    <div class="checklist-items">
-                        <div class="check-item">
-                            <input type="checkbox" id="c1">
-                            <label for="c1">Faça backup dos arquivos importantes.</label>
-                        </div>
-
-                        <div class="check-item">
-                            <input type="checkbox" id="c2">
-                            <label for="c2">Apague seus dados pessoais e restaure o aparelho.</label>
-                        </div>
-
-                        <div class="check-item">
-                            <input type="checkbox" id="c3">
-                            <label for="c3">Remova chips e cartões de memória.</label>
-                        </div>
-
-                        <div class="check-item">
-                            <input type="checkbox" id="c4">
-                            <label for="c4">Separe cabos, carregadores e acessórios.</label>
-                        </div>
-
-                        <div class="check-item">
-                            <input type="checkbox" id="c5">
-                            <label for="c5">Confirme se o ponto de coleta aceita seu equipamento.</label>
-                        </div>
+                    <div class="checklist-secondary-cards">
+                        <article class="checklist-card">
+                            <span class="checklist-card-icon"><i class="fa-solid fa-box"></i></span>
+                            <div>
+                                <h3>Prepare o transporte</h3>
+                                <p>Proteja o equipamento contra impactos e organize seus acessórios.</p>
+                            </div>
+                        </article>
+                        <article class="checklist-card">
+                            <span class="checklist-card-icon"><i class="fa-solid fa-recycle"></i></span>
+                            <div>
+                                <h3>Confirme o destino</h3>
+                                <p>Verifique se o ponto de coleta recebe esse tipo de equipamento.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -502,20 +464,20 @@
 
     </main>
 
-    <footer class="container" style="flex-direction: column; align-items: stretch; gap: 20px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+    <footer class="container" class="footer-layout">
+        <div class="footer-content">
             <div class="logos">
                 <div class="institution">Uniuv</div>
                 <div class="institution"><i class="fa-solid fa-leaf"></i> UNESPAR</div>
             </div>
 
-            <div style="text-align: right;">
-                <p style="color: var(--muted); font-size: 0.8rem; line-height: 1.6;">
+            <div class="footer-meta">
+                <p class="footer-group">
                     <strong>Grupo 5:</strong> Heider, Eduardo Guerellus Farapo, Luan,
-                    <span id="videoModalTrigger" style="cursor: pointer; text-decoration: none;">Rafael</span>,
+                    <span id="videoModalTrigger" class="footer-trigger">Rafael</span>,
                     Bruno
                 </p>
-                <p style="color: var(--muted); font-size: 0.75rem; margin-top: 4px;">
+                <p class="footer-note">
                     Uniuv · Unespar — Projeto acadêmico.
                 </p>
             </div>
@@ -609,11 +571,10 @@
                 </button>
 
                 <div class="tree-children" id="treeChecklist">
-                    <a href="#c1" class="tree-link">Backup dos arquivos</a>
-                    <a href="#c2" class="tree-link">Apagar dados</a>
-                    <a href="#c3" class="tree-link">Remover cartões e chips</a>
-                    <a href="#c4" class="tree-link">Separar acessórios</a>
-                    <a href="#c5" class="tree-link">Confirmar recebimento</a>
+                    <a href="#checklist" class="tree-link">Visão geral</a>
+                    <button type="button" class="tree-link" data-open-checklist>
+                        <i class="fa-solid fa-list-check"></i> Abrir checklist
+                    </button>
                 </div>
 
                 <button class="tree-toggle" data-tree="treeMap">
@@ -651,6 +612,42 @@
                 </a>
             </nav>
 
+        </aside>
+
+        <!-- PAINEL DO CHECKLIST -->
+        <aside id="checklistDrawer" class="drawer checklist-drawer" aria-label="Checklist de preparação">
+            <div class="drawer-header">
+                <div>
+                    <span class="eyebrow">Preparação</span>
+                    <h2>Meu checklist</h2>
+                    <p>Adicione etapas, marque o que concluiu e organize sua preparação.</p>
+                </div>
+                <button class="drawer-close" aria-label="Fechar checklist">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="checklist-drawer-summary">
+                <div class="checklist-summary-heading">
+                    <strong>Seu progresso</strong>
+                    <span id="checklistProgressLabel">0%</span>
+                </div>
+                <div class="checklist-progress-track">
+                    <span id="checklistProgressBar"></span>
+                </div>
+                <p id="checklistProgressText">0 de 5 etapas concluídas</p>
+            </div>
+
+            <form id="checklistForm" class="checklist-add-form">
+                <input id="checklistInput" type="text" maxlength="120" placeholder="Adicionar uma etapa..." autocomplete="off" required>
+                <button type="submit" aria-label="Adicionar etapa"><i class="fa-solid fa-plus"></i></button>
+            </form>
+
+            <div id="checklistItems" class="checklist-task-list"></div>
+
+            <button type="button" class="checklist-reset-button" id="resetChecks">
+                <i class="fa-solid fa-rotate-left"></i> Reiniciar checklist
+            </button>
         </aside>
 
         <!-- PAINEL DE EQUIPAMENTOS -->
@@ -802,8 +799,8 @@
                     <button type="button" class="btn btn-primary" id="compatiblePointsButton">
                         <i class="fa-solid fa-location-dot"></i> Ver pontos compatíveis
                     </button>
-                    <button type="button" class="detail-back-button" id="backToEquipmentList">
-                        <i class="fa-solid fa-arrow-left"></i> Voltar ao catálogo
+                    <button type="button" class="detail-back-button" id="openChecklistFromEquipment">
+                        <i class="fa-solid fa-list-check"></i> Abrir checklist
                     </button>
                 </div>
                 <p class="detail-map-hint" id="compatiblePointsHint">
@@ -886,40 +883,38 @@
 
             <!-- VISUALIZADOR DAS PÁGINAS DO FOLDER (Exibe o conteúdo real perfeitamente no mobile e PC) -->
             <div
-                style="width: 100%; max-height: 480px; border: 1px solid var(--line); border-radius: 12px; overflow-y: auto; background: #f8f9fa; padding: 16px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                class="brochure-preview">
 
                 <!-- Página 1 do Folder -->
                 <div
-                    style="width: 100%; max-width: 560px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e4eee8;">
+                    class="brochure-preview-page">
                     <div
-                        style="background: var(--soft); padding: 8px 12px; font-size: 0.75rem; font-weight: 700; color: var(--green); border-bottom: 1px solid var(--line);">
+                        class="brochure-preview-heading">
                         Frente / Capa do Folder
                     </div>
                     <img src="folder/Folder-Inner-Page.png" alt="Página 1 do Folder"
-                        style="width: 100%; height: auto; display: block;"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        class="brochure-preview-image">
                     <div
-                        style="display: none; padding: 30px; text-align: center; color: var(--muted); font-size: 0.85rem;">
+                        class="brochure-preview-fallback" hidden>
                         <i class="fa-solid fa-image"
-                            style="font-size: 2rem; color: var(--green); margin-bottom: 8px; display: block;">></i>
+                            class="brochure-preview-fallback-icon">></i>
                         Coloque o arquivo <strong>folder/Folder-Inner-Page.png</strong> na mesma pasta do seu HTML.
                     </div>
                 </div>
 
                 <!-- Página 2 do Folder (Caso o folder tenha verso ou mais partes) -->
                 <div
-                    style="width: 100%; max-width: 560px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e4eee8;">
+                    class="brochure-preview-page">
                     <div
-                        style="background: var(--soft); padding: 8px 12px; font-size: 0.75rem; font-weight: 700; color: var(--green); border-bottom: 1px solid var(--line);">
+                        class="brochure-preview-heading">
                         Verso / Parte Interna do Folder
                     </div>
                     <img src="folder/Folder-Outer-Page.png" alt="Página 2 do Folder"
-                        style="width: 100%; height: auto; display: block;"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        class="brochure-preview-image">
                     <div
-                        style="display: none; padding: 30px; text-align: center; color: var(--muted); font-size: 0.85rem;">
+                        class="brochure-preview-fallback" hidden>
                         <i class="fa-solid fa-image"
-                            style="font-size: 2rem; color: var(--green); margin-bottom: 8px; display: block;">></i>
+                            class="brochure-preview-fallback-icon">></i>
                         Coloque o arquivo <strong>folder/Folder-Outer-Page.png</strong> na mesma pasta do seu HTML
                         (opcional).
                     </div>
@@ -1032,16 +1027,16 @@
 
         <!-- MODAL DE VÍDEO -->
         <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"
-            style="max-width: 450px; padding: 20px;">
+            class="video-modal">
             <button class="modal-close" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div
-                style="width: 100%; aspect-ratio: 9/16; max-height: 70vh; margin-top: 15px; border-radius: 12px; overflow: hidden; background: #000;">
+                class="video-frame">
                 <iframe id="videoIframe" src="" title="YouTube Video Player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                    allowfullscreen class="video-frame-player"></iframe>
             </div>
         </div>
 
