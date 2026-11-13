@@ -1854,3 +1854,6 @@ main > .section#mapa .container {
     .logos { gap: 8px; }
     .institution { font-size: 14px; }
 }
+
+/* ESTADO DE FILTRO DO CATÁLOGO */
+#equipmentGrid [hidden] { display: none !important; }
