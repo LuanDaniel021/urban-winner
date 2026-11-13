@@ -2317,3 +2317,52 @@ main > .section#mapa .container {
     .checklist-file-actions { flex-direction: column; }
     .checklist-task { align-items: flex-start; }
 }
+
+
+/* MODO DE VISUALIZAÇÃO DO CHECKLIST */
+
+.checklist-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--green);
+    background: white;
+    font: inherit;
+    font-size: .82rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.checklist-mode-toggle:hover,
+.checklist-mode-toggle.active {
+    border-color: var(--green);
+    background: var(--soft);
+}
+
+.checklist-mode-toggle:focus-visible,
+.checklist-file-actions button:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+}
+
+.checklist-task-actions[hidden],
+.checklist-add-form[hidden],
+.checklist-reset-button[hidden] {
+    display: none !important;
+}
+
+.checklist-file-actions {
+    margin: 20px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+}
+
+.checklist-file-actions button {
+    min-height: 42px;
+}
