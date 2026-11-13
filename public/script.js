@@ -454,7 +454,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         });
     });
 
-    document.querySelectorAll(".tree-link").forEach(link => {
+    document.querySelectorAll(".tree-link:not([data-open-checklist])").forEach(link => {
         link.addEventListener("click", () => {
             if (link.getAttribute("href")?.startsWith("#")) {
                 closeDrawer( _drawer );
