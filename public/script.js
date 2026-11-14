@@ -583,12 +583,10 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
 //#region : ÁRVORE DO EXPLORADOR
 {
-    document.querySelectorAll(".tree-toggle").forEach(button => {
+    document.querySelectorAll("#drawer .tree-toggle").forEach(button => {
         button.addEventListener("click", () => {
             const tree = document.getElementById(button.dataset.tree);
-            if (tree) {
-                tree.classList.toggle("open");
-            }
+            if (tree) tree.classList.toggle("open");
         });
     });
 
@@ -600,11 +598,110 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
     document.querySelectorAll(".tree-link:not([data-open-checklist])").forEach(link => {
         link.addEventListener("click", () => {
-            if (link.getAttribute("href")?.startsWith("#")) {
-                closeDrawer( _drawer );
-            }
+            if (link.getAttribute("href")?.startsWith("#")) closeDrawer(_drawer);
         });
     });
+
+    const tree = document.getElementById("equipmentTreeGuide");
+    const search = document.getElementById("sidebarSearch");
+
+    function normalize(value) {
+        return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    }
+
+    function renderEquipmentTree(categories) {
+        const query = normalize(search.value);
+        tree.replaceChildren();
+        let visibleCount = 0;
+
+        categories.forEach((category, index) => {
+            const matches = category.items.filter(item =>
+                normalize(item.name).includes(query) ||
+                normalize(category.name).includes(query)
+            );
+            if (!matches.length) return;
+
+            visibleCount += matches.length;
+            const groupId = `equipment-tree-${index}`;
+
+            const toggle = document.createElement("button");
+            toggle.type = "button";
+            toggle.className = "tree-toggle";
+            toggle.dataset.tree = groupId;
+            toggle.setAttribute("aria-expanded", String(Boolean(query)));
+            
+            const folderIcon = document.createElement("i");
+            folderIcon.className = "fa-solid fa-folder";
+            const label = document.createElement("span");
+            label.textContent = category.name;
+            const arrow = document.createElement("i");
+            arrow.className = "fa-solid fa-chevron-down tree-arrow";
+            toggle.append(folderIcon, label, arrow);
+
+            const children = document.createElement("div");
+            children.id = groupId;
+            children.className = "tree-children";
+            if (query) children.classList.add("open");
+
+            matches.forEach(item => {
+                const link = document.createElement("button");
+                link.type = "button";
+                link.className = "tree-link";
+                link.dataset.equipment = item.id;
+
+                const icon = document.createElement("i");
+                icon.className = "fa-solid fa-microchip";
+                const name = document.createElement("span");
+                name.textContent = item.name;
+                link.append(icon, name);
+                link.addEventListener("click", () => {
+                    const card = [...document.querySelectorAll("#equipmentGrid [data-equipment]")]
+                        .find(element => element.dataset.equipment === item.id);
+                    if (card) card.click();
+                });
+                children.append(link);
+            });
+
+            toggle.addEventListener("click", () => {
+                const isOpen = children.classList.toggle("open");
+                toggle.setAttribute("aria-expanded", String(isOpen));
+            });
+
+            tree.append(toggle, children);
+        });
+
+        if (!visibleCount) {
+            const empty = document.createElement("p");
+            empty.className = "tree-empty";
+            empty.textContent = "Nenhum equipamento encontrado.";
+            tree.append(empty);
+        }
+    }
+
+    search.addEventListener("input", () => {
+        if (tree.dataset.loaded === "true") {
+            renderEquipmentTree(JSON.parse(tree.dataset.categories));
+        }
+    });
+
+    fetch("./data/equipment-tree.json")
+        .then(response => {
+            if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
+            return response.json();
+        })
+        .then(data => {
+            if (!Array.isArray(data.categories)) throw new Error("Formato de catálogo inválido.");
+            tree.dataset.categories = JSON.stringify(data.categories);
+            tree.dataset.loaded = "true";
+            renderEquipmentTree(data.categories);
+        })
+        .catch(() => {
+            tree.replaceChildren();
+            const error = document.createElement("p");
+            error.className = "tree-empty";
+            error.textContent = "Não foi possível carregar os equipamentos.";
+            tree.append(error);
+        });
 }
 //#endregion
 
