@@ -85,18 +85,38 @@ document.addEventListener("keydown", event => {
     let selectedEquipment = null;
 
     function renderCatalog() {
-        const query = search.value.toLowerCase().trim();
-        const cards = [...document.querySelectorAll("[data-catalog-category]")];
-        cards.forEach(card => {
-            const category = card.dataset.catalogCategory;
-            const items = Object.values(equipment).filter(item => item.cat === category);
-            const matchesQuery = !query || items.some(item =>
-                `${item.name} ${item.examples} ${item.tip}`.toLowerCase().includes(query)
-            ) || card.textContent.toLowerCase().includes(query);
-            const matchesFilter = activeFilter === "todos" || category === activeFilter;
-            card.hidden = !(matchesQuery && matchesFilter);
+        const query = search.value.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").trim();
+        const items = Object.values(equipment).filter(item => {
+            const categoryMatch = activeFilter === "todos" || item.cat === activeFilter;
+            const searchable = `${item.name} ${item.category} ${item.examples} ${item.tip}`
+                .toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");
+            return categoryMatch && searchable.includes(query);
         });
-        document.getElementById("catalogEmptyState").hidden = cards.some(card => !card.hidden);
+
+        const grid = document.getElementById("equipmentGrid");
+        grid.replaceChildren();
+
+        items.forEach(item => {
+            const card = document.createElement("button");
+            card.type = "button";
+            card.className = "equipment-card";
+            card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
+            card.innerHTML = `
+                <span class="equipment-category"></span>
+                <span class="equipment-card-main">
+                    <span class="equipment-emoji"></span>
+                    <strong class="equipment-name"></strong>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </span>
+            `;
+            card.querySelector(".equipment-category").textContent = item.category;
+            card.querySelector(".equipment-emoji").textContent = item.emoji;
+            card.querySelector(".equipment-name").textContent = item.name;
+            card.addEventListener("click", () => openEquipmentDetail(item));
+            grid.appendChild(card);
+        });
+
+        document.getElementById("catalogEmptyState").hidden = items.length > 0;
     }
 
     function openEquipmentDetail(item) {
@@ -152,15 +172,6 @@ document.addEventListener("keydown", event => {
             button.classList.toggle("active", button.dataset.filter === "todos");
         });
         renderCatalog();
-    });
-
-    document.querySelectorAll("[data-catalog-category]").forEach(card => {
-        card.addEventListener("click", () => {
-            const drawerSearch = document.getElementById("sidebarSearch");
-            drawerSearch.value = "";
-            drawerSearch.dispatchEvent(new Event("input"));
-            openDrawer(document.getElementById("equipmentDrawer"));
-        });
     });
 
     document.getElementById("openChecklistFromEquipment").addEventListener("click", () => {
@@ -507,6 +518,9 @@ document.getElementById("explorerToggle").addEventListener("click", () => {
 });
 
 document.getElementById("equipmentButton").addEventListener("click", () => {
+    const drawerSearch = document.getElementById("sidebarSearch");
+    drawerSearch.value = "";
+    drawerSearch.dispatchEvent(new Event("input"));
     openDrawer(document.getElementById("equipmentDrawer"));
 });
 
