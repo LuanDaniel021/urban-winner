@@ -2866,8 +2866,8 @@ main > section[id],
 
     .quick-actions-toggle {
         position: fixed;
-        right: 14px;
-        bottom: 54px;
+        right: 190px;
+        bottom: 96px;
         z-index: 910;
         display: grid;
         place-items: center;
