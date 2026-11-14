@@ -645,28 +645,35 @@
 
         <!-- PAINEL DE EQUIPAMENTOS -->
         <aside id="equipmentDrawer" class="drawer">
-
             <div class="drawer-header">
                 <div>
-                    <span class="eyebrow">Catálogo</span>
+                    <span class="eyebrow">Catálogo completo</span>
                     <h2>Equipamentos</h2>
-                    <p>Escolha um equipamento específico para ver orientações e localizar pontos de coleta.</p>
+                    <p>Selecione um ou mais itens para procurar pontos de descarte compatíveis.</p>
                 </div>
-        
-                <button class="drawer-close" data-close-drawer>
+                <button class="drawer-close" data-close-drawer aria-label="Fechar painel">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-        
+
             <div class="drawer-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input id="sidebarSearch" type="search" placeholder="Buscar equipamento..." autocomplete="off" aria-label="Buscar equipamento">
             </div>
 
-            <div id="equipmentTreeGuide" class="tree" aria-live="polite">
+            <div id="equipmentTreeGuide" class="tree equipment-selection-list" aria-live="polite">
                 <p class="tree-loading">Carregando equipamentos...</p>
             </div>
 
+            <div class="equipment-selection-footer">
+                <div class="equipment-selection-meta">
+                    <strong id="equipmentSelectionCount">0 selecionados</strong>
+                    <button type="button" id="clearEquipmentSelection" class="equipment-selection-clear" disabled>Limpar</button>
+                </div>
+                <button type="button" id="searchSelectedEquipment" class="btn btn-primary equipment-selection-submit" disabled>
+                    <i class="fa-solid fa-map-location-dot"></i> Buscar pontos no mapa
+                </button>
+            </div>
         </aside>
 
         <!-- PAINEL DE DETALHES DO EQUIPAMENTO -->
@@ -733,6 +740,18 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
+
+            <section id="mapEquipmentSelection" class="map-equipment-selection" hidden>
+                <div class="map-equipment-selection-heading">
+                    <div>
+                        <span class="eyebrow">Sua seleção</span>
+                        <h3>Equipamentos escolhidos</h3>
+                    </div>
+                    <span id="mapEquipmentCount" class="map-equipment-count">0</span>
+                </div>
+                <ul id="mapEquipmentList"></ul>
+                <p>Os pontos compatíveis serão relacionados quando os dados de coleta forem cadastrados.</p>
+            </section>
 
             <div class="drawer-list map-provider-list">
                 <article class="drawer-item map-provider-card">

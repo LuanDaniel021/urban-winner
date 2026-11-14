@@ -156,19 +156,11 @@ document.addEventListener("keydown", event => {
 
     document.querySelectorAll("[data-catalog-category]").forEach(card => {
         card.addEventListener("click", () => {
-            const category = card.dataset.catalogCategory;
+            const drawerSearch = document.getElementById("sidebarSearch");
+            drawerSearch.value = "";
+            drawerSearch.dispatchEvent(new Event("input"));
             openDrawer(document.getElementById("equipmentDrawer"));
-            const toggle = [...document.querySelectorAll("#equipmentTreeGuide .tree-toggle")]
-                .find(button => button.dataset.category === category);
-            if (toggle) {
-                document.getElementById(toggle.dataset.tree)?.classList.add("open");
-                toggle.setAttribute("aria-expanded", "true");
-            }
         });
-    });
-
-    document.addEventListener("equipment:selected", event => {
-        openEquipmentDetail(equipment[event.detail]);
     });
 
     document.getElementById("openChecklistFromEquipment").addEventListener("click", () => {
@@ -524,32 +516,37 @@ document.getElementById("mapButton").addEventListener("click", () => {
     
 //#endregion
 
-//#region : ÁRVORE DO EXPLORADOR
+//#region : CATÁLOGO SELECIONÁVEL DE EQUIPAMENTOS
 {
-    document.querySelectorAll("#drawer .tree-toggle").forEach(button => {
-        button.addEventListener("click", () => {
-            const tree = document.getElementById(button.dataset.tree);
-            if (tree) tree.classList.toggle("open");
-        });
-    });
-
-    document.querySelectorAll("[data-open-checklist]").forEach(button => {
-        button.addEventListener("click", () => {
-            openDrawer(document.getElementById("checklistDrawer"));
-        });
-    });
-
-    document.querySelectorAll(".tree-link:not([data-open-checklist])").forEach(link => {
-        link.addEventListener("click", () => {
-            if (link.getAttribute("href")?.startsWith("#")) closeDrawer(_drawer);
-        });
-    });
-
     const tree = document.getElementById("equipmentTreeGuide");
     const search = document.getElementById("sidebarSearch");
+    const selectionCount = document.getElementById("equipmentSelectionCount");
+    const clearSelection = document.getElementById("clearEquipmentSelection");
+    const searchMapButton = document.getElementById("searchSelectedEquipment");
+    const mapSelection = document.getElementById("mapEquipmentSelection");
+    const mapEquipmentList = document.getElementById("mapEquipmentList");
+    const mapEquipmentCount = document.getElementById("mapEquipmentCount");
+    const selectedItems = new Map();
 
     function normalize(value) {
         return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    }
+
+    function updateSelection() {
+        const count = selectedItems.size;
+        selectionCount.textContent = count === 1 ? "1 selecionado" : `${count} selecionados`;
+        clearSelection.disabled = count === 0;
+        searchMapButton.disabled = count === 0;
+
+        mapSelection.hidden = count === 0;
+        mapEquipmentCount.textContent = String(count);
+        mapEquipmentList.replaceChildren();
+
+        selectedItems.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item.name;
+            mapEquipmentList.append(li);
+        });
     }
 
     function renderEquipmentTree(categories) {
@@ -558,54 +555,55 @@ document.getElementById("mapButton").addEventListener("click", () => {
         let visibleCount = 0;
 
         categories.forEach((category, index) => {
+            const categoryMatches = normalize(category.name).includes(query);
             const matches = category.items.filter(item =>
-                normalize(item.name).includes(query) ||
-                normalize(category.name).includes(query)
+                categoryMatches || normalize(item.name).includes(query)
             );
             if (!matches.length) return;
 
             visibleCount += matches.length;
-            const groupId = `equipment-tree-${index}`;
+            const groupId = `equipment-category-${index}`;
 
             const toggle = document.createElement("button");
             toggle.type = "button";
             toggle.className = "tree-toggle";
             toggle.dataset.tree = groupId;
-            toggle.dataset.category = category.id;
             toggle.setAttribute("aria-expanded", String(Boolean(query)));
-            
+
             const folderIcon = document.createElement("i");
             folderIcon.className = "fa-solid fa-folder";
             const label = document.createElement("span");
             label.textContent = category.name;
+            const total = document.createElement("small");
+            total.className = "equipment-category-total";
+            total.textContent = String(matches.length);
             const arrow = document.createElement("i");
             arrow.className = "fa-solid fa-chevron-down tree-arrow";
-            toggle.append(folderIcon, label, arrow);
+            toggle.append(folderIcon, label, total, arrow);
 
             const children = document.createElement("div");
             children.id = groupId;
-            children.className = "tree-children";
+            children.className = "tree-children equipment-category-items";
             if (query) children.classList.add("open");
 
             matches.forEach(item => {
-                const link = document.createElement("button");
-                link.type = "button";
-                link.className = "tree-link";
-                link.dataset.equipment = item.id;
+                const label = document.createElement("label");
+                label.className = "equipment-select-item";
 
-                const icon = document.createElement("i");
-                icon.className = "fa-solid fa-microchip";
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.value = item.id;
+                checkbox.checked = selectedItems.has(item.id);
+                checkbox.addEventListener("change", () => {
+                    if (checkbox.checked) selectedItems.set(item.id, item);
+                    else selectedItems.delete(item.id);
+                    updateSelection();
+                });
+
                 const name = document.createElement("span");
                 name.textContent = item.name;
-                link.append(icon, name);
-                link.addEventListener("click", () => {
-                    tree.querySelectorAll(".tree-link").forEach(button => {
-                        button.classList.toggle("selected", button === link);
-                        button.setAttribute("aria-pressed", String(button === link));
-                    });
-                    document.dispatchEvent(new CustomEvent("equipment:selected", { detail: item.id }));
-                });
-                children.append(link);
+                label.append(checkbox, name);
+                children.append(label);
             });
 
             toggle.addEventListener("click", () => {
@@ -630,7 +628,24 @@ document.getElementById("mapButton").addEventListener("click", () => {
         }
     });
 
-    fetch("./data/equipment-tree.json")
+    clearSelection.addEventListener("click", () => {
+        selectedItems.clear();
+        if (tree.dataset.loaded === "true") {
+            renderEquipmentTree(JSON.parse(tree.dataset.categories));
+        }
+        updateSelection();
+    });
+
+    searchMapButton.addEventListener("click", () => {
+        if (!selectedItems.size) return;
+        updateSelection();
+        closeDrawer(document.getElementById("equipmentDrawer"));
+        openDrawer(document.getElementById("mapDrawer"));
+        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        showFeedback(`${selectedItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
+    });
+
+    fetch("./data/equipment-catalog.json")
         .then(response => {
             if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
             return response.json();
@@ -640,6 +655,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
             tree.dataset.categories = JSON.stringify(data.categories);
             tree.dataset.loaded = "true";
             renderEquipmentTree(data.categories);
+            updateSelection();
         })
         .catch(() => {
             tree.replaceChildren();
