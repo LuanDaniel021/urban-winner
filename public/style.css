@@ -2855,17 +2855,23 @@ main > section[id],
         transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
     }
 
-    .quick-actions.collapsed {
+    .quick-actions.collapsed .quick-action {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
         transform: translateY(8px);
     }
 
+    .quick-actions-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
     .quick-actions-toggle {
-        position: fixed;
-        right: 190px;
-        bottom: 96px;
+        position: static;
+        flex: 0 0 30px;
         z-index: 910;
         display: grid;
         place-items: center;
