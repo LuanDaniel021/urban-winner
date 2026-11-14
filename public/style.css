@@ -1084,7 +1084,6 @@ footer p {
     font-weight: 700;
 }
 
-.quick-action.active,
 .quick-action.fixed,
 .quick-action.revealed {
     display: flex;
