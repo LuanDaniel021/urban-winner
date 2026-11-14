@@ -248,6 +248,18 @@
                     </p>
                 </div>
 
+            <section id="mapEquipmentSelection" class="map-equipment-selection" hidden>
+                <div class="map-equipment-selection-heading">
+                    <div>
+                        <span class="eyebrow">Sua seleção</span>
+                        <h3>Equipamentos escolhidos</h3>
+                    </div>
+                    <span id="mapEquipmentCount" class="map-equipment-count">0</span>
+                </div>
+                <ul id="mapEquipmentList"></ul>
+                <p>A seleção foi enviada para o mapa. A filtragem por tipo de equipamento será ativada quando os pontos de coleta forem cadastrados.</p>
+            </section>
+
                 <div class="map-container">
                     <div id="map" aria-label="Mapa interativo de referência"></div>
                 </div>
@@ -690,17 +702,7 @@
                 </button>
             </div>
 
-            <section id="mapEquipmentSelection" class="map-equipment-selection" hidden>
-                <div class="map-equipment-selection-heading">
-                    <div>
-                        <span class="eyebrow">Sua seleção</span>
-                        <h3>Equipamentos escolhidos</h3>
-                    </div>
-                    <span id="mapEquipmentCount" class="map-equipment-count">0</span>
-                </div>
-                <ul id="mapEquipmentList"></ul>
-                <p>Os pontos compatíveis serão relacionados quando os dados de coleta forem cadastrados.</p>
-            </section>
+
 
             <div class="drawer-list map-provider-list">
                 <article class="drawer-item map-provider-card">

@@ -2706,3 +2706,141 @@ main > section[id],
         padding-bottom: 18px;
     }
 }
+
+
+/* AJUSTE DO DRAWER DE SELEÇÃO DE EQUIPAMENTOS */
+#equipmentDrawer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: min(420px, 94vw);
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: 22px 22px 0;
+    overflow: hidden;
+}
+
+#equipmentDrawer .drawer-header {
+    flex: 0 0 auto;
+    padding-bottom: 16px;
+}
+
+#equipmentDrawer .drawer-header > div {
+    min-width: 0;
+}
+
+#equipmentDrawer .drawer-header p {
+    max-width: 290px;
+}
+
+#equipmentDrawer .drawer-search {
+    flex: 0 0 auto;
+    margin: 16px 0 12px;
+}
+
+#equipmentDrawer .equipment-selection-list {
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    padding: 2px 4px 16px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+#equipmentTreeGuide .tree-toggle {
+    min-width: 0;
+    padding: 12px 10px;
+}
+
+#equipmentTreeGuide .tree-toggle > span {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.35;
+}
+
+#equipmentTreeGuide .tree-toggle > small {
+    flex: 0 0 auto;
+}
+
+#equipmentTreeGuide .tree-toggle > i:last-child {
+    flex: 0 0 18px;
+}
+
+#equipmentTreeGuide .equipment-category-items {
+    margin: 2px 0 8px 12px;
+    padding: 3px 0 5px 10px;
+}
+
+#equipmentTreeGuide .equipment-select-item {
+    align-items: flex-start;
+    min-width: 0;
+    padding: 9px 8px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+#equipmentTreeGuide .equipment-select-item input {
+    flex: 0 0 17px;
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+}
+
+#equipmentTreeGuide .equipment-select-item span {
+    min-width: 0;
+}
+
+#equipmentDrawer .equipment-selection-footer {
+    position: relative;
+    bottom: auto;
+    flex: 0 0 auto;
+    margin: 8px -22px 0;
+    padding: 13px 22px max(18px, env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+    background: #fff;
+    box-shadow: 0 -8px 20px #00000008;
+}
+
+#equipmentDrawer .equipment-selection-meta {
+    margin-bottom: 9px;
+}
+
+#equipmentDrawer .equipment-selection-submit {
+    min-height: 46px;
+    white-space: normal;
+}
+
+#equipmentDrawer .equipment-selection-submit i {
+    flex: 0 0 auto;
+}
+
+#mapEquipmentSelection {
+    margin: 0 0 22px;
+}
+
+@media (max-width: 600px) {
+    #equipmentDrawer {
+        width: min(440px, 96vw);
+        padding: 18px 18px 0;
+    }
+
+    #equipmentDrawer .equipment-selection-footer {
+        margin-right: -18px;
+        margin-left: -18px;
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    #equipmentDrawer .drawer-header h2 {
+        font-size: 1.25rem;
+    }
+
+    #equipmentDrawer .drawer-header p {
+        font-size: .78rem;
+    }
+}

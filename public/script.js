@@ -654,8 +654,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         if (!selectedItems.size) return;
         updateSelection();
         closeDrawer(document.getElementById("equipmentDrawer"));
-        openDrawer(document.getElementById("mapDrawer"));
-        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        document.getElementById("mapa").scrollIntoView({ behavior: "smooth", block: "start" });
         showFeedback(`${selectedItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
     });
 
