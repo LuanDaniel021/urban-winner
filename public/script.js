@@ -61,95 +61,46 @@ document.addEventListener("keydown", event => {
 //#region : CATÁLOGO E DETALHES DE EQUIPAMENTOS
 {
     const equipment = {
-        celulares: {
-            examples: "Celulares, smartphones, tablets e acessórios.",
-            tip: "Apague os dados pessoais e remova chip e cartão de memória."
-        },
-        computadores: {
-            examples: "Computadores, notebooks, teclados e mouses.",
-            tip: "Faça backup e apague os dados antes da entrega."
-        },
-        impressoras: {
-            examples: "Impressoras, scanners e equipamentos semelhantes.",
-            tip: "Confirme se o ponto recebe equipamentos de maior porte."
-        },
-        cabos: {
-            examples: "Cabos, carregadores, adaptadores e conectores.",
-            tip: "Agrupe os acessórios para facilitar o transporte."
-        },
-        televisores: {
-            examples: "Televisores, monitores e telas eletrônicas.",
-            tip: "Evite impactos e confirme os limites de tamanho do ponto."
-        },
-        audio: {
-            examples: "Rádios, caixas de som, fones e amplificadores.",
-            tip: "Separe controles e cabos e confirme a aceitação."
-        },
-        videogames: {
-            examples: "Consoles, controles e acessórios de jogos.",
-            tip: "Remova contas e dados pessoais antes da entrega."
-        },
-        geladeiras: {
-            examples: "Geladeiras, frigobares e refrigeradores domésticos.",
-            tip: "Consulte opções de coleta para equipamentos volumosos."
-        },
-        lavadoras: {
-            examples: "Máquinas de lavar, secadoras e ferros elétricos.",
-            tip: "Confirme previamente o recebimento de eletrodomésticos grandes."
-        },
-        cozinha: {
-            examples: "Liquidificadores, cafeteiras, torradeiras e micro-ondas.",
-            tip: "Desligue e retire alimentos ou líquidos."
-        },
-        limpeza: {
-            examples: "Aspiradores de pó e equipamentos elétricos de limpeza.",
-            tip: "Esvazie reservatórios e acondicione acessórios separadamente."
-        },
-        ventilacao: {
-            examples: "Ventiladores, ar-condicionado e aquecedores.",
-            tip: "Equipamentos grandes podem exigir logística específica."
-        },
-        pessoal: {
-            examples: "Barbeadores, depiladores e secadores.",
-            tip: "Separe pilhas removíveis e proteja partes cortantes."
-        },
-        ferramentas: {
-            examples: "Furadeiras, parafusadeiras e ferramentas elétricas.",
-            tip: "Retire baterias somente quando isso for seguro."
-        },
-        jardim: {
-            examples: "Aparadores de grama e equipamentos elétricos de jardim.",
-            tip: "Confirme o porte aceito pelo ponto de coleta."
-        }
+        celulares: { name:"Celulares e smartphones", category:"Informática", cat:"informatica", emoji:"📱", examples:"Celulares, smartphones, tablets e acessórios.", tip:"Apague os dados pessoais e remova chip e cartão de memória." },
+        computadores: { name:"Computadores e periféricos", category:"Informática", cat:"informatica", emoji:"💻", examples:"Computadores, notebooks, teclados e mouses.", tip:"Faça backup e apague os dados antes da entrega." },
+        impressoras: { name:"Impressoras e scanners", category:"Informática", cat:"informatica", emoji:"🖨️", examples:"Impressoras, scanners e equipamentos semelhantes.", tip:"Confirme se o ponto recebe equipamentos de maior porte." },
+        cabos: { name:"Cabos e carregadores", category:"Informática", cat:"informatica", emoji:"🔌", examples:"Cabos, carregadores, adaptadores e conectores.", tip:"Agrupe os acessórios para facilitar o transporte." },
+        televisores: { name:"Televisores e monitores", category:"Imagem e áudio", cat:"imagem", emoji:"📺", examples:"Televisores, monitores e telas eletrônicas.", tip:"Evite impactos e confirme os limites de tamanho do ponto." },
+        audio: { name:"Áudio e vídeo", category:"Imagem e áudio", cat:"imagem", emoji:"🎧", examples:"Rádios, caixas de som, fones e amplificadores.", tip:"Separe controles e cabos e confirme a aceitação." },
+        videogames: { name:"Videogames", category:"Imagem e áudio", cat:"imagem", emoji:"🎮", examples:"Consoles, controles e acessórios de jogos.", tip:"Remova contas e dados pessoais antes da entrega." },
+        geladeiras: { name:"Geladeiras e refrigeradores", category:"Casa", cat:"casa", emoji:"🧊", examples:"Geladeiras, frigobares e refrigeradores domésticos.", tip:"Consulte opções de coleta para equipamentos volumosos." },
+        lavadoras: { name:"Lavadoras e cuidados com roupas", category:"Casa", cat:"casa", emoji:"🧺", examples:"Máquinas de lavar, secadoras e ferros elétricos.", tip:"Confirme previamente o recebimento de eletrodomésticos grandes." },
+        cozinha: { name:"Cozinha e preparo de alimentos", category:"Casa", cat:"casa", emoji:"🍳", examples:"Liquidificadores, cafeteiras, torradeiras e micro-ondas.", tip:"Desligue e retire alimentos ou líquidos." },
+        limpeza: { name:"Limpeza doméstica", category:"Casa", cat:"casa", emoji:"🧹", examples:"Aspiradores de pó e equipamentos elétricos de limpeza.", tip:"Esvazie reservatórios e acondicione acessórios separadamente." },
+        ventilacao: { name:"Ventilação e climatização", category:"Casa", cat:"casa", emoji:"❄️", examples:"Ventiladores, ar-condicionado e aquecedores.", tip:"Equipamentos grandes podem exigir logística específica." },
+        pessoal: { name:"Cuidados pessoais", category:"Cuidados pessoais", cat:"pessoal", emoji:"🪒", examples:"Barbeadores, depiladores e secadores.", tip:"Separe pilhas removíveis e proteja partes cortantes." },
+        ferramentas: { name:"Ferramentas elétricas", category:"Ferramentas", cat:"ferramentas", emoji:"🛠️", examples:"Furadeiras, parafusadeiras e ferramentas elétricas.", tip:"Retire baterias somente quando isso for seguro." },
+        jardim: { name:"Jardim e área externa", category:"Ferramentas", cat:"ferramentas", emoji:"🌱", examples:"Aparadores de grama e equipamentos elétricos de jardim.", tip:"Confirme o porte aceito pelo ponto de coleta." }
     };
 
-    const grid = document.getElementById("equipmentGrid");
     const search = document.getElementById("search");
-    const cards = [...grid.querySelectorAll("[data-equipment]")];
-    const emptyState = grid.querySelector(".empty-state");
     const detailDrawer = document.getElementById("equipmentDetailDrawer");
     const collectionPoints = [];
     let activeFilter = "todos";
     let selectedEquipment = null;
 
-    function renderEquipment() {
+    function renderCatalog() {
         const query = search.value.toLowerCase().trim();
-        let visible = 0;
-
+        const cards = [...document.querySelectorAll("[data-catalog-category]")];
         cards.forEach(card => {
-            const item = equipment[card.dataset.equipment];
-            const categoryMatch = activeFilter === "todos" || item.cat === activeFilter;
-            const searchMatch = `${item.name} ${item.examples} ${item.tip} ${item.category}`
-                .toLowerCase().includes(query);
-            const show = categoryMatch && searchMatch;
-            card.hidden = !show;
-            if (show) visible++;
+            const category = card.dataset.catalogCategory;
+            const items = Object.values(equipment).filter(item => item.cat === category);
+            const matchesQuery = !query || items.some(item =>
+                `${item.name} ${item.examples} ${item.tip}`.toLowerCase().includes(query)
+            ) || card.textContent.toLowerCase().includes(query);
+            const matchesFilter = activeFilter === "todos" || category === activeFilter;
+            card.hidden = !(matchesQuery && matchesFilter);
         });
-
-        emptyState.hidden = visible > 0;
+        document.getElementById("catalogEmptyState").hidden = cards.some(card => !card.hidden);
     }
 
     function openEquipmentDetail(item) {
+        if (!item) return;
         selectedEquipment = item;
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = item.category;
@@ -162,52 +113,35 @@ document.addEventListener("keydown", event => {
             ? "Faça backup e remova dados pessoais, chips e cartões de memória."
             : "Retire acessórios e componentes removíveis apenas quando isso for seguro.";
 
-        document.getElementById("compatiblePointsHint").textContent = collectionPoints.length
-            ? "Os pontos compatíveis serão destacados no mapa."
-            : "Ainda não há pontos fixos cadastrados. Quando forem adicionados, os locais compatíveis serão destacados no mapa.";
-
+        document.getElementById("compatiblePointsHint").textContent =
+            "O mapa será aberto para consultar os pontos de coleta. Confirme a aceitação diretamente com o localizador.";
         highlightCompatiblePoints(false);
         openDrawer(detailDrawer);
     }
 
     function highlightCompatiblePoints(showMessage = true) {
         if (!selectedEquipment || !collectionPoints.length) {
-            if (showMessage) showFeedback("Os pontos de coleta serão adicionados ao mapa posteriormente.");
+            if (showMessage) showFeedback("Ainda não há pontos cadastrados para filtrar por equipamento. Consulte os localizadores oficiais.");
             return;
         }
-
         const compatible = collectionPoints.filter(point =>
             (point.acceptedCategories || []).includes(selectedEquipment.cat)
         );
-
         collectionPoints.forEach(point => {
-            if (!point.marker) return;
-            const isCompatible = compatible.includes(point);
-            point.marker.setOpacity(isCompatible ? 1 : 0.25);
-            if (isCompatible) {
-                const element = point.marker.getElement();
-                if (element) {
-                    element.classList.remove("marker-highlight");
-                    void element.offsetWidth;
-                    element.classList.add("marker-highlight");
-                }
-            }
+            if (point.marker) point.marker.setOpacity(compatible.includes(point) ? 1 : 0.25);
         });
-
-        if (showMessage) {
-            showFeedback(compatible.length
-                ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
-                : "Nenhum ponto cadastrado recebe esta categoria.");
-        }
+        if (showMessage) showFeedback(compatible.length
+            ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
+            : "Nenhum ponto cadastrado recebe esta categoria.");
     }
 
-    search.addEventListener("input", renderEquipment);
+    search.addEventListener("input", renderCatalog);
     document.querySelectorAll(".filter").forEach(button => {
         button.addEventListener("click", () => {
             document.querySelector(".filter.active")?.classList.remove("active");
             button.classList.add("active");
             activeFilter = button.dataset.filter;
-            renderEquipment();
+            renderCatalog();
         });
     });
 
@@ -217,16 +151,24 @@ document.addEventListener("keydown", event => {
         document.querySelectorAll(".filter").forEach(button => {
             button.classList.toggle("active", button.dataset.filter === "todos");
         });
-        renderEquipment();
+        renderCatalog();
     });
 
-    cards.forEach(card => {
-        const item = equipment[card.dataset.equipment];
-        item.cat = card.dataset.category;
-        item.category = card.querySelector(".equipment-category").textContent;
-        item.name = card.querySelector(".equipment-name").textContent;
-        item.emoji = card.querySelector(".equipment-emoji").textContent;
-        card.addEventListener("click", () => openEquipmentDetail(item));
+    document.querySelectorAll("[data-catalog-category]").forEach(card => {
+        card.addEventListener("click", () => {
+            const category = card.dataset.catalogCategory;
+            openDrawer(document.getElementById("equipmentDrawer"));
+            const toggle = [...document.querySelectorAll("#equipmentTreeGuide .tree-toggle")]
+                .find(button => button.dataset.category === category);
+            if (toggle) {
+                document.getElementById(toggle.dataset.tree)?.classList.add("open");
+                toggle.setAttribute("aria-expanded", "true");
+            }
+        });
+    });
+
+    document.addEventListener("equipment:selected", event => {
+        openEquipmentDetail(equipment[event.detail]);
     });
 
     document.getElementById("openChecklistFromEquipment").addEventListener("click", () => {
@@ -236,11 +178,12 @@ document.addEventListener("keydown", event => {
 
     document.getElementById("compatiblePointsButton").addEventListener("click", () => {
         closeDrawer(detailDrawer);
+        openDrawer(document.getElementById("mapDrawer"));
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
         highlightCompatiblePoints();
     });
 
-    renderEquipment();
+    renderCatalog();
 }
 //#endregion
 
@@ -628,6 +571,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
             toggle.type = "button";
             toggle.className = "tree-toggle";
             toggle.dataset.tree = groupId;
+            toggle.dataset.category = category.id;
             toggle.setAttribute("aria-expanded", String(Boolean(query)));
             
             const folderIcon = document.createElement("i");
@@ -655,9 +599,11 @@ document.getElementById("mapButton").addEventListener("click", () => {
                 name.textContent = item.name;
                 link.append(icon, name);
                 link.addEventListener("click", () => {
-                    const card = [...document.querySelectorAll("#equipmentGrid [data-equipment]")]
-                        .find(element => element.dataset.equipment === item.id);
-                    if (card) card.click();
+                    tree.querySelectorAll(".tree-link").forEach(button => {
+                        button.classList.toggle("selected", button === link);
+                        button.setAttribute("aria-pressed", String(button === link));
+                    });
+                    document.dispatchEvent(new CustomEvent("equipment:selected", { detail: item.id }));
                 });
                 children.append(link);
             });
