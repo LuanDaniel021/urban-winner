@@ -2502,3 +2502,58 @@ main > section[id],
     .reference-card { min-height: 0; }
     .quick-actions { bottom: 96px; }
 }
+
+
+/* CATÁLOGO GERAL E SELEÇÃO DE EQUIPAMENTOS ESPECÍFICOS */
+
+.catalog-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.catalog-category-card {
+    min-height: 190px;
+    align-items: stretch;
+    text-align: left;
+}
+
+.catalog-category-description {
+    display: block;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: .78rem;
+    line-height: 1.6;
+}
+
+.catalog-category-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 16px;
+    color: var(--green);
+    font-size: .78rem;
+    font-weight: 800;
+}
+
+#equipmentTreeGuide .tree-link {
+    width: 100%;
+    cursor: pointer;
+}
+
+#equipmentTreeGuide .tree-link.selected,
+#equipmentTreeGuide .tree-link[aria-pressed="true"] {
+    color: var(--green);
+    background: var(--soft);
+    font-weight: 800;
+}
+
+@media (max-width: 900px) {
+    .catalog-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+    .catalog-category-grid { grid-template-columns: 1fr; }
+    .catalog-category-card { min-height: 160px; }
+}
