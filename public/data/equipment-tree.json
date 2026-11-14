@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "informatica",
+      "name": "Informática",
+      "items": [
+        {
+          "id": "celulares",
+          "name": "Celulares e smartphones"
+        },
+        {
+          "id": "computadores",
+          "name": "Computadores e periféricos"
+        },
+        {
+          "id": "impressoras",
+          "name": "Impressoras e scanners"
+        },
+        {
+          "id": "cabos",
+          "name": "Cabos e carregadores"
+        }
+      ]
+    },
+    {
+      "id": "imagem",
+      "name": "Imagem e áudio",
+      "items": [
+        {
+          "id": "televisores",
+          "name": "Televisores e monitores"
+        },
+        {
+          "id": "audio",
+          "name": "Áudio e vídeo"
+        },
+        {
+          "id": "videogames",
+          "name": "Videogames"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "name": "Casa",
+      "items": [
+        {
+          "id": "geladeiras",
+          "name": "Geladeiras e refrigeradores"
+        },
+        {
+          "id": "lavadoras",
+          "name": "Lavadoras e cuidados com roupas"
+        },
+        {
+          "id": "cozinha",
+          "name": "Cozinha e preparo de alimentos"
+        },
+        {
+          "id": "limpeza",
+          "name": "Limpeza doméstica"
+        },
+        {
+          "id": "ventilacao",
+          "name": "Ventilação e climatização"
+        }
+      ]
+    },
+    {
+      "id": "pessoal",
+      "name": "Cuidados pessoais",
+      "items": [
+        {
+          "id": "pessoal",
+          "name": "Cuidados pessoais"
+        }
+      ]
+    },
+    {
+      "id": "ferramentas",
+      "name": "Ferramentas",
+      "items": [
+        {
+          "id": "ferramentas",
+          "name": "Ferramentas elétricas"
+        },
+        {
+          "id": "jardim",
+          "name": "Jardim e área externa"
+        }
+      ]
+    }
+  ]
+}
