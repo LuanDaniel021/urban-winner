@@ -2862,6 +2862,10 @@ main > section[id],
         transform: translateY(8px);
     }
 
+    .quick-actions.collapsed #explorerToggle {
+        display: none;
+    }
+
     .quick-actions-bottom {
         display: flex;
         align-items: center;
