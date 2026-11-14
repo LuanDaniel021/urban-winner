@@ -790,12 +790,19 @@ document.querySelectorAll(".step[data-modal]")
                 "visible", window.scrollY > window.innerHeight * 0.10
             );
 
-        if (distanceFromBottom < 350) {
-            const extraMargin = 350 - distanceFromBottom;
-            pageProgressContainer.style.transform = `translateY(-${extraMargin * 0.3}px)`;
-            quickActionsContainer.style.transform = `translateY(-${extraMargin * 0.3}px)`;
-        }
-        else {
+        const screenWidth = window.innerWidth;
+        const footerClearance = screenWidth <= 410
+            ? { distance: 410, factor: 0.3 }
+            : screenWidth <= 600
+                ? { distance: 350, factor: 0.3 }
+                : { distance: 300, factor: 0.2 };
+
+        if (distanceFromBottom < footerClearance.distance) {
+            const extraMargin = footerClearance.distance - distanceFromBottom;
+            const offset = extraMargin * footerClearance.factor;
+            pageProgressContainer.style.transform = `translateY(-${offset}px)`;
+            quickActionsContainer.style.transform = `translateY(-${offset}px)`;
+        } else {
             pageProgressContainer.style.transform = "translateY(0px)";
             quickActionsContainer.style.transform = "translateY(0px)";
         }
