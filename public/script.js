@@ -768,23 +768,37 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const menuToggle = document.getElementById("menuToggle");
     const mainNav = document.getElementById("mainNav");
 
+    function closeMenu() {
+        mainNav.classList.remove("open");
+        menuToggle.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+    }
+
     menuToggle.addEventListener("click", () => {
-        const isOpen = mainNav.classList.toggle("open");
+        const isOpen = !mainNav.classList.contains("open");
+        mainNav.classList.toggle("open", isOpen);
         menuToggle.classList.toggle("open", isOpen);
         menuToggle.setAttribute("aria-expanded", String(isOpen));
         menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
     });
 
     mainNav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            mainNav.classList.remove("open");
-            menuToggle.classList.remove("open");
-            menuToggle.setAttribute("aria-expanded", "false");
-        });
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", event => {
+        if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeMenu();
     });
 
     const navigationSections = [
-        "inicio", "ciclo", "checklist", "guia", "mapa", "consciente", "noticias"
+        "inicio", "consciente", "checklist", "guia", "mapa", "noticias", "referencias"
     ].map(id => document.getElementById(id)).filter(Boolean);
 
     const navObserver = new IntersectionObserver(entries => {
@@ -800,7 +814,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
             if (active) link.setAttribute("aria-current", "location");
             else link.removeAttribute("aria-current");
         });
-    }, { threshold: [0.25, 0.5, 0.7] });
+    }, { rootMargin: "-20% 0px -55% 0px", threshold: 0 });
 
     navigationSections.forEach(section => navObserver.observe(section));
 }
@@ -863,7 +877,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
             const current = window.scrollY;
             const difference = current - previousY;
 
-            if (current < 80 || difference < -4) {
+            if (document.getElementById("mainNav").classList.contains("open") || current < 80 || difference < -4) {
                 header.classList.remove("hidden");
             }
             else if (difference > 4) {
