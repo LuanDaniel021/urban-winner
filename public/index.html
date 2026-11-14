@@ -682,93 +682,11 @@
         
             <div class="drawer-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input id="sidebarSearch" placeholder="Buscar equipamento...">
+                <input id="sidebarSearch" type="search" placeholder="Buscar equipamento..." autocomplete="off" aria-label="Buscar equipamento">
             </div>
 
-            <div id="equipmentTreeGuide" class="tree">
-                <button type="button" class="tree-toggle" data-tree="tree-informatica">
-                    <i class="fa-solid fa-folder-open"></i>
-                    Informática
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div id="tree-informatica" class="tree-children">
-                    <button type="button" class="tree-link"><i
-                            class="fa-solid fa-microchip"></i> Celulares e smartphones
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Computadores e periféricos
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Impressoras e scanners
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Cabos e carregadores
-                    </button>
-                </div>
-                
-                <button type="button" class="tree-toggle" data-tree="tree-imagem">
-                    <i class="fa-solid fa-folder-open"></i>
-                    Imagem e áudio
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div id="tree-imagem" class="tree-children">
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Televisores e monitores
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Áudio e vídeo
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Videogames
-                    </button>
-                </div>
-                
-                <button type="button" class="tree-toggle" data-tree="tree-casa">
-                    <i class="fa-solid fa-folder-open"></i>
-                    Casa
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div id="tree-casa" class="tree-children">
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Geladeiras e refrigeradores
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Lavadoras e cuidados com roupas
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Cozinha e preparo de alimentos
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Limpeza doméstica
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Ventilação e climatização
-                    </button>
-                </div>
-
-                <button type="button" class="tree-toggle" data-tree="tree-pessoal">
-                    <i class="fa-solid fa-folder-open"></i> Cuidados pessoais
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div id="tree-pessoal" class="tree-children">
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Cuidados pessoais
-                    </button>
-                </div>
-
-                <button type="button" class="tree-toggle" data-tree="tree-ferramentas">
-                    <i class="fa-solid fa-folder-open"></i> Ferramentas
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div id="tree-ferramentas" class="tree-children">
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Ferramentas elétricas
-                    </button>
-                    <button type="button" class="tree-link">
-                        <i class="fa-solid fa-microchip"></i> Jardim e área externa
-                    </button>
-                </div>
-
+            <div id="equipmentTreeGuide" class="tree" aria-live="polite">
+                <p class="tree-loading">Carregando equipamentos...</p>
             </div>
 
         </aside>
