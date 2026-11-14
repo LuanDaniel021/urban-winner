@@ -1542,7 +1542,6 @@ footer p {
 
     .quick-actions {
         right: 12px;
-        bottom: 12px;
     }
 
     .quick-action {
@@ -2501,7 +2500,6 @@ main > section[id],
 @media (max-width: 600px) {
     .reference-grid { grid-template-columns: 1fr; }
     .reference-card { min-height: 0; }
-    .quick-actions { bottom: 96px; }
 }
 
 

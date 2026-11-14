@@ -403,14 +403,14 @@ function showFeedback(message) {
 //#endregion
 
 //#region : IMAGENS DO FOLDER
-{
-    document.querySelectorAll(".brochure-preview-image").forEach(image => {
-        image.addEventListener("error", () => {
-            image.hidden = true;
-            image.nextElementSibling.hidden = false;
-        });
+
+document.querySelectorAll(".brochure-preview-image").forEach(image => {
+    image.addEventListener("error", () => {
+        image.hidden = true;
+        image.nextElementSibling.hidden = false;
     });
-}
+});
+
 //#endregion
 
 //#region : MAPA LEAFLET
@@ -681,14 +681,12 @@ document.getElementById("mapButton").addEventListener("click", () => {
 //#endregion
 
 //#region : MODAIS INFORMATIVOS
-{
-     document.querySelectorAll(".step[data-modal]")
-        .forEach(card => {
-            card.addEventListener("click", () => {
-                openModal(document.getElementById(card.dataset.modal));
-            });
+document.querySelectorAll(".step[data-modal]")
+    .forEach(card => {
+        card.addEventListener("click", () => {
+            openModal(document.getElementById(card.dataset.modal));
         });
-}
+    });
 //#endregion
 
 //#region : AÇÕES CONTEXTUAIS
@@ -828,6 +826,8 @@ document.getElementById("mapButton").addEventListener("click", () => {
         });
     }
 
+    const minWidth = 600;
+
     function progress() {
         const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
         const explored = scrollable > 0
@@ -845,10 +845,10 @@ document.getElementById("mapButton").addEventListener("click", () => {
                 "visible", window.scrollY > window.innerHeight * 0.10
             );
 
-        if (distanceFromBottom < 300) {
-            const extraMargin = 300 - distanceFromBottom;
-            pageProgressContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`;
-            quickActionsContainer.style.transform = `translateY(-${extraMargin * 0.2}px)`;
+        if (distanceFromBottom < 350) {
+            const extraMargin = 350 - distanceFromBottom;
+            pageProgressContainer.style.transform = `translateY(-${extraMargin * 0.3}px)`;
+            quickActionsContainer.style.transform = `translateY(-${extraMargin * 0.3}px)`;
         }
         else {
             pageProgressContainer.style.transform = "translateY(0px)";
