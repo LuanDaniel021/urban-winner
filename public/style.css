@@ -2849,6 +2849,13 @@ main > section[id],
     display: none;
 }
 
+/* O controle só existe em telas estreitas; no desktop fica oculto. */
+@media (min-width: 601px) {
+    .quick-actions-toggle {
+        display: none !important;
+    }
+}
+
 @media (max-width: 600px) {
     .quick-actions {
         transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
