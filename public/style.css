@@ -2845,3 +2845,51 @@ main > section[id],
         font-size: .78rem;
     }
 }
+
+
+/* CONTROLE DISCRETO DAS AÇÕES FLUTUANTES NO CELULAR */
+.quick-actions-toggle {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .quick-actions {
+        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    }
+
+    .quick-actions.collapsed {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(8px);
+    }
+
+    .quick-actions-toggle {
+        position: fixed;
+        right: 14px;
+        bottom: 54px;
+        z-index: 910;
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--muted);
+        background: rgba(255,255,255,.9);
+        box-shadow: 0 2px 9px #00000012;
+        font-size: .68rem;
+        cursor: pointer;
+        opacity: .78;
+        transition: opacity .2s, background .2s;
+    }
+
+    .quick-actions-toggle:active,
+    .quick-actions-toggle:focus-visible {
+        opacity: 1;
+        background: white;
+        outline: 2px solid var(--green);
+        outline-offset: 2px;
+    }
+}
