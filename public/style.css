@@ -2366,3 +2366,44 @@ main > .section#mapa .container {
 .checklist-file-actions button {
     min-height: 42px;
 }
+
+
+/* ÁRVORE DE EQUIPAMENTOS GERADA PELO JSON */
+
+#equipmentTreeGuide .tree-toggle {
+    justify-content: flex-start;
+}
+
+#equipmentTreeGuide .tree-toggle span {
+    flex: 1;
+}
+
+#equipmentTreeGuide .tree-arrow {
+    width: auto;
+    margin-left: auto;
+    transition: transform .2s;
+}
+
+#equipmentTreeGuide .tree-toggle[aria-expanded="true"] .tree-arrow {
+    transform: rotate(180deg);
+}
+
+#equipmentTreeGuide .tree-link span {
+    flex: 1;
+}
+
+.tree-loading,
+.tree-empty {
+    padding: 14px 10px;
+    color: var(--muted);
+    font-size: .82rem;
+    text-align: center;
+}
+
+#sidebarSearch {
+    min-width: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: .85rem;
+}
