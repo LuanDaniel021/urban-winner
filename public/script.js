@@ -1,5 +1,14 @@
 //#region : INTERFACE - MODAIS, PAINÉIS E OVERLAY
 const overlay = document.getElementById("overlay");
+
+function normalizeText(value) {
+    return String(value ?? "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+}
+
 let _drawer = null;
 let _modal = null;
 
@@ -80,16 +89,13 @@ document.addEventListener("keydown", event => {
 
     const search = document.getElementById("search");
     const detailDrawer = document.getElementById("equipmentDetailDrawer");
-    const collectionPoints = [];
     let activeFilter = "todos";
-    let selectedEquipment = null;
 
     function renderCatalog() {
-        const query = search.value.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").trim();
+        const query = normalizeText(search.value);
         const items = Object.values(equipment).filter(item => {
             const categoryMatch = activeFilter === "todos" || item.cat === activeFilter;
-            const searchable = `${item.name} ${item.category} ${item.examples} ${item.tip}`
-                .toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");
+            const searchable = normalizeText(`${item.name} ${item.category} ${item.examples} ${item.tip}`);
             return categoryMatch && searchable.includes(query);
         });
 
@@ -121,7 +127,6 @@ document.addEventListener("keydown", event => {
 
     function openEquipmentDetail(item) {
         if (!item) return;
-        selectedEquipment = item;
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = item.category;
         document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
@@ -134,26 +139,10 @@ document.addEventListener("keydown", event => {
             : "Retire acessórios e componentes removíveis apenas quando isso for seguro.";
 
         document.getElementById("compatiblePointsHint").textContent =
-            "O mapa será aberto para consultar os pontos de coleta. Confirme a aceitação diretamente com o localizador.";
-        highlightCompatiblePoints(false);
+            "Consulte os localizadores disponíveis no mapa e confirme a aceitação diretamente com o ponto de coleta.";
         openDrawer(detailDrawer);
     }
 
-    function highlightCompatiblePoints(showMessage = true) {
-        if (!selectedEquipment || !collectionPoints.length) {
-            if (showMessage) showFeedback("Ainda não há pontos cadastrados para filtrar por equipamento. Consulte os localizadores oficiais.");
-            return;
-        }
-        const compatible = collectionPoints.filter(point =>
-            (point.acceptedCategories || []).includes(selectedEquipment.cat)
-        );
-        collectionPoints.forEach(point => {
-            if (point.marker) point.marker.setOpacity(compatible.includes(point) ? 1 : 0.25);
-        });
-        if (showMessage) showFeedback(compatible.length
-            ? `${compatible.length} ponto(s) compatível(is) destacado(s).`
-            : "Nenhum ponto cadastrado recebe esta categoria.");
-    }
 
     search.addEventListener("input", renderCatalog);
     document.querySelectorAll(".filter").forEach(button => {
@@ -181,9 +170,8 @@ document.addEventListener("keydown", event => {
 
     document.getElementById("compatiblePointsButton").addEventListener("click", () => {
         closeDrawer(detailDrawer);
-        openDrawer(document.getElementById("mapDrawer"));
-        document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
-        highlightCompatiblePoints();
+        document.getElementById("mapa").scrollIntoView({ behavior: "smooth", block: "start" });
+        showFeedback("Consulte os localizadores e confirme quais equipamentos são aceitos.");
     });
 
     renderCatalog();
@@ -517,6 +505,10 @@ document.getElementById("explorerToggle").addEventListener("click", () => {
     openDrawer(document.getElementById("drawer"));
 });
 
+document.getElementById("checklistButton").addEventListener("click", () => {
+    openDrawer(document.getElementById("checklistDrawer"));
+});
+
 document.getElementById("equipmentButton").addEventListener("click", () => {
     const drawerSearch = document.getElementById("sidebarSearch");
     drawerSearch.value = "";
@@ -564,14 +556,14 @@ document.getElementById("mapButton").addEventListener("click", () => {
     }
 
     function renderEquipmentTree(categories) {
-        const query = normalize(search.value);
+        const query = normalizeText(search.value);
         tree.replaceChildren();
         let visibleCount = 0;
 
         categories.forEach((category, index) => {
-            const categoryMatches = normalize(category.name).includes(query);
+            const categoryMatches = normalizeText(category.name).includes(query);
             const matches = category.items.filter(item =>
-                categoryMatches || normalize(item.name).includes(query)
+                categoryMatches || normalizeText(item.name).includes(query)
             );
             if (!matches.length) return;
 
@@ -689,52 +681,7 @@ document.querySelectorAll(".step[data-modal]")
     });
 //#endregion
 
-//#region : AÇÕES CONTEXTUAIS
-{
-    const contextualButtons = document.querySelectorAll(
-        ".quick-action[data-section]"
-    );
 
-    const observedSections = [
-        "inicio",
-        "ciclo",
-        "checklist",
-        "guia",
-        "mapa",
-        "consciente",
-        "noticias"
-    ].map(id => document.getElementById(id));
-
-    function showSectionAction(sectionId) {
-        contextualButtons.forEach(button => {
-            button.classList.toggle(
-                "active",
-                button.dataset.section === sectionId
-            );
-        });
-    }
-
-    const sectionObserver = new IntersectionObserver(entries => {
-        const visible = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible.length) {
-            showSectionAction(visible[0].target.id);
-        }
-    }, {
-        threshold: [0.2, 0.4, 0.6]
-    });
-
-    observedSections.forEach(section => {
-        if (section) sectionObserver.observe(section);
-    });
-
-    document.getElementById("checklistButton").addEventListener("click", () => {
-        openDrawer(document.getElementById("checklistDrawer"));
-    });
-}
-//#endregion
 
 //#region : MENU MOBILE
 {
@@ -825,8 +772,6 @@ document.querySelectorAll(".step[data-modal]")
             }
         });
     }
-
-    const minWidth = 600;
 
     function progress() {
         const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
