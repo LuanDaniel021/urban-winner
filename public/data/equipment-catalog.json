@@ -1,0 +1,915 @@
+{
+  "version": 1,
+  "title": "Catálogo de equipamentos",
+  "description": "Itens organizados a partir da lista fornecida no artigo. As categorias servem apenas para facilitar a navegação.",
+  "categories": [
+    {
+      "id": "casa-cozinha",
+      "name": "Cozinha e preparo de alimentos",
+      "emoji": "🍳",
+      "items": [
+        {
+          "id": "abridor-de-vinho-eletrico",
+          "name": "Abridor de vinho elétrico"
+        },
+        {
+          "id": "abridor-eletrico-de-latas",
+          "name": "Abridor elétrico de latas"
+        },
+        {
+          "id": "adega",
+          "name": "Adega"
+        },
+        {
+          "id": "aparelho-para-preparacao-de-cafe-ou-cha",
+          "name": "Aparelho para preparação de café ou chá"
+        },
+        {
+          "id": "batedeira",
+          "name": "Batedeira"
+        },
+        {
+          "id": "bebedouro-refrigerado",
+          "name": "Bebedouro refrigerado"
+        },
+        {
+          "id": "blender",
+          "name": "Blender"
+        },
+        {
+          "id": "bule-eletrico",
+          "name": "Bule elétrico"
+        },
+        {
+          "id": "cafeteira",
+          "name": "Cafeteira"
+        },
+        {
+          "id": "centrifuga-de-suco",
+          "name": "Centrífuga de suco"
+        },
+        {
+          "id": "cervejeira",
+          "name": "Cervejeira"
+        },
+        {
+          "id": "chaleira-eletrica",
+          "name": "Chaleira elétrica"
+        },
+        {
+          "id": "chapa-grill",
+          "name": "Chapa grill"
+        },
+        {
+          "id": "churrasqueira-a-gas",
+          "name": "Churrasqueira a gás"
+        },
+        {
+          "id": "churrasqueira-eletrica-ou-eletronica",
+          "name": "Churrasqueira elétrica ou eletrônica"
+        },
+        {
+          "id": "cooktop-eletrico-e-a-gas",
+          "name": "Cooktop elétrico e a gás"
+        },
+        {
+          "id": "crepeira",
+          "name": "Crepeira"
+        },
+        {
+          "id": "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
+          "name": "Distribuidor automático de bebida quente (máquina de consumo)"
+        },
+        {
+          "id": "espremedor-de-frutas",
+          "name": "Espremedor de frutas"
+        },
+        {
+          "id": "faca-eletrica",
+          "name": "Faca elétrica"
+        },
+        {
+          "id": "fechador-eletrico-de-latas",
+          "name": "Fechador elétrico de latas"
+        },
+        {
+          "id": "fogao",
+          "name": "Fogão"
+        },
+        {
+          "id": "fogao-eletrico",
+          "name": "Fogão elétrico"
+        },
+        {
+          "id": "forno-eletrico",
+          "name": "Forno elétrico"
+        },
+        {
+          "id": "fritadeira",
+          "name": "Fritadeira"
+        },
+        {
+          "id": "liquidificador",
+          "name": "Liquidificador"
+        },
+        {
+          "id": "maquina-de-algodao-doce",
+          "name": "Máquina de algodão doce"
+        },
+        {
+          "id": "maquina-de-cafe",
+          "name": "Máquina de café"
+        },
+        {
+          "id": "maquina-de-cupcake",
+          "name": "Máquina de cupcake"
+        },
+        {
+          "id": "maquina-de-pao-panificadora",
+          "name": "Máquina de pão (panificadora)"
+        },
+        {
+          "id": "maquina-de-sorvete",
+          "name": "Máquina de sorvete"
+        },
+        {
+          "id": "maquina-de-waffle",
+          "name": "Máquina de waffle"
+        },
+        {
+          "id": "micro-ondas",
+          "name": "Micro-ondas"
+        },
+        {
+          "id": "miniadega",
+          "name": "Miniadega"
+        },
+        {
+          "id": "miniforno",
+          "name": "Miniforno"
+        },
+        {
+          "id": "miniprocessador-com-uma-ou-mais-funcoes",
+          "name": "Miniprocessador (com uma ou mais funções)"
+        },
+        {
+          "id": "mixer",
+          "name": "Mixer"
+        },
+        {
+          "id": "moedor-de-cafe",
+          "name": "Moedor de café"
+        },
+        {
+          "id": "moedor-de-graos",
+          "name": "Moedor de grãos"
+        },
+        {
+          "id": "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
+          "name": "Moedor elétrico (de grãos ou de carne, entre outros)"
+        },
+        {
+          "id": "multifatiador",
+          "name": "Multifatiador"
+        },
+        {
+          "id": "omeleteira",
+          "name": "Omeleteira"
+        },
+        {
+          "id": "panela-de-arroz",
+          "name": "Panela de arroz"
+        },
+        {
+          "id": "panela-de-pressao-eletrica",
+          "name": "Panela de pressão elétrica"
+        },
+        {
+          "id": "panela-eletrica",
+          "name": "Panela elétrica"
+        },
+        {
+          "id": "panquequeira",
+          "name": "Panquequeira"
+        },
+        {
+          "id": "pia-fogao",
+          "name": "Pia fogão"
+        },
+        {
+          "id": "pipoqueira",
+          "name": "Pipoqueira"
+        },
+        {
+          "id": "processador-de-alimentos",
+          "name": "Processador de alimentos"
+        },
+        {
+          "id": "purificador-de-agua",
+          "name": "Purificador de água"
+        },
+        {
+          "id": "sanduicheira",
+          "name": "Sanduicheira"
+        },
+        {
+          "id": "torradeira",
+          "name": "Torradeira"
+        },
+        {
+          "id": "triturador",
+          "name": "Triturador"
+        }
+      ]
+    },
+    {
+      "id": "eletrodomesticos",
+      "name": "Eletrodomésticos e climatização",
+      "emoji": "🏠",
+      "items": [
+        {
+          "id": "aparelho-de-aquecimento-eletrico-para-ambiente",
+          "name": "Aparelho de aquecimento elétrico para ambiente"
+        },
+        {
+          "id": "aparelho-de-ar-condicionado-de-janela",
+          "name": "Aparelho de ar condicionado de janela"
+        },
+        {
+          "id": "aparelho-de-ar-condicionado-portatil",
+          "name": "Aparelho de ar condicionado portátil"
+        },
+        {
+          "id": "aparelho-de-ar-condicionado-split",
+          "name": "Aparelho de ar condicionado split"
+        },
+        {
+          "id": "aspirador",
+          "name": "Aspirador"
+        },
+        {
+          "id": "aspirador-de-janela",
+          "name": "Aspirador de janela"
+        },
+        {
+          "id": "chuveiro-eletrico-ou-eletronico",
+          "name": "Chuveiro elétrico ou eletrônico"
+        },
+        {
+          "id": "circulador-de-ar",
+          "name": "Circulador de ar"
+        },
+        {
+          "id": "climatizador-de-ar-eletrico",
+          "name": "Climatizador de ar elétrico"
+        },
+        {
+          "id": "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+          "name": "Coifa com dimensão horizontal de, no máximo, 120 cm"
+        },
+        {
+          "id": "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
+          "name": "Combinação de refrigerador e congelador (freezer) munido de portas exteriores separadas"
+        },
+        {
+          "id": "cortina-de-ar",
+          "name": "Cortina de ar"
+        },
+        {
+          "id": "depurador-de-ar",
+          "name": "Depurador de ar"
+        },
+        {
+          "id": "desumidificador-de-ar",
+          "name": "Desumidificador de ar"
+        },
+        {
+          "id": "ducha-eletrica",
+          "name": "Ducha elétrica"
+        },
+        {
+          "id": "enceradeira",
+          "name": "Enceradeira"
+        },
+        {
+          "id": "freezer-vertical",
+          "name": "Freezer vertical"
+        },
+        {
+          "id": "frigobar",
+          "name": "Frigobar"
+        },
+        {
+          "id": "limpadora-a-vapor",
+          "name": "Limpadora a vapor"
+        },
+        {
+          "id": "limpadora-de-carpete",
+          "name": "Limpadora de carpete"
+        },
+        {
+          "id": "maquina-de-lava-e-seca",
+          "name": "Máquina de lava e seca"
+        },
+        {
+          "id": "maquina-de-lavar-louca",
+          "name": "Máquina de lavar louça"
+        },
+        {
+          "id": "maquina-de-lavar-roupa",
+          "name": "Máquina de lavar roupa"
+        },
+        {
+          "id": "maquina-de-lavar-roupa-semiautomatica",
+          "name": "Máquina de lavar roupa semiautomática"
+        },
+        {
+          "id": "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
+          "name": "Máquina de secar (secadora de roupas ou centrífuga)"
+        },
+        {
+          "id": "refrigerador",
+          "name": "Refrigerador"
+        },
+        {
+          "id": "resistencias-eletricas-ou-eletronicas",
+          "name": "Resistências elétricas ou eletrônicas"
+        },
+        {
+          "id": "torneira-eletrica",
+          "name": "Torneira elétrica"
+        },
+        {
+          "id": "umidificador",
+          "name": "Umidificador"
+        },
+        {
+          "id": "ventilador-de-coluna",
+          "name": "Ventilador de coluna"
+        },
+        {
+          "id": "ventilador-de-mesa",
+          "name": "Ventilador de mesa"
+        },
+        {
+          "id": "ventilador-de-teto",
+          "name": "Ventilador de teto"
+        }
+      ]
+    },
+    {
+      "id": "informatica",
+      "name": "Informática e componentes",
+      "emoji": "💻",
+      "items": [
+        {
+          "id": "adaptador-wireless-usb-universal-serial-bus",
+          "name": "Adaptador wireless USB - Universal Serial Bus"
+        },
+        {
+          "id": "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
+          "name": "Adaptadores em geral (excluídos os adaptadores utilizados para instalação elétrica predial)"
+        },
+        {
+          "id": "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
+          "name": "Cabos e conectores em geral (excluídos fios e cabos utilizados para instalação elétrica predial)"
+        },
+        {
+          "id": "carregador-portatil-usb",
+          "name": "Carregador portátil USB"
+        },
+        {
+          "id": "carregadores-em-geral-power-bank-de-uso-domestico",
+          "name": "Carregadores em geral (power bank) de uso doméstico"
+        },
+        {
+          "id": "computador-all-in-one",
+          "name": "Computador all in one"
+        },
+        {
+          "id": "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
+          "name": "Computador para ciclismo, mergulho, corrida, remo e outras atividades desportivas"
+        },
+        {
+          "id": "computador-portatil-notepad",
+          "name": "Computador portátil (notepad)"
+        },
+        {
+          "id": "computadores-portateis-laptop-netbook-e-notebook",
+          "name": "Computadores portáteis (laptop, netbook e notebook)"
+        },
+        {
+          "id": "conversor-de-corrente-continua-de-uso-domestico",
+          "name": "Conversor de corrente contínua (de uso doméstico)"
+        },
+        {
+          "id": "cpu-central-process-unit",
+          "name": "CPU - Central Process Unit"
+        },
+        {
+          "id": "desktop-sem-monitor-computador-pessoal",
+          "name": "Desktop sem monitor (computador pessoal)"
+        },
+        {
+          "id": "dispositivo-eletroeletronico-para-armazenagem-ou-transferencia-de-dados-pen-drive-e-cartao-de-memoria",
+          "name": "Dispositivo eletroeletrônico para armazenagem ou transferência de dados (pen drive e cartão de memória)"
+        },
+        {
+          "id": "dock-station",
+          "name": "Dock station"
+        },
+        {
+          "id": "estabilizador-e-regulador-de-tensao",
+          "name": "Estabilizador e regulador de tensão"
+        },
+        {
+          "id": "fonte-universal-para-notebook",
+          "name": "Fonte universal para notebook"
+        },
+        {
+          "id": "hdd-external-hard-drive",
+          "name": "HDD - External Hard Drive"
+        },
+        {
+          "id": "hub-concentrador",
+          "name": "Hub (concentrador)"
+        },
+        {
+          "id": "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
+          "name": "Impressora de uso doméstico (matricial, laser ou jato de tinta)"
+        },
+        {
+          "id": "impressora-multifuncional",
+          "name": "Impressora multifuncional"
+        },
+        {
+          "id": "microcomputador",
+          "name": "Microcomputador"
+        },
+        {
+          "id": "minicomputador",
+          "name": "Minicomputador"
+        },
+        {
+          "id": "modem",
+          "name": "Modem"
+        },
+        {
+          "id": "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet",
+          "name": "Módulo de gerenciamento e processamento de dados (switch de rede de internet)"
+        },
+        {
+          "id": "monitores-em-geral",
+          "name": "Monitores em geral"
+        },
+        {
+          "id": "mouse",
+          "name": "Mouse"
+        },
+        {
+          "id": "nobreaks",
+          "name": "Nobreaks"
+        },
+        {
+          "id": "odd-external-optical-drive",
+          "name": "ODD - External Optical Drive"
+        },
+        {
+          "id": "painel-fotovoltaico",
+          "name": "Painel fotovoltaico"
+        },
+        {
+          "id": "produto-ou-equipamento-para-coletar-armazenar-tratar-apresentar-ou-comunicar-informacoes-por-via-eletronica",
+          "name": "Produto ou equipamento para coletar, armazenar, tratar, apresentar ou comunicar informações por via eletrônica"
+        },
+        {
+          "id": "protetor-de-linha-filtro-de-linha",
+          "name": "Protetor de linha / filtro de linha"
+        },
+        {
+          "id": "roteador",
+          "name": "Roteador"
+        },
+        {
+          "id": "scanner",
+          "name": "Scanner"
+        },
+        {
+          "id": "string-box",
+          "name": "String box"
+        },
+        {
+          "id": "tablet",
+          "name": "Tablet"
+        },
+        {
+          "id": "teclado",
+          "name": "Teclado"
+        },
+        {
+          "id": "telecopiadora-fax",
+          "name": "Telecopiadora (fax)"
+        },
+        {
+          "id": "variador-de-luminosidade-dimmer",
+          "name": "Variador de luminosidade (dimmer)"
+        },
+        {
+          "id": "variador-de-ventilador",
+          "name": "Variador de ventilador"
+        }
+      ]
+    },
+    {
+      "id": "audio-video",
+      "name": "Imagem, áudio e vídeo",
+      "emoji": "📺",
+      "items": [
+        {
+          "id": "amplificador-de-audio-de-uso-domestico",
+          "name": "Amplificador de áudio (de uso doméstico)"
+        },
+        {
+          "id": "antena-digital",
+          "name": "Antena digital"
+        },
+        {
+          "id": "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
+          "name": "Aparelho de rádio e sistemas de som (de uso doméstico)"
+        },
+        {
+          "id": "aparelho-de-televisao",
+          "name": "Aparelho de televisão"
+        },
+        {
+          "id": "aparelho-de-videogame",
+          "name": "Aparelho de videogame"
+        },
+        {
+          "id": "autofalante",
+          "name": "Autofalante"
+        },
+        {
+          "id": "autorradio",
+          "name": "Autorrádio"
+        },
+        {
+          "id": "blu-ray-player",
+          "name": "Blu-ray player"
+        },
+        {
+          "id": "caixa-de-som",
+          "name": "Caixa de som"
+        },
+        {
+          "id": "camera-de-seguranca-de-uso-domestico",
+          "name": "Câmera de segurança (de uso doméstico)"
+        },
+        {
+          "id": "camera-de-video",
+          "name": "Câmera de vídeo"
+        },
+        {
+          "id": "camera-fotografica-digital",
+          "name": "Câmera fotográfica digital"
+        },
+        {
+          "id": "cartucho-de-videogame",
+          "name": "Cartucho de videogame"
+        },
+        {
+          "id": "console-de-videogame-portatil",
+          "name": "Console de videogame portátil"
+        },
+        {
+          "id": "controle-remoto",
+          "name": "Controle remoto"
+        },
+        {
+          "id": "conversor-digital-de-uso-domestico",
+          "name": "Conversor digital (de uso doméstico)"
+        },
+        {
+          "id": "dvd-digital-versatile-disc-player",
+          "name": "DVD - Digital Versatile Disc player"
+        },
+        {
+          "id": "fone-de-ouvido",
+          "name": "Fone de ouvido"
+        },
+        {
+          "id": "gravador-digital-video-recorder-dvr-de-uso-domestico",
+          "name": "Gravador (Digital Video Recorder - DVR) de uso doméstico"
+        },
+        {
+          "id": "gravador-de-audio-de-uso-domestico",
+          "name": "Gravador de áudio (de uso doméstico)"
+        },
+        {
+          "id": "gravador-de-video-de-uso-domestico",
+          "name": "Gravador de vídeo (de uso doméstico)"
+        },
+        {
+          "id": "headset",
+          "name": "Headset"
+        },
+        {
+          "id": "home-theater",
+          "name": "Home theater"
+        },
+        {
+          "id": "jogo-de-videogame",
+          "name": "Jogo de videogame"
+        },
+        {
+          "id": "kit-de-controle-remoto",
+          "name": "Kit de controle remoto"
+        },
+        {
+          "id": "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
+          "name": "Mídias utilizadas em equipamentos eletroeletrônicos (CD, DVD, VHS, cassete e disquete)"
+        },
+        {
+          "id": "oculos-3d",
+          "name": "Óculos 3D"
+        },
+        {
+          "id": "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
+          "name": "Produto ou equipamento de uso doméstico para transmitir som, imagem ou outras informações por telecomunicação"
+        },
+        {
+          "id": "projetor-de-video",
+          "name": "Projetor de vídeo"
+        },
+        {
+          "id": "radio-portatil",
+          "name": "Rádio portátil"
+        },
+        {
+          "id": "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
+          "name": "Reprodutor de mídia (aparelho de reprodução e gravação de som ou VHS)"
+        },
+        {
+          "id": "tela-de-projecao",
+          "name": "Tela de projeção"
+        },
+        {
+          "id": "transmissor-e-receptor-bluetooth",
+          "name": "Transmissor e receptor bluetooth"
+        }
+      ]
+    },
+    {
+      "id": "telefonia",
+      "name": "Telefonia e comunicação",
+      "emoji": "📱",
+      "items": [
+        {
+          "id": "atendedor-automatico-secretaria-eletronica",
+          "name": "Atendedor automático (secretária eletrônica)"
+        },
+        {
+          "id": "baba-eletronica",
+          "name": "Babá eletrônica"
+        },
+        {
+          "id": "camera-externa-de-telefone-celular",
+          "name": "Câmera externa de telefone celular"
+        },
+        {
+          "id": "campainha-cigarra-eletronica",
+          "name": "Campainha cigarra eletrônica"
+        },
+        {
+          "id": "campainha-eletronica",
+          "name": "Campainha eletrônica"
+        },
+        {
+          "id": "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
+          "name": "Celular portátil (com capa traseira com bateria ou placa de circuito impresso)"
+        },
+        {
+          "id": "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo",
+          "name": "Relógio (de sala, de pulso ou de mesa) e aparelho para medir, indicar ou registrar o tempo"
+        },
+        {
+          "id": "relogio-smart",
+          "name": "Relógio smart"
+        },
+        {
+          "id": "telefone",
+          "name": "Telefone"
+        },
+        {
+          "id": "telefone-celular",
+          "name": "Telefone celular"
+        },
+        {
+          "id": "telefone-rural-gsm",
+          "name": "Telefone rural GSM"
+        },
+        {
+          "id": "telefone-sem-fio",
+          "name": "Telefone sem fio"
+        },
+        {
+          "id": "telex",
+          "name": "Telex"
+        }
+      ]
+    },
+    {
+      "id": "pessoal",
+      "name": "Cuidados pessoais e vestuário",
+      "emoji": "🪒",
+      "items": [
+        {
+          "id": "aparador-de-barba",
+          "name": "Aparador de barba"
+        },
+        {
+          "id": "aparelho-de-barbear",
+          "name": "Aparelho de barbear"
+        },
+        {
+          "id": "aparelho-de-depilar-e-aparar-pelos",
+          "name": "Aparelho de depilar e aparar pelos"
+        },
+        {
+          "id": "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
+          "name": "Aparelho de massagem e outros aparelhos para o cuidado do corpo"
+        },
+        {
+          "id": "aparelho-para-cortar-o-cabelo",
+          "name": "Aparelho para cortar o cabelo"
+        },
+        {
+          "id": "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+          "name": "Aparelho para engomar, alisar e tratar o vestuário"
+        },
+        {
+          "id": "balanca",
+          "name": "Balança"
+        },
+        {
+          "id": "escova-de-dente-eletrica-airfloss",
+          "name": "Escova de dente elétrica (airfloss)"
+        },
+        {
+          "id": "escova-modeladora",
+          "name": "Escova modeladora"
+        },
+        {
+          "id": "extrator-de-leite-eletrico",
+          "name": "Extrator de leite elétrico"
+        },
+        {
+          "id": "ferro-de-engomar",
+          "name": "Ferro de engomar"
+        },
+        {
+          "id": "passadeira-a-vapor",
+          "name": "Passadeira a vapor"
+        },
+        {
+          "id": "prancha-de-cabelo",
+          "name": "Prancha de cabelo"
+        },
+        {
+          "id": "secador-de-cabelo",
+          "name": "Secador de cabelo"
+        },
+        {
+          "id": "vaporizador-de-roupa",
+          "name": "Vaporizador de roupa"
+        }
+      ]
+    },
+    {
+      "id": "ferramentas-jardim",
+      "name": "Ferramentas e jardinagem",
+      "emoji": "🛠️",
+      "items": [
+        {
+          "id": "aparador-de-grama",
+          "name": "Aparador de grama"
+        },
+        {
+          "id": "bomba-de-jardim",
+          "name": "Bomba de jardim"
+        },
+        {
+          "id": "esmerilhadeira",
+          "name": "Esmerilhadeira"
+        },
+        {
+          "id": "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
+          "name": "Ferramenta para cortar relva ou para outra atividade de jardinagem"
+        },
+        {
+          "id": "furadeira",
+          "name": "Furadeira"
+        },
+        {
+          "id": "lanterna-eletrica",
+          "name": "Lanterna elétrica"
+        },
+        {
+          "id": "lavadora-de-jato-de-agua",
+          "name": "Lavadora de jato de água"
+        },
+        {
+          "id": "lixadeira",
+          "name": "Lixadeira"
+        },
+        {
+          "id": "parafusadeira",
+          "name": "Parafusadeira"
+        },
+        {
+          "id": "pistola-aplicadora-de-cola",
+          "name": "Pistola aplicadora de cola"
+        },
+        {
+          "id": "podador-de-cerca-viva",
+          "name": "Podador de cerca viva"
+        },
+        {
+          "id": "pulverizador-eletrico",
+          "name": "Pulverizador elétrico"
+        },
+        {
+          "id": "serra-eletrica",
+          "name": "Serra elétrica"
+        }
+      ]
+    },
+    {
+      "id": "lazer-outros",
+      "name": "Lazer, esporte e outros",
+      "emoji": "🎮",
+      "items": [
+        {
+          "id": "bateria-externa",
+          "name": "Bateria externa"
+        },
+        {
+          "id": "brinquedo-eletrico-ou-eletronico",
+          "name": "Brinquedo elétrico ou eletrônico"
+        },
+        {
+          "id": "calculadora-com-bobina",
+          "name": "Calculadora com bobina"
+        },
+        {
+          "id": "calculadora-de-bolso-e-de-mesa",
+          "name": "Calculadora de bolso e de mesa"
+        },
+        {
+          "id": "cartucho-de-tinta-ou-toner",
+          "name": "Cartucho de tinta ou toner"
+        },
+        {
+          "id": "copiadora",
+          "name": "Copiadora"
+        },
+        {
+          "id": "equipamento-desportivo-com-componente-eletrico-ou-eletronico",
+          "name": "Equipamento desportivo com componente elétrico ou eletrônico"
+        },
+        {
+          "id": "equipamento-informatico-pessoal-e-reader",
+          "name": "Equipamento informático pessoal (e-reader)"
+        },
+        {
+          "id": "etiquetadora-e-rotulador-eletronico",
+          "name": "Etiquetadora e rotulador eletrônico"
+        },
+        {
+          "id": "fragmentadora-de-papel",
+          "name": "Fragmentadora de papel"
+        },
+        {
+          "id": "instrumento-musical",
+          "name": "Instrumento musical"
+        },
+        {
+          "id": "maquina-de-costura",
+          "name": "Máquina de costura"
+        },
+        {
+          "id": "maquina-de-escrever-eletrica-e-eletronica",
+          "name": "Máquina de escrever elétrica e eletrônica"
+        },
+        {
+          "id": "piano",
+          "name": "Piano"
+        },
+        {
+          "id": "teclado-instrumento-musical",
+          "name": "Teclado (instrumento musical)"
+        }
+      ]
+    }
+  ]
+}
