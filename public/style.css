@@ -1085,7 +1085,8 @@ footer p {
 }
 
 .quick-action.active,
-.quick-action.fixed {
+.quick-action.fixed,
+.quick-action.revealed {
     display: flex;
 }
 
