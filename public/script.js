@@ -801,6 +801,18 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const pageProgressBar = document.getElementById("pageProgressBar");
     const pageProgressContainer = document.getElementById("pageProgressContainer");
     const quickActionsContainer = document.getElementById("quickActionsContainer");
+    const progressiveActions = [...quickActionsContainer.querySelectorAll(".quick-action[data-section]")];
+
+    function revealProgressiveActions() {
+        const revealLine = window.scrollY + window.innerHeight * 0.65;
+
+        progressiveActions.forEach(button => {
+            const section = document.getElementById(button.dataset.section);
+            if (section && revealLine >= section.offsetTop) {
+                button.classList.add("revealed");
+            }
+        });
+    }
 
     function progress() {
         const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
@@ -812,6 +824,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
         pageProgressValue.textContent = `${percent}%`;
         pageProgressBar.style.width = `${percent}%`;
+        revealProgressiveActions();
 
         pageProgressContainer.classList
             .toggle(
