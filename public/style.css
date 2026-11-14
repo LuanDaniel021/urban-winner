@@ -2901,3 +2901,42 @@ main > section[id],
         outline-offset: 2px;
     }
 }
+
+
+/* CONTROLE DAS AÇÕES RÁPIDAS EM TELAS GRANDES */
+@media (min-width: 601px) {
+    .quick-actions-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .quick-actions-toggle {
+        display: grid;
+        place-items: center;
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--muted);
+        background: rgba(255,255,255,.9);
+        box-shadow: 0 2px 9px #00000012;
+        font-size: .68rem;
+        cursor: pointer;
+        opacity: .78;
+        transition: opacity .2s, background .2s;
+    }
+
+    .quick-actions-toggle:hover,
+    .quick-actions-toggle:focus-visible {
+        opacity: 1;
+        background: white;
+    }
+
+    .quick-actions.collapsed .quick-action {
+        display: none !important;
+    }
+}
