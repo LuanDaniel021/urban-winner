@@ -802,6 +802,20 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const pageProgressContainer = document.getElementById("pageProgressContainer");
     const quickActionsContainer = document.getElementById("quickActionsContainer");
     const progressiveActions = [...quickActionsContainer.querySelectorAll(".quick-action[data-section]")];
+    const quickActionsToggle = document.getElementById("quickActionsToggle");
+
+    quickActionsToggle.addEventListener("click", () => {
+        const collapsed = quickActionsContainer.classList.toggle("collapsed");
+        quickActionsToggle.setAttribute("aria-expanded", String(!collapsed));
+        quickActionsToggle.setAttribute(
+            "aria-label",
+            collapsed ? "Mostrar opções flutuantes" : "Esconder opções flutuantes"
+        );
+        quickActionsToggle.title = collapsed ? "Mostrar opções" : "Esconder opções";
+        quickActionsToggle.innerHTML = collapsed
+            ? '<i class="fa-solid fa-chevron-up" aria-hidden="true"></i>'
+            : '<i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';
+    });
 
     function revealProgressiveActions() {
         const revealLine = window.scrollY + window.innerHeight * 0.65;
