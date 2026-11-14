@@ -7,19 +7,23 @@
       "items": [
         {
           "id": "celulares",
-          "name": "Celulares e smartphones"
+          "name": "Celulares e smartphones",
+          "categoryId": "informatica"
         },
         {
           "id": "computadores",
-          "name": "Computadores e periféricos"
+          "name": "Computadores e periféricos",
+          "categoryId": "informatica"
         },
         {
           "id": "impressoras",
-          "name": "Impressoras e scanners"
+          "name": "Impressoras e scanners",
+          "categoryId": "informatica"
         },
         {
           "id": "cabos",
-          "name": "Cabos e carregadores"
+          "name": "Cabos e carregadores",
+          "categoryId": "informatica"
         }
       ]
     },
@@ -29,15 +33,18 @@
       "items": [
         {
           "id": "televisores",
-          "name": "Televisores e monitores"
+          "name": "Televisores e monitores",
+          "categoryId": "imagem"
         },
         {
           "id": "audio",
-          "name": "Áudio e vídeo"
+          "name": "Áudio e vídeo",
+          "categoryId": "imagem"
         },
         {
           "id": "videogames",
-          "name": "Videogames"
+          "name": "Videogames",
+          "categoryId": "imagem"
         }
       ]
     },
@@ -47,23 +54,28 @@
       "items": [
         {
           "id": "geladeiras",
-          "name": "Geladeiras e refrigeradores"
+          "name": "Geladeiras e refrigeradores",
+          "categoryId": "casa"
         },
         {
           "id": "lavadoras",
-          "name": "Lavadoras e cuidados com roupas"
+          "name": "Lavadoras e cuidados com roupas",
+          "categoryId": "casa"
         },
         {
           "id": "cozinha",
-          "name": "Cozinha e preparo de alimentos"
+          "name": "Cozinha e preparo de alimentos",
+          "categoryId": "casa"
         },
         {
           "id": "limpeza",
-          "name": "Limpeza doméstica"
+          "name": "Limpeza doméstica",
+          "categoryId": "casa"
         },
         {
           "id": "ventilacao",
-          "name": "Ventilação e climatização"
+          "name": "Ventilação e climatização",
+          "categoryId": "casa"
         }
       ]
     },
@@ -73,7 +85,8 @@
       "items": [
         {
           "id": "pessoal",
-          "name": "Cuidados pessoais"
+          "name": "Cuidados pessoais",
+          "categoryId": "pessoal"
         }
       ]
     },
@@ -83,11 +96,13 @@
       "items": [
         {
           "id": "ferramentas",
-          "name": "Ferramentas elétricas"
+          "name": "Ferramentas elétricas",
+          "categoryId": "ferramentas"
         },
         {
           "id": "jardim",
-          "name": "Jardim e área externa"
+          "name": "Jardim e área externa",
+          "categoryId": "ferramentas"
         }
       ]
     }
