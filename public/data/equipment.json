@@ -1,9 +1,8 @@
 {
   "version": 1,
-  "description": "Equipamentos disponíveis no catálogo, associados às categorias por categoryId.",
-  "items": [
-    {
-      "id": "abridor-de-vinho-eletrico",
+  "description": "Equipamentos disponíveis no catálogo. Os atalhos definem quais itens disponibilizar.",
+  "items": {
+    "abridor-de-vinho-eletrico": {
       "name": "Abridor de vinho elétrico",
       "description": "Abridor de vinho elétrico: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -11,8 +10,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "abridor-eletrico-de-latas",
+    "abridor-eletrico-de-latas": {
       "name": "Abridor elétrico de latas",
       "description": "Abridor elétrico de latas: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -20,8 +18,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "adega",
+    "adega": {
       "name": "Adega",
       "description": "Adega: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -29,8 +26,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "aparelho-para-preparacao-de-cafe-ou-cha",
+    "aparelho-para-preparacao-de-cafe-ou-cha": {
       "name": "Aparelho para preparação de café ou chá",
       "description": "Aparelho para preparação de café ou chá: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -38,8 +34,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "batedeira",
+    "batedeira": {
       "name": "Batedeira",
       "description": "Batedeira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -47,8 +42,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "bebedouro-refrigerado",
+    "bebedouro-refrigerado": {
       "name": "Bebedouro refrigerado",
       "description": "Bebedouro refrigerado: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -56,8 +50,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "blender",
+    "blender": {
       "name": "Blender",
       "description": "Blender: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -65,8 +58,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "bule-eletrico",
+    "bule-eletrico": {
       "name": "Bule elétrico",
       "description": "Bule elétrico: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -74,8 +66,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "cafeteira",
+    "cafeteira": {
       "name": "Cafeteira",
       "description": "Cafeteira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -83,8 +74,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "centrifuga-de-suco",
+    "centrifuga-de-suco": {
       "name": "Centrífuga de suco",
       "description": "Centrífuga de suco: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -92,8 +82,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "cervejeira",
+    "cervejeira": {
       "name": "Cervejeira",
       "description": "Cervejeira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -101,8 +90,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "chaleira-eletrica",
+    "chaleira-eletrica": {
       "name": "Chaleira elétrica",
       "description": "Chaleira elétrica: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -110,8 +98,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "chapa-grill",
+    "chapa-grill": {
       "name": "Chapa grill",
       "description": "Chapa grill: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -119,8 +106,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "churrasqueira-a-gas",
+    "churrasqueira-a-gas": {
       "name": "Churrasqueira a gás",
       "description": "Churrasqueira a gás: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -128,8 +114,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "churrasqueira-eletrica-ou-eletronica",
+    "churrasqueira-eletrica-ou-eletronica": {
       "name": "Churrasqueira elétrica ou eletrônica",
       "description": "Churrasqueira elétrica ou eletrônica: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -137,8 +122,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "cooktop-eletrico-e-a-gas",
+    "cooktop-eletrico-e-a-gas": {
       "name": "Cooktop elétrico e a gás",
       "description": "Cooktop elétrico e a gás: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -146,8 +130,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "crepeira",
+    "crepeira": {
       "name": "Crepeira",
       "description": "Crepeira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -155,8 +138,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
+    "distribuidor-automatico-de-bebida-quente-maquina-de-consumo": {
       "name": "Distribuidor automático de bebida quente (máquina de consumo)",
       "description": "Distribuidor automático de bebida quente (máquina de consumo): equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -164,8 +146,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "espremedor-de-frutas",
+    "espremedor-de-frutas": {
       "name": "Espremedor de frutas",
       "description": "Espremedor de frutas: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -173,8 +154,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "faca-eletrica",
+    "faca-eletrica": {
       "name": "Faca elétrica",
       "description": "Faca elétrica: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -182,8 +162,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "fechador-eletrico-de-latas",
+    "fechador-eletrico-de-latas": {
       "name": "Fechador elétrico de latas",
       "description": "Fechador elétrico de latas: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -191,8 +170,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "fogao",
+    "fogao": {
       "name": "Fogão",
       "description": "Fogão: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -200,8 +178,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "fogao-eletrico",
+    "fogao-eletrico": {
       "name": "Fogão elétrico",
       "description": "Fogão elétrico: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -209,8 +186,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "forno-eletrico",
+    "forno-eletrico": {
       "name": "Forno elétrico",
       "description": "Forno elétrico: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -218,8 +194,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "fritadeira",
+    "fritadeira": {
       "name": "Fritadeira",
       "description": "Fritadeira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -227,8 +202,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "liquidificador",
+    "liquidificador": {
       "name": "Liquidificador",
       "description": "Liquidificador: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -236,8 +210,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "maquina-de-algodao-doce",
+    "maquina-de-algodao-doce": {
       "name": "Máquina de algodão doce",
       "description": "Máquina de algodão doce: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -245,8 +218,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "maquina-de-cafe",
+    "maquina-de-cafe": {
       "name": "Máquina de café",
       "description": "Máquina de café: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -254,8 +226,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "maquina-de-cupcake",
+    "maquina-de-cupcake": {
       "name": "Máquina de cupcake",
       "description": "Máquina de cupcake: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -263,8 +234,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "maquina-de-pao-panificadora",
+    "maquina-de-pao-panificadora": {
       "name": "Máquina de pão (panificadora)",
       "description": "Máquina de pão (panificadora): equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -272,8 +242,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "maquina-de-sorvete",
+    "maquina-de-sorvete": {
       "name": "Máquina de sorvete",
       "description": "Máquina de sorvete: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -281,8 +250,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "maquina-de-waffle",
+    "maquina-de-waffle": {
       "name": "Máquina de waffle",
       "description": "Máquina de waffle: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -290,8 +258,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "micro-ondas",
+    "micro-ondas": {
       "name": "Micro-ondas",
       "description": "Micro-ondas: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -299,8 +266,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "miniadega",
+    "miniadega": {
       "name": "Miniadega",
       "description": "Miniadega: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -308,8 +274,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "miniforno",
+    "miniforno": {
       "name": "Miniforno",
       "description": "Miniforno: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -317,8 +282,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "miniprocessador-com-uma-ou-mais-funcoes",
+    "miniprocessador-com-uma-ou-mais-funcoes": {
       "name": "Miniprocessador (com uma ou mais funções)",
       "description": "Miniprocessador (com uma ou mais funções): equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -326,8 +290,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "mixer",
+    "mixer": {
       "name": "Mixer",
       "description": "Mixer: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -335,8 +298,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "moedor-de-cafe",
+    "moedor-de-cafe": {
       "name": "Moedor de café",
       "description": "Moedor de café: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -344,8 +306,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "moedor-de-graos",
+    "moedor-de-graos": {
       "name": "Moedor de grãos",
       "description": "Moedor de grãos: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -353,8 +314,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
+    "moedor-eletrico-de-graos-ou-de-carne-entre-outros": {
       "name": "Moedor elétrico (de grãos ou de carne, entre outros)",
       "description": "Moedor elétrico (de grãos ou de carne, entre outros): equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -362,8 +322,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "multifatiador",
+    "multifatiador": {
       "name": "Multifatiador",
       "description": "Multifatiador: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -371,8 +330,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "omeleteira",
+    "omeleteira": {
       "name": "Omeleteira",
       "description": "Omeleteira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -380,8 +338,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "panela-de-arroz",
+    "panela-de-arroz": {
       "name": "Panela de arroz",
       "description": "Panela de arroz: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -389,8 +346,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "panela-de-pressao-eletrica",
+    "panela-de-pressao-eletrica": {
       "name": "Panela de pressão elétrica",
       "description": "Panela de pressão elétrica: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -398,8 +354,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "panela-eletrica",
+    "panela-eletrica": {
       "name": "Panela elétrica",
       "description": "Panela elétrica: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -407,8 +362,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "panquequeira",
+    "panquequeira": {
       "name": "Panquequeira",
       "description": "Panquequeira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -416,8 +370,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "pia-fogao",
+    "pia-fogao": {
       "name": "Pia fogão",
       "description": "Pia fogão: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -425,8 +378,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "pipoqueira",
+    "pipoqueira": {
       "name": "Pipoqueira",
       "description": "Pipoqueira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -434,8 +386,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "processador-de-alimentos",
+    "processador-de-alimentos": {
       "name": "Processador de alimentos",
       "description": "Processador de alimentos: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -443,8 +394,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "purificador-de-agua",
+    "purificador-de-agua": {
       "name": "Purificador de água",
       "description": "Purificador de água: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -452,8 +402,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "sanduicheira",
+    "sanduicheira": {
       "name": "Sanduicheira",
       "description": "Sanduicheira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -461,8 +410,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "torradeira",
+    "torradeira": {
       "name": "Torradeira",
       "description": "Torradeira: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -470,8 +418,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "triturador",
+    "triturador": {
       "name": "Triturador",
       "description": "Triturador: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
       "guidance": {
@@ -479,8 +426,7 @@
         "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
       }
     },
-    {
-      "id": "aparelho-de-aquecimento-eletrico-para-ambiente",
+    "aparelho-de-aquecimento-eletrico-para-ambiente": {
       "name": "Aparelho de aquecimento elétrico para ambiente",
       "description": "Aparelho de aquecimento elétrico para ambiente: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -488,8 +434,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "aparelho-de-ar-condicionado-de-janela",
+    "aparelho-de-ar-condicionado-de-janela": {
       "name": "Aparelho de ar condicionado de janela",
       "description": "Aparelho de ar condicionado de janela: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -497,8 +442,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "aparelho-de-ar-condicionado-portatil",
+    "aparelho-de-ar-condicionado-portatil": {
       "name": "Aparelho de ar condicionado portátil",
       "description": "Aparelho de ar condicionado portátil: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -506,8 +450,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "aparelho-de-ar-condicionado-split",
+    "aparelho-de-ar-condicionado-split": {
       "name": "Aparelho de ar condicionado split",
       "description": "Aparelho de ar condicionado split: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -515,8 +458,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "aspirador",
+    "aspirador": {
       "name": "Aspirador",
       "description": "Aspirador: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -524,8 +466,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "aspirador-de-janela",
+    "aspirador-de-janela": {
       "name": "Aspirador de janela",
       "description": "Aspirador de janela: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -533,8 +474,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "chuveiro-eletrico-ou-eletronico",
+    "chuveiro-eletrico-ou-eletronico": {
       "name": "Chuveiro elétrico ou eletrônico",
       "description": "Chuveiro elétrico ou eletrônico: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -542,8 +482,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "circulador-de-ar",
+    "circulador-de-ar": {
       "name": "Circulador de ar",
       "description": "Circulador de ar: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -551,8 +490,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "climatizador-de-ar-eletrico",
+    "climatizador-de-ar-eletrico": {
       "name": "Climatizador de ar elétrico",
       "description": "Climatizador de ar elétrico: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -560,8 +498,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+    "coifa-com-dimensao-horizontal-de-no-maximo-120-cm": {
       "name": "Coifa com dimensão horizontal de, no máximo, 120 cm",
       "description": "Coifa com dimensão horizontal de, no máximo, 120 cm: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -569,8 +506,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
+    "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas": {
       "name": "Combinação de refrigerador e congelador (freezer) munido de portas exteriores separadas",
       "description": "Combinação de refrigerador e congelador (freezer) munido de portas exteriores separadas: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -578,8 +514,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "cortina-de-ar",
+    "cortina-de-ar": {
       "name": "Cortina de ar",
       "description": "Cortina de ar: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -587,8 +522,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "depurador-de-ar",
+    "depurador-de-ar": {
       "name": "Depurador de ar",
       "description": "Depurador de ar: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -596,8 +530,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "desumidificador-de-ar",
+    "desumidificador-de-ar": {
       "name": "Desumidificador de ar",
       "description": "Desumidificador de ar: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -605,8 +538,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "ducha-eletrica",
+    "ducha-eletrica": {
       "name": "Ducha elétrica",
       "description": "Ducha elétrica: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -614,8 +546,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "enceradeira",
+    "enceradeira": {
       "name": "Enceradeira",
       "description": "Enceradeira: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -623,8 +554,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "freezer-vertical",
+    "freezer-vertical": {
       "name": "Freezer vertical",
       "description": "Freezer vertical: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -632,8 +562,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "frigobar",
+    "frigobar": {
       "name": "Frigobar",
       "description": "Frigobar: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -641,8 +570,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "limpadora-a-vapor",
+    "limpadora-a-vapor": {
       "name": "Limpadora a vapor",
       "description": "Limpadora a vapor: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -650,8 +578,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "limpadora-de-carpete",
+    "limpadora-de-carpete": {
       "name": "Limpadora de carpete",
       "description": "Limpadora de carpete: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -659,8 +586,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "maquina-de-lava-e-seca",
+    "maquina-de-lava-e-seca": {
       "name": "Máquina de lava e seca",
       "description": "Máquina de lava e seca: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -668,8 +594,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "maquina-de-lavar-louca",
+    "maquina-de-lavar-louca": {
       "name": "Máquina de lavar louça",
       "description": "Máquina de lavar louça: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -677,8 +602,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "maquina-de-lavar-roupa",
+    "maquina-de-lavar-roupa": {
       "name": "Máquina de lavar roupa",
       "description": "Máquina de lavar roupa: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -686,8 +610,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "maquina-de-lavar-roupa-semiautomatica",
+    "maquina-de-lavar-roupa-semiautomatica": {
       "name": "Máquina de lavar roupa semiautomática",
       "description": "Máquina de lavar roupa semiautomática: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -695,8 +618,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
+    "maquina-de-secar-secadora-de-roupas-ou-centrifuga": {
       "name": "Máquina de secar (secadora de roupas ou centrífuga)",
       "description": "Máquina de secar (secadora de roupas ou centrífuga): equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -704,8 +626,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "refrigerador",
+    "refrigerador": {
       "name": "Refrigerador",
       "description": "Refrigerador: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -713,8 +634,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "resistencias-eletricas-ou-eletronicas",
+    "resistencias-eletricas-ou-eletronicas": {
       "name": "Resistências elétricas ou eletrônicas",
       "description": "Resistências elétricas ou eletrônicas: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -722,8 +642,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "torneira-eletrica",
+    "torneira-eletrica": {
       "name": "Torneira elétrica",
       "description": "Torneira elétrica: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -731,8 +650,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "umidificador",
+    "umidificador": {
       "name": "Umidificador",
       "description": "Umidificador: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -740,8 +658,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "ventilador-de-coluna",
+    "ventilador-de-coluna": {
       "name": "Ventilador de coluna",
       "description": "Ventilador de coluna: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -749,8 +666,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "ventilador-de-mesa",
+    "ventilador-de-mesa": {
       "name": "Ventilador de mesa",
       "description": "Ventilador de mesa: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -758,8 +674,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "ventilador-de-teto",
+    "ventilador-de-teto": {
       "name": "Ventilador de teto",
       "description": "Ventilador de teto: equipamento elétrico ou eletrônico da categoria eletrodomésticos e climatização.",
       "guidance": {
@@ -767,8 +682,7 @@
         "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
       }
     },
-    {
-      "id": "adaptador-wireless-usb-universal-serial-bus",
+    "adaptador-wireless-usb-universal-serial-bus": {
       "name": "Adaptador wireless USB - Universal Serial Bus",
       "description": "Adaptador wireless USB - Universal Serial Bus: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -776,8 +690,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
+    "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial": {
       "name": "Adaptadores em geral (excluídos os adaptadores utilizados para instalação elétrica predial)",
       "description": "Adaptadores em geral (excluídos os adaptadores utilizados para instalação elétrica predial): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -785,8 +698,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
+    "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial": {
       "name": "Cabos e conectores em geral (excluídos fios e cabos utilizados para instalação elétrica predial)",
       "description": "Cabos e conectores em geral (excluídos fios e cabos utilizados para instalação elétrica predial): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -794,8 +706,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "carregador-portatil-usb",
+    "carregador-portatil-usb": {
       "name": "Carregador portátil USB",
       "description": "Carregador portátil USB: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -803,8 +714,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "carregadores-em-geral-power-bank-de-uso-domestico",
+    "carregadores-em-geral-power-bank-de-uso-domestico": {
       "name": "Carregadores em geral (power bank) de uso doméstico",
       "description": "Carregadores em geral (power bank) de uso doméstico: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -812,8 +722,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "computador-all-in-one",
+    "computador-all-in-one": {
       "name": "Computador all in one",
       "description": "Computador all in one: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -821,8 +730,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
+    "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas": {
       "name": "Computador para ciclismo, mergulho, corrida, remo e outras atividades desportivas",
       "description": "Computador para ciclismo, mergulho, corrida, remo e outras atividades desportivas: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -830,8 +738,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "computador-portatil-notepad",
+    "computador-portatil-notepad": {
       "name": "Computador portátil (notepad)",
       "description": "Computador portátil (notepad): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -839,8 +746,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "computadores-portateis-laptop-netbook-e-notebook",
+    "computadores-portateis-laptop-netbook-e-notebook": {
       "name": "Computadores portáteis (laptop, netbook e notebook)",
       "description": "Computadores portáteis (laptop, netbook e notebook): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -848,8 +754,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "conversor-de-corrente-continua-de-uso-domestico",
+    "conversor-de-corrente-continua-de-uso-domestico": {
       "name": "Conversor de corrente contínua (de uso doméstico)",
       "description": "Conversor de corrente contínua (de uso doméstico): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -857,8 +762,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "cpu-central-process-unit",
+    "cpu-central-process-unit": {
       "name": "CPU - Central Process Unit",
       "description": "CPU - Central Process Unit: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -866,8 +770,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "desktop-sem-monitor-computador-pessoal",
+    "desktop-sem-monitor-computador-pessoal": {
       "name": "Desktop sem monitor (computador pessoal)",
       "description": "Desktop sem monitor (computador pessoal): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -875,8 +778,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "dispositivo-eletroeletronico-para-armazenagem-ou-transferencia-de-dados-pen-drive-e-cartao-de-memoria",
+    "dispositivo-eletroeletronico-para-armazenagem-ou-transferencia-de-dados-pen-drive-e-cartao-de-memoria": {
       "name": "Dispositivo eletroeletrônico para armazenagem ou transferência de dados (pen drive e cartão de memória)",
       "description": "Dispositivo eletroeletrônico para armazenagem ou transferência de dados (pen drive e cartão de memória): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -884,8 +786,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "dock-station",
+    "dock-station": {
       "name": "Dock station",
       "description": "Dock station: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -893,8 +794,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "estabilizador-e-regulador-de-tensao",
+    "estabilizador-e-regulador-de-tensao": {
       "name": "Estabilizador e regulador de tensão",
       "description": "Estabilizador e regulador de tensão: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -902,8 +802,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "fonte-universal-para-notebook",
+    "fonte-universal-para-notebook": {
       "name": "Fonte universal para notebook",
       "description": "Fonte universal para notebook: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -911,8 +810,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "hdd-external-hard-drive",
+    "hdd-external-hard-drive": {
       "name": "HDD - External Hard Drive",
       "description": "HDD - External Hard Drive: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -920,8 +818,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "hub-concentrador",
+    "hub-concentrador": {
       "name": "Hub (concentrador)",
       "description": "Hub (concentrador): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -929,8 +826,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
+    "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta": {
       "name": "Impressora de uso doméstico (matricial, laser ou jato de tinta)",
       "description": "Impressora de uso doméstico (matricial, laser ou jato de tinta): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -938,8 +834,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "impressora-multifuncional",
+    "impressora-multifuncional": {
       "name": "Impressora multifuncional",
       "description": "Impressora multifuncional: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -947,8 +842,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "microcomputador",
+    "microcomputador": {
       "name": "Microcomputador",
       "description": "Microcomputador: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -956,8 +850,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "minicomputador",
+    "minicomputador": {
       "name": "Minicomputador",
       "description": "Minicomputador: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -965,8 +858,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "modem",
+    "modem": {
       "name": "Modem",
       "description": "Modem: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -974,8 +866,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet",
+    "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet": {
       "name": "Módulo de gerenciamento e processamento de dados (switch de rede de internet)",
       "description": "Módulo de gerenciamento e processamento de dados (switch de rede de internet): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -983,8 +874,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "monitores-em-geral",
+    "monitores-em-geral": {
       "name": "Monitores em geral",
       "description": "Monitores em geral: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -992,8 +882,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "mouse",
+    "mouse": {
       "name": "Mouse",
       "description": "Mouse: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1001,8 +890,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "nobreaks",
+    "nobreaks": {
       "name": "Nobreaks",
       "description": "Nobreaks: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1010,8 +898,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "odd-external-optical-drive",
+    "odd-external-optical-drive": {
       "name": "ODD - External Optical Drive",
       "description": "ODD - External Optical Drive: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1019,8 +906,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "painel-fotovoltaico",
+    "painel-fotovoltaico": {
       "name": "Painel fotovoltaico",
       "description": "Painel fotovoltaico: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1028,8 +914,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "produto-ou-equipamento-para-coletar-armazenar-tratar-apresentar-ou-comunicar-informacoes-por-via-eletronica",
+    "produto-ou-equipamento-para-coletar-armazenar-tratar-apresentar-ou-comunicar-informacoes-por-via-eletronica": {
       "name": "Produto ou equipamento para coletar, armazenar, tratar, apresentar ou comunicar informações por via eletrônica",
       "description": "Produto ou equipamento para coletar, armazenar, tratar, apresentar ou comunicar informações por via eletrônica: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1037,8 +922,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "protetor-de-linha-filtro-de-linha",
+    "protetor-de-linha-filtro-de-linha": {
       "name": "Protetor de linha / filtro de linha",
       "description": "Protetor de linha / filtro de linha: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1046,8 +930,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "roteador",
+    "roteador": {
       "name": "Roteador",
       "description": "Roteador: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1055,8 +938,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "scanner",
+    "scanner": {
       "name": "Scanner",
       "description": "Scanner: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1064,8 +946,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "string-box",
+    "string-box": {
       "name": "String box",
       "description": "String box: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1073,8 +954,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "tablet",
+    "tablet": {
       "name": "Tablet",
       "description": "Tablet: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1082,8 +962,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "teclado",
+    "teclado": {
       "name": "Teclado",
       "description": "Teclado: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1091,8 +970,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "telecopiadora-fax",
+    "telecopiadora-fax": {
       "name": "Telecopiadora (fax)",
       "description": "Telecopiadora (fax): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1100,8 +978,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "variador-de-luminosidade-dimmer",
+    "variador-de-luminosidade-dimmer": {
       "name": "Variador de luminosidade (dimmer)",
       "description": "Variador de luminosidade (dimmer): equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1109,8 +986,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "variador-de-ventilador",
+    "variador-de-ventilador": {
       "name": "Variador de ventilador",
       "description": "Variador de ventilador: equipamento elétrico ou eletrônico da categoria informática e componentes.",
       "guidance": {
@@ -1118,8 +994,7 @@
         "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
       }
     },
-    {
-      "id": "amplificador-de-audio-de-uso-domestico",
+    "amplificador-de-audio-de-uso-domestico": {
       "name": "Amplificador de áudio (de uso doméstico)",
       "description": "Amplificador de áudio (de uso doméstico): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1127,8 +1002,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "antena-digital",
+    "antena-digital": {
       "name": "Antena digital",
       "description": "Antena digital: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1136,8 +1010,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
+    "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico": {
       "name": "Aparelho de rádio e sistemas de som (de uso doméstico)",
       "description": "Aparelho de rádio e sistemas de som (de uso doméstico): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1145,8 +1018,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "aparelho-de-televisao",
+    "aparelho-de-televisao": {
       "name": "Aparelho de televisão",
       "description": "Aparelho de televisão: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1154,8 +1026,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "aparelho-de-videogame",
+    "aparelho-de-videogame": {
       "name": "Aparelho de videogame",
       "description": "Aparelho de videogame: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1163,8 +1034,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "autofalante",
+    "autofalante": {
       "name": "Autofalante",
       "description": "Autofalante: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1172,8 +1042,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "autorradio",
+    "autorradio": {
       "name": "Autorrádio",
       "description": "Autorrádio: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1181,8 +1050,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "blu-ray-player",
+    "blu-ray-player": {
       "name": "Blu-ray player",
       "description": "Blu-ray player: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1190,8 +1058,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "caixa-de-som",
+    "caixa-de-som": {
       "name": "Caixa de som",
       "description": "Caixa de som: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1199,8 +1066,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "camera-de-seguranca-de-uso-domestico",
+    "camera-de-seguranca-de-uso-domestico": {
       "name": "Câmera de segurança (de uso doméstico)",
       "description": "Câmera de segurança (de uso doméstico): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1208,8 +1074,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "camera-de-video",
+    "camera-de-video": {
       "name": "Câmera de vídeo",
       "description": "Câmera de vídeo: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1217,8 +1082,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "camera-fotografica-digital",
+    "camera-fotografica-digital": {
       "name": "Câmera fotográfica digital",
       "description": "Câmera fotográfica digital: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1226,8 +1090,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "cartucho-de-videogame",
+    "cartucho-de-videogame": {
       "name": "Cartucho de videogame",
       "description": "Cartucho de videogame: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1235,8 +1098,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "console-de-videogame-portatil",
+    "console-de-videogame-portatil": {
       "name": "Console de videogame portátil",
       "description": "Console de videogame portátil: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1244,8 +1106,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "controle-remoto",
+    "controle-remoto": {
       "name": "Controle remoto",
       "description": "Controle remoto: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1253,8 +1114,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "conversor-digital-de-uso-domestico",
+    "conversor-digital-de-uso-domestico": {
       "name": "Conversor digital (de uso doméstico)",
       "description": "Conversor digital (de uso doméstico): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1262,8 +1122,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "dvd-digital-versatile-disc-player",
+    "dvd-digital-versatile-disc-player": {
       "name": "DVD - Digital Versatile Disc player",
       "description": "DVD - Digital Versatile Disc player: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1271,8 +1130,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "fone-de-ouvido",
+    "fone-de-ouvido": {
       "name": "Fone de ouvido",
       "description": "Fone de ouvido: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1280,8 +1138,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "gravador-digital-video-recorder-dvr-de-uso-domestico",
+    "gravador-digital-video-recorder-dvr-de-uso-domestico": {
       "name": "Gravador (Digital Video Recorder - DVR) de uso doméstico",
       "description": "Gravador (Digital Video Recorder - DVR) de uso doméstico: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1289,8 +1146,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "gravador-de-audio-de-uso-domestico",
+    "gravador-de-audio-de-uso-domestico": {
       "name": "Gravador de áudio (de uso doméstico)",
       "description": "Gravador de áudio (de uso doméstico): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1298,8 +1154,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "gravador-de-video-de-uso-domestico",
+    "gravador-de-video-de-uso-domestico": {
       "name": "Gravador de vídeo (de uso doméstico)",
       "description": "Gravador de vídeo (de uso doméstico): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1307,8 +1162,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "headset",
+    "headset": {
       "name": "Headset",
       "description": "Headset: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1316,8 +1170,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "home-theater",
+    "home-theater": {
       "name": "Home theater",
       "description": "Home theater: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1325,8 +1178,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "jogo-de-videogame",
+    "jogo-de-videogame": {
       "name": "Jogo de videogame",
       "description": "Jogo de videogame: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1334,8 +1186,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "kit-de-controle-remoto",
+    "kit-de-controle-remoto": {
       "name": "Kit de controle remoto",
       "description": "Kit de controle remoto: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1343,8 +1194,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
+    "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete": {
       "name": "Mídias utilizadas em equipamentos eletroeletrônicos (CD, DVD, VHS, cassete e disquete)",
       "description": "Mídias utilizadas em equipamentos eletroeletrônicos (CD, DVD, VHS, cassete e disquete): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1352,8 +1202,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "oculos-3d",
+    "oculos-3d": {
       "name": "Óculos 3D",
       "description": "Óculos 3D: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1361,8 +1210,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
+    "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao": {
       "name": "Produto ou equipamento de uso doméstico para transmitir som, imagem ou outras informações por telecomunicação",
       "description": "Produto ou equipamento de uso doméstico para transmitir som, imagem ou outras informações por telecomunicação: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1370,8 +1218,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "projetor-de-video",
+    "projetor-de-video": {
       "name": "Projetor de vídeo",
       "description": "Projetor de vídeo: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1379,8 +1226,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "radio-portatil",
+    "radio-portatil": {
       "name": "Rádio portátil",
       "description": "Rádio portátil: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1388,8 +1234,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
+    "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs": {
       "name": "Reprodutor de mídia (aparelho de reprodução e gravação de som ou VHS)",
       "description": "Reprodutor de mídia (aparelho de reprodução e gravação de som ou VHS): equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1397,8 +1242,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "tela-de-projecao",
+    "tela-de-projecao": {
       "name": "Tela de projeção",
       "description": "Tela de projeção: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1406,8 +1250,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "transmissor-e-receptor-bluetooth",
+    "transmissor-e-receptor-bluetooth": {
       "name": "Transmissor e receptor bluetooth",
       "description": "Transmissor e receptor bluetooth: equipamento elétrico ou eletrônico da categoria imagem, áudio e vídeo.",
       "guidance": {
@@ -1415,8 +1258,7 @@
         "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
       }
     },
-    {
-      "id": "atendedor-automatico-secretaria-eletronica",
+    "atendedor-automatico-secretaria-eletronica": {
       "name": "Atendedor automático (secretária eletrônica)",
       "description": "Atendedor automático (secretária eletrônica): equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1424,8 +1266,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "baba-eletronica",
+    "baba-eletronica": {
       "name": "Babá eletrônica",
       "description": "Babá eletrônica: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1433,8 +1274,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "camera-externa-de-telefone-celular",
+    "camera-externa-de-telefone-celular": {
       "name": "Câmera externa de telefone celular",
       "description": "Câmera externa de telefone celular: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1442,8 +1282,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "campainha-cigarra-eletronica",
+    "campainha-cigarra-eletronica": {
       "name": "Campainha cigarra eletrônica",
       "description": "Campainha cigarra eletrônica: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1451,8 +1290,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "campainha-eletronica",
+    "campainha-eletronica": {
       "name": "Campainha eletrônica",
       "description": "Campainha eletrônica: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1460,8 +1298,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
+    "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso": {
       "name": "Celular portátil (com capa traseira com bateria ou placa de circuito impresso)",
       "description": "Celular portátil (com capa traseira com bateria ou placa de circuito impresso): equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1469,8 +1306,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo",
+    "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo": {
       "name": "Relógio (de sala, de pulso ou de mesa) e aparelho para medir, indicar ou registrar o tempo",
       "description": "Relógio (de sala, de pulso ou de mesa) e aparelho para medir, indicar ou registrar o tempo: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1478,8 +1314,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "relogio-smart",
+    "relogio-smart": {
       "name": "Relógio smart",
       "description": "Relógio smart: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1487,8 +1322,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "telefone",
+    "telefone": {
       "name": "Telefone",
       "description": "Telefone: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1496,8 +1330,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "telefone-celular",
+    "telefone-celular": {
       "name": "Telefone celular",
       "description": "Telefone celular: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1505,8 +1338,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "telefone-rural-gsm",
+    "telefone-rural-gsm": {
       "name": "Telefone rural GSM",
       "description": "Telefone rural GSM: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1514,8 +1346,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "telefone-sem-fio",
+    "telefone-sem-fio": {
       "name": "Telefone sem fio",
       "description": "Telefone sem fio: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1523,8 +1354,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "telex",
+    "telex": {
       "name": "Telex",
       "description": "Telex: equipamento elétrico ou eletrônico da categoria telefonia e comunicação.",
       "guidance": {
@@ -1532,8 +1362,7 @@
         "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
       }
     },
-    {
-      "id": "aparador-de-barba",
+    "aparador-de-barba": {
       "name": "Aparador de barba",
       "description": "Aparador de barba: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1541,8 +1370,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "aparelho-de-barbear",
+    "aparelho-de-barbear": {
       "name": "Aparelho de barbear",
       "description": "Aparelho de barbear: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1550,8 +1378,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "aparelho-de-depilar-e-aparar-pelos",
+    "aparelho-de-depilar-e-aparar-pelos": {
       "name": "Aparelho de depilar e aparar pelos",
       "description": "Aparelho de depilar e aparar pelos: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1559,8 +1386,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
+    "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo": {
       "name": "Aparelho de massagem e outros aparelhos para o cuidado do corpo",
       "description": "Aparelho de massagem e outros aparelhos para o cuidado do corpo: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1568,8 +1394,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "aparelho-para-cortar-o-cabelo",
+    "aparelho-para-cortar-o-cabelo": {
       "name": "Aparelho para cortar o cabelo",
       "description": "Aparelho para cortar o cabelo: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1577,8 +1402,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+    "aparelho-para-engomar-alisar-e-tratar-o-vestuario": {
       "name": "Aparelho para engomar, alisar e tratar o vestuário",
       "description": "Aparelho para engomar, alisar e tratar o vestuário: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1586,8 +1410,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "balanca",
+    "balanca": {
       "name": "Balança",
       "description": "Balança: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1595,8 +1418,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "escova-de-dente-eletrica-airfloss",
+    "escova-de-dente-eletrica-airfloss": {
       "name": "Escova de dente elétrica (airfloss)",
       "description": "Escova de dente elétrica (airfloss): equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1604,8 +1426,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "escova-modeladora",
+    "escova-modeladora": {
       "name": "Escova modeladora",
       "description": "Escova modeladora: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1613,8 +1434,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "extrator-de-leite-eletrico",
+    "extrator-de-leite-eletrico": {
       "name": "Extrator de leite elétrico",
       "description": "Extrator de leite elétrico: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1622,8 +1442,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "ferro-de-engomar",
+    "ferro-de-engomar": {
       "name": "Ferro de engomar",
       "description": "Ferro de engomar: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1631,8 +1450,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "passadeira-a-vapor",
+    "passadeira-a-vapor": {
       "name": "Passadeira a vapor",
       "description": "Passadeira a vapor: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1640,8 +1458,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "prancha-de-cabelo",
+    "prancha-de-cabelo": {
       "name": "Prancha de cabelo",
       "description": "Prancha de cabelo: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1649,8 +1466,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "secador-de-cabelo",
+    "secador-de-cabelo": {
       "name": "Secador de cabelo",
       "description": "Secador de cabelo: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1658,8 +1474,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "vaporizador-de-roupa",
+    "vaporizador-de-roupa": {
       "name": "Vaporizador de roupa",
       "description": "Vaporizador de roupa: equipamento elétrico ou eletrônico da categoria cuidados pessoais e vestuário.",
       "guidance": {
@@ -1667,8 +1482,7 @@
         "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
       }
     },
-    {
-      "id": "aparador-de-grama",
+    "aparador-de-grama": {
       "name": "Aparador de grama",
       "description": "Aparador de grama: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1676,8 +1490,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "bomba-de-jardim",
+    "bomba-de-jardim": {
       "name": "Bomba de jardim",
       "description": "Bomba de jardim: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1685,8 +1498,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "esmerilhadeira",
+    "esmerilhadeira": {
       "name": "Esmerilhadeira",
       "description": "Esmerilhadeira: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1694,8 +1506,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
+    "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem": {
       "name": "Ferramenta para cortar relva ou para outra atividade de jardinagem",
       "description": "Ferramenta para cortar relva ou para outra atividade de jardinagem: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1703,8 +1514,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "furadeira",
+    "furadeira": {
       "name": "Furadeira",
       "description": "Furadeira: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1712,8 +1522,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "lanterna-eletrica",
+    "lanterna-eletrica": {
       "name": "Lanterna elétrica",
       "description": "Lanterna elétrica: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1721,8 +1530,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "lavadora-de-jato-de-agua",
+    "lavadora-de-jato-de-agua": {
       "name": "Lavadora de jato de água",
       "description": "Lavadora de jato de água: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1730,8 +1538,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "lixadeira",
+    "lixadeira": {
       "name": "Lixadeira",
       "description": "Lixadeira: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1739,8 +1546,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "parafusadeira",
+    "parafusadeira": {
       "name": "Parafusadeira",
       "description": "Parafusadeira: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1748,8 +1554,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "pistola-aplicadora-de-cola",
+    "pistola-aplicadora-de-cola": {
       "name": "Pistola aplicadora de cola",
       "description": "Pistola aplicadora de cola: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1757,8 +1562,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "podador-de-cerca-viva",
+    "podador-de-cerca-viva": {
       "name": "Podador de cerca viva",
       "description": "Podador de cerca viva: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1766,8 +1570,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "pulverizador-eletrico",
+    "pulverizador-eletrico": {
       "name": "Pulverizador elétrico",
       "description": "Pulverizador elétrico: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1775,8 +1578,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "serra-eletrica",
+    "serra-eletrica": {
       "name": "Serra elétrica",
       "description": "Serra elétrica: equipamento elétrico ou eletrônico da categoria ferramentas e jardinagem.",
       "guidance": {
@@ -1784,8 +1586,7 @@
         "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
       }
     },
-    {
-      "id": "bateria-externa",
+    "bateria-externa": {
       "name": "Bateria externa",
       "description": "Bateria externa: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1793,8 +1594,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "brinquedo-eletrico-ou-eletronico",
+    "brinquedo-eletrico-ou-eletronico": {
       "name": "Brinquedo elétrico ou eletrônico",
       "description": "Brinquedo elétrico ou eletrônico: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1802,8 +1602,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "calculadora-com-bobina",
+    "calculadora-com-bobina": {
       "name": "Calculadora com bobina",
       "description": "Calculadora com bobina: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1811,8 +1610,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "calculadora-de-bolso-e-de-mesa",
+    "calculadora-de-bolso-e-de-mesa": {
       "name": "Calculadora de bolso e de mesa",
       "description": "Calculadora de bolso e de mesa: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1820,8 +1618,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "cartucho-de-tinta-ou-toner",
+    "cartucho-de-tinta-ou-toner": {
       "name": "Cartucho de tinta ou toner",
       "description": "Cartucho de tinta ou toner: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1829,8 +1626,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "copiadora",
+    "copiadora": {
       "name": "Copiadora",
       "description": "Copiadora: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1838,8 +1634,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "equipamento-desportivo-com-componente-eletrico-ou-eletronico",
+    "equipamento-desportivo-com-componente-eletrico-ou-eletronico": {
       "name": "Equipamento desportivo com componente elétrico ou eletrônico",
       "description": "Equipamento desportivo com componente elétrico ou eletrônico: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1847,8 +1642,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "equipamento-informatico-pessoal-e-reader",
+    "equipamento-informatico-pessoal-e-reader": {
       "name": "Equipamento informático pessoal (e-reader)",
       "description": "Equipamento informático pessoal (e-reader): equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1856,8 +1650,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "etiquetadora-e-rotulador-eletronico",
+    "etiquetadora-e-rotulador-eletronico": {
       "name": "Etiquetadora e rotulador eletrônico",
       "description": "Etiquetadora e rotulador eletrônico: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1865,8 +1658,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "fragmentadora-de-papel",
+    "fragmentadora-de-papel": {
       "name": "Fragmentadora de papel",
       "description": "Fragmentadora de papel: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1874,8 +1666,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "instrumento-musical",
+    "instrumento-musical": {
       "name": "Instrumento musical",
       "description": "Instrumento musical: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1883,8 +1674,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "maquina-de-costura",
+    "maquina-de-costura": {
       "name": "Máquina de costura",
       "description": "Máquina de costura: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1892,8 +1682,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "maquina-de-escrever-eletrica-e-eletronica",
+    "maquina-de-escrever-eletrica-e-eletronica": {
       "name": "Máquina de escrever elétrica e eletrônica",
       "description": "Máquina de escrever elétrica e eletrônica: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1901,8 +1690,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "piano",
+    "piano": {
       "name": "Piano",
       "description": "Piano: equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1910,8 +1698,7 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     },
-    {
-      "id": "teclado-instrumento-musical",
+    "teclado-instrumento-musical": {
       "name": "Teclado (instrumento musical)",
       "description": "Teclado (instrumento musical): equipamento elétrico ou eletrônico da categoria lazer, esporte e outros.",
       "guidance": {
@@ -1919,5 +1706,5 @@
         "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
       }
     }
-  ]
+  }
 }
