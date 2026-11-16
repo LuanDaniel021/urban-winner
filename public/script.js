@@ -28,25 +28,28 @@ const equipmentCatalogPromise = Promise.all([
 
     if (
         !Array.isArray(catalog.categoryIds) ||
-        !Array.isArray(categoriesData.categories) ||
-        !Array.isArray(shortcutsData.shortcuts) ||
-        !Array.isArray(equipmentData.items)
+        !categoriesData.categories || typeof categoriesData.categories !== "object" || Array.isArray(categoriesData.categories) ||
+        !shortcutsData.shortcuts || typeof shortcutsData.shortcuts !== "object" || Array.isArray(shortcutsData.shortcuts) ||
+        !equipmentData.items || typeof equipmentData.items !== "object" || Array.isArray(equipmentData.items)
     ) {
         throw new Error("Formato dos dados do catálogo inválido.");
     }
 
-    const categoriesById = new Map(
-        categoriesData.categories.map(category => [category.id, {...category, items: [], shortcuts: []}])
+    const categoriesById = Object.fromEntries(
+        Object.entries(categoriesData.categories).map(([id, category]) => [
+            id,
+            {...category, id, items: [], shortcuts: []}
+        ])
     );
-    const shortcutsById = new Map(
-        shortcutsData.shortcuts.map(shortcut => [shortcut.id, shortcut])
+    const shortcutsById = Object.fromEntries(
+        Object.entries(shortcutsData.shortcuts).map(([id, shortcut]) => [id, {...shortcut, id}])
     );
-    const equipmentById = new Map(
-        equipmentData.items.map(item => [item.id, item])
+    const equipmentById = Object.fromEntries(
+        Object.entries(equipmentData.items).map(([id, item]) => [id, {...item, id}])
     );
 
     catalog.categoryIds.forEach(id => {
-        const category = categoriesById.get(id);
+        const category = categoriesById[id];
         if (!category) throw new Error(`Categoria não encontrada: ${id}`);
 
         if (!Array.isArray(category.shortcutIds)) {
@@ -55,12 +58,12 @@ const equipmentCatalogPromise = Promise.all([
 
         const categoryItemIds = new Set();
         category.shortcutIds.forEach(shortcutId => {
-            const shortcut = shortcutsById.get(shortcutId);
+            const shortcut = shortcutsById[shortcutId];
             if (!shortcut) throw new Error(`Atalho não encontrado: ${shortcutId}`);
             category.shortcuts.push(shortcut);
 
             shortcut.itemIds.forEach(itemId => {
-                const item = equipmentById.get(itemId);
+                const item = equipmentById[itemId];
                 if (!item) throw new Error(`Equipamento não encontrado: ${itemId}`);
                 if (!categoryItemIds.has(itemId)) {
                     category.items.push(item);
@@ -72,7 +75,7 @@ const equipmentCatalogPromise = Promise.all([
 
     return {
         ...catalog,
-        categories: catalog.categoryIds.map(id => categoriesById.get(id))
+        categories: catalog.categoryIds.map(id => categoriesById[id])
     };
 });
 
