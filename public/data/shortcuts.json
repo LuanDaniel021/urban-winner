@@ -19,11 +19,10 @@
         "cozinha-preparo": {
             "name": "Cozinha e preparo",
             "emoji": "🍳",
-            "description": "Aparelhos usados no preparo, aquecimento e conservação de alimentos e bebidas.",
+            "description": "Aparelhos usados no preparo e aquecimento de alimentos e bebidas.",
             "itemIds": [
                 "abridor-de-vinho-eletrico",
                 "abridor-eletrico-de-latas",
-                "adega",
                 "aparelho-para-preparacao-de-cafe-ou-cha",
                 "batedeira",
                 "bebedouro-refrigerado",
@@ -31,7 +30,6 @@
                 "bule-eletrico",
                 "cafeteira",
                 "centrifuga-de-suco",
-                "cervejeira",
                 "chaleira-eletrica",
                 "chapa-grill",
                 "churrasqueira-a-gas",
@@ -54,7 +52,6 @@
                 "maquina-de-sorvete",
                 "maquina-de-waffle",
                 "micro-ondas",
-                "miniadega",
                 "miniforno",
                 "miniprocessador-com-uma-ou-mais-funcoes",
                 "mixer",
@@ -139,7 +136,6 @@
                 "computadores-portateis-laptop-netbook-e-notebook",
                 "cpu-central-process-unit",
                 "desktop-sem-monitor-computador-pessoal",
-                "fonte-universal-para-notebook",
                 "microcomputador",
                 "minicomputador",
                 "mouse",
@@ -200,7 +196,6 @@
                 "amplificador-de-audio-de-uso-domestico",
                 "antena-digital",
                 "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
-                "aparelho-de-televisao",
                 "autofalante",
                 "autorradio",
                 "blu-ray-player",
@@ -219,12 +214,9 @@
                 "home-theater",
                 "kit-de-controle-remoto",
                 "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
-                "oculos-3d",
                 "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
-                "projetor-de-video",
                 "radio-portatil",
                 "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
-                "tela-de-projecao",
                 "transmissor-e-receptor-bluetooth"
             ]
         },
@@ -260,16 +252,12 @@
                 "aparelho-de-depilar-e-aparar-pelos",
                 "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
                 "aparelho-para-cortar-o-cabelo",
-                "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
                 "balanca",
                 "escova-de-dente-eletrica-airfloss",
                 "escova-modeladora",
                 "extrator-de-leite-eletrico",
-                "ferro-de-engomar",
-                "passadeira-a-vapor",
                 "prancha-de-cabelo",
-                "secador-de-cabelo",
-                "vaporizador-de-roupa"
+                "secador-de-cabelo"
             ]
         },
         "ferramentas-eletricas": {
