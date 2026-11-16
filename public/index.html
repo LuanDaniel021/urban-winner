@@ -224,11 +224,20 @@
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
-                <p class="catalog-result-count" id="catalogResultCount" aria-live="polite"></p>
+                <div class="catalog-status-row">
+                    <p class="catalog-result-count" id="catalogResultCount" aria-live="polite"></p>
+                    <span id="catalogSelectionCount" class="catalog-selection-count">0 selecionados</span>
+                </div>
 
                 <!-- CATÁLOGO SIMPLIFICADO E CATÁLOGO COMPLETO -->
                 <div id="equipmentGrid"></div>
                 <p class="empty-state" id="catalogEmptyState" hidden>Nenhum equipamento encontrado.</p>
+                <div class="catalog-selection-actions">
+                    <span>Selecione os equipamentos que deseja consultar.</span>
+                    <button type="button" id="sendCatalogSelection" class="btn btn-primary" disabled>
+                        <i class="fa-solid fa-map-location-dot"></i> Enviar seleção ao mapa
+                    </button>
+                </div>
                 <!-- FIM DO CATÁLOGO DE EQUIPAMENTOS -->
             </div>
         </section>
@@ -687,8 +696,8 @@
                         deslocar.</p>
                 </section>
                 <div class="equipment-detail-actions">
-                    <button type="button" class="btn btn-primary" id="compatiblePointsButton">
-                        <i class="fa-solid fa-map-location-dot"></i> Buscar ponto no mapa
+                    <button type="button" class="btn btn-primary" id="showInCatalogButton">
+                        <i class="fa-solid fa-filter"></i> Mostrar no catálogo
                     </button>
                     <button type="button" class="detail-back-button" id="openChecklistFromEquipment">
                         <i class="fa-solid fa-list-check"></i> Abrir checklist
