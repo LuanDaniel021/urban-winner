@@ -7,12 +7,12 @@ let MODAL = null;
 
 // Dados carregados dos arquivos JSON
 
-let catalogData = null;
-let categoriesData = null;
-let shortcutsData = null;
-let equipmentData = null;
-let collectionPointsData = null;
-let checklistsData = null;
-let newsData = null;
-let campaignsData = null;
-let referencesData = null;
+let DATA_CATALOG = null;
+let DATA_CATEGORIES = null;
+let DATA_SHORTCUTS = null;
+let DATA_EQUIPMENT = null;
+let DATA_COLLECTION_POINTS = null;
+let DATA_CHECKLISTS = null;
+let DATA_NEWS = null;
+let DATA_CAMPAIGNS = null;
+let DATA_REFERENCES = null;
