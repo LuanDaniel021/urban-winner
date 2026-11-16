@@ -220,7 +220,12 @@
           "id": "triturador",
           "name": "Triturador"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
+        "tip": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+        "step": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+      }
     },
     {
       "id": "eletrodomesticos",
@@ -355,7 +360,12 @@
           "id": "ventilador-de-teto",
           "name": "Ventilador de teto"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
+        "tip": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+        "step": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+      }
     },
     {
       "id": "informatica",
@@ -518,7 +528,12 @@
           "id": "variador-de-ventilador",
           "name": "Variador de ventilador"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
+        "tip": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+        "step": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+      }
     },
     {
       "id": "audio-video",
@@ -657,7 +672,12 @@
           "id": "transmissor-e-receptor-bluetooth",
           "name": "Transmissor e receptor bluetooth"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
+        "tip": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+        "step": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+      }
     },
     {
       "id": "telefonia",
@@ -716,7 +736,12 @@
           "id": "telex",
           "name": "Telex"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
+        "tip": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+        "step": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+      }
     },
     {
       "id": "pessoal",
@@ -783,7 +808,12 @@
           "id": "vaporizador-de-roupa",
           "name": "Vaporizador de roupa"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
+        "tip": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+        "step": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+      }
     },
     {
       "id": "ferramentas-jardim",
@@ -842,7 +872,12 @@
           "id": "serra-eletrica",
           "name": "Serra elétrica"
         }
-      ]
+      ],
+      "guidance": {
+        "description": "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
+        "tip": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+        "step": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+      }
     },
     {
       "id": "lazer-outros",
@@ -909,6 +944,406 @@
           "id": "teclado-instrumento-musical",
           "name": "Teclado (instrumento musical)"
         }
+      ],
+      "guidance": {
+        "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
+        "tip": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+        "step": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+      }
+    }
+  ],
+  "shortcuts": [
+    {
+      "id": "celulares-smartphones",
+      "name": "Celulares e smartphones",
+      "emoji": "📱",
+      "categoryIds": [
+        "telefonia"
+      ],
+      "description": "Celulares, smartphones, telefones móveis e acessórios de comunicação pessoal.",
+      "tip": "Apague os dados pessoais, encerre as contas e remova chip e cartão de memória quando existirem.",
+      "step": "Retire chips e cartões removíveis. Não force a abertura de aparelhos selados nem remova baterias internas.",
+      "itemIds": [
+        "camera-externa-de-telefone-celular",
+        "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
+        "relogio-smart",
+        "telefone-celular"
+      ]
+    },
+    {
+      "id": "computadores-perifericos",
+      "name": "Computadores e periféricos",
+      "emoji": "💻",
+      "categoryIds": [
+        "informatica"
+      ],
+      "description": "Computadores de mesa, notebooks, tablets, teclados, mouses e componentes.",
+      "tip": "Faça backup, encerre sessões e apague os dados pessoais antes da entrega.",
+      "step": "Remova mídias e acessórios externos. Não abra fontes, baterias ou componentes internos.",
+      "itemIds": [
+        "computador-all-in-one",
+        "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
+        "computador-portatil-notepad",
+        "computadores-portateis-laptop-netbook-e-notebook",
+        "cpu-central-process-unit",
+        "desktop-sem-monitor-computador-pessoal",
+        "fonte-universal-para-notebook",
+        "microcomputador",
+        "minicomputador",
+        "mouse",
+        "tablet",
+        "teclado",
+        "equipamento-informatico-pessoal-e-reader",
+        "teclado-instrumento-musical"
+      ]
+    },
+    {
+      "id": "impressoras-scanners",
+      "name": "Impressoras e scanners",
+      "emoji": "🖨️",
+      "categoryIds": [
+        "informatica",
+        "lazer-outros"
+      ],
+      "description": "Impressoras, multifuncionais, scanners, copiadoras e equipamentos semelhantes.",
+      "tip": "Retire papéis e documentos. Confirme se o ponto recebe equipamentos de maior porte.",
+      "step": "Não descarte cartuchos ou toners junto com o aparelho sem verificar a orientação do ponto.",
+      "itemIds": [
+        "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
+        "impressora-multifuncional",
+        "scanner",
+        "telecopiadora-fax",
+        "cartucho-de-tinta-ou-toner",
+        "copiadora",
+        "etiquetadora-e-rotulador-eletronico",
+        "fragmentadora-de-papel"
+      ]
+    },
+    {
+      "id": "cabos-carregadores",
+      "name": "Cabos e carregadores",
+      "emoji": "🔌",
+      "categoryIds": [
+        "informatica"
+      ],
+      "description": "Cabos, conectores, carregadores, fontes, adaptadores e baterias externas.",
+      "tip": "Agrupe os acessórios e evite transportar cabos danificados soltos.",
+      "step": "Não corte cabos nem abra carregadores. Proteja terminais e conectores durante o transporte.",
+      "itemIds": [
+        "adaptador-wireless-usb-universal-serial-bus",
+        "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
+        "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
+        "carregador-portatil-usb",
+        "carregadores-em-geral-power-bank-de-uso-domestico",
+        "conversor-de-corrente-continua-de-uso-domestico",
+        "fonte-universal-para-notebook",
+        "hub-concentrador",
+        "bateria-externa"
+      ]
+    },
+    {
+      "id": "televisores-monitores",
+      "name": "Televisores e monitores",
+      "emoji": "📺",
+      "categoryIds": [
+        "audio-video",
+        "informatica"
+      ],
+      "description": "Televisores, monitores, projetores e telas de equipamentos eletrônicos.",
+      "tip": "Proteja telas e partes frágeis contra impactos e confirme os limites de tamanho do ponto.",
+      "step": "Transporte o equipamento sem pressionar a tela e confirme previamente a aceitação de itens volumosos.",
+      "itemIds": [
+        "monitores-em-geral",
+        "aparelho-de-televisao",
+        "oculos-3d",
+        "projetor-de-video",
+        "tela-de-projecao"
+      ]
+    },
+    {
+      "id": "audio-video",
+      "name": "Áudio e vídeo",
+      "emoji": "🎧",
+      "categoryIds": [
+        "audio-video"
+      ],
+      "description": "Rádios, caixas de som, fones, câmeras, amplificadores e reprodutores de mídia.",
+      "tip": "Separe controles e cabos e encerre contas em aparelhos inteligentes quando aplicável.",
+      "step": "Proteja lentes, telas e conectores. Retire mídias removíveis quando houver.",
+      "itemIds": [
+        "amplificador-de-audio-de-uso-domestico",
+        "antena-digital",
+        "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
+        "aparelho-de-televisao",
+        "autofalante",
+        "autorradio",
+        "blu-ray-player",
+        "caixa-de-som",
+        "camera-de-seguranca-de-uso-domestico",
+        "camera-de-video",
+        "camera-fotografica-digital",
+        "controle-remoto",
+        "conversor-digital-de-uso-domestico",
+        "dvd-digital-versatile-disc-player",
+        "fone-de-ouvido",
+        "gravador-digital-video-recorder-dvr-de-uso-domestico",
+        "gravador-de-audio-de-uso-domestico",
+        "gravador-de-video-de-uso-domestico",
+        "headset",
+        "home-theater",
+        "kit-de-controle-remoto",
+        "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
+        "oculos-3d",
+        "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
+        "projetor-de-video",
+        "radio-portatil",
+        "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
+        "tela-de-projecao",
+        "transmissor-e-receptor-bluetooth"
+      ]
+    },
+    {
+      "id": "videogames",
+      "name": "Videogames",
+      "emoji": "🎮",
+      "categoryIds": [
+        "audio-video"
+      ],
+      "description": "Consoles, controles, jogos e acessórios de videogame.",
+      "tip": "Encerre sessões, remova contas e apague dados pessoais antes da entrega.",
+      "step": "Separe controles, cabos e mídias. Não descarte pilhas ou baterias junto ao console sem orientação.",
+      "itemIds": [
+        "aparelho-de-videogame",
+        "cartucho-de-videogame",
+        "console-de-videogame-portatil",
+        "jogo-de-videogame"
+      ]
+    },
+    {
+      "id": "refrigeradores",
+      "name": "Geladeiras e refrigeradores",
+      "emoji": "🧊",
+      "categoryIds": [
+        "eletrodomesticos",
+        "casa-cozinha"
+      ],
+      "description": "Geladeiras, frigobares, freezers e outros equipamentos de refrigeração doméstica.",
+      "tip": "Consulte opções de coleta para equipamentos volumosos e confirme previamente o recebimento.",
+      "step": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte com o ponto de recebimento.",
+      "itemIds": [
+        "adega",
+        "cervejeira",
+        "miniadega",
+        "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
+        "freezer-vertical",
+        "frigobar",
+        "refrigerador"
+      ]
+    },
+    {
+      "id": "lavadoras-roupas",
+      "name": "Lavadoras e cuidados com roupas",
+      "emoji": "🧺",
+      "categoryIds": [
+        "eletrodomesticos",
+        "pessoal",
+        "lazer-outros"
+      ],
+      "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
+      "tip": "Confirme previamente o recebimento de eletrodomésticos grandes e esvazie reservatórios.",
+      "step": "Desconecte a energia e a água quando aplicável. Não tente desmontar motores ou componentes elétricos.",
+      "itemIds": [
+        "maquina-de-lava-e-seca",
+        "maquina-de-lavar-louca",
+        "maquina-de-lavar-roupa",
+        "maquina-de-lavar-roupa-semiautomatica",
+        "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
+        "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+        "ferro-de-engomar",
+        "passadeira-a-vapor",
+        "vaporizador-de-roupa",
+        "maquina-de-costura"
+      ]
+    },
+    {
+      "id": "cozinha-preparo",
+      "name": "Cozinha e preparo",
+      "emoji": "🍳",
+      "categoryIds": [
+        "casa-cozinha"
+      ],
+      "description": "Aparelhos usados no preparo, aquecimento e conservação de alimentos e bebidas.",
+      "tip": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco.",
+      "step": "Retire resíduos e acessórios soltos. Não descarte óleo ou líquidos junto com o equipamento.",
+      "itemIds": [
+        "abridor-de-vinho-eletrico",
+        "abridor-eletrico-de-latas",
+        "adega",
+        "aparelho-para-preparacao-de-cafe-ou-cha",
+        "batedeira",
+        "bebedouro-refrigerado",
+        "blender",
+        "bule-eletrico",
+        "cafeteira",
+        "centrifuga-de-suco",
+        "cervejeira",
+        "chaleira-eletrica",
+        "chapa-grill",
+        "churrasqueira-a-gas",
+        "churrasqueira-eletrica-ou-eletronica",
+        "cooktop-eletrico-e-a-gas",
+        "crepeira",
+        "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
+        "espremedor-de-frutas",
+        "faca-eletrica",
+        "fechador-eletrico-de-latas",
+        "fogao",
+        "fogao-eletrico",
+        "forno-eletrico",
+        "fritadeira",
+        "liquidificador",
+        "maquina-de-algodao-doce",
+        "maquina-de-cafe",
+        "maquina-de-cupcake",
+        "maquina-de-pao-panificadora",
+        "maquina-de-sorvete",
+        "maquina-de-waffle",
+        "micro-ondas",
+        "miniadega",
+        "miniforno",
+        "miniprocessador-com-uma-ou-mais-funcoes",
+        "mixer",
+        "moedor-de-cafe",
+        "moedor-de-graos",
+        "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
+        "multifatiador",
+        "omeleteira",
+        "panela-de-arroz",
+        "panela-de-pressao-eletrica",
+        "panela-eletrica",
+        "panquequeira",
+        "pia-fogao",
+        "pipoqueira",
+        "processador-de-alimentos",
+        "purificador-de-agua",
+        "sanduicheira",
+        "torradeira",
+        "triturador"
+      ]
+    },
+    {
+      "id": "limpeza-domestica",
+      "name": "Limpeza doméstica",
+      "emoji": "🧹",
+      "categoryIds": [
+        "eletrodomesticos",
+        "ferramentas-jardim"
+      ],
+      "description": "Aspiradores e equipamentos elétricos usados na limpeza de ambientes e superfícies.",
+      "tip": "Esvazie reservatórios e retire resíduos soltos antes da entrega.",
+      "step": "Desconecte da energia e acondicione acessórios separadamente. Não tente desmontar o motor.",
+      "itemIds": [
+        "aspirador",
+        "aspirador-de-janela",
+        "enceradeira",
+        "limpadora-a-vapor",
+        "limpadora-de-carpete",
+        "lavadora-de-jato-de-agua"
+      ]
+    },
+    {
+      "id": "ventilacao-climatizacao",
+      "name": "Ventilação e climatização",
+      "emoji": "❄️",
+      "categoryIds": [
+        "eletrodomesticos",
+        "casa-cozinha"
+      ],
+      "description": "Ventiladores, aparelhos de ar-condicionado, aquecedores e climatizadores.",
+      "tip": "Equipamentos grandes podem exigir logística específica. Confirme a aceitação antes do transporte.",
+      "step": "Não corte tubulações nem tente liberar gases refrigerantes. Desconecte o equipamento da energia.",
+      "itemIds": [
+        "aparelho-de-aquecimento-eletrico-para-ambiente",
+        "aparelho-de-ar-condicionado-de-janela",
+        "aparelho-de-ar-condicionado-portatil",
+        "aparelho-de-ar-condicionado-split",
+        "circulador-de-ar",
+        "climatizador-de-ar-eletrico",
+        "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+        "cortina-de-ar",
+        "depurador-de-ar",
+        "desumidificador-de-ar",
+        "umidificador",
+        "ventilador-de-coluna",
+        "ventilador-de-mesa",
+        "ventilador-de-teto",
+        "variador-de-ventilador"
+      ]
+    },
+    {
+      "id": "cuidados-pessoais",
+      "name": "Cuidados pessoais",
+      "emoji": "🪒",
+      "categoryIds": [
+        "pessoal"
+      ],
+      "description": "Barbeadores, depiladores, secadores, escovas elétricas e aparelhos de cuidado corporal.",
+      "tip": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes.",
+      "step": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança.",
+      "itemIds": [
+        "aparador-de-barba",
+        "aparelho-de-barbear",
+        "aparelho-de-depilar-e-aparar-pelos",
+        "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
+        "aparelho-para-cortar-o-cabelo",
+        "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+        "balanca",
+        "escova-de-dente-eletrica-airfloss",
+        "escova-modeladora",
+        "extrator-de-leite-eletrico",
+        "ferro-de-engomar",
+        "passadeira-a-vapor",
+        "prancha-de-cabelo",
+        "secador-de-cabelo",
+        "vaporizador-de-roupa"
+      ]
+    },
+    {
+      "id": "ferramentas-eletricas",
+      "name": "Ferramentas elétricas",
+      "emoji": "🛠️",
+      "categoryIds": [
+        "ferramentas-jardim"
+      ],
+      "description": "Furadeiras, parafusadeiras, serras, lixadeiras e outras ferramentas elétricas.",
+      "tip": "Desconecte da energia e proteja lâminas, brocas e partes móveis.",
+      "step": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores.",
+      "itemIds": [
+        "esmerilhadeira",
+        "furadeira",
+        "lanterna-eletrica",
+        "lixadeira",
+        "parafusadeira",
+        "pistola-aplicadora-de-cola",
+        "serra-eletrica"
+      ]
+    },
+    {
+      "id": "jardim-area-externa",
+      "name": "Jardim e área externa",
+      "emoji": "🌱",
+      "categoryIds": [
+        "ferramentas-jardim"
+      ],
+      "description": "Aparadores de grama, podadores, bombas e equipamentos elétricos de jardinagem.",
+      "tip": "Retire resíduos de terra e confirme o porte aceito pelo ponto de coleta.",
+      "step": "Proteja lâminas e partes móveis. Retire baterias apenas quando isso for seguro.",
+      "itemIds": [
+        "aparador-de-grama",
+        "bomba-de-jardim",
+        "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
+        "podador-de-cerca-viva",
+        "pulverizador-eletrico"
       ]
     }
   ]
