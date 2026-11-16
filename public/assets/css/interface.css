@@ -1,0 +1,376 @@
+/* AÇÕES CONTEXTUAIS */
+
+.quick-actions {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.quick-action {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--text);
+    background: white;
+    box-shadow: 0 5px 20px #00000012;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.quick-action.fixed,
+.quick-action.revealed {
+    display: flex;
+}
+
+.quick-action.fixed#explorerToggle {
+    border-color: var(--green);
+    color: white;
+    background: var(--green);
+}
+
+.quick-action.fixed#explorerToggle i {
+    color: white;
+}
+
+.quick-action i {
+    color: var(--green);
+}
+
+.quick-action:hover {
+    border-color: var(--green);
+    background: var(--soft);
+}
+
+.action-feedback {
+    position: fixed;
+    right: 22px;
+    bottom: 100px;
+    z-index: 950;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: var(--green);
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.action-feedback.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* PAINÉIS LATERAIS */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background: #0008;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1201;
+    width: min(400px, 90vw);
+    height: 100%;
+    padding: 25px;
+    overflow-y: auto;
+    background: white;
+    box-shadow: -10px 0 40px #00000012;
+    transform: translateX(105%);
+    transition: transform .3s ease;
+}
+
+.drawer.open {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.drawer-header h2 {
+    margin-top: 10px;
+    font-family: var(--heading);
+    font-size: 1.4rem;
+}
+
+.drawer-header p {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: .83rem;
+    line-height: 1.6;
+}
+
+.drawer-close {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--text);
+    background: white;
+}
+
+.drawer-search {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--green);
+}
+
+.drawer-search input {
+    width: 100%;
+    border: 0;
+    outline: none;
+}
+
+.drawer-list {
+    display: grid;
+    gap: 10px;
+}
+
+.drawer-item {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.drawer-item:hover {
+    background: var(--soft);
+    border-color: var(--green);
+}
+
+.drawer-item h3 {
+    margin-bottom: 7px;
+    font-size: .9rem;
+}
+
+.drawer-item p {
+    color: var(--muted);
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+.drawer-item .item-tip {
+    margin-top: 9px;
+    padding-top: 9px;
+    border-top: 1px solid var(--line);
+    color: var(--green);
+}
+
+.tree {
+    display: grid;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.tree-link,
+.tree-toggle {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 9px;
+    color: var(--muted);
+    background: transparent;
+    text-align: left;
+    font-size: .88rem;
+    cursor: pointer;
+}
+
+.tree-link i,
+.tree-toggle i {
+    width: 18px;
+    color: var(--green);
+    text-align: center;
+}
+
+.tree-link:hover,
+.tree-toggle:hover {
+    color: var(--green);
+    background: var(--soft);
+}
+
+.tree-children {
+    display: none;
+    gap: 3px;
+    margin-left: 20px;
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+}
+
+.tree-children.open {
+    display: grid !important;
+}
+
+.tree-children .tree-link {
+    font-size: .8rem;
+}
+
+/* MODAIS */
+
+.modal {
+    position: fixed;
+    width: min(620px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 32px;
+    border-radius: 19px;
+    background: white;
+    transform: translateY(15px);
+    transition: .25s;
+    opacity: 0;
+    inset: 0;
+    margin: auto;
+    z-index: 2000;
+    visibility: hidden;
+    
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: block;
+    margin-top: -16px;
+    margin-left: auto;
+    margin-right: -16px;
+    width: 37px;
+    height: 37px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: white;
+    color: var(--text);
+}
+
+.modal h2 {
+    margin: 15px 45px 12px 0;
+    font-family: var(--heading);
+    font-size: 1.8rem;
+}
+
+.modal-description {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: .9rem;
+}
+
+.modal-content {
+    margin-top: 23px;
+}
+
+.modal-content h3 {
+    margin: 20px 0 8px;
+    color: var(--green);
+    font-size: 1rem;
+}
+
+.modal-content p {
+    color: var(--muted);
+    font-size: .88rem;
+    line-height: 1.7;
+}
+
+
+
+/* MODAL DE COMPARTILHAMENTO */
+
+.share-modal {
+    width: min(980px, 100%);
+    max-height: 90vh;
+    padding: 28px;
+}
+
+.share-modal h2 {
+    margin-top: 0;
+}
+
+.share-url-row {
+    display: flex;
+    gap: 10px;
+    margin: 18px 0 24px;
+}
+
+.share-url-row input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 15px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--text);
+    background: var(--soft);
+    font: inherit;
+}
+
+.share-copy-button,
+.share-download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 17px;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    background: var(--green);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.share-folder-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 8px 0 14px;
+}
+
+.share-modal .brochure {
+    margin-bottom: 12px;
+}
+
+@media(max-width: 600px) {
+    .share-modal { padding: 22px 16px; }
+    .share-url-row { flex-direction: column; }
+    .share-copy-button, .share-download-button { width: 100%; }
+    .share-folder-heading { align-items: stretch; flex-direction: column; }
+}
+
