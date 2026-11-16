@@ -2662,6 +2662,9 @@ main > section[id],
 .map-workspace .map-container {
     min-width: 0;
 }
+.map-workspace-expanded {
+    grid-template-columns: minmax(0, 1fr);
+}
 .map-equipment-selection {
     position: sticky;
     top: 105px;
