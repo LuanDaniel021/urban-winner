@@ -26,10 +26,8 @@ function getCatalogCategories() {
     }));
 }
 
-function getCategoryEquipment(categoryOrId) {
-    const category = typeof categoryOrId === "string"
-        ? DATA_CATEGORIES.categories[categoryOrId]
-        : categoryOrId;
+function getCategoryEquipment(categoryId) {
+    const category = DATA_CATEGORIES.categories[categoryId];
     const excludedItemIds = new Set(category.excludedItemIds || []);
     const itemShortcuts = new Map();
 
@@ -188,7 +186,7 @@ const selectedEquipmentItems = new Map();
             const category = categories.find(item =>
                 item.id === (["selecionados", "atalho"].includes(activeFilter) ? "todos" : activeFilter)
             );
-            const items = getCategoryEquipment(category).map(item => ({
+            const items = getCategoryEquipment(category.id).map(item => ({
                 ...item,
                 category
             })).filter(item => {
