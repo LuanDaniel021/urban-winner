@@ -2915,6 +2915,13 @@ main > section[id],
 }
 
 
+.quick-actions-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
 /* CONTROLE DISCRETO DAS AÇÕES FLUTUANTES NO CELULAR */
 .quick-actions-toggle {
     display: none;
@@ -2935,13 +2942,6 @@ main > section[id],
 
     .quick-actions.collapsed #explorerToggle {
         display: none;
-    }
-
-    .quick-actions-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px;
     }
 
     .quick-actions-toggle {
@@ -2976,13 +2976,6 @@ main > section[id],
 
 /* CONTROLE DAS AÇÕES RÁPIDAS EM TELAS GRANDES */
 @media (min-width: 601px) {
-    .quick-actions-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px;
-    }
-
     .quick-actions-toggle {
         display: grid;
         place-items: center;
@@ -3013,65 +3006,40 @@ main > section[id],
 }
 
 
-/* GUIA COMPLETO DE EQUIPAMENTOS */
+/* CATÁLOGO DE EQUIPAMENTOS */
+
 #guia .filters {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin: 18px 0 12px;
 }
+
 #guia .filter {
     max-width: 100%;
     white-space: normal;
     text-align: left;
 }
+
 .catalog-result-count {
     margin: 0 0 10px;
     color: var(--muted);
     font-size: .78rem;
 }
-#equipmentGrid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    max-height: 560px;
-    overflow-y: auto;
-    align-content: start;
-}
-#equipmentGrid .equipment-card {
-    min-height: 104px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: white;
-}
-#equipmentGrid .equipment-card-main {
-    align-items: flex-start;
-}
-#equipmentGrid .equipment-name {
-    overflow-wrap: anywhere;
-}
-@media (max-width: 900px) {
-    #equipmentGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 600px) {
-    #equipmentGrid { grid-template-columns: 1fr; max-height: 62vh; }
-    #guia .filters { gap: 6px; }
-    #guia .filter { font-size: .72rem; padding: 8px 10px; }
-}
 
-
-/* ALTERNÂNCIA ENTRE CATÁLOGO SIMPLIFICADO E COMPLETO */
 .catalog-toolbar {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     margin: 18px 0 12px;
 }
+
 .catalog-toolbar .filters {
     flex: 1;
     min-width: 0;
     margin: 0;
 }
+
 .catalog-simple-toggle {
     display: grid;
     place-items: center;
@@ -3085,11 +3053,32 @@ main > section[id],
     cursor: pointer;
     transition: background .2s, border-color .2s;
 }
+
 .catalog-simple-toggle:hover,
 .catalog-simple-toggle.active {
     border-color: var(--green);
     background: var(--soft);
 }
+
+.catalog-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 10px;
+}
+
+.catalog-status-row .catalog-result-count {
+    margin: 0;
+}
+
+.catalog-selection-count {
+    color: var(--green);
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 #equipmentGrid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3097,39 +3086,138 @@ main > section[id],
     max-height: 560px;
     overflow-y: auto;
     align-content: start;
+    padding: 2px 8px 8px 2px;
+    scrollbar-gutter: stable;
 }
+
 #equipmentGrid .equipment-card {
+    position: relative;
+    display: block;
+    width: 100%;
     min-height: 104px;
+    padding: 15px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--text);
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .18s, background .18s, box-shadow .18s, transform .18s;
+}
+
+#equipmentGrid .equipment-card:hover {
+    border-color: var(--green);
+    background: #f8fcf9;
+    transform: translateY(-2px);
+}
+
+#equipmentGrid .equipment-card.selected {
+    border-color: var(--green);
+    background: #eff8f2;
+    box-shadow: inset 0 0 0 1px var(--green);
+}
+
+#equipmentGrid .equipment-card-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#equipmentGrid .equipment-name {
+    overflow-wrap: anywhere;
+}
+
+#equipmentGrid .equipment-card-indicator {
+    display: grid;
+    place-items: center;
+    flex: 0 0 23px;
+    width: 23px;
+    height: 23px;
+    margin-left: auto;
+    border: 1px solid #cbd8d0;
+    border-radius: 50%;
+    color: transparent;
+    background: white;
+    font-size: .7rem;
+}
+
+#equipmentGrid .equipment-card.selected .equipment-card-indicator {
+    border-color: var(--green);
+    color: white;
+    background: var(--green);
+}
+
+.catalog-selection-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 16px;
+    padding: 14px 16px;
     border: 1px solid var(--line);
     border-radius: 12px;
     background: white;
 }
-#equipmentGrid .equipment-card-main { align-items: flex-start; }
-#equipmentGrid .equipment-name { overflow-wrap: anywhere; }
+
+.catalog-selection-actions > span {
+    color: var(--muted);
+    font-size: .82rem;
+}
+
+.catalog-selection-actions .btn {
+    flex: 0 0 auto;
+}
+
+.catalog-selection-actions .btn:disabled,
+#guia .filter:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
 @media (max-width: 900px) {
-    #equipmentGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #equipmentGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
+
 @media (max-width: 600px) {
-    .catalog-toolbar { gap: 7px; }
-    .catalog-simple-toggle { flex-basis: 38px; width: 38px; height: 38px; }
-    #equipmentGrid { grid-template-columns: 1fr; max-height: 62vh; }
-    .catalog-toolbar .filter { font-size: .72rem; padding: 8px 10px; }
+    #guia .filters {
+        gap: 6px;
+    }
+
+    #guia .filter,
+    .catalog-toolbar .filter {
+        padding: 8px 10px;
+        font-size: .72rem;
+    }
+
+    .catalog-toolbar {
+        gap: 7px;
+    }
+
+    .catalog-simple-toggle {
+        flex-basis: 38px;
+        width: 38px;
+        height: 38px;
+    }
+
+    #equipmentGrid {
+        grid-template-columns: 1fr;
+        max-height: 62vh;
+    }
+
+    .catalog-status-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .catalog-selection-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .catalog-selection-actions .btn {
+        width: 100%;
+    }
 }
-
-
-/* CATÁLOGO SELECIONÁVEL */
-.catalog-status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
-.catalog-status-row .catalog-result-count{margin:0}
-.catalog-selection-count{color:var(--green);font-size:.8rem;font-weight:700;white-space:nowrap}
-#equipmentGrid .equipment-card{position:relative;width:100%;padding:15px;color:var(--text);text-align:left;cursor:pointer;transition:border-color .18s,background .18s,box-shadow .18s,transform .18s}
-#equipmentGrid .equipment-card:hover{border-color:var(--green);background:#f8fcf9;transform:translateY(-2px)}
-#equipmentGrid .equipment-card.selected{border-color:var(--green);background:#eff8f2;box-shadow:inset 0 0 0 1px var(--green)}
-#equipmentGrid .equipment-card-main{display:flex;align-items:center;gap:10px}
-#equipmentGrid .equipment-card-indicator{display:grid;place-items:center;flex:0 0 23px;width:23px;height:23px;margin-left:auto;border:1px solid #cbd8d0;border-radius:50%;color:transparent;background:white;font-size:.7rem}
-#equipmentGrid .equipment-card.selected .equipment-card-indicator{border-color:var(--green);color:white;background:var(--green)}
-.catalog-selection-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:white}
-.catalog-selection-actions>span{color:var(--muted);font-size:.82rem}
-.catalog-selection-actions .btn{flex:0 0 auto}
-.catalog-selection-actions .btn:disabled{opacity:.5;cursor:not-allowed}
-#guia .filter:disabled{opacity:.55;cursor:not-allowed}
-@media(max-width:600px){.catalog-status-row{align-items:flex-start;flex-direction:column;gap:4px}.catalog-selection-actions{align-items:stretch;flex-direction:column}.catalog-selection-actions .btn{width:100%}}
