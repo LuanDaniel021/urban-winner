@@ -249,20 +249,26 @@
                     </p>
                 </div>
 
-            <section id="mapEquipmentSelection" class="map-equipment-selection" hidden>
-                <div class="map-equipment-selection-heading">
-                    <div>
-                        <span class="eyebrow">Sua seleção</span>
-                        <h3>Equipamentos escolhidos</h3>
+                <div class="map-workspace">
+                    <div class="map-container">
+                        <div id="map" aria-label="Mapa interativo de referência"></div>
                     </div>
-                    <span id="mapEquipmentCount" class="map-equipment-count">0</span>
-                </div>
-                <ul id="mapEquipmentList"></ul>
-                <p>A seleção foi enviada para o mapa. A filtragem por tipo de equipamento será ativada quando os pontos de coleta forem cadastrados.</p>
-            </section>
 
-                <div class="map-container">
-                    <div id="map" aria-label="Mapa interativo de referência"></div>
+                    <section id="mapEquipmentSelection" class="map-equipment-selection" hidden aria-label="Equipamentos selecionados">
+                        <div class="map-equipment-selection-heading">
+                            <div>
+                                <span class="eyebrow">Sua seleção</span>
+                                <h3>Equipamentos escolhidos</h3>
+                            </div>
+                            <span id="mapEquipmentCount" class="map-equipment-count">0</span>
+                        </div>
+                        <div class="map-equipment-selection-actions">
+                            <button type="button" id="clearMapEquipmentSelection" class="map-selection-action">Limpar</button>
+                            <button type="button" id="closeMapEquipmentSelection" class="map-selection-action" aria-label="Fechar cartão">Fechar <i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <ul id="mapEquipmentList"></ul>
+                        <p>A filtragem por tipo de equipamento será ativada quando os pontos de coleta forem cadastrados.</p>
+                    </section>
                 </div>
 
             </div>
