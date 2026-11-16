@@ -171,7 +171,7 @@ const selectedEquipmentItems = new Map();
                 const names = item.itemIds.map(id => categories.flatMap(category => category.items).find(e => e.id === id)?.name || "");
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
-            items.forEach(item => renderCard(item, categories.find(c => item.categoryIds.includes(c.id)) || categories[0], true));
+            items.forEach(item => renderCard(item, categories.find(c => c.id === item.categoryId) || categories[0], true));
             resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
         } else {
@@ -194,20 +194,23 @@ const selectedEquipmentItems = new Map();
     function openEquipmentDetail(item, category, simple = false) {
         if (!item || !category) return;
         const linkedItems = simple ? item.itemIds.map(id => categories.flatMap(group => group.items).find(e => e.id === id)).filter(Boolean) : [];
+        const guidance = item.guidance || {};
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
-        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : info.emoji || category.emoji || "♻️";
+        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : category.emoji || "♻️";
         document.getElementById("equipmentDetailExamples").textContent = simple
             ? `${item.description} Inclui: ${linkedItems.slice(0,6).map(e => e.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length-6} itens` : ""}.`
-            : `${item.name} está incluído nesta categoria. ${info.description}`;
+            : item.description;
         document.getElementById("equipmentDetailTip").textContent = simple
             ? "Os equipamentos relacionados serão exibidos no catálogo para que você escolha individualmente quais deseja selecionar."
-            : "Consulte as orientações de preparação e cuidado específicas deste equipamento.";
+            : guidance.preparation || "Desligue o equipamento e desconecte-o da fonte de energia antes da entrega.";
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
-        steps[0].textContent = "Confira a descrição e os equipamentos relacionados a este atalho.";
+        steps[0].textContent = simple
+            ? "Confira a descrição e os equipamentos relacionados a este atalho."
+            : guidance.preparation || "Desligue e desconecte o equipamento antes da entrega.";
         steps[1].textContent = simple
             ? "Selecione individualmente os itens que correspondem ao equipamento que você deseja descartar."
-            : "Consulte as orientações de preparação e cuidado específicas deste equipamento.";
+            : guidance.care || "Proteja o equipamento durante o transporte e não danifique baterias ou componentes.";
         steps[2].textContent = "Acondicione o item para evitar danos e confirme com o ponto de coleta se ele recebe este equipamento.";
         document.getElementById("compatiblePointsHint").textContent = simple
             ? "Veja no catálogo os equipamentos que correspondem a esta descrição. A seleção poderá ser feita individualmente."
