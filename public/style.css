@@ -3039,3 +3039,60 @@ main > section[id],
     #guia .filters { gap: 6px; }
     #guia .filter { font-size: .72rem; padding: 8px 10px; }
 }
+
+
+/* ALTERNÂNCIA ENTRE CATÁLOGO SIMPLIFICADO E COMPLETO */
+.catalog-toolbar {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 18px 0 12px;
+}
+.catalog-toolbar .filters {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+.catalog-simple-toggle {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    color: var(--green);
+    background: white;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+.catalog-simple-toggle:hover,
+.catalog-simple-toggle.active {
+    border-color: var(--green);
+    background: var(--soft);
+}
+#equipmentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    max-height: 560px;
+    overflow-y: auto;
+    align-content: start;
+}
+#equipmentGrid .equipment-card {
+    min-height: 104px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+}
+#equipmentGrid .equipment-card-main { align-items: flex-start; }
+#equipmentGrid .equipment-name { overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+    #equipmentGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .catalog-toolbar { gap: 7px; }
+    .catalog-simple-toggle { flex-basis: 38px; width: 38px; height: 38px; }
+    #equipmentGrid { grid-template-columns: 1fr; max-height: 62vh; }
+    .catalog-toolbar .filter { font-size: .72rem; padding: 8px 10px; }
+}
