@@ -69,40 +69,110 @@ document.addEventListener("keydown", event => {
 
 //#region : CATÁLOGO E DETALHES DE EQUIPAMENTOS
 {
-    const equipment = {
-        celulares: { name:"Celulares e smartphones", category:"Informática", cat:"informatica", emoji:"📱", examples:"Celulares, smartphones, tablets e acessórios.", tip:"Apague os dados pessoais e remova chip e cartão de memória." },
-        computadores: { name:"Computadores e periféricos", category:"Informática", cat:"informatica", emoji:"💻", examples:"Computadores, notebooks, teclados e mouses.", tip:"Faça backup e apague os dados antes da entrega." },
-        impressoras: { name:"Impressoras e scanners", category:"Informática", cat:"informatica", emoji:"🖨️", examples:"Impressoras, scanners e equipamentos semelhantes.", tip:"Confirme se o ponto recebe equipamentos de maior porte." },
-        cabos: { name:"Cabos e carregadores", category:"Informática", cat:"informatica", emoji:"🔌", examples:"Cabos, carregadores, adaptadores e conectores.", tip:"Agrupe os acessórios para facilitar o transporte." },
-        televisores: { name:"Televisores e monitores", category:"Imagem e áudio", cat:"imagem", emoji:"📺", examples:"Televisores, monitores e telas eletrônicas.", tip:"Evite impactos e confirme os limites de tamanho do ponto." },
-        audio: { name:"Áudio e vídeo", category:"Imagem e áudio", cat:"imagem", emoji:"🎧", examples:"Rádios, caixas de som, fones e amplificadores.", tip:"Separe controles e cabos e confirme a aceitação." },
-        videogames: { name:"Videogames", category:"Imagem e áudio", cat:"imagem", emoji:"🎮", examples:"Consoles, controles e acessórios de jogos.", tip:"Remova contas e dados pessoais antes da entrega." },
-        geladeiras: { name:"Geladeiras e refrigeradores", category:"Casa", cat:"casa", emoji:"🧊", examples:"Geladeiras, frigobares e refrigeradores domésticos.", tip:"Consulte opções de coleta para equipamentos volumosos." },
-        lavadoras: { name:"Lavadoras e cuidados com roupas", category:"Casa", cat:"casa", emoji:"🧺", examples:"Máquinas de lavar, secadoras e ferros elétricos.", tip:"Confirme previamente o recebimento de eletrodomésticos grandes." },
-        cozinha: { name:"Cozinha e preparo de alimentos", category:"Casa", cat:"casa", emoji:"🍳", examples:"Liquidificadores, cafeteiras, torradeiras e micro-ondas.", tip:"Desligue e retire alimentos ou líquidos." },
-        limpeza: { name:"Limpeza doméstica", category:"Casa", cat:"casa", emoji:"🧹", examples:"Aspiradores de pó e equipamentos elétricos de limpeza.", tip:"Esvazie reservatórios e acondicione acessórios separadamente." },
-        ventilacao: { name:"Ventilação e climatização", category:"Casa", cat:"casa", emoji:"❄️", examples:"Ventiladores, ar-condicionado e aquecedores.", tip:"Equipamentos grandes podem exigir logística específica." },
-        pessoal: { name:"Cuidados pessoais", category:"Cuidados pessoais", cat:"pessoal", emoji:"🪒", examples:"Barbeadores, depiladores e secadores.", tip:"Separe pilhas removíveis e proteja partes cortantes." },
-        ferramentas: { name:"Ferramentas elétricas", category:"Ferramentas", cat:"ferramentas", emoji:"🛠️", examples:"Furadeiras, parafusadeiras e ferramentas elétricas.", tip:"Retire baterias somente quando isso for seguro." },
-        jardim: { name:"Jardim e área externa", category:"Ferramentas", cat:"ferramentas", emoji:"🌱", examples:"Aparadores de grama e equipamentos elétricos de jardim.", tip:"Confirme o porte aceito pelo ponto de coleta." }
-    };
-
     const search = document.getElementById("search");
     const detailDrawer = document.getElementById("equipmentDetailDrawer");
+    const filters = document.querySelector(".filters");
+    const grid = document.getElementById("equipmentGrid");
+    const emptyState = document.getElementById("catalogEmptyState");
+    const resultCount = document.getElementById("catalogResultCount");
+    let categories = [];
     let activeFilter = "todos";
+
+    const guidance = {
+        "casa-cozinha": {
+            emoji: "🍳",
+            description: "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
+            tip: "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            step: "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+        },
+        eletrodomesticos: {
+            emoji: "🏠",
+            description: "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
+            tip: "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            step: "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+        },
+        informatica: {
+            emoji: "💻",
+            description: "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
+            tip: "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            step: "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+        },
+        imagem_audio_video: {
+            emoji: "📺",
+            description: "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
+            tip: "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            step: "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+        },
+        telefonia_comunicacao: {
+            emoji: "📡",
+            description: "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
+            tip: "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            step: "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+        },
+        cuidados_pessoais: {
+            emoji: "🪒",
+            description: "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
+            tip: "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            step: "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+        },
+        ferramentas_jardinagem: {
+            emoji: "🛠️",
+            description: "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
+            tip: "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            step: "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+        },
+        lazer_esporte_outros: {
+            emoji: "🎮",
+            description: "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
+            tip: "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            step: "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+        }
+    };
+
+    function getGuidance(category) {
+        return guidance[category.id] || {
+            emoji: category.emoji || "♻️",
+            description: "Equipamentos elétricos e eletrônicos desta categoria.",
+            tip: "Desligue o equipamento, desconecte cabos e confirme com o ponto de coleta se ele recebe esse tipo de item.",
+            step: "Retire acessórios e componentes removíveis apenas quando isso for seguro. Não abra nem danifique baterias."
+        };
+    }
+
+    function renderFilters() {
+        filters.replaceChildren();
+        const all = [{ id: "todos", name: "Todos", count: categories.reduce((sum, category) => sum + category.items.length, 0) }, ...categories.map(category => ({
+            id: category.id,
+            name: category.name,
+            count: category.items.length
+        }))];
+
+        all.forEach(category => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "filter";
+            button.dataset.filter = category.id;
+            button.textContent = category.name;
+            button.classList.toggle("active", category.id === activeFilter);
+            button.addEventListener("click", () => {
+                activeFilter = category.id;
+                renderFilters();
+                renderCatalog();
+            });
+            filters.append(button);
+        });
+    }
 
     function renderCatalog() {
         const query = normalizeText(search.value);
-        const items = Object.values(equipment).filter(item => {
-            const categoryMatch = activeFilter === "todos" || item.cat === activeFilter;
-            const searchable = normalizeText(`${item.name} ${item.category} ${item.examples} ${item.tip}`);
-            return categoryMatch && searchable.includes(query);
-        });
+        const items = categories.flatMap(category => category.items.map(item => ({ ...item, category })))
+            .filter(item => {
+                const categoryMatch = activeFilter === "todos" || item.category.id === activeFilter;
+                return categoryMatch && normalizeText(`${item.name} ${item.category.name}`).includes(query);
+            });
 
-        const grid = document.getElementById("equipmentGrid");
         grid.replaceChildren();
-
         items.forEach(item => {
+            const info = getGuidance(item.category);
             const card = document.createElement("button");
             card.type = "button";
             card.className = "equipment-card";
@@ -115,51 +185,42 @@ document.addEventListener("keydown", event => {
                     <i class="fa-solid fa-chevron-right"></i>
                 </span>
             `;
-            card.querySelector(".equipment-category").textContent = item.category;
-            card.querySelector(".equipment-emoji").textContent = item.emoji;
+            card.querySelector(".equipment-category").textContent = item.category.name;
+            card.querySelector(".equipment-emoji").textContent = info.emoji;
             card.querySelector(".equipment-name").textContent = item.name;
             card.addEventListener("click", () => openEquipmentDetail(item));
-            grid.appendChild(card);
+            grid.append(card);
         });
 
-        document.getElementById("catalogEmptyState").hidden = items.length > 0;
+        emptyState.hidden = items.length > 0;
+        resultCount.textContent = `${items.length} equipamento${items.length === 1 ? "" : "s"} encontrado${items.length === 1 ? "" : "s"}`;
     }
 
     function openEquipmentDetail(item) {
         if (!item) return;
+        const info = getGuidance(item.category);
         document.getElementById("equipmentDetailTitle").textContent = item.name;
-        document.getElementById("equipmentDetailCategory").textContent = item.category;
-        document.getElementById("equipmentDetailEmoji").textContent = item.emoji;
-        document.getElementById("equipmentDetailExamples").textContent = item.examples;
-        document.getElementById("equipmentDetailTip").textContent = item.tip;
+        document.getElementById("equipmentDetailCategory").textContent = item.category.name;
+        document.getElementById("equipmentDetailEmoji").textContent = info.emoji;
+        document.getElementById("equipmentDetailExamples").textContent = `${item.name} está incluído nesta categoria do catálogo. ${info.description}`;
+        document.getElementById("equipmentDetailTip").textContent = info.tip;
 
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
-        steps[1].textContent = item.cat === "informatica"
-            ? "Faça backup e remova dados pessoais, chips e cartões de memória."
-            : "Retire acessórios e componentes removíveis apenas quando isso for seguro.";
+        steps[0].textContent = "Desligue o equipamento e desconecte-o da tomada ou da fonte de energia.";
+        steps[1].textContent = info.step;
+        steps[2].textContent = "Acondicione o item para evitar danos e confirme com o ponto de coleta se ele recebe esse equipamento.";
 
         document.getElementById("compatiblePointsHint").textContent =
-            "Consulte os localizadores disponíveis no mapa e confirme a aceitação diretamente com o ponto de coleta.";
+            "A aceitação pode variar conforme o ponto de coleta. Consulte os localizadores oficiais e confirme antes de se deslocar.";
         openDrawer(detailDrawer);
     }
 
-
     search.addEventListener("input", renderCatalog);
-    document.querySelectorAll(".filter").forEach(button => {
-        button.addEventListener("click", () => {
-            document.querySelector(".filter.active")?.classList.remove("active");
-            button.classList.add("active");
-            activeFilter = button.dataset.filter;
-            renderCatalog();
-        });
-    });
 
     document.getElementById("clear").addEventListener("click", () => {
         search.value = "";
         activeFilter = "todos";
-        document.querySelectorAll(".filter").forEach(button => {
-            button.classList.toggle("active", button.dataset.filter === "todos");
-        });
+        renderFilters();
         renderCatalog();
     });
 
@@ -174,7 +235,21 @@ document.addEventListener("keydown", event => {
         showFeedback("Consulte os localizadores e confirme quais equipamentos são aceitos.");
     });
 
-    renderCatalog();
+    fetch("./data/equipment-catalog.json")
+        .then(response => {
+            if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
+            return response.json();
+        })
+        .then(data => {
+            categories = data.categories || [];
+            renderFilters();
+            renderCatalog();
+        })
+        .catch(() => {
+            emptyState.hidden = false;
+            emptyState.textContent = "Não foi possível carregar o catálogo de equipamentos. Tente atualizar a página.";
+            resultCount.textContent = "";
+        });
 }
 //#endregion
 
