@@ -27,10 +27,14 @@ function getCatalogCategories() {
 }
 
 function getCategoryEquipment(categoryId) {
+    const category = DATA_CATEGORIES.categories[categoryId];
+    const excludedItemIds = new Set(category.excludedItemIds || []);
     const itemIds = new Set();
 
-    DATA_CATEGORIES.categories[categoryId].shortcutIds.forEach(shortcutId => {
-        DATA_SHORTCUTS.shortcuts[shortcutId].itemIds.forEach(id => itemIds.add(id));
+    category.shortcutIds.forEach(shortcutId => {
+        DATA_SHORTCUTS.shortcuts[shortcutId].itemIds.forEach(id => {
+            if (!excludedItemIds.has(id)) itemIds.add(id);
+        });
     });
 
     return [...itemIds].map(id => ({
