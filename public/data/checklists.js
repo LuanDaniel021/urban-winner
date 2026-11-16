@@ -1,0 +1,16 @@
+const data = {
+    "version": 1,
+    "default": {
+        "id": "preparacao-descarte",
+        "name": "Preparação para descarte",
+        "tasks": [
+            "Verificar o estado do equipamento",
+            "Desligar e desconectar",
+            "Separar acessórios e componentes",
+            "Proteger informações pessoais",
+            "Confirmar o destino de entrega"
+        ]
+    }
+};
+
+export default data;
