@@ -1,6 +1,12 @@
 //#region : INTERFACE - MODAIS, PAINÉIS E OVERLAY
 const overlay = document.getElementById("overlay");
 
+function cloneTemplate(id) {
+    const template = document.getElementById(id);
+    if (!template) throw new Error(`Template não encontrado: ${id}`);
+    return template.content.cloneNode(true);
+}
+
 function normalizeText(value) {
     return String(value ?? "")
         .toLowerCase()
@@ -169,9 +175,7 @@ const selectedEquipmentItems = new Map();
     function renderFilters() {
         filters.replaceChildren();
         const addFilter = (label, value, disabled = false) => {
-            const button = document.createElement("button");
-            button.type = "button";
-            button.className = "filter";
+            const button = cloneTemplate("filterButtonTemplate").querySelector(".filter");
             button.textContent = label;
             button.disabled = disabled;
             button.classList.toggle("active", activeFilter === value && catalogMode === "full");
@@ -194,19 +198,10 @@ const selectedEquipmentItems = new Map();
 
     function renderCard(item, category, simple = false) {
         const selected = !simple && selectedEquipmentItems.has(item.id);
-        const card = document.createElement("button");
-        card.type = "button";
-        card.className = `equipment-card${selected ? " selected" : ""}`;
+        const card = cloneTemplate("equipmentCardTemplate").querySelector(".equipment-card");
+        card.classList.toggle("selected", selected);
         card.setAttribute("aria-pressed", String(selected));
         card.setAttribute("aria-label", simple ? `Ver orientações para ${item.name}` : `${selected ? "Desmarcar" : "Selecionar"} ${item.name}`);
-        card.innerHTML = `
-            <span class="equipment-category"></span>
-            <span class="equipment-card-main">
-                <span class="equipment-emoji"></span>
-                <strong class="equipment-name"></strong>
-                <span class="equipment-card-indicator" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-            </span>
-        `;
         card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
         card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : category.emoji || "♻️";
         card.querySelector(".equipment-name").textContent = item.name;
@@ -382,9 +377,11 @@ function showFeedback(message) {
     function updateMode() {
         modeToggle.setAttribute("aria-pressed", String(viewMode));
         modeToggle.classList.toggle("active", viewMode);
-        modeToggle.innerHTML = viewMode
-            ? '<i class="fa-solid fa-eye"></i><span>Modo de visualização</span>'
-            : '<i class="fa-solid fa-pen"></i><span>Modo de edição</span>';
+        const modeIcon = modeToggle.querySelector("i");
+        const modeLabel = modeToggle.querySelector("span");
+        modeIcon.classList.toggle("fa-eye", viewMode);
+        modeIcon.classList.toggle("fa-pen", !viewMode);
+        modeLabel.textContent = viewMode ? "Modo de visualização" : "Modo de edição";
 
         form.hidden = viewMode;
         document.getElementById("resetChecks").hidden = viewMode;
@@ -418,59 +415,37 @@ function showFeedback(message) {
         list.replaceChildren();
 
         tasks.forEach((task, index) => {
-            const item = document.createElement("div");
-            item.className = "checklist-task";
+            const item = cloneTemplate("checklistTaskTemplate").querySelector(".checklist-task");
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            const text = item.querySelector(".checklist-task-text");
+            const [up, down, remove] = item.querySelectorAll("button");
+
             item.classList.toggle("completed", task.done);
-
-            const label = document.createElement("label");
-            label.className = "checklist-task-label";
-
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
             checkbox.checked = task.done;
+            text.textContent = task.text;
+
             checkbox.addEventListener("change", () => {
                 task.done = checkbox.checked;
                 renderTasks();
             });
 
-            const text = document.createElement("span");
-            text.textContent = task.text;
-            label.append(checkbox, text);
-
-            const actions = document.createElement("div");
-            actions.className = "checklist-task-actions";
-
-            const up = document.createElement("button");
-            up.type = "button";
-            up.className = "checklist-task-move";
             up.disabled = index === 0;
             up.title = "Mover para cima";
             up.setAttribute("aria-label", `Mover para cima: ${task.text}`);
-            up.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
             up.addEventListener("click", () => moveTask(index, -1));
 
-            const down = document.createElement("button");
-            down.type = "button";
-            down.className = "checklist-task-move";
             down.disabled = index === tasks.length - 1;
             down.title = "Mover para baixo";
             down.setAttribute("aria-label", `Mover para baixo: ${task.text}`);
-            down.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
             down.addEventListener("click", () => moveTask(index, 1));
 
-            const remove = document.createElement("button");
-            remove.type = "button";
-            remove.className = "checklist-task-remove";
             remove.setAttribute("aria-label", `Remover etapa: ${task.text}`);
-            remove.innerHTML = '<i class="fa-solid fa-trash"></i>';
             remove.addEventListener("click", () => {
                 tasks.splice(index, 1);
                 renderTasks();
             });
 
-            actions.append(up, down, remove);
-            actions.hidden = viewMode;
-            item.append(label, actions);
+            item.querySelector(".checklist-task-actions").hidden = viewMode;
             list.append(item);
         });
 
@@ -586,8 +561,9 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         scrollWheelZoom: false
     }).setView([-26.25, -51.07], 7);
 
+    const attribution = document.getElementById("mapAttributionTemplate").innerHTML;
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        attribution
     }).addTo(map);
 
     let collectionPoints = {};
@@ -629,7 +605,6 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         map.setView(point.position, 13);
         setTimeout(() => map.invalidateSize(), 200);
     });
-
 
     const mapObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -700,7 +675,7 @@ document.getElementById("equipmentButton").addEventListener("click", () => {
 document.getElementById("mapButton").addEventListener("click", () => {
     openDrawer(document.getElementById("mapDrawer"));
 });
-    
+
 //#endregion
 
 //#region : CATÁLOGO SELECIONÁVEL DE EQUIPAMENTOS
@@ -735,7 +710,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         mapEquipmentList.replaceChildren();
 
         selectedEquipmentItems.forEach(item => {
-            const li = document.createElement("li");
+            const li = cloneTemplate("mapEquipmentItemTemplate").querySelector("li");
             li.textContent = item.name;
             mapEquipmentList.append(li);
         });
@@ -755,37 +730,23 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
             visibleCount += matches.length;
             const groupId = `equipment-category-${index}`;
+            const group = cloneTemplate("equipmentCategoryTemplate");
+            const toggle = group.querySelector(".tree-toggle");
+            const children = group.querySelector(".equipment-category-items");
 
-            const toggle = document.createElement("button");
-            toggle.type = "button";
-            toggle.className = "tree-toggle";
             toggle.dataset.tree = groupId;
             toggle.setAttribute("aria-expanded", String(Boolean(query)));
-
-            const folderIcon = document.createElement("i");
-            folderIcon.className = "fa-solid fa-folder";
-            const label = document.createElement("span");
-            label.textContent = category.name;
-            const total = document.createElement("small");
-            total.className = "equipment-category-total";
-            total.textContent = String(matches.length);
-            const arrow = document.createElement("i");
-            arrow.className = "fa-solid fa-chevron-down tree-arrow";
-            toggle.append(folderIcon, label, total, arrow);
-
-            const children = document.createElement("div");
+            toggle.querySelector(".equipment-category-name").textContent = category.name;
+            toggle.querySelector(".equipment-category-total").textContent = String(matches.length);
             children.id = groupId;
-            children.className = "tree-children equipment-category-items";
-            if (query) children.classList.add("open");
+            children.classList.toggle("open", Boolean(query));
 
             matches.forEach(item => {
-                const label = document.createElement("label");
-                label.className = "equipment-select-item";
-
-                const checkbox = document.createElement("input");
-                checkbox.type = "checkbox";
+                const label = cloneTemplate("equipmentSelectionItemTemplate").querySelector(".equipment-select-item");
+                const checkbox = label.querySelector("input");
                 checkbox.value = item.id;
                 checkbox.checked = selectedEquipmentItems.has(item.id);
+                label.querySelector(".equipment-select-name").textContent = item.name;
                 checkbox.addEventListener("change", () => {
                     if (checkbox.checked) selectedEquipmentItems.set(item.id, item);
                     else selectedEquipmentItems.delete(item.id);
@@ -793,10 +754,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
                     document.dispatchEvent(new Event("equipment-selection-change"));
                     updateSelection();
                 });
-
-                const name = document.createElement("span");
-                name.textContent = item.name;
-                label.append(checkbox, name);
                 children.append(label);
             });
 
@@ -805,12 +762,11 @@ document.getElementById("mapButton").addEventListener("click", () => {
                 toggle.setAttribute("aria-expanded", String(isOpen));
             });
 
-            tree.append(toggle, children);
+            tree.append(group);
         });
 
         if (!visibleCount) {
-            const empty = document.createElement("p");
-            empty.className = "tree-empty";
+            const empty = cloneTemplate("equipmentTreeEmptyTemplate").querySelector(".tree-empty");
             empty.textContent = "Nenhum equipamento encontrado.";
             tree.append(empty);
         }
@@ -863,8 +819,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         })
         .catch(() => {
             tree.replaceChildren();
-            const error = document.createElement("p");
-            error.className = "tree-empty";
+            const error = cloneTemplate("equipmentTreeEmptyTemplate").querySelector(".tree-empty");
             error.textContent = "Não foi possível carregar os equipamentos.";
             tree.append(error);
         });
@@ -879,8 +834,6 @@ document.querySelectorAll(".step[data-modal]")
         });
     });
 //#endregion
-
-
 
 //#region : MENU MOBILE
 {
@@ -956,9 +909,9 @@ document.querySelectorAll(".step[data-modal]")
             collapsed ? "Mostrar opções flutuantes" : "Esconder opções flutuantes"
         );
         quickActionsToggle.title = collapsed ? "Mostrar opções" : "Esconder opções";
-        quickActionsToggle.innerHTML = collapsed
-            ? '<i class="fa-solid fa-chevron-up" aria-hidden="true"></i>'
-            : '<i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';
+        const toggleIcon = quickActionsToggle.querySelector("i");
+        toggleIcon.classList.toggle("fa-chevron-up", collapsed);
+        toggleIcon.classList.toggle("fa-chevron-down", !collapsed);
     });
 
     function revealProgressiveActions() {
@@ -1056,10 +1009,9 @@ document.querySelectorAll(".step[data-modal]")
 
     document.getElementById("videoModalTrigger")
         .addEventListener( "click", openVideoModal);
-    
+
 }
 //#endregion
-
 
 //#region : CONTEÚDO DINÂMICO
 function loadDataFile(file) {
@@ -1074,22 +1026,20 @@ function renderDataCards(containerId, records, className, type) {
     if (!container) return;
     container.replaceChildren();
     records.forEach(record => {
-        const article = document.createElement("article");
-        article.className = className;
-        const label = document.createElement("small");
-        label.textContent = record.category || record.type || "";
-        const title = document.createElement("h3");
-        title.textContent = record.title || record.name || "";
-        const description = document.createElement("p");
-        description.textContent = record.description || "";
-        const link = document.createElement("a");
+        const article = cloneTemplate("contentCardTemplate").querySelector("article");
+        article.classList.add(className);
+        article.querySelector("small").textContent = record.category || record.type || "";
+        article.querySelector("h3").textContent = record.title || record.name || "";
+        article.querySelector("p").textContent = record.description || "";
+
+        const link = article.querySelector("a");
         link.href = record.url || record.href || "#referencias";
         link.textContent = record.linkText || "Saiba mais →";
         if (record.url) {
             link.target = "_blank";
             link.rel = "noopener";
         }
-        article.append(label, title, description, link);
+
         container.append(article);
     });
 }
