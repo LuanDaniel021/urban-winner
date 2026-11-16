@@ -1,0 +1,28 @@
+const data = {
+    "version": 1,
+    "items": [
+        {
+            "category": "PROJETO",
+            "title": "O destino correto dos resíduos eletrônicos",
+            "description": "Conheça a importância da logística reversa.",
+            "href": "#referencias",
+            "linkText": "Ler notícia →"
+        },
+        {
+            "category": "EDUCAÇÃO AMBIENTAL",
+            "title": "Pequenas atitudes, grandes mudanças",
+            "description": "Entenda como o consumo consciente contribui para o ambiente.",
+            "href": "#referencias",
+            "linkText": "Ler notícia →"
+        },
+        {
+            "category": "SUSTENTABILIDADE",
+            "title": "Reutilizar também é uma forma de cuidar",
+            "description": "Descubra alternativas antes de descartar um equipamento.",
+            "href": "#referencias",
+            "linkText": "Ler notícia →"
+        }
+    ]
+};
+
+export default data;
