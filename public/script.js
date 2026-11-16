@@ -76,6 +76,7 @@ document.addEventListener("keydown", event => {
 //#endregion
 
 //#region : CATÁLOGO E DETALHES DE EQUIPAMENTOS
+const selectedEquipmentItems = new Map();
 {
     const search = document.getElementById("search");
     const detailDrawer = document.getElementById("equipmentDetailDrawer");
@@ -84,10 +85,14 @@ document.addEventListener("keydown", event => {
     const emptyState = document.getElementById("catalogEmptyState");
     const resultCount = document.getElementById("catalogResultCount");
     const simpleToggle = document.getElementById("catalogSimpleToggle");
+    const catalogSelectionCount = document.getElementById("catalogSelectionCount");
+    const sendCatalogSelection = document.getElementById("sendCatalogSelection");
     let categories = [];
     let shortcuts = [];
     let activeFilter = "todos";
     let catalogMode = "simple";
+    let shortcutFilterIds = null;
+    let currentShortcut = null;
 
     function getGuidance(category) {
         return category.guidance || {
@@ -100,122 +105,117 @@ document.addEventListener("keydown", event => {
 
     function renderFilters() {
         filters.replaceChildren();
-
-        const allButton = document.createElement("button");
-        allButton.type = "button";
-        allButton.className = "filter";
-        allButton.textContent = "Todos";
-        allButton.classList.toggle("active", catalogMode === "full" && activeFilter === "todos");
-        allButton.addEventListener("click", () => {
-            catalogMode = "full";
-            activeFilter = "todos";
-            renderFilters();
-            renderCatalog();
-        });
-        filters.append(allButton);
-
-        categories.forEach(category => {
+        const addFilter = (label, value, disabled = false) => {
             const button = document.createElement("button");
             button.type = "button";
             button.className = "filter";
-            button.textContent = category.name;
-            button.classList.toggle("active", catalogMode === "full" && category.id === activeFilter);
+            button.textContent = label;
+            button.disabled = disabled;
+            button.classList.toggle("active", activeFilter === value && catalogMode === "full");
             button.addEventListener("click", () => {
                 catalogMode = "full";
-                activeFilter = category.id;
+                activeFilter = value;
+                if (value !== "atalho") shortcutFilterIds = null;
                 renderFilters();
                 renderCatalog();
             });
             filters.append(button);
-        });
-
+        };
+        addFilter("Todos", "todos");
+        categories.forEach(category => addFilter(category.name, category.id));
+        addFilter(`Selecionados (${selectedEquipmentItems.size})`, "selecionados", selectedEquipmentItems.size === 0);
+        if (shortcutFilterIds && activeFilter === "atalho") addFilter(currentShortcut?.name || "Atalho", "atalho");
         simpleToggle.classList.toggle("active", catalogMode === "simple");
         simpleToggle.setAttribute("aria-pressed", String(catalogMode === "simple"));
     }
 
     function renderCard(item, category, simple = false) {
         const info = getGuidance(category);
+        const selected = !simple && selectedEquipmentItems.has(item.id);
         const card = document.createElement("button");
         card.type = "button";
-        card.className = "equipment-card";
-        card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
+        card.className = `equipment-card${selected ? " selected" : ""}`;
+        card.setAttribute("aria-pressed", String(selected));
+        card.setAttribute("aria-label", simple ? `Ver orientações para ${item.name}` : `${selected ? "Desmarcar" : "Selecionar"} ${item.name}`);
         card.innerHTML = `
             <span class="equipment-category"></span>
             <span class="equipment-card-main">
                 <span class="equipment-emoji"></span>
                 <strong class="equipment-name"></strong>
-                <i class="fa-solid fa-chevron-right"></i>
+                <span class="equipment-card-indicator" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
             </span>
         `;
         card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
-        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : info.emoji;
+        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : info.emoji || category.emoji || "♻️";
         card.querySelector(".equipment-name").textContent = item.name;
-        card.addEventListener("click", () => openEquipmentDetail(item, category, simple));
+        if (simple) {
+            card.addEventListener("click", () => {
+                currentShortcut = item;
+                openEquipmentDetail(item, category, true);
+            });
+        } else {
+            card.addEventListener("click", () => {
+                if (selectedEquipmentItems.has(item.id)) selectedEquipmentItems.delete(item.id);
+                else selectedEquipmentItems.set(item.id, item);
+                document.dispatchEvent(new Event("equipment-selection-change"));
+            });
+        }
         grid.append(card);
     }
 
     function renderCatalog() {
         const query = normalizeText(search.value);
         grid.replaceChildren();
-
         if (catalogMode === "simple") {
             const items = shortcuts.filter(item => {
-                const linkedNames = item.itemIds.map(id =>
-                    categories.flatMap(category => category.items).find(equipment => equipment.id === id)?.name || ""
-                );
-                return normalizeText([item.name, item.description, ...linkedNames].join(" ")).includes(query);
+                const names = item.itemIds.map(id => categories.flatMap(category => category.items).find(e => e.id === id)?.name || "");
+                return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
-
-            items.forEach(item => {
-                const category = categories.find(category => item.categoryIds.includes(category.id)) || categories[0];
-                renderCard(item, category, true);
-            });
+            items.forEach(item => renderCard(item, categories.find(c => item.categoryIds.includes(c.id)) || categories[0], true));
             resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
-            simpleToggle.setAttribute("aria-label", "Catálogo simplificado ativo");
-            return;
-        }
-
-        const items = categories.flatMap(category => category.items.map(item => ({ ...item, category })))
-            .filter(item => {
-                const categoryMatch = activeFilter === "todos" || item.category.id === activeFilter;
-                return categoryMatch && normalizeText(`${item.name} ${item.category.name}`).includes(query);
+        } else {
+            const items = categories.flatMap(category => category.items.map(item => ({...item, category}))).filter(item => {
+                if (activeFilter === "selecionados" && !selectedEquipmentItems.has(item.id)) return false;
+                if (activeFilter === "atalho" && !shortcutFilterIds?.has(item.id)) return false;
+                if (!["todos","selecionados","atalho"].includes(activeFilter) && item.category.id !== activeFilter) return false;
+                return normalizeText(`${item.name} ${item.category.name}`).includes(query);
             });
-
-        items.forEach(item => renderCard(item, item.category));
-        emptyState.hidden = items.length > 0;
-        resultCount.textContent = `${items.length} equipamento${items.length === 1 ? "" : "s"} encontrado${items.length === 1 ? "" : "s"}`;
+            items.forEach(item => renderCard(item, item.category));
+            resultCount.textContent = `${items.length} equipamento${items.length === 1 ? "" : "s"} encontrado${items.length === 1 ? "" : "s"}`;
+            emptyState.hidden = items.length > 0;
+            if (!items.length) emptyState.textContent = activeFilter === "selecionados" ? "Nenhum equipamento selecionado. Selecione itens no catálogo para vê-los aqui." : "Nenhum equipamento encontrado.";
+        }
+        catalogSelectionCount.textContent = selectedEquipmentItems.size === 1 ? "1 selecionado" : `${selectedEquipmentItems.size} selecionados`;
+        sendCatalogSelection.disabled = selectedEquipmentItems.size === 0;
     }
 
     function openEquipmentDetail(item, category, simple = false) {
         if (!item || !category) return;
         const info = getGuidance(category);
-        const linkedItems = simple
-            ? item.itemIds.map(id => categories.flatMap(group => group.items).find(equipment => equipment.id === id)).filter(Boolean)
-            : [];
-
+        const linkedItems = simple ? item.itemIds.map(id => categories.flatMap(group => group.items).find(e => e.id === id)).filter(Boolean) : [];
         document.getElementById("equipmentDetailTitle").textContent = item.name;
-        document.getElementById("equipmentDetailCategory").textContent = simple
-            ? `${linkedItems.length} equipamentos relacionados`
-            : category.name;
+        document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
         document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : info.emoji || category.emoji || "♻️";
         document.getElementById("equipmentDetailExamples").textContent = simple
-            ? `${item.description} Inclui: ${linkedItems.slice(0, 6).map(equipment => equipment.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length - 6} itens` : ""}.`
+            ? `${item.description} Inclui: ${linkedItems.slice(0,6).map(e => e.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length-6} itens` : ""}.`
             : `${item.name} está incluído nesta categoria. ${info.description}`;
         document.getElementById("equipmentDetailTip").textContent = simple ? item.tip : info.tip;
-
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
         steps[0].textContent = "Desligue o equipamento e desconecte-o da tomada ou da fonte de energia.";
         steps[1].textContent = simple ? item.step : info.step;
         steps[2].textContent = "Acondicione o item para evitar danos e confirme com o ponto de coleta se ele recebe este equipamento.";
-        document.getElementById("compatiblePointsHint").textContent =
-            "A aceitação pode variar conforme o ponto de coleta. Consulte os localizadores oficiais e confirme antes de se deslocar.";
+        document.getElementById("compatiblePointsHint").textContent = simple
+            ? "Veja no catálogo os equipamentos que correspondem a esta descrição. A seleção poderá ser feita individualmente."
+            : "A aceitação pode variar conforme o ponto de coleta. Consulte os localizadores oficiais e confirme antes de se deslocar.";
         openDrawer(detailDrawer);
     }
 
     simpleToggle.addEventListener("click", () => {
         catalogMode = "simple";
         activeFilter = "todos";
+        shortcutFilterIds = null;
+        currentShortcut = null;
         renderFilters();
         renderCatalog();
     });
@@ -226,6 +226,8 @@ document.addEventListener("keydown", event => {
         search.value = "";
         activeFilter = "todos";
         catalogMode = "simple";
+        shortcutFilterIds = null;
+        currentShortcut = null;
         renderFilters();
         renderCatalog();
     });
@@ -235,10 +237,29 @@ document.addEventListener("keydown", event => {
         openDrawer(document.getElementById("checklistDrawer"));
     });
 
-    document.getElementById("compatiblePointsButton").addEventListener("click", () => {
+    document.getElementById("showInCatalogButton").addEventListener("click", () => {
+        if (!currentShortcut) return;
+        shortcutFilterIds = new Set(currentShortcut.itemIds);
+        catalogMode = "full";
+        activeFilter = "atalho";
+        search.value = "";
+        closeDrawer(detailDrawer);
+        renderFilters();
+        renderCatalog();
+        document.getElementById("guia").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    function sendSelectionToMap() {
+        if (!selectedEquipmentItems.size) return;
+        closeDrawer(document.getElementById("equipmentDrawer"));
         closeDrawer(detailDrawer);
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth", block: "start" });
-        showFeedback("Consulte os localizadores e confirme quais equipamentos são aceitos.");
+        showFeedback(`${selectedEquipmentItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
+    }
+    sendCatalogSelection.addEventListener("click", sendSelectionToMap);
+    document.addEventListener("equipment-selection-change", () => {
+        renderFilters();
+        renderCatalog();
     });
 
     equipmentCatalogPromise
@@ -613,7 +634,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const mapEquipmentCount = document.getElementById("mapEquipmentCount");
     const clearMapSelection = document.getElementById("clearMapEquipmentSelection");
     const closeMapSelection = document.getElementById("closeMapEquipmentSelection");
-    const selectedItems = new Map();
     let categories = [];
     let mapSelectionDismissed = false;
 
@@ -622,7 +642,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     }
 
     function updateSelection() {
-        const count = selectedItems.size;
+        const count = selectedEquipmentItems.size;
         selectionCount.textContent = count === 1 ? "1 selecionado" : `${count} selecionados`;
         clearSelection.disabled = count === 0;
         searchMapButton.disabled = count === 0;
@@ -632,7 +652,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         mapEquipmentCount.textContent = String(count);
         mapEquipmentList.replaceChildren();
 
-        selectedItems.forEach(item => {
+        selectedEquipmentItems.forEach(item => {
             const li = document.createElement("li");
             li.textContent = item.name;
             mapEquipmentList.append(li);
@@ -683,11 +703,12 @@ document.getElementById("mapButton").addEventListener("click", () => {
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
                 checkbox.value = item.id;
-                checkbox.checked = selectedItems.has(item.id);
+                checkbox.checked = selectedEquipmentItems.has(item.id);
                 checkbox.addEventListener("change", () => {
-                    if (checkbox.checked) selectedItems.set(item.id, item);
-                    else selectedItems.delete(item.id);
+                    if (checkbox.checked) selectedEquipmentItems.set(item.id, item);
+                    else selectedEquipmentItems.delete(item.id);
                     mapSelectionDismissed = false;
+                    document.dispatchEvent(new Event("equipment-selection-change"));
                     updateSelection();
                 });
 
@@ -714,17 +735,19 @@ document.getElementById("mapButton").addEventListener("click", () => {
     }
 
     search.addEventListener("input", () => {
-        if (categories.length) {
-            renderEquipmentTree(categories);
-        }
+        if (categories.length) renderEquipmentTree(categories);
+    });
+
+    document.addEventListener("equipment-selection-change", () => {
+        if (categories.length) renderEquipmentTree(categories);
+        updateSelection();
     });
 
     clearMapSelection.addEventListener("click", () => {
-        selectedItems.clear();
+        selectedEquipmentItems.clear();
         mapSelectionDismissed = false;
-        if (categories.length) {
-            renderEquipmentTree(categories);
-        }
+        if (categories.length) renderEquipmentTree(categories);
+        document.dispatchEvent(new Event("equipment-selection-change"));
         updateSelection();
     });
 
@@ -735,20 +758,19 @@ document.getElementById("mapButton").addEventListener("click", () => {
     });
 
     clearSelection.addEventListener("click", () => {
-        selectedItems.clear();
-        if (categories.length) {
-            renderEquipmentTree(categories);
-        }
+        selectedEquipmentItems.clear();
+        if (categories.length) renderEquipmentTree(categories);
+        document.dispatchEvent(new Event("equipment-selection-change"));
         updateSelection();
     });
 
     searchMapButton.addEventListener("click", () => {
-        if (!selectedItems.size) return;
+        if (!selectedEquipmentItems.size) return;
         mapSelectionDismissed = false;
         updateSelection();
         closeDrawer(document.getElementById("equipmentDrawer"));
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth", block: "start" });
-        showFeedback(`${selectedItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
+        showFeedback(`${selectedEquipmentItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
     });
 
     equipmentCatalogPromise
