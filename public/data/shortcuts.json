@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Atalhos de navegação do catálogo. Cada atalho referencia uma categoria e os equipamentos relacionados por seus IDs.",
+  "description": "Atalhos de navegação e seleção. Cada atalho referencia os equipamentos que disponibiliza.",
   "shortcuts": [
     {
       "id": "refrigeradores",
@@ -15,8 +15,7 @@
         "freezer-vertical",
         "frigobar",
         "refrigerador"
-      ],
-      "categoryId": "casa-cozinha"
+      ]
     },
     {
       "id": "cozinha-preparo",
@@ -77,8 +76,7 @@
         "sanduicheira",
         "torradeira",
         "triturador"
-      ],
-      "categoryId": "casa-cozinha"
+      ]
     },
     {
       "id": "ventilacao-climatizacao",
@@ -101,24 +99,7 @@
         "ventilador-de-mesa",
         "ventilador-de-teto",
         "variador-de-ventilador"
-      ],
-      "categoryId": "casa-cozinha"
-    },
-    {
-      "id": "refrigeradores",
-      "name": "Geladeiras e refrigeradores",
-      "emoji": "🧊",
-      "description": "Geladeiras, frigobares, freezers e outros equipamentos de refrigeração doméstica.",
-      "itemIds": [
-        "adega",
-        "cervejeira",
-        "miniadega",
-        "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
-        "freezer-vertical",
-        "frigobar",
-        "refrigerador"
-      ],
-      "categoryId": "eletrodomesticos"
+      ]
     },
     {
       "id": "lavadoras-roupas",
@@ -136,8 +117,7 @@
         "passadeira-a-vapor",
         "vaporizador-de-roupa",
         "maquina-de-costura"
-      ],
-      "categoryId": "eletrodomesticos"
+      ]
     },
     {
       "id": "limpeza-domestica",
@@ -151,32 +131,7 @@
         "limpadora-a-vapor",
         "limpadora-de-carpete",
         "lavadora-de-jato-de-agua"
-      ],
-      "categoryId": "eletrodomesticos"
-    },
-    {
-      "id": "ventilacao-climatizacao",
-      "name": "Ventilação e climatização",
-      "emoji": "❄️",
-      "description": "Ventiladores, aparelhos de ar-condicionado, aquecedores e climatizadores.",
-      "itemIds": [
-        "aparelho-de-aquecimento-eletrico-para-ambiente",
-        "aparelho-de-ar-condicionado-de-janela",
-        "aparelho-de-ar-condicionado-portatil",
-        "aparelho-de-ar-condicionado-split",
-        "circulador-de-ar",
-        "climatizador-de-ar-eletrico",
-        "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
-        "cortina-de-ar",
-        "depurador-de-ar",
-        "desumidificador-de-ar",
-        "umidificador",
-        "ventilador-de-coluna",
-        "ventilador-de-mesa",
-        "ventilador-de-teto",
-        "variador-de-ventilador"
-      ],
-      "categoryId": "eletrodomesticos"
+      ]
     },
     {
       "id": "computadores-perifericos",
@@ -198,8 +153,7 @@
         "teclado",
         "equipamento-informatico-pessoal-e-reader",
         "teclado-instrumento-musical"
-      ],
-      "categoryId": "informatica"
+      ]
     },
     {
       "id": "impressoras-scanners",
@@ -215,8 +169,7 @@
         "copiadora",
         "etiquetadora-e-rotulador-eletronico",
         "fragmentadora-de-papel"
-      ],
-      "categoryId": "informatica"
+      ]
     },
     {
       "id": "cabos-carregadores",
@@ -233,8 +186,7 @@
         "fonte-universal-para-notebook",
         "hub-concentrador",
         "bateria-externa"
-      ],
-      "categoryId": "informatica"
+      ]
     },
     {
       "id": "televisores-monitores",
@@ -247,22 +199,7 @@
         "oculos-3d",
         "projetor-de-video",
         "tela-de-projecao"
-      ],
-      "categoryId": "informatica"
-    },
-    {
-      "id": "televisores-monitores",
-      "name": "Televisores e monitores",
-      "emoji": "📺",
-      "description": "Televisores, monitores, projetores e telas de equipamentos eletrônicos.",
-      "itemIds": [
-        "monitores-em-geral",
-        "aparelho-de-televisao",
-        "oculos-3d",
-        "projetor-de-video",
-        "tela-de-projecao"
-      ],
-      "categoryId": "audio-video"
+      ]
     },
     {
       "id": "audio-video",
@@ -299,8 +236,7 @@
         "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
         "tela-de-projecao",
         "transmissor-e-receptor-bluetooth"
-      ],
-      "categoryId": "audio-video"
+      ]
     },
     {
       "id": "videogames",
@@ -312,8 +248,7 @@
         "cartucho-de-videogame",
         "console-de-videogame-portatil",
         "jogo-de-videogame"
-      ],
-      "categoryId": "audio-video"
+      ]
     },
     {
       "id": "celulares-smartphones",
@@ -325,27 +260,7 @@
         "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
         "relogio-smart",
         "telefone-celular"
-      ],
-      "categoryId": "telefonia"
-    },
-    {
-      "id": "lavadoras-roupas",
-      "name": "Lavadoras e cuidados com roupas",
-      "emoji": "🧺",
-      "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
-      "itemIds": [
-        "maquina-de-lava-e-seca",
-        "maquina-de-lavar-louca",
-        "maquina-de-lavar-roupa",
-        "maquina-de-lavar-roupa-semiautomatica",
-        "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
-        "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
-        "ferro-de-engomar",
-        "passadeira-a-vapor",
-        "vaporizador-de-roupa",
-        "maquina-de-costura"
-      ],
-      "categoryId": "pessoal"
+      ]
     },
     {
       "id": "cuidados-pessoais",
@@ -368,23 +283,7 @@
         "prancha-de-cabelo",
         "secador-de-cabelo",
         "vaporizador-de-roupa"
-      ],
-      "categoryId": "pessoal"
-    },
-    {
-      "id": "limpeza-domestica",
-      "name": "Limpeza doméstica",
-      "emoji": "🧹",
-      "description": "Aspiradores e equipamentos elétricos usados na limpeza de ambientes e superfícies.",
-      "itemIds": [
-        "aspirador",
-        "aspirador-de-janela",
-        "enceradeira",
-        "limpadora-a-vapor",
-        "limpadora-de-carpete",
-        "lavadora-de-jato-de-agua"
-      ],
-      "categoryId": "ferramentas-jardim"
+      ]
     },
     {
       "id": "ferramentas-eletricas",
@@ -399,8 +298,7 @@
         "parafusadeira",
         "pistola-aplicadora-de-cola",
         "serra-eletrica"
-      ],
-      "categoryId": "ferramentas-jardim"
+      ]
     },
     {
       "id": "jardim-area-externa",
@@ -413,44 +311,73 @@
         "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
         "podador-de-cerca-viva",
         "pulverizador-eletrico"
-      ],
-      "categoryId": "ferramentas-jardim"
+      ]
     },
     {
-      "id": "impressoras-scanners",
-      "name": "Impressoras e scanners",
-      "emoji": "🖨️",
-      "description": "Impressoras, multifuncionais, scanners, copiadoras e equipamentos semelhantes.",
+      "id": "outros-eletrodomesticos",
+      "name": "Outros equipamentos",
+      "emoji": "📦",
+      "description": "Outros equipamentos da categoria Eletrodomésticos e climatização.",
       "itemIds": [
-        "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
-        "impressora-multifuncional",
-        "scanner",
-        "telecopiadora-fax",
-        "cartucho-de-tinta-ou-toner",
-        "copiadora",
-        "etiquetadora-e-rotulador-eletronico",
-        "fragmentadora-de-papel"
-      ],
-      "categoryId": "lazer-outros"
+        "chuveiro-eletrico-ou-eletronico",
+        "ducha-eletrica",
+        "resistencias-eletricas-ou-eletronicas",
+        "torneira-eletrica"
+      ]
     },
     {
-      "id": "lavadoras-roupas",
-      "name": "Lavadoras e cuidados com roupas",
-      "emoji": "🧺",
-      "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
+      "id": "outros-informatica",
+      "name": "Outros equipamentos",
+      "emoji": "🧩",
+      "description": "Outros equipamentos da categoria Informática e componentes.",
       "itemIds": [
-        "maquina-de-lava-e-seca",
-        "maquina-de-lavar-louca",
-        "maquina-de-lavar-roupa",
-        "maquina-de-lavar-roupa-semiautomatica",
-        "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
-        "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
-        "ferro-de-engomar",
-        "passadeira-a-vapor",
-        "vaporizador-de-roupa",
-        "maquina-de-costura"
-      ],
-      "categoryId": "lazer-outros"
+        "dispositivo-eletroeletronico-para-armazenagem-ou-transferencia-de-dados-pen-drive-e-cartao-de-memoria",
+        "dock-station",
+        "estabilizador-e-regulador-de-tensao",
+        "hdd-external-hard-drive",
+        "modem",
+        "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet",
+        "nobreaks",
+        "odd-external-optical-drive",
+        "painel-fotovoltaico",
+        "produto-ou-equipamento-para-coletar-armazenar-tratar-apresentar-ou-comunicar-informacoes-por-via-eletronica",
+        "protetor-de-linha-filtro-de-linha",
+        "roteador",
+        "string-box",
+        "variador-de-luminosidade-dimmer"
+      ]
+    },
+    {
+      "id": "outros-telefonia",
+      "name": "Outros equipamentos",
+      "emoji": "📞",
+      "description": "Outros equipamentos da categoria Telefonia e comunicação.",
+      "itemIds": [
+        "atendedor-automatico-secretaria-eletronica",
+        "baba-eletronica",
+        "campainha-cigarra-eletronica",
+        "campainha-eletronica",
+        "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo",
+        "telefone",
+        "telefone-rural-gsm",
+        "telefone-sem-fio",
+        "telex"
+      ]
+    },
+    {
+      "id": "outros-lazer-outros",
+      "name": "Outros equipamentos",
+      "emoji": "🎲",
+      "description": "Outros equipamentos da categoria Lazer, esporte e outros.",
+      "itemIds": [
+        "brinquedo-eletrico-ou-eletronico",
+        "calculadora-com-bobina",
+        "calculadora-de-bolso-e-de-mesa",
+        "equipamento-desportivo-com-componente-eletrico-ou-eletronico",
+        "instrumento-musical",
+        "maquina-de-escrever-eletrica-e-eletronica",
+        "piano"
+      ]
     }
   ]
 }
