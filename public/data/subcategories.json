@@ -1,0 +1,660 @@
+{
+    "version": 1,
+    "description": "Subcategorias organizados por finalidade e família funcional. Um equipamento pode ser associado a mais de um atalho quando houver justificativa de uso.",
+    "subcategories": {
+        "refrigeradores": {
+            "name": "Geladeiras e refrigeradores",
+            "emoji": "🧊",
+            "description": "Geladeiras, frigobares, adegas, cervejeiras e freezers.",
+            "itemIds": [
+                "adega",
+                "cervejeira",
+                "miniadega",
+                "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
+                "freezer-vertical",
+                "frigobar",
+                "refrigerador"
+            ]
+        },
+        "climatizacao": {
+            "name": "Aparelhos de climatização",
+            "emoji": "❄️",
+            "description": "Aparelhos destinados a resfriar ou aquecer ambientes.",
+            "itemIds": [
+                "aparelho-de-aquecimento-eletrico-para-ambiente",
+                "aparelho-de-ar-condicionado-de-janela",
+                "aparelho-de-ar-condicionado-portatil",
+                "aparelho-de-ar-condicionado-split",
+                "climatizador-de-ar-eletrico"
+            ]
+        },
+        "ventilacao": {
+            "name": "Ventilação de ambientes",
+            "emoji": "🌬️",
+            "description": "Equipamentos para movimentar e renovar o ar dos ambientes.",
+            "itemIds": [
+                "circulador-de-ar",
+                "cortina-de-ar",
+                "ventilador-de-coluna",
+                "ventilador-de-mesa",
+                "ventilador-de-teto",
+                "variador-de-ventilador"
+            ]
+        },
+        "tratamento-ar": {
+            "name": "Tratamento do ar",
+            "emoji": "💧",
+            "description": "Equipamentos para controlar a umidade e as condições do ar.",
+            "itemIds": [
+                "desumidificador-de-ar",
+                "umidificador"
+            ]
+        },
+        "exaustao-ar": {
+            "name": "Exaustão e depuração do ar",
+            "emoji": "🌀",
+            "description": "Equipamentos para retirar fumaça, vapores, odores e gordura do ar.",
+            "itemIds": [
+                "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+                "depurador-de-ar"
+            ]
+        },
+        "lavagem-roupas": {
+            "name": "Lavagem de roupas",
+            "emoji": "🧺",
+            "description": "Máquinas destinadas à lavagem de roupas.",
+            "itemIds": [
+                "maquina-de-lava-e-seca",
+                "maquina-de-lavar-roupa",
+                "maquina-de-lavar-roupa-semiautomatica"
+            ]
+        },
+        "secagem-roupas": {
+            "name": "Secagem e centrifugação",
+            "emoji": "🌀",
+            "description": "Equipamentos destinados a secar ou centrifugar roupas.",
+            "itemIds": [
+                "maquina-de-secar-secadora-de-roupas-ou-centrifuga"
+            ]
+        },
+        "passadoria-roupas": {
+            "name": "Passadoria e tratamento de roupas",
+            "emoji": "👔",
+            "description": "Aparelhos para passar, desamassar e tratar peças de vestuário.",
+            "itemIds": [
+                "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+                "ferro-de-engomar",
+                "passadeira-a-vapor",
+                "vaporizador-de-roupa"
+            ]
+        },
+        "lavagem-loucas": {
+            "name": "Lavagem de louças",
+            "emoji": "🍽️",
+            "description": "Máquinas destinadas à lavagem de pratos, copos e utensílios.",
+            "itemIds": [
+                "maquina-de-lavar-louca"
+            ]
+        },
+        "costura-reparos": {
+            "name": "Costura e reparos têxteis",
+            "emoji": "🧵",
+            "description": "Máquinas usadas para costurar e reparar tecidos e roupas.",
+            "itemIds": [
+                "maquina-de-costura"
+            ]
+        },
+        "aspiracao": {
+            "name": "Aspiração e coleta de pó",
+            "emoji": "🧹",
+            "description": "Aspiradores para remover poeira e resíduos de superfícies.",
+            "itemIds": [
+                "aspirador",
+                "aspirador-de-janela"
+            ]
+        },
+        "limpeza-superficies": {
+            "name": "Limpeza de pisos e superfícies",
+            "emoji": "🧽",
+            "description": "Equipamentos para lavar, higienizar e tratar pisos, carpetes e superfícies.",
+            "itemIds": [
+                "enceradeira",
+                "limpadora-a-vapor",
+                "limpadora-de-carpete"
+            ]
+        },
+        "limpeza-pressao": {
+            "name": "Lavagem de alta pressão",
+            "emoji": "🚿",
+            "description": "Lavadoras que utilizam jatos de água para limpeza.",
+            "itemIds": [
+                "lavadora-de-jato-de-agua"
+            ]
+        },
+        "computadores": {
+            "name": "Computadores",
+            "emoji": "🖥️",
+            "description": "Computadores de mesa, estações compactas, notebooks e unidades centrais.",
+            "itemIds": [
+                "computador-all-in-one",
+                "computador-portatil-notepad",
+                "computadores-portateis-laptop-netbook-e-notebook",
+                "cpu-central-process-unit",
+                "desktop-sem-monitor-computador-pessoal",
+                "microcomputador",
+                "minicomputador"
+            ]
+        },
+        "dispositivos-portateis": {
+            "name": "Dispositivos computacionais portáteis",
+            "emoji": "📟",
+            "description": "Dispositivos móveis de computação, leitura digital e atividades esportivas.",
+            "itemIds": [
+                "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
+                "equipamento-informatico-pessoal-e-reader",
+                "tablet"
+            ]
+        },
+        "perifericos-entrada": {
+            "name": "Periféricos de entrada",
+            "emoji": "⌨️",
+            "description": "Dispositivos usados para inserir comandos e informações no computador.",
+            "itemIds": [
+                "mouse",
+                "teclado"
+            ]
+        },
+        "impressao": {
+            "name": "Impressoras",
+            "emoji": "🖨️",
+            "description": "Equipamentos para imprimir documentos e imagens.",
+            "itemIds": [
+                "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
+                "impressora-multifuncional"
+            ]
+        },
+        "digitalizacao-copiacao": {
+            "name": "Digitalização e cópia",
+            "emoji": "📄",
+            "description": "Equipamentos para digitalizar, copiar ou transmitir documentos.",
+            "itemIds": [
+                "scanner",
+                "telecopiadora-fax",
+                "copiadora"
+            ]
+        },
+        "acabamento-documentos": {
+            "name": "Acabamento e organização de documentos",
+            "emoji": "📑",
+            "description": "Equipamentos para etiquetar, rotular e fragmentar documentos.",
+            "itemIds": [
+                "etiquetadora-e-rotulador-eletronico",
+                "fragmentadora-de-papel"
+            ]
+        },
+        "suprimentos-impressao": {
+            "name": "Suprimentos de impressão",
+            "emoji": "🖋️",
+            "description": "Consumíveis utilizados em impressoras e equipamentos de impressão.",
+            "itemIds": [
+                "cartucho-de-tinta-ou-toner"
+            ]
+        },
+        "cabos-adaptadores": {
+            "name": "Cabos, conectores e adaptadores",
+            "emoji": "🔌",
+            "description": "Cabos, conectores, adaptadores e hubs para interligar equipamentos.",
+            "itemIds": [
+                "adaptador-wireless-usb-universal-serial-bus",
+                "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
+                "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
+                "hub-concentrador"
+            ]
+        },
+        "fontes-carregadores": {
+            "name": "Fontes e carregadores",
+            "emoji": "🔋",
+            "description": "Fontes de alimentação, conversores e carregadores de dispositivos.",
+            "itemIds": [
+                "carregador-portatil-usb",
+                "carregadores-em-geral-power-bank-de-uso-domestico",
+                "conversor-de-corrente-continua-de-uso-domestico",
+                "fonte-universal-para-notebook",
+                "bateria-externa"
+            ]
+        },
+        "telas-monitores": {
+            "name": "Telas e monitores",
+            "emoji": "📺",
+            "description": "Televisores e monitores usados para exibir imagens.",
+            "itemIds": [
+                "monitores-em-geral",
+                "aparelho-de-televisao"
+            ]
+        },
+        "projecao": {
+            "name": "Projeção de imagem",
+            "emoji": "📽️",
+            "description": "Projetores, telas e acessórios específicos para projeção.",
+            "itemIds": [
+                "projetor-de-video",
+                "tela-de-projecao",
+                "oculos-3d"
+            ]
+        },
+        "audio": {
+            "name": "Reprodução e amplificação de áudio",
+            "emoji": "🎧",
+            "description": "Equipamentos para reproduzir, amplificar ou ouvir áudio.",
+            "itemIds": [
+                "amplificador-de-audio-de-uso-domestico",
+                "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
+                "autofalante",
+                "autorradio",
+                "caixa-de-som",
+                "fone-de-ouvido",
+                "headset",
+                "home-theater",
+                "radio-portatil"
+            ]
+        },
+        "captura-gravacao": {
+            "name": "Captura e gravação de imagem e som",
+            "emoji": "📹",
+            "description": "Câmeras e gravadores para capturar ou registrar áudio e vídeo.",
+            "itemIds": [
+                "camera-de-seguranca-de-uso-domestico",
+                "camera-de-video",
+                "camera-fotografica-digital",
+                "gravador-digital-video-recorder-dvr-de-uso-domestico",
+                "gravador-de-audio-de-uso-domestico",
+                "gravador-de-video-de-uso-domestico"
+            ]
+        },
+        "reproducao-midias": {
+            "name": "Reprodução e armazenamento de mídias",
+            "emoji": "💿",
+            "description": "Aparelhos e mídias para reprodução ou gravação de conteúdo.",
+            "itemIds": [
+                "blu-ray-player",
+                "dvd-digital-versatile-disc-player",
+                "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
+                "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs"
+            ]
+        },
+        "sinais-transmissao": {
+            "name": "Recepção e transmissão de sinais",
+            "emoji": "📡",
+            "description": "Equipamentos para receber, converter ou transmitir sinais de áudio, vídeo e comunicação.",
+            "itemIds": [
+                "antena-digital",
+                "conversor-digital-de-uso-domestico",
+                "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
+                "transmissor-e-receptor-bluetooth"
+            ]
+        },
+        "controles-remotos": {
+            "name": "Controles remotos e acessórios",
+            "emoji": "🎛️",
+            "description": "Controles e kits utilizados para comandar equipamentos eletrônicos.",
+            "itemIds": [
+                "controle-remoto",
+                "kit-de-controle-remoto"
+            ]
+        },
+        "videogames": {
+            "name": "Videogames",
+            "emoji": "🎮",
+            "description": "Consoles, jogos e mídias de videogame.",
+            "itemIds": [
+                "aparelho-de-videogame",
+                "cartucho-de-videogame",
+                "console-de-videogame-portatil",
+                "jogo-de-videogame"
+            ]
+        },
+        "celulares": {
+            "name": "Celulares e dispositivos vestíveis",
+            "emoji": "📱",
+            "description": "Telefones celulares, câmeras externas e relógios inteligentes.",
+            "itemIds": [
+                "camera-externa-de-telefone-celular",
+                "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
+                "relogio-smart",
+                "telefone-celular"
+            ]
+        },
+        "telefonia-fixa": {
+            "name": "Telefonia fixa e comunicação telefônica",
+            "emoji": "☎️",
+            "description": "Telefones fixos, sem fio, rurais e equipamentos de teletipo.",
+            "itemIds": [
+                "telefone",
+                "telefone-rural-gsm",
+                "telefone-sem-fio",
+                "telex"
+            ]
+        },
+        "comunicacao-monitoramento": {
+            "name": "Comunicação e monitoramento doméstico",
+            "emoji": "📟",
+            "description": "Equipamentos de monitoramento e comunicação auxiliar em ambientes domésticos.",
+            "itemIds": [
+                "atendedor-automatico-secretaria-eletronica",
+                "baba-eletronica"
+            ]
+        },
+        "sinalizacao-eletronica": {
+            "name": "Campainhas e sinalização eletrônica",
+            "emoji": "🔔",
+            "description": "Dispositivos eletrônicos de chamada e sinalização.",
+            "itemIds": [
+                "campainha-cigarra-eletronica",
+                "campainha-eletronica"
+            ]
+        },
+        "relogios-tempo": {
+            "name": "Relógios e medição do tempo",
+            "emoji": "⏱️",
+            "description": "Relógios e aparelhos para medir, indicar ou registrar o tempo.",
+            "itemIds": [
+                "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo"
+            ]
+        },
+        "barbear-depilacao": {
+            "name": "Barbear e depilação",
+            "emoji": "🪒",
+            "description": "Aparelhos elétricos para barbear, aparar pelos e depilar.",
+            "itemIds": [
+                "aparador-de-barba",
+                "aparelho-de-barbear",
+                "aparelho-de-depilar-e-aparar-pelos"
+            ]
+        },
+        "cuidado-cabelo": {
+            "name": "Cuidados com os cabelos",
+            "emoji": "💇",
+            "description": "Aparelhos para cortar, secar, modelar e alisar cabelos.",
+            "itemIds": [
+                "aparelho-para-cortar-o-cabelo",
+                "escova-modeladora",
+                "prancha-de-cabelo",
+                "secador-de-cabelo"
+            ]
+        },
+        "saude-cuidado-corporal": {
+            "name": "Saúde e cuidado corporal",
+            "emoji": "🩺",
+            "description": "Aparelhos domésticos para higiene, medição e cuidado do corpo.",
+            "itemIds": [
+                "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
+                "balanca",
+                "escova-de-dente-eletrica-airfloss",
+                "extrator-de-leite-eletrico"
+            ]
+        },
+        "ferramentas-oficina": {
+            "name": "Ferramentas elétricas de oficina",
+            "emoji": "🛠️",
+            "description": "Ferramentas elétricas para perfuração, corte, desbaste e lixamento.",
+            "itemIds": [
+                "esmerilhadeira",
+                "furadeira",
+                "lixadeira",
+                "parafusadeira",
+                "serra-eletrica"
+            ]
+        },
+        "aplicacao-cola": {
+            "name": "Aplicação de cola e adesivos",
+            "emoji": "🧰",
+            "description": "Ferramentas elétricas para aplicação de cola e adesivos.",
+            "itemIds": [
+                "pistola-aplicadora-de-cola"
+            ]
+        },
+        "iluminacao-portatil": {
+            "name": "Iluminação portátil",
+            "emoji": "🔦",
+            "description": "Equipamentos elétricos portáteis destinados à iluminação.",
+            "itemIds": [
+                "lanterna-eletrica"
+            ]
+        },
+        "corte-jardinagem": {
+            "name": "Corte e manutenção de jardins",
+            "emoji": "🌿",
+            "description": "Equipamentos para aparar grama, cortar vegetação e cuidar de cercas vivas.",
+            "itemIds": [
+                "aparador-de-grama",
+                "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
+                "podador-de-cerca-viva"
+            ]
+        },
+        "irrigacao-pulverizacao": {
+            "name": "Irrigação e pulverização",
+            "emoji": "💦",
+            "description": "Equipamentos para bombeamento de água e pulverização em jardins.",
+            "itemIds": [
+                "bomba-de-jardim",
+                "pulverizador-eletrico"
+            ]
+        },
+        "aquecimento-agua": {
+            "name": "Aquecimento de água",
+            "emoji": "🚿",
+            "description": "Chuveiros, duchas e torneiras elétricas para aquecimento de água.",
+            "itemIds": [
+                "chuveiro-eletrico-ou-eletronico",
+                "ducha-eletrica",
+                "torneira-eletrica"
+            ]
+        },
+        "resistencias-eletricas": {
+            "name": "Resistências elétricas",
+            "emoji": "♨️",
+            "description": "Componentes de aquecimento elétrico e eletrônico.",
+            "itemIds": [
+                "resistencias-eletricas-ou-eletronicas"
+            ]
+        },
+        "armazenamento-dados": {
+            "name": "Armazenamento e leitura de dados",
+            "emoji": "💾",
+            "description": "Dispositivos e mídias para armazenar, transportar ou ler dados.",
+            "itemIds": [
+                "dispositivo-eletroeletronico-para-armazenagem-ou-transferencia-de-dados-pen-drive-e-cartao-de-memoria",
+                "hdd-external-hard-drive",
+                "odd-external-optical-drive"
+            ]
+        },
+        "redes-conectividade": {
+            "name": "Redes e conectividade",
+            "emoji": "🌐",
+            "description": "Equipamentos para conexão, distribuição e gerenciamento de redes.",
+            "itemIds": [
+                "modem",
+                "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet",
+                "roteador"
+            ]
+        },
+        "energia-protecao": {
+            "name": "Alimentação e proteção elétrica",
+            "emoji": "⚡",
+            "description": "Equipamentos para fornecer energia e proteger aparelhos contra variações elétricas.",
+            "itemIds": [
+                "estabilizador-e-regulador-de-tensao",
+                "nobreaks",
+                "protetor-de-linha-filtro-de-linha"
+            ]
+        },
+        "energia-solar": {
+            "name": "Geração e controle de energia solar",
+            "emoji": "☀️",
+            "description": "Componentes para geração e gerenciamento de energia fotovoltaica.",
+            "itemIds": [
+                "painel-fotovoltaico",
+                "string-box"
+            ]
+        },
+        "controle-iluminacao": {
+            "name": "Controle de iluminação",
+            "emoji": "💡",
+            "description": "Dispositivos para controlar a intensidade da iluminação.",
+            "itemIds": [
+                "variador-de-luminosidade-dimmer"
+            ]
+        },
+        "acessorios-computador": {
+            "name": "Acessórios e expansão de computadores",
+            "emoji": "🧩",
+            "description": "Acessórios para conexão, expansão e uso de computadores.",
+            "itemIds": [
+                "dock-station"
+            ]
+        },
+        "equipamentos-eletronicos-gerais": {
+            "name": "Equipamentos eletrônicos diversos",
+            "emoji": "📦",
+            "description": "Equipamentos eletrônicos de uso geral ainda não classificados em uma família específica.",
+            "itemIds": [
+                "produto-ou-equipamento-para-coletar-armazenar-tratar-apresentar-ou-comunicar-informacoes-por-via-eletronica"
+            ]
+        },
+        "acessorios-cozinha": {
+            "name": "Acessórios elétricos de cozinha",
+            "emoji": "🍴",
+            "description": "Pequenos aparelhos auxiliares para abrir recipientes e apoiar o preparo culinário.",
+            "itemIds": [
+                "abridor-de-vinho-eletrico",
+                "abridor-eletrico-de-latas",
+                "fechador-eletrico-de-latas"
+            ]
+        },
+        "preparo-processamento": {
+            "name": "Preparo e processamento de alimentos",
+            "emoji": "🥣",
+            "description": "Equipamentos para misturar, triturar, cortar, moer e processar alimentos.",
+            "itemIds": [
+                "batedeira",
+                "blender",
+                "faca-eletrica",
+                "liquidificador",
+                "miniprocessador-com-uma-ou-mais-funcoes",
+                "mixer",
+                "moedor-de-graos",
+                "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
+                "multifatiador",
+                "processador-de-alimentos",
+                "triturador"
+            ]
+        },
+        "coccao-aquecimento": {
+            "name": "Cocção e aquecimento de alimentos",
+            "emoji": "🔥",
+            "description": "Equipamentos que cozinham, grelham, fritam ou aquecem alimentos.",
+            "itemIds": [
+                "chapa-grill",
+                "churrasqueira-a-gas",
+                "churrasqueira-eletrica-ou-eletronica",
+                "cooktop-eletrico-e-a-gas",
+                "fogao",
+                "fogao-eletrico",
+                "forno-eletrico",
+                "fritadeira",
+                "micro-ondas",
+                "miniforno",
+                "panela-de-arroz",
+                "panela-de-pressao-eletrica",
+                "panela-eletrica",
+                "pia-fogao"
+            ]
+        },
+        "cafe-bebidas": {
+            "name": "Preparo de café, chá e bebidas",
+            "emoji": "☕",
+            "description": "Aparelhos para preparar café, chá, sucos e outras bebidas.",
+            "itemIds": [
+                "aparelho-para-preparacao-de-cafe-ou-cha",
+                "bule-eletrico",
+                "cafeteira",
+                "centrifuga-de-suco",
+                "chaleira-eletrica",
+                "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
+                "espremedor-de-frutas",
+                "maquina-de-cafe",
+                "moedor-de-cafe"
+            ]
+        },
+        "agua-purificacao": {
+            "name": "Fornecimento e purificação de água",
+            "emoji": "🚰",
+            "description": "Equipamentos para fornecer, filtrar e purificar água para consumo.",
+            "itemIds": [
+                "bebedouro-refrigerado",
+                "purificador-de-agua"
+            ]
+        },
+        "lanches-especiais": {
+            "name": "Lanches e preparos culinários especiais",
+            "emoji": "🍿",
+            "description": "Aparelhos dedicados a lanches, sobremesas e preparos culinários específicos.",
+            "itemIds": [
+                "crepeira",
+                "maquina-de-algodao-doce",
+                "maquina-de-cupcake",
+                "maquina-de-pao-panificadora",
+                "maquina-de-sorvete",
+                "maquina-de-waffle",
+                "omeleteira",
+                "panquequeira",
+                "pipoqueira",
+                "sanduicheira",
+                "torradeira"
+            ]
+        },
+        "brinquedos-eletronicos": {
+            "name": "Brinquedos elétricos e eletrônicos",
+            "emoji": "🧸",
+            "description": "Brinquedos que utilizam componentes elétricos ou eletrônicos.",
+            "itemIds": [
+                "brinquedo-eletrico-ou-eletronico"
+            ]
+        },
+        "calculadoras": {
+            "name": "Calculadoras",
+            "emoji": "🧮",
+            "description": "Calculadoras eletrônicas de mesa, bolso ou com bobina.",
+            "itemIds": [
+                "calculadora-com-bobina",
+                "calculadora-de-bolso-e-de-mesa"
+            ]
+        },
+        "equipamentos-esportivos": {
+            "name": "Equipamentos esportivos eletrônicos",
+            "emoji": "🚴",
+            "description": "Equipamentos esportivos que possuem componentes elétricos ou eletrônicos.",
+            "itemIds": [
+                "equipamento-desportivo-com-componente-eletrico-ou-eletronico"
+            ]
+        },
+        "instrumentos-musicais": {
+            "name": "Instrumentos musicais eletrônicos",
+            "emoji": "🎹",
+            "description": "Instrumentos musicais elétricos ou eletrônicos, incluindo teclados e pianos.",
+            "itemIds": [
+                "instrumento-musical",
+                "piano",
+                "teclado-instrumento-musical"
+            ]
+        },
+        "equipamentos-escritorio": {
+            "name": "Equipamentos eletrônicos de escritório",
+            "emoji": "⌨️",
+            "description": "Máquinas de escrever e equipamentos eletrônicos auxiliares de escritório.",
+            "itemIds": [
+                "maquina-de-escrever-eletrica-e-eletronica"
+            ]
+        }
+    }
+}
