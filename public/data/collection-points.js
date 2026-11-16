@@ -1,0 +1,19 @@
+const data = {
+    "version": 1,
+    "points": {
+        "ponto-demo": {
+            "name": "Ponto demonstrativo",
+            "position": [
+                -26.24,
+                -51.08
+            ],
+            "city": "Porto União",
+            "state": "SC",
+            "country": "Brasil",
+            "description": "Localização fictícia utilizada para demonstrar a interação com o mapa.",
+            "acceptedEquipmentIds": []
+        }
+    }
+};
+
+export default data;
