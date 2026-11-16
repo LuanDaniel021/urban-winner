@@ -10,33 +10,51 @@ function normalizeText(value) {
 }
 
 const equipmentCatalogPromise = Promise.all([
+    fetch("./data/categories.json"),
     fetch("./data/equipment-catalog.json"),
     fetch("./data/equipment.json")
-]).then(async ([catalogResponse, equipmentResponse]) => {
-    if (!catalogResponse.ok || !equipmentResponse.ok) {
+]).then(async ([categoriesResponse, catalogResponse, equipmentResponse]) => {
+    if (!categoriesResponse.ok || !catalogResponse.ok || !equipmentResponse.ok) {
         throw new Error("Não foi possível carregar os dados do catálogo.");
     }
 
-    const [catalog, equipmentData] = await Promise.all([
+    const [categoriesData, catalog, equipmentData] = await Promise.all([
+        categoriesResponse.json(),
         catalogResponse.json(),
         equipmentResponse.json()
     ]);
 
-    if (!Array.isArray(catalog.categories) || !Array.isArray(equipmentData.items)) {
+    if (
+        !Array.isArray(categoriesData.categories) ||
+        !Array.isArray(catalog.categoryIds) ||
+        !Array.isArray(catalog.shortcuts) ||
+        !Array.isArray(equipmentData.items)
+    ) {
         throw new Error("Formato dos dados do catálogo inválido.");
     }
 
-    const itemsByCategory = new Map();
+    const categoriesById = new Map(
+        categoriesData.categories.map(category => [category.id, {...category, items: [], shortcuts: []}])
+    );
+
+    catalog.categoryIds.forEach(id => {
+        if (!categoriesById.has(id)) throw new Error(`Categoria não encontrada: ${id}`);
+    });
+
+    catalog.shortcuts.forEach(shortcut => {
+        const category = categoriesById.get(shortcut.categoryId);
+        if (category) category.shortcuts.push(shortcut);
+    });
+
     equipmentData.items.forEach(item => {
-        if (!itemsByCategory.has(item.categoryId)) itemsByCategory.set(item.categoryId, []);
-        itemsByCategory.get(item.categoryId).push(item);
+        const category = categoriesById.get(item.categoryId);
+        if (category) category.items.push(item);
     });
 
-    catalog.categories.forEach(category => {
-        category.items = itemsByCategory.get(category.id) || [];
-    });
-
-    return catalog;
+    return {
+        ...catalog,
+        categories: catalog.categoryIds.map(id => categoriesById.get(id))
+    };
 });
 
 let _drawer = null;
