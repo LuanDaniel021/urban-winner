@@ -1,0 +1,106 @@
+:root {
+    --green: #07875f;
+    --dark-green: #006b4d;
+    --light-green: #16c98b;
+    --text: #19352d;
+    --muted: #78877f;
+    --bg: #ffffff;
+    --soft: #eff8f3;
+    --line: #e4eee8;
+    --font: "DM Sans", sans-serif;
+    --heading: "Space Grotesk", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+}
+
+button, input {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+    outline: 2px solid var(--light-green);
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: auto;
+}
+
+.section {
+    padding: 85px 0;
+    position: relative;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: var(--green);
+}
+
+.section-heading h2 {
+    margin-top: 13px;
+    font-family: var(--heading);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.section-heading p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.8;
+}
+
+.divider {
+    height: 1px;
+    background: var(--line);
+}
+
