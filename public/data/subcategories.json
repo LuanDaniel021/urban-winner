@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "description": "Subcategorias organizados por finalidade e família funcional. Um equipamento pode ser associado a mais de um atalho quando houver justificativa de uso.",
+    "description": "Subcategorias organizadas por finalidade e família funcional. Um equipamento pode ser associado a mais de uma subcategoria quando houver justificativa de uso.",
     "subcategories": {
         "refrigeradores": {
             "name": "Geladeiras e refrigeradores",
