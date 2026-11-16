@@ -1041,6 +1041,25 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     font-weight: 800;
 }
 
+/* NOTÍCIAS: FUNDO DIVIDIDO 80/20 */
+
+#noticias {
+    background: linear-gradient(
+        to bottom,
+        var(--green) 0 80%,
+        #ffffff 80% 100%
+    );
+}
+
+#noticias .section-heading h2,
+#noticias .section-heading .eyebrow {
+    color: white;
+}
+
+#noticias .section-heading .eyebrow::before {
+    background: white;
+}
+
 /* FOOTER */
 
 footer {
