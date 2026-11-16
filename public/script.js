@@ -530,6 +530,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const clearSelection = document.getElementById("clearEquipmentSelection");
     const searchMapButton = document.getElementById("searchSelectedEquipment");
     const mapSelection = document.getElementById("mapEquipmentSelection");
+    const mapWorkspace = mapSelection.closest(".map-workspace");
     const mapEquipmentList = document.getElementById("mapEquipmentList");
     const mapEquipmentCount = document.getElementById("mapEquipmentCount");
     const clearMapSelection = document.getElementById("clearMapEquipmentSelection");
@@ -548,6 +549,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         searchMapButton.disabled = count === 0;
 
         mapSelection.hidden = count === 0 || mapSelectionDismissed;
+        mapWorkspace.classList.toggle("map-workspace-expanded", mapSelection.hidden);
         mapEquipmentCount.textContent = String(count);
         mapEquipmentList.replaceChildren();
 
@@ -650,6 +652,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     closeMapSelection.addEventListener("click", () => {
         mapSelectionDismissed = true;
         mapSelection.hidden = true;
+        mapWorkspace.classList.add("map-workspace-expanded");
     });
 
     clearSelection.addEventListener("click", () => {
