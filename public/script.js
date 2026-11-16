@@ -1,12 +1,44 @@
-import catalogData from "./data/catalog.js";
-import categoriesData from "./data/categories.js";
-import shortcutsData from "./data/shortcuts.js";
-import equipmentData from "./data/equipment.js";
-import collectionPointsData from "./data/collection-points.js";
-import checklistsData from "./data/checklists.js";
-import newsData from "./data/news.js";
-import campaignsData from "./data/campaigns.js";
-import referencesData from "./data/references.js";
+
+(async () => {
+    const [catalogData, categoriesData, shortcutsData, equipmentData, collectionPointsData, checklistsData, newsData, campaignsData, referencesData] = await Promise.all([
+        fetch("./data/catalog.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar catalogData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/categories.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar categoriesData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/shortcuts.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar shortcutsData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/equipment.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar equipmentData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/collection-points.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar collectionPointsData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/checklists.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar checklistsData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/news.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar newsData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/campaigns.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar campaignsData: " + response.status);
+            return response.json();
+        }),
+        fetch("./data/references.json").then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar referencesData: " + response.status);
+            return response.json();
+        })
+    ]);
+
 
 //#region : INTERFACE - MODAIS, PAINÉIS E OVERLAY
 const overlay = document.getElementById("overlay");
@@ -1021,3 +1053,5 @@ renderDataCards("newsGrid", newsData.items || [], "news-card");
 renderDataCards("campaignsGrid", campaignsData.items || [], "social-card");
 renderDataCards("referencesGrid", referencesData.items || [], "reference-card");
 //#endregion
+
+})();
