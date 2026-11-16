@@ -28,6 +28,7 @@ function getCatalogCategories() {
 
 function getCategoryEquipment(categoryId) {
     const category = DATA_CATEGORIES.categories[categoryId];
+    if (!category) return [];
     const excludedItemIds = new Set(category.excludedItemIds || []);
     const itemShortcuts = new Map();
 
@@ -179,13 +180,19 @@ const selectedEquipmentItems = new Map();
                 const names = item.itemIds.map(id => DATA_EQUIPAMENT.equipaments[id].name);
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
-            items.forEach(item => renderCard(item, categories[0], true));
+            items.forEach(item => renderCard(item, allCategory, true));
             resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
         } else {
             const category = categories.find(item =>
-                item.id === (["selecionados", "atalho"].includes(activeFilter) ? "todos" : activeFilter)
+                item.id === (["selecionados", "atalho"].includes(activeFilter) ? allCategory.id : activeFilter)
             );
+            if (!category) {
+                emptyState.hidden = false;
+                emptyState.textContent = "Categoria não encontrada.";
+                resultCount.textContent = "0 equipamentos encontrados";
+                return;
+            }
             const items = getCategoryEquipment(category.id).map(item => ({
                 ...item,
                 category
@@ -283,8 +290,13 @@ const selectedEquipmentItems = new Map();
     });
 
     categories = getCatalogCategories();
+    const allCategory = categories.find(category => category.id === "todos");
 
-    shortcuts = categories[0].shortcutIds.map(id => ({
+    if (!allCategory) {
+        throw new Error('A categoria agregadora "todos" não foi encontrada no catálogo.');
+    }
+
+    shortcuts = allCategory.shortcutIds.map(id => ({
         id,
         ...DATA_SHORTCUTS.shortcuts[id]
     }));
@@ -477,7 +489,6 @@ function showFeedback(message) {
 
     const initial = DATA_CHECKLISTS.default?.tasks || [];
     tasks.splice(0, tasks.length, ...initial.map(text => ({ text, done: false })));
-    renderTasks();
 
     updateMode();
     renderTasks();
@@ -497,19 +508,9 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
 
 //#region : MAPA LEAFLET
 {
-
-    const map = L.map("map", {
-        scrollWheelZoom: false
-    }).setView([-26.25, -51.07], 7);
-
-    const attribution = document.getElementById("mapAttributionTemplate").innerHTML;
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution
-    }).addTo(map);
-
-    let collectionPoints = {};
-
+    const collectionPoints = DATA_COLLECTION_POINTS.points || {};
     const pointDrawer = document.getElementById("collectionPointDrawer");
+    let map = null;
 
     function openCollectionPoint(pointId) {
         const point = collectionPoints[pointId];
@@ -520,35 +521,59 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         openDrawer(pointDrawer);
     }
 
-    collectionPoints = DATA_COLLECTION_POINTS.points || {};
-    Object.entries(collectionPoints).forEach(([id, point]) => {
-        const marker = L.marker(point.position).addTo(map);
-        marker.bindTooltip(point.name);
-        marker.on("click", () => openCollectionPoint(id));
-    });
-
     document.querySelectorAll("[data-open-point]").forEach(button => {
         button.addEventListener("click", () => openCollectionPoint(button.dataset.openPoint));
     });
 
     document.getElementById("focusCollectionPoint").addEventListener("click", () => {
         const point = collectionPoints["ponto-demo"];
+        if (!point) return;
+
         closeDrawer(pointDrawer);
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        if (!map) return;
+
         map.setView(point.position, 13);
         setTimeout(() => map.invalidateSize(), 200);
     });
 
-    const mapObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(() => map.invalidateSize(), 150);
+    if (!window.L) {
+        console.warn("Leaflet não foi carregado. Os recursos do mapa foram desativados.");
+    } else {
+        try {
+            const mapLibrary = window.L;
+            map = mapLibrary.map("map", {
+                scrollWheelZoom: false
+            }).setView([-26.25, -51.07], 7);
+
+            const attribution = document.getElementById("mapAttributionTemplate").innerHTML;
+            mapLibrary.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution
+            }).addTo(map);
+
+            Object.entries(collectionPoints).forEach(([id, point]) => {
+                const marker = mapLibrary.marker(point.position).addTo(map);
+                marker.bindTooltip(point.name);
+                marker.on("click", () => openCollectionPoint(id));
+            });
+
+            if ("IntersectionObserver" in window) {
+                const mapObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => map.invalidateSize(), 150);
+                        }
+                    });
+                });
+
+                mapObserver.observe(document.getElementById("map"));
             }
-        });
-    });
-
-    mapObserver.observe(document.getElementById("map"));
-
+        } catch (error) {
+            console.error("Não foi possível inicializar o mapa:", error);
+            map?.remove();
+            map = null;
+        }
+    }
 }
 //#endregion
 
@@ -627,10 +652,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
     let categories = [];
     let mapSelectionDismissed = false;
 
-    function normalize(value) {
-        return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-    }
-
     function updateSelection() {
         const count = selectedEquipmentItems.size;
         selectionCount.textContent = count === 1 ? "1 selecionado" : `${count} selecionados`;
@@ -685,7 +706,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
                     else selectedEquipmentItems.delete(item.id);
                     mapSelectionDismissed = false;
                     document.dispatchEvent(new Event("equipment-selection-change"));
-                    updateSelection();
                 });
                 children.append(label);
             });
@@ -717,9 +737,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     clearMapSelection.addEventListener("click", () => {
         selectedEquipmentItems.clear();
         mapSelectionDismissed = false;
-        if (categories.length) renderEquipmentTree(categories);
         document.dispatchEvent(new Event("equipment-selection-change"));
-        updateSelection();
     });
 
     closeMapSelection.addEventListener("click", () => {
@@ -730,9 +748,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
     clearSelection.addEventListener("click", () => {
         selectedEquipmentItems.clear();
-        if (categories.length) renderEquipmentTree(categories);
         document.dispatchEvent(new Event("equipment-selection-change"));
-        updateSelection();
     });
 
     searchMapButton.addEventListener("click", () => {
