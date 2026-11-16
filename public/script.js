@@ -19,61 +19,25 @@ function normalizeText(value) {
         .trim();
 }
 
-const equipmentCatalogPromise = Promise.resolve().then(() => {
-    const catalog = DATA_CATALOG;
+function getCatalogCategories() {
+    return DATA_CATALOG.categoryIds.map(id => ({
+        id,
+        ...DATA_CATEGORIES.categories[id]
+    }));
+}
 
-    if (
-        !Array.isArray(catalog.categoryIds) ||
-        !DATA_CATEGORIES.categories || typeof DATA_CATEGORIES.categories !== "object" || Array.isArray(DATA_CATEGORIES.categories) ||
-        !DATA_SHORTCUTS.shortcuts || typeof DATA_SHORTCUTS.shortcuts !== "object" || Array.isArray(DATA_SHORTCUTS.shortcuts) ||
-        !DATA_EQUIPMENT.items || typeof DATA_EQUIPMENT.items !== "object" || Array.isArray(DATA_EQUIPMENT.items)
-    ) {
-        throw new Error("Formato dos dados do catálogo inválido.");
-    }
+function getCategoryEquipment(categoryId) {
+    const itemIds = new Set();
 
-    const categoriesById = Object.fromEntries(
-        Object.entries(DATA_CATEGORIES.categories).map(([id, category]) => [
-            id,
-            {...category, id, items: [], shortcuts: []}
-        ])
-    );
-    const shortcutsById = Object.fromEntries(
-        Object.entries(DATA_SHORTCUTS.shortcuts).map(([id, shortcut]) => [id, {...shortcut, id}])
-    );
-    const equipmentById = Object.fromEntries(
-        Object.entries(DATA_EQUIPMENT.items).map(([id, item]) => [id, {...item, id}])
-    );
-
-    catalog.categoryIds.forEach(id => {
-        const category = categoriesById[id];
-        if (!category) throw new Error(`Categoria não encontrada: ${id}`);
-
-        if (!Array.isArray(category.shortcutIds)) {
-            throw new Error(`Referências de atalhos inválidas na categoria: ${id}`);
-        }
-
-        const categoryItemIds = new Set();
-        category.shortcutIds.forEach(shortcutId => {
-            const shortcut = shortcutsById[shortcutId];
-            if (!shortcut) throw new Error(`Atalho não encontrado: ${shortcutId}`);
-            category.shortcuts.push(shortcut);
-
-            shortcut.itemIds.forEach(itemId => {
-                const item = equipmentById[itemId];
-                if (!item) throw new Error(`Equipamento não encontrado: ${itemId}`);
-                if (!categoryItemIds.has(itemId)) {
-                    category.items.push(item);
-                    categoryItemIds.add(itemId);
-                }
-            });
-        });
+    DATA_CATEGORIES.categories[categoryId].shortcutIds.forEach(shortcutId => {
+        DATA_SHORTCUTS.shortcuts[shortcutId].itemIds.forEach(id => itemIds.add(id));
     });
 
-    return {
-        ...catalog,
-        categories: catalog.categoryIds.map(id => categoriesById[id])
-    };
-});
+    return [...itemIds].map(id => ({
+        id,
+        ...DATA_EQUIPMENT.items[id]
+    }));
+}
 
 
 function updateOverlay() {
@@ -213,14 +177,14 @@ const selectedEquipmentItems = new Map();
         grid.replaceChildren();
         if (catalogMode === "simple") {
             const items = shortcuts.filter(item => {
-                const names = item.itemIds.map(id => categories.flatMap(category => category.items).find(e => e.id === id)?.name || "");
+                const names = item.itemIds.map(id => DATA_EQUIPMENT.items[id].name);
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
             items.forEach(item => renderCard(item, categories.find(c => c.id === item.categoryId) || categories[0], true));
             resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
         } else {
-            const items = categories.flatMap(category => category.items.map(item => ({...item, category}))).filter(item => {
+            const items = categories.flatMap(category => getCategoryEquipment(category.id).map(item => ({...item, category}))).filter(item => {
                 if (activeFilter === "selecionados" && !selectedEquipmentItems.has(item.id)) return false;
                 if (activeFilter === "atalho" && !shortcutFilterIds?.has(item.id)) return false;
                 if (!["todos","selecionados","atalho"].includes(activeFilter) && item.category.id !== activeFilter) return false;
@@ -238,7 +202,7 @@ const selectedEquipmentItems = new Map();
 
     function openEquipmentDetail(item, category, simple = false) {
         if (!item || !category) return;
-        const linkedItems = simple ? item.itemIds.map(id => categories.flatMap(group => group.items).find(e => e.id === id)).filter(Boolean) : [];
+        const linkedItems = simple ? item.itemIds.map(id => ({id, ...DATA_EQUIPMENT.items[id]})) : [];
         const guidance = item.guidance || {};
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
@@ -314,22 +278,17 @@ const selectedEquipmentItems = new Map();
         renderCatalog();
     });
 
-    equipmentCatalogPromise
-        .then(data => {
-            categories = data.categories;
-            shortcuts = categories.flatMap(category =>
-                category.shortcuts.map(shortcut => ({ ...shortcut, categoryId: category.id }))
-            ).filter((shortcut, index, all) =>
-                all.findIndex(item => item.id === shortcut.id) === index
-            );
-            renderFilters();
-            renderCatalog();
-        })
-        .catch(() => {
-            emptyState.hidden = false;
-            emptyState.textContent = "Não foi possível carregar o catálogo de equipamentos. Tente atualizar a página.";
-            resultCount.textContent = "";
-        });
+    categories = getCatalogCategories();
+
+    const shortcutIds = [...new Set(categories.flatMap(category => category.shortcutIds))];
+    shortcuts = shortcutIds.map(id => ({
+        id,
+        ...DATA_SHORTCUTS.shortcuts[id],
+        categoryId: categories.find(category => category.shortcutIds.includes(id)).id
+    }));
+
+    renderFilters();
+    renderCatalog();
 }
 //#endregion
 
@@ -695,7 +654,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
         categories.forEach((category, index) => {
             const categoryMatches = normalizeText(category.name).includes(query);
-            const matches = category.items.filter(item =>
+            const matches = getCategoryEquipment(category.id).filter(item =>
                 categoryMatches || normalizeText(item.name).includes(query)
             );
             if (!matches.length) return;
@@ -783,18 +742,9 @@ document.getElementById("mapButton").addEventListener("click", () => {
         showFeedback(`${selectedEquipmentItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
     });
 
-    equipmentCatalogPromise
-        .then(data => {
-            categories = data.categories;
-            renderEquipmentTree(categories);
-            updateSelection();
-        })
-        .catch(() => {
-            tree.replaceChildren();
-            const error = cloneTemplate("equipmentTreeEmptyTemplate").querySelector(".tree-empty");
-            error.textContent = "Não foi possível carregar os equipamentos.";
-            tree.append(error);
-        });
+    categories = getCatalogCategories();
+    renderEquipmentTree(categories);
+    updateSelection();
 }
 //#endregion
 
