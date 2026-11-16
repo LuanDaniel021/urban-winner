@@ -10,7 +10,7 @@ let MODAL = null;
 
 let DATA_CATALOG = null;
 let DATA_CATEGORIES = null;
-let DATA_SHORTCUTS = null;
+let DATA_SUBCATEGORIES = null;
 let DATA_EQUIPAMENT = null;
 let DATA_COLLECTION_POINTS = null;
 let DATA_CHECKLISTS = null;
@@ -25,7 +25,7 @@ const DATA_SOURCE = "./data";
 const DATA_FILES = [
     "catalog.json",
     "categories.json",
-    "shortcuts.json",
+    "subcategories.json",
     "equipment.json",
     "collection-points.json",
     "checklists.json",
