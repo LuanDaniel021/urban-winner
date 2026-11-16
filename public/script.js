@@ -30,22 +30,22 @@ function getCategoryEquipment(categoryId) {
     const category = DATA_CATEGORIES.categories[categoryId];
     if (!category) return [];
     const excludedItemIds = new Set(category.excludedItemIds || []);
-    const itemShortcuts = new Map();
+    const itemSubcategories = new Map();
 
-    category.shortcutIds.forEach(shortcutId => {
-        const shortcut = DATA_SHORTCUTS.shortcuts[shortcutId];
+    category.subcategoryIds.forEach(subcategoryId => {
+        const subcategory = DATA_SUBCATEGORIES.subcategories[subcategoryId];
 
-        shortcut.itemIds.forEach(id => {
-            if (!excludedItemIds.has(id) && !itemShortcuts.has(id)) {
-                itemShortcuts.set(id, shortcut);
+        subcategory.itemIds.forEach(id => {
+            if (!excludedItemIds.has(id) && !itemSubcategories.has(id)) {
+                itemSubcategories.set(id, subcategory);
             }
         });
     });
 
-    return [...itemShortcuts].map(([id, shortcut]) => ({
+    return [...itemSubcategories].map(([id, subcategory]) => ({
         id,
         ...DATA_EQUIPAMENT.equipaments[id],
-        shortcut
+        subcategory
     }));
 }
 
@@ -119,11 +119,11 @@ const selectedEquipmentItems = new Map();
     const sendCatalogSelection = document.getElementById("sendCatalogSelection");
     const catalogSelectionActions = document.querySelector(".catalog-selection-actions");
     let categories = [];
-    let shortcuts = [];
+    let subcategories = [];
     let activeFilter = "todos";
     let catalogMode = "simple";
-    let shortcutFilterIds = null;
-    let currentShortcut = null;
+    let subcategoryFilterIds = null;
+    let currentSubcategory = null;
 
     function renderFilters() {
         filters.replaceChildren();
@@ -135,7 +135,7 @@ const selectedEquipmentItems = new Map();
             button.addEventListener("click", () => {
                 catalogMode = "full";
                 activeFilter = value;
-                if (value !== "atalho") shortcutFilterIds = null;
+                if (value !== "subcategoria") subcategoryFilterIds = null;
                 renderFilters();
                 renderCatalog();
             });
@@ -143,7 +143,7 @@ const selectedEquipmentItems = new Map();
         };
         categories.forEach(category => addFilter(`${category.emoji || ""} ${category.name}`.trim(), category.id));
         addFilter(`Selecionados (${selectedEquipmentItems.size})`, "selecionados", selectedEquipmentItems.size === 0);
-        if (shortcutFilterIds && activeFilter === "atalho") addFilter(currentShortcut?.name || "Atalho", "atalho");
+        if (subcategoryFilterIds && activeFilter === "subcategoria") addFilter(currentSubcategory?.name || "Subcategoria", "subcategoria");
         simpleToggle.classList.toggle("active", catalogMode === "simple");
         simpleToggle.setAttribute("aria-pressed", String(catalogMode === "simple"));
     }
@@ -155,11 +155,11 @@ const selectedEquipmentItems = new Map();
         card.setAttribute("aria-pressed", String(selected));
         card.setAttribute("aria-label", simple ? `Ver orientações para ${item.name}` : `${selected ? "Desmarcar" : "Selecionar"} ${item.name}`);
         card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
-        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : item.shortcut?.emoji || "♻️";
+        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : item.subcategory?.emoji || "♻️";
         card.querySelector(".equipment-name").textContent = item.name;
         if (simple) {
             card.addEventListener("click", () => {
-                currentShortcut = item;
+                currentSubcategory = item;
                 openEquipmentDetail(item, category, true);
             });
         } else {
@@ -176,16 +176,16 @@ const selectedEquipmentItems = new Map();
         const query = normalizeText(search.value);
         grid.replaceChildren();
         if (catalogMode === "simple") {
-            const items = shortcuts.filter(item => {
+            const items = subcategories.filter(item => {
                 const names = item.itemIds.map(id => DATA_EQUIPAMENT.equipaments[id].name);
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
             items.forEach(item => renderCard(item, allCategory, true));
-            resultCount.textContent = `${items.length} atalhos de equipamentos`;
+            resultCount.textContent = `${items.length} subcategorias de equipamentos`;
             emptyState.hidden = items.length > 0;
         } else {
             const category = categories.find(item =>
-                item.id === (["selecionados", "atalho"].includes(activeFilter) ? allCategory.id : activeFilter)
+                item.id === (["selecionados", "subcategoria"].includes(activeFilter) ? allCategory.id : activeFilter)
             );
             if (!category) {
                 emptyState.hidden = false;
@@ -198,7 +198,7 @@ const selectedEquipmentItems = new Map();
                 category
             })).filter(item => {
                 if (activeFilter === "selecionados" && !selectedEquipmentItems.has(item.id)) return false;
-                if (activeFilter === "atalho" && !shortcutFilterIds?.has(item.id)) return false;
+                if (activeFilter === "subcategoria" && !subcategoryFilterIds?.has(item.id)) return false;
                 return normalizeText(`${item.name} ${category.name}`).includes(query);
             });
             items.forEach(item => renderCard(item, item.category));
@@ -217,7 +217,7 @@ const selectedEquipmentItems = new Map();
         const guidance = item.guidance || {};
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
-        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : item.shortcut?.emoji || "♻️";
+        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : item.subcategory?.emoji || "♻️";
         document.getElementById("equipmentDetailExamples").textContent = simple
             ? `${item.description} Inclui: ${linkedItems.slice(0,6).map(e => e.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length-6} itens` : ""}.`
             : item.description;
@@ -226,7 +226,7 @@ const selectedEquipmentItems = new Map();
             : guidance.preparation || "Desligue o equipamento e desconecte-o da fonte de energia antes da entrega.";
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
         steps[0].textContent = simple
-            ? "Confira a descrição e os equipamentos relacionados a este atalho."
+            ? "Confira a descrição e os equipamentos relacionados a este subcategoria."
             : guidance.preparation || "Desligue e desconecte o equipamento antes da entrega.";
         steps[1].textContent = simple
             ? "Selecione individualmente os itens que correspondem ao equipamento que você deseja descartar."
@@ -241,8 +241,8 @@ const selectedEquipmentItems = new Map();
     simpleToggle.addEventListener("click", () => {
         catalogMode = "simple";
         activeFilter = "todos";
-        shortcutFilterIds = null;
-        currentShortcut = null;
+        subcategoryFilterIds = null;
+        currentSubcategory = null;
         renderFilters();
         renderCatalog();
     });
@@ -253,8 +253,8 @@ const selectedEquipmentItems = new Map();
         search.value = "";
         activeFilter = "todos";
         catalogMode = "simple";
-        shortcutFilterIds = null;
-        currentShortcut = null;
+        subcategoryFilterIds = null;
+        currentSubcategory = null;
         renderFilters();
         renderCatalog();
     });
@@ -265,10 +265,10 @@ const selectedEquipmentItems = new Map();
     });
 
     document.getElementById("showInCatalogButton").addEventListener("click", () => {
-        if (!currentShortcut) return;
-        shortcutFilterIds = new Set(currentShortcut.itemIds);
+        if (!currentSubcategory) return;
+        subcategoryFilterIds = new Set(currentSubcategory.itemIds);
         catalogMode = "full";
-        activeFilter = "atalho";
+        activeFilter = "subcategoria";
         search.value = "";
         closeDrawer(detailDrawer);
         renderFilters();
@@ -296,9 +296,9 @@ const selectedEquipmentItems = new Map();
         throw new Error('A categoria agregadora "todos" não foi encontrada no catálogo.');
     }
 
-    shortcuts = allCategory.shortcutIds.map(id => ({
+    subcategories = allCategory.subcategoryIds.map(id => ({
         id,
-        ...DATA_SHORTCUTS.shortcuts[id]
+        ...DATA_SUBCATEGORIES.subcategories[id]
     }));
 
     renderFilters();
