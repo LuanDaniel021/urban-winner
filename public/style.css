@@ -2992,3 +2992,50 @@ main > section[id],
         display: none !important;
     }
 }
+
+
+/* GUIA COMPLETO DE EQUIPAMENTOS */
+#guia .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 12px;
+}
+#guia .filter {
+    max-width: 100%;
+    white-space: normal;
+    text-align: left;
+}
+.catalog-result-count {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: .78rem;
+}
+#equipmentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    max-height: 560px;
+    overflow-y: auto;
+    align-content: start;
+}
+#equipmentGrid .equipment-card {
+    min-height: 104px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+}
+#equipmentGrid .equipment-card-main {
+    align-items: flex-start;
+}
+#equipmentGrid .equipment-name {
+    overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+    #equipmentGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    #equipmentGrid { grid-template-columns: 1fr; max-height: 62vh; }
+    #guia .filters { gap: 6px; }
+    #guia .filter { font-size: .72rem; padding: 8px 10px; }
+}
