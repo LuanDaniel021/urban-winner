@@ -218,10 +218,15 @@
                     </button>
                 </div>
 
-                <div class="filters" aria-label="Filtrar por categoria"></div>
+                <div class="catalog-toolbar">
+                    <div class="filters" aria-label="Filtrar por categoria"></div>
+                    <button type="button" class="catalog-simple-toggle" id="catalogSimpleToggle" aria-label="Mostrar catálogo simplificado" aria-pressed="true" title="Catálogo simplificado">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
                 <p class="catalog-result-count" id="catalogResultCount" aria-live="polite"></p>
 
-                <!-- CATÁLOGO COMPLETO DE EQUIPAMENTOS -->
+                <!-- CATÁLOGO SIMPLIFICADO E CATÁLOGO COMPLETO -->
                 <div id="equipmentGrid"></div>
                 <p class="empty-state" id="catalogEmptyState" hidden>Nenhum equipamento encontrado.</p>
                 <!-- FIM DO CATÁLOGO DE EQUIPAMENTOS -->
