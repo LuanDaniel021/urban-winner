@@ -37,16 +37,16 @@ const DATA_READY = Promise.all([
         if (!response.ok) throw new Error("Falha ao carregar referencesData: " + response.status);
         return response.json();
     })
-]).then(([catalogData, categoriesData, shortcutsData, equipmentData, collectionPointsData, checklistsData, newsData, campaignsData, referencesData]) => {
-    catalogData = catalogData;
-    categoriesData = categoriesData;
-    shortcutsData = shortcutsData;
-    equipmentData = equipmentData;
-    collectionPointsData = collectionPointsData;
-    checklistsData = checklistsData;
-    newsData = newsData;
-    campaignsData = campaignsData;
-    referencesData = referencesData;
+]).then(data => {
+    catalogData = data[0];
+    categoriesData = data[1];
+    shortcutsData = data[2];
+    equipmentData = data[3];
+    collectionPointsData = data[4];
+    checklistsData = data[5];
+    newsData = data[6];
+    campaignsData = data[7];
+    referencesData = data[8];
 }).catch(error => {
     console.error("Falha ao carregar os dados da aplicação:", error);
     throw error;
