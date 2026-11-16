@@ -26,8 +26,10 @@ function getCatalogCategories() {
     }));
 }
 
-function getCategoryEquipment(categoryId) {
-    const category = DATA_CATEGORIES.categories[categoryId];
+function getCategoryEquipment(categoryOrId) {
+    const category = typeof categoryOrId === "string"
+        ? DATA_CATEGORIES.categories[categoryOrId]
+        : categoryOrId;
     const excludedItemIds = new Set(category.excludedItemIds || []);
     const itemShortcuts = new Map();
 
@@ -118,6 +120,7 @@ const selectedEquipmentItems = new Map();
     const sendCatalogSelection = document.getElementById("sendCatalogSelection");
     const catalogSelectionActions = document.querySelector(".catalog-selection-actions");
     let categories = [];
+    let allCategory = null;
     let shortcuts = [];
     let activeFilter = "todos";
     let catalogMode = "simple";
@@ -180,15 +183,20 @@ const selectedEquipmentItems = new Map();
                 const names = item.itemIds.map(id => DATA_EQUIPAMENT.equipaments[id].name);
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
-            items.forEach(item => renderCard(item, categories.find(c => c.id === item.categoryId) || categories[0], true));
+            items.forEach(item => renderCard(item, allCategory, true));
             resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
         } else {
-            const items = categories.flatMap(category => getCategoryEquipment(category.id).map(item => ({...item, category}))).filter(item => {
+            const category = ["todos", "selecionados", "atalho"].includes(activeFilter)
+                ? allCategory
+                : categories.find(item => item.id === activeFilter);
+            const items = getCategoryEquipment(category).map(item => ({
+                ...item,
+                category
+            })).filter(item => {
                 if (activeFilter === "selecionados" && !selectedEquipmentItems.has(item.id)) return false;
                 if (activeFilter === "atalho" && !shortcutFilterIds?.has(item.id)) return false;
-                if (!["todos","selecionados","atalho"].includes(activeFilter) && item.category.id !== activeFilter) return false;
-                return normalizeText(`${item.name} ${item.category.name}`).includes(query);
+                return normalizeText(`${item.name} ${category.name}`).includes(query);
             });
             items.forEach(item => renderCard(item, item.category));
             resultCount.textContent = `${items.length} equipamento${items.length === 1 ? "" : "s"} encontrado${items.length === 1 ? "" : "s"}`;
@@ -280,11 +288,16 @@ const selectedEquipmentItems = new Map();
 
     categories = getCatalogCategories();
 
-    const shortcutIds = [...new Set(categories.flatMap(category => category.shortcutIds))];
-    shortcuts = shortcutIds.map(id => ({
+    allCategory = {
+        id: "todos",
+        name: "Todos",
+        shortcutIds: [...new Set(categories.flatMap(category => category.shortcutIds))],
+        excludedItemIds: []
+    };
+
+    shortcuts = allCategory.shortcutIds.map(id => ({
         id,
-        ...DATA_SHORTCUTS.shortcuts[id],
-        categoryId: categories.find(category => category.shortcutIds.includes(id)).id
+        ...DATA_SHORTCUTS.shortcuts[id]
     }));
 
     renderFilters();
