@@ -1767,3 +1767,15 @@ main > section[id],
         width: 100%;
     }
 }
+
+
+/* NAVEGAÇÃO EM SEÇÕES COM ALTURA DE TELA */
+
+html {
+    scroll-snap-type: y proximity;
+}
+
+main > .section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
