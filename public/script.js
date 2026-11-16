@@ -985,7 +985,7 @@ document.querySelectorAll(".step[data-modal]")
 
 //#region : HEADER: ESCONDE AO DESCER
 {
-    const header = document.getElementById("topbar");
+    const header = document.getElementById("header");
     let previousY = window.scrollY;
 
     window.addEventListener( "scroll",
