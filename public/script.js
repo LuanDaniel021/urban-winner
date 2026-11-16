@@ -1,18 +1,12 @@
 
-const overlay = document.getElementById("overlay");
-
-let _drawer = null;
-
-let _modal = null;
-
 //#region : escape
 
 function _escape() {
-    if ( _drawer ) {
-        closeDrawer(_drawer);
+    if ( DRAWER ) {
+        closeDrawer(DRAWER);
     }
-    if ( _modal ) {
-        closeModal(_modal);
+    if ( MODAL ) {
+        closeModal(MODAL);
     }
 }
 
@@ -31,23 +25,23 @@ document.addEventListener("keydown",
 {}
 //#endregion
 
-//#region : overlay
+//#region : OVERLAY
 
 function openOverlay()
 {
-    if ( !overlay.classList.contains("open") ) {
-        overlay.classList.add("open");
+    if ( !OVERLAY.classList.contains("open") ) {
+        OVERLAY.classList.add("open");
     }
 }
 
 function closeOverlay()
 {
-    if ( overlay.classList.contains("open") ) {
-        overlay.classList.remove("open");
+    if ( OVERLAY.classList.contains("open") ) {
+        OVERLAY.classList.remove("open");
     }
 }
 
-overlay.addEventListener("click", _escape);
+OVERLAY.addEventListener("click", _escape);
 
 //#endregion
 
@@ -55,12 +49,12 @@ overlay.addEventListener("click", _escape);
 
 function openDrawer( drawer )
 {
-    if ( _drawer ) {
-        closeDrawer( _drawer )
+    if ( DRAWER ) {
+        closeDrawer( DRAWER )
     }
 
-    if ( _modal ) {
-        closeModal( _modal );
+    if ( MODAL ) {
+        closeModal( MODAL );
     }
 
     openOverlay();
@@ -69,7 +63,7 @@ function openDrawer( drawer )
         drawer.classList.add("open");    
     }
 
-    _drawer = drawer;
+    DRAWER = drawer;
 
     document.body.style.overflow = "hidden";
 }
@@ -82,7 +76,7 @@ function closeDrawer( drawer )
         drawer.classList.remove("open");    
     }
 
-    _drawer = null;
+    DRAWER = null;
     
     document.body.style.overflow = "";
 }
@@ -105,12 +99,12 @@ document.querySelectorAll(".drawer")
 
 function openModal( modal )
 {
-    if ( _modal ) {
-        closeModal( _modal )
+    if ( MODAL ) {
+        closeModal( MODAL )
     }
 
-    if ( _drawer ) {
-        closeDrawer( _drawer );
+    if ( DRAWER ) {
+        closeDrawer( DRAWER );
     }
 
     openOverlay();
@@ -119,7 +113,7 @@ function openModal( modal )
         modal.classList.add("open");    
     }
 
-    _modal = modal;
+    MODAL = modal;
 
     document.body.style.overflow = "hidden";
 }
@@ -132,7 +126,7 @@ function closeModal( modal )
         modal.classList.remove("open");    
     }
 
-    _modal = null;
+    MODAL = null;
 
     document.body.style.overflow = "";
 }
@@ -525,7 +519,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     });
 
     document.getElementById("compatiblePointsButton").addEventListener("click", () => {
-        closeDrawer(_drawer);
+        closeDrawer(DRAWER);
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
         highlightCompatiblePoints();
     });
@@ -582,7 +576,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     document.querySelectorAll(".tree-link").forEach(link => {
         link.addEventListener("click", () => {
             if (link.getAttribute("href")?.startsWith("#")) {
-                closeDrawer( _drawer );
+                closeDrawer( DRAWER );
             }
         });
     });
