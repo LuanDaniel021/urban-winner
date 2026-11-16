@@ -355,8 +355,6 @@
             </div>
         </section>
 
-
-
         <!-- REFERÊNCIAS -->
 
         <section class="references" id="referencias">
@@ -440,7 +438,7 @@
 
     <!-- INTERFACE -->
     <div id="interface" class="interface">
-        
+
         <!-- AÇÕES FLUTUANTES -->
         <div class="quick-actions" id="quickActionsContainer">
             <button class="quick-action" data-section="guia" id="equipmentButton">
@@ -487,7 +485,7 @@
 
     <!-- FEEDBACK E OVERLAY -->
     <div id="actionFeedback" class="action-feedback" role="status" aria-live="polite" aria-hidden="true"></div>
-    
+
     <div id="overlay" class="overlay"></div>
 
     <!-- DRAWERS -->
@@ -496,7 +494,7 @@
         <aside id="drawer" class="drawer">
 
             <div class="drawer-header">
-                
+
                 <div>
                     <span class="eyebrow">Navegação</span>
                     <h2>Explorar página</h2>
@@ -723,8 +721,6 @@
                 </button>
             </div>
 
-
-
             <div class="drawer-list map-provider-list">
                 <article class="drawer-item map-provider-card">
                     <h3>ABREE</h3>
@@ -886,13 +882,13 @@
 
         <!-- MODAL Prepare- -->
         <div id="prepare" class="modal info" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-                    
+
             <button class="modal-close" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <span class="eyebrow">Descarte consciente</span>
-            
+
             <h2>Prepare seu equipamento</h2>
 
             <p class="modal-description">
@@ -919,13 +915,13 @@
 
         <!-- MODAL Entregue- -->
         <div id="entregue" class="modal info" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            
+
             <button class="modal-close" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <span class="eyebrow">Descarte consciente</span>
-            
+
             <h2>Entregue no local correto</h2>
 
             <p class="modal-description">
@@ -952,13 +948,13 @@
 
         <!-- MODAL Reaproveite- -->
         <div id="reaproveite" class="modal info" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            
+
             <button class="modal-close" aria-label="Fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <span class="eyebrow">Descarte consciente</span>
-            
+
             <h2>Reaproveite sempre que possível</h2>
 
             <p class="modal-description">
@@ -998,6 +994,82 @@
         </div>
 
     </div>
+
+    <!-- TEMPLATES DE COMPONENTES DINÂMICOS -->
+    <template id="mapAttributionTemplate">
+        <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>
+    </template>
+
+    <template id="filterButtonTemplate">
+        <button type="button" class="filter"></button>
+    </template>
+
+    <template id="equipmentCardTemplate">
+        <button type="button" class="equipment-card" aria-pressed="false">
+            <span class="equipment-category"></span>
+            <span class="equipment-card-main">
+                <span class="equipment-emoji"></span>
+                <strong class="equipment-name"></strong>
+                <span class="equipment-card-indicator" aria-hidden="true">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+            </span>
+        </button>
+    </template>
+
+    <template id="checklistTaskTemplate">
+        <div class="checklist-task">
+            <label class="checklist-task-label">
+                <input type="checkbox">
+                <span class="checklist-task-text"></span>
+            </label>
+            <div class="checklist-task-actions">
+                <button type="button" class="checklist-task-move">
+                    <i class="fa-solid fa-chevron-up"></i>
+                </button>
+                <button type="button" class="checklist-task-move">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <button type="button" class="checklist-task-remove">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <template id="mapEquipmentItemTemplate">
+        <li></li>
+    </template>
+
+    <template id="equipmentCategoryTemplate">
+        <button type="button" class="tree-toggle" aria-expanded="false">
+            <i class="fa-solid fa-folder"></i>
+            <span class="equipment-category-name"></span>
+            <small class="equipment-category-total"></small>
+            <i class="fa-solid fa-chevron-down tree-arrow"></i>
+        </button>
+        <div class="tree-children equipment-category-items"></div>
+    </template>
+
+    <template id="equipmentSelectionItemTemplate">
+        <label class="equipment-select-item">
+            <input type="checkbox">
+            <span class="equipment-select-name"></span>
+        </label>
+    </template>
+
+    <template id="equipmentTreeEmptyTemplate">
+        <p class="tree-empty"></p>
+    </template>
+
+    <template id="contentCardTemplate">
+        <article>
+            <small></small>
+            <h3></h3>
+            <p></p>
+            <a></a>
+        </article>
+    </template>
 
 </body>
 
