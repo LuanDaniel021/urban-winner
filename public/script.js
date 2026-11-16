@@ -9,12 +9,34 @@ function normalizeText(value) {
         .trim();
 }
 
-const equipmentCatalogPromise = fetch("./data/equipment-catalog.json").then(response => {
-    if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
-    return response.json();
-}).then(data => {
-    if (!Array.isArray(data.categories)) throw new Error("Formato de catálogo inválido.");
-    return data;
+const equipmentCatalogPromise = Promise.all([
+    fetch("./data/equipment-catalog.json"),
+    fetch("./data/equipment.json")
+]).then(async ([catalogResponse, equipmentResponse]) => {
+    if (!catalogResponse.ok || !equipmentResponse.ok) {
+        throw new Error("Não foi possível carregar os dados do catálogo.");
+    }
+
+    const [catalog, equipmentData] = await Promise.all([
+        catalogResponse.json(),
+        equipmentResponse.json()
+    ]);
+
+    if (!Array.isArray(catalog.categories) || !Array.isArray(equipmentData.items)) {
+        throw new Error("Formato dos dados do catálogo inválido.");
+    }
+
+    const itemsByCategory = new Map();
+    equipmentData.items.forEach(item => {
+        if (!itemsByCategory.has(item.categoryId)) itemsByCategory.set(item.categoryId, []);
+        itemsByCategory.get(item.categoryId).push(item);
+    });
+
+    catalog.categories.forEach(category => {
+        category.items = itemsByCategory.get(category.id) || [];
+    });
+
+    return catalog;
 });
 
 let _drawer = null;
