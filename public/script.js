@@ -12,22 +12,24 @@ function normalizeText(value) {
 const equipmentCatalogPromise = Promise.all([
     fetch("./data/categories.json"),
     fetch("./data/equipment-catalog.json"),
+    fetch("./data/shortcuts.json"),
     fetch("./data/equipment.json")
-]).then(async ([categoriesResponse, catalogResponse, equipmentResponse]) => {
-    if (!categoriesResponse.ok || !catalogResponse.ok || !equipmentResponse.ok) {
+]).then(async ([categoriesResponse, catalogResponse, shortcutsResponse, equipmentResponse]) => {
+    if (!categoriesResponse.ok || !catalogResponse.ok || !shortcutsResponse.ok || !equipmentResponse.ok) {
         throw new Error("Não foi possível carregar os dados do catálogo.");
     }
 
-    const [categoriesData, catalog, equipmentData] = await Promise.all([
+    const [categoriesData, catalog, shortcutsData, equipmentData] = await Promise.all([
         categoriesResponse.json(),
         catalogResponse.json(),
+        shortcutsResponse.json(),
         equipmentResponse.json()
     ]);
 
     if (
         !Array.isArray(categoriesData.categories) ||
         !Array.isArray(catalog.categoryIds) ||
-        !Array.isArray(catalog.shortcuts) ||
+        !Array.isArray(shortcutsData.shortcuts) ||
         !Array.isArray(equipmentData.items)
     ) {
         throw new Error("Formato dos dados do catálogo inválido.");
@@ -41,7 +43,7 @@ const equipmentCatalogPromise = Promise.all([
         if (!categoriesById.has(id)) throw new Error(`Categoria não encontrada: ${id}`);
     });
 
-    catalog.shortcuts.forEach(shortcut => {
+    shortcutsData.shortcuts.forEach(shortcut => {
         const category = categoriesById.get(shortcut.categoryId);
         if (category) category.shortcuts.push(shortcut);
     });
