@@ -87,6 +87,7 @@ const selectedEquipmentItems = new Map();
     const simpleToggle = document.getElementById("catalogSimpleToggle");
     const catalogSelectionCount = document.getElementById("catalogSelectionCount");
     const sendCatalogSelection = document.getElementById("sendCatalogSelection");
+    const catalogSelectionActions = document.querySelector(".catalog-selection-actions");
     let categories = [];
     let shortcuts = [];
     let activeFilter = "todos";
@@ -187,6 +188,7 @@ const selectedEquipmentItems = new Map();
             if (!items.length) emptyState.textContent = activeFilter === "selecionados" ? "Nenhum equipamento selecionado. Selecione itens no catálogo para vê-los aqui." : "Nenhum equipamento encontrado.";
         }
         catalogSelectionCount.textContent = selectedEquipmentItems.size === 1 ? "1 selecionado" : `${selectedEquipmentItems.size} selecionados`;
+        catalogSelectionActions.hidden = catalogMode !== "full";
         sendCatalogSelection.disabled = selectedEquipmentItems.size === 0;
     }
 
