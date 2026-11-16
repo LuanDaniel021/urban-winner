@@ -218,18 +218,12 @@
                     </button>
                 </div>
 
-                <div class="filters">
-                    <button class="filter active" data-filter="todos">Todos</button>
-                    <button class="filter" data-filter="informatica">Informática</button>
-                    <button class="filter" data-filter="imagem">Imagem e áudio</button>
-                    <button class="filter" data-filter="casa">Casa</button>
-                    <button class="filter" data-filter="pessoal">Cuidados pessoais</button>
-                    <button class="filter" data-filter="ferramentas">Ferramentas</button>
-                </div>
+                <div class="filters" aria-label="Filtrar por categoria"></div>
+                <p class="catalog-result-count" id="catalogResultCount" aria-live="polite"></p>
 
-                <!-- CATÁLOGO DE EQUIPAMENTOS -->
+                <!-- CATÁLOGO COMPLETO DE EQUIPAMENTOS -->
                 <div id="equipmentGrid"></div>
-                <p class="empty-state" id="catalogEmptyState" hidden>Nenhuma categoria encontrada.</p>
+                <p class="empty-state" id="catalogEmptyState" hidden>Nenhum equipamento encontrado.</p>
                 <!-- FIM DO CATÁLOGO DE EQUIPAMENTOS -->
             </div>
         </section>
