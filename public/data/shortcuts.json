@@ -1,9 +1,8 @@
 {
   "version": 1,
   "description": "Atalhos de navegação e seleção. Cada atalho referencia os equipamentos que disponibiliza.",
-  "shortcuts": [
-    {
-      "id": "refrigeradores",
+  "shortcuts": {
+    "refrigeradores": {
       "name": "Geladeiras e refrigeradores",
       "emoji": "🧊",
       "description": "Geladeiras, frigobares, freezers e outros equipamentos de refrigeração doméstica.",
@@ -17,8 +16,7 @@
         "refrigerador"
       ]
     },
-    {
-      "id": "cozinha-preparo",
+    "cozinha-preparo": {
       "name": "Cozinha e preparo",
       "emoji": "🍳",
       "description": "Aparelhos usados no preparo, aquecimento e conservação de alimentos e bebidas.",
@@ -78,8 +76,7 @@
         "triturador"
       ]
     },
-    {
-      "id": "ventilacao-climatizacao",
+    "ventilacao-climatizacao": {
       "name": "Ventilação e climatização",
       "emoji": "❄️",
       "description": "Ventiladores, aparelhos de ar-condicionado, aquecedores e climatizadores.",
@@ -101,8 +98,7 @@
         "variador-de-ventilador"
       ]
     },
-    {
-      "id": "lavadoras-roupas",
+    "lavadoras-roupas": {
       "name": "Lavadoras e cuidados com roupas",
       "emoji": "🧺",
       "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
@@ -119,8 +115,7 @@
         "maquina-de-costura"
       ]
     },
-    {
-      "id": "limpeza-domestica",
+    "limpeza-domestica": {
       "name": "Limpeza doméstica",
       "emoji": "🧹",
       "description": "Aspiradores e equipamentos elétricos usados na limpeza de ambientes e superfícies.",
@@ -133,8 +128,7 @@
         "lavadora-de-jato-de-agua"
       ]
     },
-    {
-      "id": "computadores-perifericos",
+    "computadores-perifericos": {
       "name": "Computadores e periféricos",
       "emoji": "💻",
       "description": "Computadores de mesa, notebooks, tablets, teclados, mouses e componentes.",
@@ -155,8 +149,7 @@
         "teclado-instrumento-musical"
       ]
     },
-    {
-      "id": "impressoras-scanners",
+    "impressoras-scanners": {
       "name": "Impressoras e scanners",
       "emoji": "🖨️",
       "description": "Impressoras, multifuncionais, scanners, copiadoras e equipamentos semelhantes.",
@@ -171,8 +164,7 @@
         "fragmentadora-de-papel"
       ]
     },
-    {
-      "id": "cabos-carregadores",
+    "cabos-carregadores": {
       "name": "Cabos e carregadores",
       "emoji": "🔌",
       "description": "Cabos, conectores, carregadores, fontes, adaptadores e baterias externas.",
@@ -188,8 +180,7 @@
         "bateria-externa"
       ]
     },
-    {
-      "id": "televisores-monitores",
+    "televisores-monitores": {
       "name": "Televisores e monitores",
       "emoji": "📺",
       "description": "Televisores, monitores, projetores e telas de equipamentos eletrônicos.",
@@ -201,8 +192,7 @@
         "tela-de-projecao"
       ]
     },
-    {
-      "id": "audio-video",
+    "audio-video": {
       "name": "Áudio e vídeo",
       "emoji": "🎧",
       "description": "Rádios, caixas de som, fones, câmeras, amplificadores e reprodutores de mídia.",
@@ -238,8 +228,7 @@
         "transmissor-e-receptor-bluetooth"
       ]
     },
-    {
-      "id": "videogames",
+    "videogames": {
       "name": "Videogames",
       "emoji": "🎮",
       "description": "Consoles, controles, jogos e acessórios de videogame.",
@@ -250,8 +239,7 @@
         "jogo-de-videogame"
       ]
     },
-    {
-      "id": "celulares-smartphones",
+    "celulares-smartphones": {
       "name": "Celulares e smartphones",
       "emoji": "📱",
       "description": "Celulares, smartphones, telefones móveis e acessórios de comunicação pessoal.",
@@ -262,8 +250,7 @@
         "telefone-celular"
       ]
     },
-    {
-      "id": "cuidados-pessoais",
+    "cuidados-pessoais": {
       "name": "Cuidados pessoais",
       "emoji": "🪒",
       "description": "Barbeadores, depiladores, secadores, escovas elétricas e aparelhos de cuidado corporal.",
@@ -285,8 +272,7 @@
         "vaporizador-de-roupa"
       ]
     },
-    {
-      "id": "ferramentas-eletricas",
+    "ferramentas-eletricas": {
       "name": "Ferramentas elétricas",
       "emoji": "🛠️",
       "description": "Furadeiras, parafusadeiras, serras, lixadeiras e outras ferramentas elétricas.",
@@ -300,8 +286,7 @@
         "serra-eletrica"
       ]
     },
-    {
-      "id": "jardim-area-externa",
+    "jardim-area-externa": {
       "name": "Jardim e área externa",
       "emoji": "🌱",
       "description": "Aparadores de grama, podadores, bombas e equipamentos elétricos de jardinagem.",
@@ -313,8 +298,7 @@
         "pulverizador-eletrico"
       ]
     },
-    {
-      "id": "outros-eletrodomesticos",
+    "outros-eletrodomesticos": {
       "name": "Outros equipamentos",
       "emoji": "📦",
       "description": "Outros equipamentos da categoria Eletrodomésticos e climatização.",
@@ -325,8 +309,7 @@
         "torneira-eletrica"
       ]
     },
-    {
-      "id": "outros-informatica",
+    "outros-informatica": {
       "name": "Outros equipamentos",
       "emoji": "🧩",
       "description": "Outros equipamentos da categoria Informática e componentes.",
@@ -347,8 +330,7 @@
         "variador-de-luminosidade-dimmer"
       ]
     },
-    {
-      "id": "outros-telefonia",
+    "outros-telefonia": {
       "name": "Outros equipamentos",
       "emoji": "📞",
       "description": "Outros equipamentos da categoria Telefonia e comunicação.",
@@ -364,8 +346,7 @@
         "telex"
       ]
     },
-    {
-      "id": "outros-lazer-outros",
+    "outros-lazer-outros": {
       "name": "Outros equipamentos",
       "emoji": "🎲",
       "description": "Outros equipamentos da categoria Lazer, esporte e outros.",
@@ -379,5 +360,5 @@
         "piano"
       ]
     }
-  ]
+  }
 }
