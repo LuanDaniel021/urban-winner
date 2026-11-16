@@ -21,8 +21,8 @@
             ]
         },
         "eletrodomesticos": {
-            "name": "Eletrodomésticos e climatização",
-            "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
+            "name": "Eletrodomésticos e equipamentos domésticos",
+            "description": "Aparelhos domésticos de refrigeração, climatização, lavanderia, limpeza, passadoria e costura.",
             "emoji": "🏠",
             "shortcutIds": [
                 "refrigeradores",
@@ -47,8 +47,8 @@
             ]
         },
         "informatica": {
-            "name": "Informática e componentes",
-            "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
+            "name": "Informática e escritório",
+            "description": "Computadores, dispositivos digitais, periféricos, impressão, comunicação de dados e equipamentos eletrônicos de escritório.",
             "emoji": "💻",
             "shortcutIds": [
                 "computadores",
@@ -64,10 +64,10 @@
                 "armazenamento-dados",
                 "redes-conectividade",
                 "energia-protecao",
-                "energia-solar",
-                "controle-iluminacao",
                 "acessorios-computador",
-                "equipamentos-eletronicos-gerais"
+                "equipamentos-eletronicos-gerais",
+                "calculadoras",
+                "equipamentos-escritorio"
             ],
             "excludedItemIds": [
                 "aparelho-de-televisao",
@@ -152,8 +152,8 @@
             ]
         },
         "lazer-outros": {
-            "name": "Lazer, esporte e outros",
-            "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
+            "name": "Lazer, esporte e entretenimento",
+            "description": "Equipamentos eletrônicos destinados ao lazer, à prática esportiva, aos jogos e ao entretenimento.",
             "emoji": "🎮",
             "shortcutIds": [
                 "videogames",
@@ -161,15 +161,25 @@
                 "dispositivos-portateis",
                 "relogios-tempo",
                 "brinquedos-eletronicos",
-                "calculadoras",
                 "equipamentos-esportivos",
-                "instrumentos-musicais",
-                "equipamentos-escritorio"
+                "instrumentos-musicais"
             ],
             "excludedItemIds": [
                 "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
-                "telefone-celular"
+                "telefone-celular",
+                "equipamento-informatico-pessoal-e-reader",
+                "tablet"
             ]
+        },
+        "energia-instalacoes": {
+            "name": "Energia e instalações elétricas",
+            "description": "Equipamentos para geração de energia solar e controle de instalações elétricas.",
+            "emoji": "⚡",
+            "shortcutIds": [
+                "energia-solar",
+                "controle-iluminacao"
+            ],
+            "excludedItemIds": []
         }
     }
 }
