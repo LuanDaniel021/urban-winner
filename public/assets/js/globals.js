@@ -1,3 +1,4 @@
+
 // Estado global da interface
 
 const OVERLAY = document.getElementById("overlay");
@@ -16,3 +17,19 @@ let DATA_CHECKLISTS = null;
 let DATA_NEWS = null;
 let DATA_CAMPAIGNS = null;
 let DATA_REFERENCES = null;
+
+// Configuração e carregamento dos arquivos de dados
+
+const DATA_SOURCE = "./data";
+
+const DATA_FILES = [
+    "catalog.json",
+    "categories.json",
+    "shortcuts.json",
+    "equipment.json",
+    "collection-points.json",
+    "checklists.json",
+    "news.json",
+    "campaigns.json",
+    "references.json"
+];

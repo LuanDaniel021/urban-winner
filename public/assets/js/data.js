@@ -1,17 +1,3 @@
-// Configuração e carregamento dos arquivos de dados
-
-const DATA_SOURCE = "./data";
-const DATA_FILES = [
-    "catalog.json",
-    "categories.json",
-    "shortcuts.json",
-    "equipment.json",
-    "collection-points.json",
-    "checklists.json",
-    "news.json",
-    "campaigns.json",
-    "references.json"
-];
 
 const DATA_READY = Promise.all(
     DATA_FILES.map(file =>
