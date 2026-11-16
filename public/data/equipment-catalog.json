@@ -6,1344 +6,2426 @@
     {
       "id": "casa-cozinha",
       "name": "Cozinha e preparo de alimentos",
+      "description": "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
       "emoji": "🍳",
+      "shortcuts": [
+        {
+          "id": "refrigeradores",
+          "name": "Geladeiras e refrigeradores",
+          "emoji": "🧊",
+          "description": "Geladeiras, frigobares, freezers e outros equipamentos de refrigeração doméstica.",
+          "itemIds": [
+            "adega",
+            "cervejeira",
+            "miniadega",
+            "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
+            "freezer-vertical",
+            "frigobar",
+            "refrigerador"
+          ]
+        },
+        {
+          "id": "cozinha-preparo",
+          "name": "Cozinha e preparo",
+          "emoji": "🍳",
+          "description": "Aparelhos usados no preparo, aquecimento e conservação de alimentos e bebidas.",
+          "itemIds": [
+            "abridor-de-vinho-eletrico",
+            "abridor-eletrico-de-latas",
+            "adega",
+            "aparelho-para-preparacao-de-cafe-ou-cha",
+            "batedeira",
+            "bebedouro-refrigerado",
+            "blender",
+            "bule-eletrico",
+            "cafeteira",
+            "centrifuga-de-suco",
+            "cervejeira",
+            "chaleira-eletrica",
+            "chapa-grill",
+            "churrasqueira-a-gas",
+            "churrasqueira-eletrica-ou-eletronica",
+            "cooktop-eletrico-e-a-gas",
+            "crepeira",
+            "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
+            "espremedor-de-frutas",
+            "faca-eletrica",
+            "fechador-eletrico-de-latas",
+            "fogao",
+            "fogao-eletrico",
+            "forno-eletrico",
+            "fritadeira",
+            "liquidificador",
+            "maquina-de-algodao-doce",
+            "maquina-de-cafe",
+            "maquina-de-cupcake",
+            "maquina-de-pao-panificadora",
+            "maquina-de-sorvete",
+            "maquina-de-waffle",
+            "micro-ondas",
+            "miniadega",
+            "miniforno",
+            "miniprocessador-com-uma-ou-mais-funcoes",
+            "mixer",
+            "moedor-de-cafe",
+            "moedor-de-graos",
+            "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
+            "multifatiador",
+            "omeleteira",
+            "panela-de-arroz",
+            "panela-de-pressao-eletrica",
+            "panela-eletrica",
+            "panquequeira",
+            "pia-fogao",
+            "pipoqueira",
+            "processador-de-alimentos",
+            "purificador-de-agua",
+            "sanduicheira",
+            "torradeira",
+            "triturador"
+          ]
+        },
+        {
+          "id": "ventilacao-climatizacao",
+          "name": "Ventilação e climatização",
+          "emoji": "❄️",
+          "description": "Ventiladores, aparelhos de ar-condicionado, aquecedores e climatizadores.",
+          "itemIds": [
+            "aparelho-de-aquecimento-eletrico-para-ambiente",
+            "aparelho-de-ar-condicionado-de-janela",
+            "aparelho-de-ar-condicionado-portatil",
+            "aparelho-de-ar-condicionado-split",
+            "circulador-de-ar",
+            "climatizador-de-ar-eletrico",
+            "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+            "cortina-de-ar",
+            "depurador-de-ar",
+            "desumidificador-de-ar",
+            "umidificador",
+            "ventilador-de-coluna",
+            "ventilador-de-mesa",
+            "ventilador-de-teto",
+            "variador-de-ventilador"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "abridor-de-vinho-eletrico",
-          "name": "Abridor de vinho elétrico"
+          "name": "Abridor de vinho elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "abridor-eletrico-de-latas",
-          "name": "Abridor elétrico de latas"
+          "name": "Abridor elétrico de latas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "adega",
-          "name": "Adega"
+          "name": "Adega",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "aparelho-para-preparacao-de-cafe-ou-cha",
-          "name": "Aparelho para preparação de café ou chá"
+          "name": "Aparelho para preparação de café ou chá",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "batedeira",
-          "name": "Batedeira"
+          "name": "Batedeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "bebedouro-refrigerado",
-          "name": "Bebedouro refrigerado"
+          "name": "Bebedouro refrigerado",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "blender",
-          "name": "Blender"
+          "name": "Blender",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "bule-eletrico",
-          "name": "Bule elétrico"
+          "name": "Bule elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "cafeteira",
-          "name": "Cafeteira"
+          "name": "Cafeteira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "centrifuga-de-suco",
-          "name": "Centrífuga de suco"
+          "name": "Centrífuga de suco",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "cervejeira",
-          "name": "Cervejeira"
+          "name": "Cervejeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "chaleira-eletrica",
-          "name": "Chaleira elétrica"
+          "name": "Chaleira elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "chapa-grill",
-          "name": "Chapa grill"
+          "name": "Chapa grill",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "churrasqueira-a-gas",
-          "name": "Churrasqueira a gás"
+          "name": "Churrasqueira a gás",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "churrasqueira-eletrica-ou-eletronica",
-          "name": "Churrasqueira elétrica ou eletrônica"
+          "name": "Churrasqueira elétrica ou eletrônica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "cooktop-eletrico-e-a-gas",
-          "name": "Cooktop elétrico e a gás"
+          "name": "Cooktop elétrico e a gás",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "crepeira",
-          "name": "Crepeira"
+          "name": "Crepeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
-          "name": "Distribuidor automático de bebida quente (máquina de consumo)"
+          "name": "Distribuidor automático de bebida quente (máquina de consumo)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "espremedor-de-frutas",
-          "name": "Espremedor de frutas"
+          "name": "Espremedor de frutas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "faca-eletrica",
-          "name": "Faca elétrica"
+          "name": "Faca elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "fechador-eletrico-de-latas",
-          "name": "Fechador elétrico de latas"
+          "name": "Fechador elétrico de latas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "fogao",
-          "name": "Fogão"
+          "name": "Fogão",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "fogao-eletrico",
-          "name": "Fogão elétrico"
+          "name": "Fogão elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "forno-eletrico",
-          "name": "Forno elétrico"
+          "name": "Forno elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "fritadeira",
-          "name": "Fritadeira"
+          "name": "Fritadeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "liquidificador",
-          "name": "Liquidificador"
+          "name": "Liquidificador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "maquina-de-algodao-doce",
-          "name": "Máquina de algodão doce"
+          "name": "Máquina de algodão doce",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "maquina-de-cafe",
-          "name": "Máquina de café"
+          "name": "Máquina de café",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "maquina-de-cupcake",
-          "name": "Máquina de cupcake"
+          "name": "Máquina de cupcake",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "maquina-de-pao-panificadora",
-          "name": "Máquina de pão (panificadora)"
+          "name": "Máquina de pão (panificadora)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "maquina-de-sorvete",
-          "name": "Máquina de sorvete"
+          "name": "Máquina de sorvete",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "maquina-de-waffle",
-          "name": "Máquina de waffle"
+          "name": "Máquina de waffle",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "micro-ondas",
-          "name": "Micro-ondas"
+          "name": "Micro-ondas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "miniadega",
-          "name": "Miniadega"
+          "name": "Miniadega",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "miniforno",
-          "name": "Miniforno"
+          "name": "Miniforno",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "miniprocessador-com-uma-ou-mais-funcoes",
-          "name": "Miniprocessador (com uma ou mais funções)"
+          "name": "Miniprocessador (com uma ou mais funções)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "mixer",
-          "name": "Mixer"
+          "name": "Mixer",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "moedor-de-cafe",
-          "name": "Moedor de café"
+          "name": "Moedor de café",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "moedor-de-graos",
-          "name": "Moedor de grãos"
+          "name": "Moedor de grãos",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
-          "name": "Moedor elétrico (de grãos ou de carne, entre outros)"
+          "name": "Moedor elétrico (de grãos ou de carne, entre outros)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "multifatiador",
-          "name": "Multifatiador"
+          "name": "Multifatiador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "omeleteira",
-          "name": "Omeleteira"
+          "name": "Omeleteira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "panela-de-arroz",
-          "name": "Panela de arroz"
+          "name": "Panela de arroz",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "panela-de-pressao-eletrica",
-          "name": "Panela de pressão elétrica"
+          "name": "Panela de pressão elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "panela-eletrica",
-          "name": "Panela elétrica"
+          "name": "Panela elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "panquequeira",
-          "name": "Panquequeira"
+          "name": "Panquequeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "pia-fogao",
-          "name": "Pia fogão"
+          "name": "Pia fogão",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "pipoqueira",
-          "name": "Pipoqueira"
+          "name": "Pipoqueira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "processador-de-alimentos",
-          "name": "Processador de alimentos"
+          "name": "Processador de alimentos",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "purificador-de-agua",
-          "name": "Purificador de água"
+          "name": "Purificador de água",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "sanduicheira",
-          "name": "Sanduicheira"
+          "name": "Sanduicheira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "torradeira",
-          "name": "Torradeira"
+          "name": "Torradeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         },
         {
           "id": "triturador",
-          "name": "Triturador"
+          "name": "Triturador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos..",
+          "guidance": {
+            "preparation": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
+            "care": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
-        "tip": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
-        "step": "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
-      }
+      ]
     },
     {
       "id": "eletrodomesticos",
       "name": "Eletrodomésticos e climatização",
+      "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
       "emoji": "🏠",
+      "shortcuts": [
+        {
+          "id": "refrigeradores",
+          "name": "Geladeiras e refrigeradores",
+          "emoji": "🧊",
+          "description": "Geladeiras, frigobares, freezers e outros equipamentos de refrigeração doméstica.",
+          "itemIds": [
+            "adega",
+            "cervejeira",
+            "miniadega",
+            "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
+            "freezer-vertical",
+            "frigobar",
+            "refrigerador"
+          ]
+        },
+        {
+          "id": "lavadoras-roupas",
+          "name": "Lavadoras e cuidados com roupas",
+          "emoji": "🧺",
+          "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
+          "itemIds": [
+            "maquina-de-lava-e-seca",
+            "maquina-de-lavar-louca",
+            "maquina-de-lavar-roupa",
+            "maquina-de-lavar-roupa-semiautomatica",
+            "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
+            "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+            "ferro-de-engomar",
+            "passadeira-a-vapor",
+            "vaporizador-de-roupa",
+            "maquina-de-costura"
+          ]
+        },
+        {
+          "id": "limpeza-domestica",
+          "name": "Limpeza doméstica",
+          "emoji": "🧹",
+          "description": "Aspiradores e equipamentos elétricos usados na limpeza de ambientes e superfícies.",
+          "itemIds": [
+            "aspirador",
+            "aspirador-de-janela",
+            "enceradeira",
+            "limpadora-a-vapor",
+            "limpadora-de-carpete",
+            "lavadora-de-jato-de-agua"
+          ]
+        },
+        {
+          "id": "ventilacao-climatizacao",
+          "name": "Ventilação e climatização",
+          "emoji": "❄️",
+          "description": "Ventiladores, aparelhos de ar-condicionado, aquecedores e climatizadores.",
+          "itemIds": [
+            "aparelho-de-aquecimento-eletrico-para-ambiente",
+            "aparelho-de-ar-condicionado-de-janela",
+            "aparelho-de-ar-condicionado-portatil",
+            "aparelho-de-ar-condicionado-split",
+            "circulador-de-ar",
+            "climatizador-de-ar-eletrico",
+            "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+            "cortina-de-ar",
+            "depurador-de-ar",
+            "desumidificador-de-ar",
+            "umidificador",
+            "ventilador-de-coluna",
+            "ventilador-de-mesa",
+            "ventilador-de-teto",
+            "variador-de-ventilador"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "aparelho-de-aquecimento-eletrico-para-ambiente",
-          "name": "Aparelho de aquecimento elétrico para ambiente"
+          "name": "Aparelho de aquecimento elétrico para ambiente",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "aparelho-de-ar-condicionado-de-janela",
-          "name": "Aparelho de ar condicionado de janela"
+          "name": "Aparelho de ar condicionado de janela",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "aparelho-de-ar-condicionado-portatil",
-          "name": "Aparelho de ar condicionado portátil"
+          "name": "Aparelho de ar condicionado portátil",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "aparelho-de-ar-condicionado-split",
-          "name": "Aparelho de ar condicionado split"
+          "name": "Aparelho de ar condicionado split",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "aspirador",
-          "name": "Aspirador"
+          "name": "Aspirador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "aspirador-de-janela",
-          "name": "Aspirador de janela"
+          "name": "Aspirador de janela",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "chuveiro-eletrico-ou-eletronico",
-          "name": "Chuveiro elétrico ou eletrônico"
+          "name": "Chuveiro elétrico ou eletrônico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "circulador-de-ar",
-          "name": "Circulador de ar"
+          "name": "Circulador de ar",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "climatizador-de-ar-eletrico",
-          "name": "Climatizador de ar elétrico"
+          "name": "Climatizador de ar elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
-          "name": "Coifa com dimensão horizontal de, no máximo, 120 cm"
+          "name": "Coifa com dimensão horizontal de, no máximo, 120 cm",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
-          "name": "Combinação de refrigerador e congelador (freezer) munido de portas exteriores separadas"
+          "name": "Combinação de refrigerador e congelador (freezer) munido de portas exteriores separadas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "cortina-de-ar",
-          "name": "Cortina de ar"
+          "name": "Cortina de ar",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "depurador-de-ar",
-          "name": "Depurador de ar"
+          "name": "Depurador de ar",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "desumidificador-de-ar",
-          "name": "Desumidificador de ar"
+          "name": "Desumidificador de ar",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "ducha-eletrica",
-          "name": "Ducha elétrica"
+          "name": "Ducha elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "enceradeira",
-          "name": "Enceradeira"
+          "name": "Enceradeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "freezer-vertical",
-          "name": "Freezer vertical"
+          "name": "Freezer vertical",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "frigobar",
-          "name": "Frigobar"
+          "name": "Frigobar",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "limpadora-a-vapor",
-          "name": "Limpadora a vapor"
+          "name": "Limpadora a vapor",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "limpadora-de-carpete",
-          "name": "Limpadora de carpete"
+          "name": "Limpadora de carpete",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "maquina-de-lava-e-seca",
-          "name": "Máquina de lava e seca"
+          "name": "Máquina de lava e seca",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "maquina-de-lavar-louca",
-          "name": "Máquina de lavar louça"
+          "name": "Máquina de lavar louça",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "maquina-de-lavar-roupa",
-          "name": "Máquina de lavar roupa"
+          "name": "Máquina de lavar roupa",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "maquina-de-lavar-roupa-semiautomatica",
-          "name": "Máquina de lavar roupa semiautomática"
+          "name": "Máquina de lavar roupa semiautomática",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
-          "name": "Máquina de secar (secadora de roupas ou centrífuga)"
+          "name": "Máquina de secar (secadora de roupas ou centrífuga)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "refrigerador",
-          "name": "Refrigerador"
+          "name": "Refrigerador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "resistencias-eletricas-ou-eletronicas",
-          "name": "Resistências elétricas ou eletrônicas"
+          "name": "Resistências elétricas ou eletrônicas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "torneira-eletrica",
-          "name": "Torneira elétrica"
+          "name": "Torneira elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "umidificador",
-          "name": "Umidificador"
+          "name": "Umidificador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "ventilador-de-coluna",
-          "name": "Ventilador de coluna"
+          "name": "Ventilador de coluna",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "ventilador-de-mesa",
-          "name": "Ventilador de mesa"
+          "name": "Ventilador de mesa",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         },
         {
           "id": "ventilador-de-teto",
-          "name": "Ventilador de teto"
+          "name": "Ventilador de teto",
+          "description": "Equipamento elétrico ou eletrônico relacionado a eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização..",
+          "guidance": {
+            "preparation": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
+            "care": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
-        "tip": "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
-        "step": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
-      }
+      ]
     },
     {
       "id": "informatica",
       "name": "Informática e componentes",
+      "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
       "emoji": "💻",
+      "shortcuts": [
+        {
+          "id": "computadores-perifericos",
+          "name": "Computadores e periféricos",
+          "emoji": "💻",
+          "description": "Computadores de mesa, notebooks, tablets, teclados, mouses e componentes.",
+          "itemIds": [
+            "computador-all-in-one",
+            "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
+            "computador-portatil-notepad",
+            "computadores-portateis-laptop-netbook-e-notebook",
+            "cpu-central-process-unit",
+            "desktop-sem-monitor-computador-pessoal",
+            "fonte-universal-para-notebook",
+            "microcomputador",
+            "minicomputador",
+            "mouse",
+            "tablet",
+            "teclado",
+            "equipamento-informatico-pessoal-e-reader",
+            "teclado-instrumento-musical"
+          ]
+        },
+        {
+          "id": "impressoras-scanners",
+          "name": "Impressoras e scanners",
+          "emoji": "🖨️",
+          "description": "Impressoras, multifuncionais, scanners, copiadoras e equipamentos semelhantes.",
+          "itemIds": [
+            "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
+            "impressora-multifuncional",
+            "scanner",
+            "telecopiadora-fax",
+            "cartucho-de-tinta-ou-toner",
+            "copiadora",
+            "etiquetadora-e-rotulador-eletronico",
+            "fragmentadora-de-papel"
+          ]
+        },
+        {
+          "id": "cabos-carregadores",
+          "name": "Cabos e carregadores",
+          "emoji": "🔌",
+          "description": "Cabos, conectores, carregadores, fontes, adaptadores e baterias externas.",
+          "itemIds": [
+            "adaptador-wireless-usb-universal-serial-bus",
+            "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
+            "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
+            "carregador-portatil-usb",
+            "carregadores-em-geral-power-bank-de-uso-domestico",
+            "conversor-de-corrente-continua-de-uso-domestico",
+            "fonte-universal-para-notebook",
+            "hub-concentrador",
+            "bateria-externa"
+          ]
+        },
+        {
+          "id": "televisores-monitores",
+          "name": "Televisores e monitores",
+          "emoji": "📺",
+          "description": "Televisores, monitores, projetores e telas de equipamentos eletrônicos.",
+          "itemIds": [
+            "monitores-em-geral",
+            "aparelho-de-televisao",
+            "oculos-3d",
+            "projetor-de-video",
+            "tela-de-projecao"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "adaptador-wireless-usb-universal-serial-bus",
-          "name": "Adaptador wireless USB - Universal Serial Bus"
+          "name": "Adaptador wireless USB - Universal Serial Bus",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
-          "name": "Adaptadores em geral (excluídos os adaptadores utilizados para instalação elétrica predial)"
+          "name": "Adaptadores em geral (excluídos os adaptadores utilizados para instalação elétrica predial)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
-          "name": "Cabos e conectores em geral (excluídos fios e cabos utilizados para instalação elétrica predial)"
+          "name": "Cabos e conectores em geral (excluídos fios e cabos utilizados para instalação elétrica predial)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "carregador-portatil-usb",
-          "name": "Carregador portátil USB"
+          "name": "Carregador portátil USB",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "carregadores-em-geral-power-bank-de-uso-domestico",
-          "name": "Carregadores em geral (power bank) de uso doméstico"
+          "name": "Carregadores em geral (power bank) de uso doméstico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "computador-all-in-one",
-          "name": "Computador all in one"
+          "name": "Computador all in one",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
-          "name": "Computador para ciclismo, mergulho, corrida, remo e outras atividades desportivas"
+          "name": "Computador para ciclismo, mergulho, corrida, remo e outras atividades desportivas",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "computador-portatil-notepad",
-          "name": "Computador portátil (notepad)"
+          "name": "Computador portátil (notepad)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "computadores-portateis-laptop-netbook-e-notebook",
-          "name": "Computadores portáteis (laptop, netbook e notebook)"
+          "name": "Computadores portáteis (laptop, netbook e notebook)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "conversor-de-corrente-continua-de-uso-domestico",
-          "name": "Conversor de corrente contínua (de uso doméstico)"
+          "name": "Conversor de corrente contínua (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "cpu-central-process-unit",
-          "name": "CPU - Central Process Unit"
+          "name": "CPU - Central Process Unit",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "desktop-sem-monitor-computador-pessoal",
-          "name": "Desktop sem monitor (computador pessoal)"
+          "name": "Desktop sem monitor (computador pessoal)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "dispositivo-eletroeletronico-para-armazenagem-ou-transferencia-de-dados-pen-drive-e-cartao-de-memoria",
-          "name": "Dispositivo eletroeletrônico para armazenagem ou transferência de dados (pen drive e cartão de memória)"
+          "name": "Dispositivo eletroeletrônico para armazenagem ou transferência de dados (pen drive e cartão de memória)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "dock-station",
-          "name": "Dock station"
+          "name": "Dock station",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "estabilizador-e-regulador-de-tensao",
-          "name": "Estabilizador e regulador de tensão"
+          "name": "Estabilizador e regulador de tensão",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "fonte-universal-para-notebook",
-          "name": "Fonte universal para notebook"
+          "name": "Fonte universal para notebook",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "hdd-external-hard-drive",
-          "name": "HDD - External Hard Drive"
+          "name": "HDD - External Hard Drive",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "hub-concentrador",
-          "name": "Hub (concentrador)"
+          "name": "Hub (concentrador)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
-          "name": "Impressora de uso doméstico (matricial, laser ou jato de tinta)"
+          "name": "Impressora de uso doméstico (matricial, laser ou jato de tinta)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "impressora-multifuncional",
-          "name": "Impressora multifuncional"
+          "name": "Impressora multifuncional",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "microcomputador",
-          "name": "Microcomputador"
+          "name": "Microcomputador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "minicomputador",
-          "name": "Minicomputador"
+          "name": "Minicomputador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "modem",
-          "name": "Modem"
+          "name": "Modem",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet",
-          "name": "Módulo de gerenciamento e processamento de dados (switch de rede de internet)"
+          "name": "Módulo de gerenciamento e processamento de dados (switch de rede de internet)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "monitores-em-geral",
-          "name": "Monitores em geral"
+          "name": "Monitores em geral",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "mouse",
-          "name": "Mouse"
+          "name": "Mouse",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "nobreaks",
-          "name": "Nobreaks"
+          "name": "Nobreaks",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "odd-external-optical-drive",
-          "name": "ODD - External Optical Drive"
+          "name": "ODD - External Optical Drive",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "painel-fotovoltaico",
-          "name": "Painel fotovoltaico"
+          "name": "Painel fotovoltaico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "produto-ou-equipamento-para-coletar-armazenar-tratar-apresentar-ou-comunicar-informacoes-por-via-eletronica",
-          "name": "Produto ou equipamento para coletar, armazenar, tratar, apresentar ou comunicar informações por via eletrônica"
+          "name": "Produto ou equipamento para coletar, armazenar, tratar, apresentar ou comunicar informações por via eletrônica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "protetor-de-linha-filtro-de-linha",
-          "name": "Protetor de linha / filtro de linha"
+          "name": "Protetor de linha / filtro de linha",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "roteador",
-          "name": "Roteador"
+          "name": "Roteador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "scanner",
-          "name": "Scanner"
+          "name": "Scanner",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "string-box",
-          "name": "String box"
+          "name": "String box",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "tablet",
-          "name": "Tablet"
+          "name": "Tablet",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "teclado",
-          "name": "Teclado"
+          "name": "Teclado",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "telecopiadora-fax",
-          "name": "Telecopiadora (fax)"
+          "name": "Telecopiadora (fax)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "variador-de-luminosidade-dimmer",
-          "name": "Variador de luminosidade (dimmer)"
+          "name": "Variador de luminosidade (dimmer)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         },
         {
           "id": "variador-de-ventilador",
-          "name": "Variador de ventilador"
+          "name": "Variador de ventilador",
+          "description": "Equipamento elétrico ou eletrônico relacionado a computadores, periféricos, componentes, cabos, fontes e acessórios de informática..",
+          "guidance": {
+            "preparation": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
+            "care": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
-        "tip": "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
-        "step": "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
-      }
+      ]
     },
     {
       "id": "audio-video",
       "name": "Imagem, áudio e vídeo",
+      "description": "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
       "emoji": "📺",
+      "shortcuts": [
+        {
+          "id": "televisores-monitores",
+          "name": "Televisores e monitores",
+          "emoji": "📺",
+          "description": "Televisores, monitores, projetores e telas de equipamentos eletrônicos.",
+          "itemIds": [
+            "monitores-em-geral",
+            "aparelho-de-televisao",
+            "oculos-3d",
+            "projetor-de-video",
+            "tela-de-projecao"
+          ]
+        },
+        {
+          "id": "audio-video",
+          "name": "Áudio e vídeo",
+          "emoji": "🎧",
+          "description": "Rádios, caixas de som, fones, câmeras, amplificadores e reprodutores de mídia.",
+          "itemIds": [
+            "amplificador-de-audio-de-uso-domestico",
+            "antena-digital",
+            "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
+            "aparelho-de-televisao",
+            "autofalante",
+            "autorradio",
+            "blu-ray-player",
+            "caixa-de-som",
+            "camera-de-seguranca-de-uso-domestico",
+            "camera-de-video",
+            "camera-fotografica-digital",
+            "controle-remoto",
+            "conversor-digital-de-uso-domestico",
+            "dvd-digital-versatile-disc-player",
+            "fone-de-ouvido",
+            "gravador-digital-video-recorder-dvr-de-uso-domestico",
+            "gravador-de-audio-de-uso-domestico",
+            "gravador-de-video-de-uso-domestico",
+            "headset",
+            "home-theater",
+            "kit-de-controle-remoto",
+            "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
+            "oculos-3d",
+            "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
+            "projetor-de-video",
+            "radio-portatil",
+            "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
+            "tela-de-projecao",
+            "transmissor-e-receptor-bluetooth"
+          ]
+        },
+        {
+          "id": "videogames",
+          "name": "Videogames",
+          "emoji": "🎮",
+          "description": "Consoles, controles, jogos e acessórios de videogame.",
+          "itemIds": [
+            "aparelho-de-videogame",
+            "cartucho-de-videogame",
+            "console-de-videogame-portatil",
+            "jogo-de-videogame"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "amplificador-de-audio-de-uso-domestico",
-          "name": "Amplificador de áudio (de uso doméstico)"
+          "name": "Amplificador de áudio (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "antena-digital",
-          "name": "Antena digital"
+          "name": "Antena digital",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
-          "name": "Aparelho de rádio e sistemas de som (de uso doméstico)"
+          "name": "Aparelho de rádio e sistemas de som (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "aparelho-de-televisao",
-          "name": "Aparelho de televisão"
+          "name": "Aparelho de televisão",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "aparelho-de-videogame",
-          "name": "Aparelho de videogame"
+          "name": "Aparelho de videogame",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "autofalante",
-          "name": "Autofalante"
+          "name": "Autofalante",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "autorradio",
-          "name": "Autorrádio"
+          "name": "Autorrádio",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "blu-ray-player",
-          "name": "Blu-ray player"
+          "name": "Blu-ray player",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "caixa-de-som",
-          "name": "Caixa de som"
+          "name": "Caixa de som",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "camera-de-seguranca-de-uso-domestico",
-          "name": "Câmera de segurança (de uso doméstico)"
+          "name": "Câmera de segurança (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "camera-de-video",
-          "name": "Câmera de vídeo"
+          "name": "Câmera de vídeo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "camera-fotografica-digital",
-          "name": "Câmera fotográfica digital"
+          "name": "Câmera fotográfica digital",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "cartucho-de-videogame",
-          "name": "Cartucho de videogame"
+          "name": "Cartucho de videogame",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "console-de-videogame-portatil",
-          "name": "Console de videogame portátil"
+          "name": "Console de videogame portátil",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "controle-remoto",
-          "name": "Controle remoto"
+          "name": "Controle remoto",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "conversor-digital-de-uso-domestico",
-          "name": "Conversor digital (de uso doméstico)"
+          "name": "Conversor digital (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "dvd-digital-versatile-disc-player",
-          "name": "DVD - Digital Versatile Disc player"
+          "name": "DVD - Digital Versatile Disc player",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "fone-de-ouvido",
-          "name": "Fone de ouvido"
+          "name": "Fone de ouvido",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "gravador-digital-video-recorder-dvr-de-uso-domestico",
-          "name": "Gravador (Digital Video Recorder - DVR) de uso doméstico"
+          "name": "Gravador (Digital Video Recorder - DVR) de uso doméstico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "gravador-de-audio-de-uso-domestico",
-          "name": "Gravador de áudio (de uso doméstico)"
+          "name": "Gravador de áudio (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "gravador-de-video-de-uso-domestico",
-          "name": "Gravador de vídeo (de uso doméstico)"
+          "name": "Gravador de vídeo (de uso doméstico)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "headset",
-          "name": "Headset"
+          "name": "Headset",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "home-theater",
-          "name": "Home theater"
+          "name": "Home theater",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "jogo-de-videogame",
-          "name": "Jogo de videogame"
+          "name": "Jogo de videogame",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "kit-de-controle-remoto",
-          "name": "Kit de controle remoto"
+          "name": "Kit de controle remoto",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
-          "name": "Mídias utilizadas em equipamentos eletroeletrônicos (CD, DVD, VHS, cassete e disquete)"
+          "name": "Mídias utilizadas em equipamentos eletroeletrônicos (CD, DVD, VHS, cassete e disquete)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "oculos-3d",
-          "name": "Óculos 3D"
+          "name": "Óculos 3D",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
-          "name": "Produto ou equipamento de uso doméstico para transmitir som, imagem ou outras informações por telecomunicação"
+          "name": "Produto ou equipamento de uso doméstico para transmitir som, imagem ou outras informações por telecomunicação",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "projetor-de-video",
-          "name": "Projetor de vídeo"
+          "name": "Projetor de vídeo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "radio-portatil",
-          "name": "Rádio portátil"
+          "name": "Rádio portátil",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
-          "name": "Reprodutor de mídia (aparelho de reprodução e gravação de som ou VHS)"
+          "name": "Reprodutor de mídia (aparelho de reprodução e gravação de som ou VHS)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "tela-de-projecao",
-          "name": "Tela de projeção"
+          "name": "Tela de projeção",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         },
         {
           "id": "transmissor-e-receptor-bluetooth",
-          "name": "Transmissor e receptor bluetooth"
+          "name": "Transmissor e receptor bluetooth",
+          "description": "Equipamento elétrico ou eletrônico relacionado a televisores, monitores, equipamentos de som, vídeo e acessórios..",
+          "guidance": {
+            "preparation": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
+            "care": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
-        "tip": "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
-        "step": "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
-      }
+      ]
     },
     {
       "id": "telefonia",
       "name": "Telefonia e comunicação",
+      "description": "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
       "emoji": "📱",
+      "shortcuts": [
+        {
+          "id": "celulares-smartphones",
+          "name": "Celulares e smartphones",
+          "emoji": "📱",
+          "description": "Celulares, smartphones, telefones móveis e acessórios de comunicação pessoal.",
+          "itemIds": [
+            "camera-externa-de-telefone-celular",
+            "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
+            "relogio-smart",
+            "telefone-celular"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "atendedor-automatico-secretaria-eletronica",
-          "name": "Atendedor automático (secretária eletrônica)"
+          "name": "Atendedor automático (secretária eletrônica)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "baba-eletronica",
-          "name": "Babá eletrônica"
+          "name": "Babá eletrônica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "camera-externa-de-telefone-celular",
-          "name": "Câmera externa de telefone celular"
+          "name": "Câmera externa de telefone celular",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "campainha-cigarra-eletronica",
-          "name": "Campainha cigarra eletrônica"
+          "name": "Campainha cigarra eletrônica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "campainha-eletronica",
-          "name": "Campainha eletrônica"
+          "name": "Campainha eletrônica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
-          "name": "Celular portátil (com capa traseira com bateria ou placa de circuito impresso)"
+          "name": "Celular portátil (com capa traseira com bateria ou placa de circuito impresso)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo",
-          "name": "Relógio (de sala, de pulso ou de mesa) e aparelho para medir, indicar ou registrar o tempo"
+          "name": "Relógio (de sala, de pulso ou de mesa) e aparelho para medir, indicar ou registrar o tempo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "relogio-smart",
-          "name": "Relógio smart"
+          "name": "Relógio smart",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "telefone",
-          "name": "Telefone"
+          "name": "Telefone",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "telefone-celular",
-          "name": "Telefone celular"
+          "name": "Telefone celular",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "telefone-rural-gsm",
-          "name": "Telefone rural GSM"
+          "name": "Telefone rural GSM",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "telefone-sem-fio",
-          "name": "Telefone sem fio"
+          "name": "Telefone sem fio",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         },
         {
           "id": "telex",
-          "name": "Telex"
+          "name": "Telex",
+          "description": "Equipamento elétrico ou eletrônico relacionado a telefones, aparelhos de comunicação, sinalização e acessórios relacionados..",
+          "guidance": {
+            "preparation": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
+            "care": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
-        "tip": "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
-        "step": "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
-      }
+      ]
     },
     {
       "id": "pessoal",
       "name": "Cuidados pessoais e vestuário",
+      "description": "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
       "emoji": "🪒",
+      "shortcuts": [
+        {
+          "id": "lavadoras-roupas",
+          "name": "Lavadoras e cuidados com roupas",
+          "emoji": "🧺",
+          "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
+          "itemIds": [
+            "maquina-de-lava-e-seca",
+            "maquina-de-lavar-louca",
+            "maquina-de-lavar-roupa",
+            "maquina-de-lavar-roupa-semiautomatica",
+            "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
+            "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+            "ferro-de-engomar",
+            "passadeira-a-vapor",
+            "vaporizador-de-roupa",
+            "maquina-de-costura"
+          ]
+        },
+        {
+          "id": "cuidados-pessoais",
+          "name": "Cuidados pessoais",
+          "emoji": "🪒",
+          "description": "Barbeadores, depiladores, secadores, escovas elétricas e aparelhos de cuidado corporal.",
+          "itemIds": [
+            "aparador-de-barba",
+            "aparelho-de-barbear",
+            "aparelho-de-depilar-e-aparar-pelos",
+            "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
+            "aparelho-para-cortar-o-cabelo",
+            "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+            "balanca",
+            "escova-de-dente-eletrica-airfloss",
+            "escova-modeladora",
+            "extrator-de-leite-eletrico",
+            "ferro-de-engomar",
+            "passadeira-a-vapor",
+            "prancha-de-cabelo",
+            "secador-de-cabelo",
+            "vaporizador-de-roupa"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "aparador-de-barba",
-          "name": "Aparador de barba"
+          "name": "Aparador de barba",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "aparelho-de-barbear",
-          "name": "Aparelho de barbear"
+          "name": "Aparelho de barbear",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "aparelho-de-depilar-e-aparar-pelos",
-          "name": "Aparelho de depilar e aparar pelos"
+          "name": "Aparelho de depilar e aparar pelos",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
-          "name": "Aparelho de massagem e outros aparelhos para o cuidado do corpo"
+          "name": "Aparelho de massagem e outros aparelhos para o cuidado do corpo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "aparelho-para-cortar-o-cabelo",
-          "name": "Aparelho para cortar o cabelo"
+          "name": "Aparelho para cortar o cabelo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
-          "name": "Aparelho para engomar, alisar e tratar o vestuário"
+          "name": "Aparelho para engomar, alisar e tratar o vestuário",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "balanca",
-          "name": "Balança"
+          "name": "Balança",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "escova-de-dente-eletrica-airfloss",
-          "name": "Escova de dente elétrica (airfloss)"
+          "name": "Escova de dente elétrica (airfloss)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "escova-modeladora",
-          "name": "Escova modeladora"
+          "name": "Escova modeladora",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "extrator-de-leite-eletrico",
-          "name": "Extrator de leite elétrico"
+          "name": "Extrator de leite elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "ferro-de-engomar",
-          "name": "Ferro de engomar"
+          "name": "Ferro de engomar",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "passadeira-a-vapor",
-          "name": "Passadeira a vapor"
+          "name": "Passadeira a vapor",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "prancha-de-cabelo",
-          "name": "Prancha de cabelo"
+          "name": "Prancha de cabelo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "secador-de-cabelo",
-          "name": "Secador de cabelo"
+          "name": "Secador de cabelo",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         },
         {
           "id": "vaporizador-de-roupa",
-          "name": "Vaporizador de roupa"
+          "name": "Vaporizador de roupa",
+          "description": "Equipamento elétrico ou eletrônico relacionado a aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário..",
+          "guidance": {
+            "preparation": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
+            "care": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
-        "tip": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
-        "step": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
-      }
+      ]
     },
     {
       "id": "ferramentas-jardim",
       "name": "Ferramentas e jardinagem",
+      "description": "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
       "emoji": "🛠️",
+      "shortcuts": [
+        {
+          "id": "limpeza-domestica",
+          "name": "Limpeza doméstica",
+          "emoji": "🧹",
+          "description": "Aspiradores e equipamentos elétricos usados na limpeza de ambientes e superfícies.",
+          "itemIds": [
+            "aspirador",
+            "aspirador-de-janela",
+            "enceradeira",
+            "limpadora-a-vapor",
+            "limpadora-de-carpete",
+            "lavadora-de-jato-de-agua"
+          ]
+        },
+        {
+          "id": "ferramentas-eletricas",
+          "name": "Ferramentas elétricas",
+          "emoji": "🛠️",
+          "description": "Furadeiras, parafusadeiras, serras, lixadeiras e outras ferramentas elétricas.",
+          "itemIds": [
+            "esmerilhadeira",
+            "furadeira",
+            "lanterna-eletrica",
+            "lixadeira",
+            "parafusadeira",
+            "pistola-aplicadora-de-cola",
+            "serra-eletrica"
+          ]
+        },
+        {
+          "id": "jardim-area-externa",
+          "name": "Jardim e área externa",
+          "emoji": "🌱",
+          "description": "Aparadores de grama, podadores, bombas e equipamentos elétricos de jardinagem.",
+          "itemIds": [
+            "aparador-de-grama",
+            "bomba-de-jardim",
+            "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
+            "podador-de-cerca-viva",
+            "pulverizador-eletrico"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "aparador-de-grama",
-          "name": "Aparador de grama"
+          "name": "Aparador de grama",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "bomba-de-jardim",
-          "name": "Bomba de jardim"
+          "name": "Bomba de jardim",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "esmerilhadeira",
-          "name": "Esmerilhadeira"
+          "name": "Esmerilhadeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
-          "name": "Ferramenta para cortar relva ou para outra atividade de jardinagem"
+          "name": "Ferramenta para cortar relva ou para outra atividade de jardinagem",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "furadeira",
-          "name": "Furadeira"
+          "name": "Furadeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "lanterna-eletrica",
-          "name": "Lanterna elétrica"
+          "name": "Lanterna elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "lavadora-de-jato-de-agua",
-          "name": "Lavadora de jato de água"
+          "name": "Lavadora de jato de água",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "lixadeira",
-          "name": "Lixadeira"
+          "name": "Lixadeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "parafusadeira",
-          "name": "Parafusadeira"
+          "name": "Parafusadeira",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "pistola-aplicadora-de-cola",
-          "name": "Pistola aplicadora de cola"
+          "name": "Pistola aplicadora de cola",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "podador-de-cerca-viva",
-          "name": "Podador de cerca viva"
+          "name": "Podador de cerca viva",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "pulverizador-eletrico",
-          "name": "Pulverizador elétrico"
+          "name": "Pulverizador elétrico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         },
         {
           "id": "serra-eletrica",
-          "name": "Serra elétrica"
+          "name": "Serra elétrica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a ferramentas elétricas, equipamentos de oficina, jardinagem e área externa..",
+          "guidance": {
+            "preparation": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
+            "care": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
-        "tip": "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
-        "step": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
-      }
+      ]
     },
     {
       "id": "lazer-outros",
       "name": "Lazer, esporte e outros",
+      "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
       "emoji": "🎮",
+      "shortcuts": [
+        {
+          "id": "impressoras-scanners",
+          "name": "Impressoras e scanners",
+          "emoji": "🖨️",
+          "description": "Impressoras, multifuncionais, scanners, copiadoras e equipamentos semelhantes.",
+          "itemIds": [
+            "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
+            "impressora-multifuncional",
+            "scanner",
+            "telecopiadora-fax",
+            "cartucho-de-tinta-ou-toner",
+            "copiadora",
+            "etiquetadora-e-rotulador-eletronico",
+            "fragmentadora-de-papel"
+          ]
+        },
+        {
+          "id": "lavadoras-roupas",
+          "name": "Lavadoras e cuidados com roupas",
+          "emoji": "🧺",
+          "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
+          "itemIds": [
+            "maquina-de-lava-e-seca",
+            "maquina-de-lavar-louca",
+            "maquina-de-lavar-roupa",
+            "maquina-de-lavar-roupa-semiautomatica",
+            "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
+            "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
+            "ferro-de-engomar",
+            "passadeira-a-vapor",
+            "vaporizador-de-roupa",
+            "maquina-de-costura"
+          ]
+        }
+      ],
       "items": [
         {
           "id": "bateria-externa",
-          "name": "Bateria externa"
+          "name": "Bateria externa",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "brinquedo-eletrico-ou-eletronico",
-          "name": "Brinquedo elétrico ou eletrônico"
+          "name": "Brinquedo elétrico ou eletrônico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "calculadora-com-bobina",
-          "name": "Calculadora com bobina"
+          "name": "Calculadora com bobina",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "calculadora-de-bolso-e-de-mesa",
-          "name": "Calculadora de bolso e de mesa"
+          "name": "Calculadora de bolso e de mesa",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "cartucho-de-tinta-ou-toner",
-          "name": "Cartucho de tinta ou toner"
+          "name": "Cartucho de tinta ou toner",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "copiadora",
-          "name": "Copiadora"
+          "name": "Copiadora",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "equipamento-desportivo-com-componente-eletrico-ou-eletronico",
-          "name": "Equipamento desportivo com componente elétrico ou eletrônico"
+          "name": "Equipamento desportivo com componente elétrico ou eletrônico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "equipamento-informatico-pessoal-e-reader",
-          "name": "Equipamento informático pessoal (e-reader)"
+          "name": "Equipamento informático pessoal (e-reader)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "etiquetadora-e-rotulador-eletronico",
-          "name": "Etiquetadora e rotulador eletrônico"
+          "name": "Etiquetadora e rotulador eletrônico",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "fragmentadora-de-papel",
-          "name": "Fragmentadora de papel"
+          "name": "Fragmentadora de papel",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "instrumento-musical",
-          "name": "Instrumento musical"
+          "name": "Instrumento musical",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "maquina-de-costura",
-          "name": "Máquina de costura"
+          "name": "Máquina de costura",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "maquina-de-escrever-eletrica-e-eletronica",
-          "name": "Máquina de escrever elétrica e eletrônica"
+          "name": "Máquina de escrever elétrica e eletrônica",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "piano",
-          "name": "Piano"
+          "name": "Piano",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         },
         {
           "id": "teclado-instrumento-musical",
-          "name": "Teclado (instrumento musical)"
+          "name": "Teclado (instrumento musical)",
+          "description": "Equipamento elétrico ou eletrônico relacionado a brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos..",
+          "guidance": {
+            "preparation": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
+            "care": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
+          }
         }
-      ],
-      "guidance": {
-        "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
-        "tip": "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
-        "step": "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
-      }
-    }
-  ],
-  "shortcuts": [
-    {
-      "id": "celulares-smartphones",
-      "name": "Celulares e smartphones",
-      "emoji": "📱",
-      "categoryIds": [
-        "telefonia"
-      ],
-      "description": "Celulares, smartphones, telefones móveis e acessórios de comunicação pessoal.",
-      "tip": "Apague os dados pessoais, encerre as contas e remova chip e cartão de memória quando existirem.",
-      "step": "Retire chips e cartões removíveis. Não force a abertura de aparelhos selados nem remova baterias internas.",
-      "itemIds": [
-        "camera-externa-de-telefone-celular",
-        "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
-        "relogio-smart",
-        "telefone-celular"
-      ]
-    },
-    {
-      "id": "computadores-perifericos",
-      "name": "Computadores e periféricos",
-      "emoji": "💻",
-      "categoryIds": [
-        "informatica"
-      ],
-      "description": "Computadores de mesa, notebooks, tablets, teclados, mouses e componentes.",
-      "tip": "Faça backup, encerre sessões e apague os dados pessoais antes da entrega.",
-      "step": "Remova mídias e acessórios externos. Não abra fontes, baterias ou componentes internos.",
-      "itemIds": [
-        "computador-all-in-one",
-        "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
-        "computador-portatil-notepad",
-        "computadores-portateis-laptop-netbook-e-notebook",
-        "cpu-central-process-unit",
-        "desktop-sem-monitor-computador-pessoal",
-        "fonte-universal-para-notebook",
-        "microcomputador",
-        "minicomputador",
-        "mouse",
-        "tablet",
-        "teclado",
-        "equipamento-informatico-pessoal-e-reader",
-        "teclado-instrumento-musical"
-      ]
-    },
-    {
-      "id": "impressoras-scanners",
-      "name": "Impressoras e scanners",
-      "emoji": "🖨️",
-      "categoryIds": [
-        "informatica",
-        "lazer-outros"
-      ],
-      "description": "Impressoras, multifuncionais, scanners, copiadoras e equipamentos semelhantes.",
-      "tip": "Retire papéis e documentos. Confirme se o ponto recebe equipamentos de maior porte.",
-      "step": "Não descarte cartuchos ou toners junto com o aparelho sem verificar a orientação do ponto.",
-      "itemIds": [
-        "impressora-de-uso-domestico-matricial-laser-ou-jato-de-tinta",
-        "impressora-multifuncional",
-        "scanner",
-        "telecopiadora-fax",
-        "cartucho-de-tinta-ou-toner",
-        "copiadora",
-        "etiquetadora-e-rotulador-eletronico",
-        "fragmentadora-de-papel"
-      ]
-    },
-    {
-      "id": "cabos-carregadores",
-      "name": "Cabos e carregadores",
-      "emoji": "🔌",
-      "categoryIds": [
-        "informatica"
-      ],
-      "description": "Cabos, conectores, carregadores, fontes, adaptadores e baterias externas.",
-      "tip": "Agrupe os acessórios e evite transportar cabos danificados soltos.",
-      "step": "Não corte cabos nem abra carregadores. Proteja terminais e conectores durante o transporte.",
-      "itemIds": [
-        "adaptador-wireless-usb-universal-serial-bus",
-        "adaptadores-em-geral-excluidos-os-adaptadores-utilizados-para-instalacao-eletrica-predial",
-        "cabos-e-conectores-em-geral-excluidos-fios-e-cabos-utilizados-para-instalacao-eletrica-predial",
-        "carregador-portatil-usb",
-        "carregadores-em-geral-power-bank-de-uso-domestico",
-        "conversor-de-corrente-continua-de-uso-domestico",
-        "fonte-universal-para-notebook",
-        "hub-concentrador",
-        "bateria-externa"
-      ]
-    },
-    {
-      "id": "televisores-monitores",
-      "name": "Televisores e monitores",
-      "emoji": "📺",
-      "categoryIds": [
-        "audio-video",
-        "informatica"
-      ],
-      "description": "Televisores, monitores, projetores e telas de equipamentos eletrônicos.",
-      "tip": "Proteja telas e partes frágeis contra impactos e confirme os limites de tamanho do ponto.",
-      "step": "Transporte o equipamento sem pressionar a tela e confirme previamente a aceitação de itens volumosos.",
-      "itemIds": [
-        "monitores-em-geral",
-        "aparelho-de-televisao",
-        "oculos-3d",
-        "projetor-de-video",
-        "tela-de-projecao"
-      ]
-    },
-    {
-      "id": "audio-video",
-      "name": "Áudio e vídeo",
-      "emoji": "🎧",
-      "categoryIds": [
-        "audio-video"
-      ],
-      "description": "Rádios, caixas de som, fones, câmeras, amplificadores e reprodutores de mídia.",
-      "tip": "Separe controles e cabos e encerre contas em aparelhos inteligentes quando aplicável.",
-      "step": "Proteja lentes, telas e conectores. Retire mídias removíveis quando houver.",
-      "itemIds": [
-        "amplificador-de-audio-de-uso-domestico",
-        "antena-digital",
-        "aparelho-de-radio-e-sistemas-de-som-de-uso-domestico",
-        "aparelho-de-televisao",
-        "autofalante",
-        "autorradio",
-        "blu-ray-player",
-        "caixa-de-som",
-        "camera-de-seguranca-de-uso-domestico",
-        "camera-de-video",
-        "camera-fotografica-digital",
-        "controle-remoto",
-        "conversor-digital-de-uso-domestico",
-        "dvd-digital-versatile-disc-player",
-        "fone-de-ouvido",
-        "gravador-digital-video-recorder-dvr-de-uso-domestico",
-        "gravador-de-audio-de-uso-domestico",
-        "gravador-de-video-de-uso-domestico",
-        "headset",
-        "home-theater",
-        "kit-de-controle-remoto",
-        "midias-utilizadas-em-equipamentos-eletroeletronicos-cd-dvd-vhs-cassete-e-disquete",
-        "oculos-3d",
-        "produto-ou-equipamento-de-uso-domestico-para-transmitir-som-imagem-ou-outras-informacoes-por-telecomunicacao",
-        "projetor-de-video",
-        "radio-portatil",
-        "reprodutor-de-midia-aparelho-de-reproducao-e-gravacao-de-som-ou-vhs",
-        "tela-de-projecao",
-        "transmissor-e-receptor-bluetooth"
-      ]
-    },
-    {
-      "id": "videogames",
-      "name": "Videogames",
-      "emoji": "🎮",
-      "categoryIds": [
-        "audio-video"
-      ],
-      "description": "Consoles, controles, jogos e acessórios de videogame.",
-      "tip": "Encerre sessões, remova contas e apague dados pessoais antes da entrega.",
-      "step": "Separe controles, cabos e mídias. Não descarte pilhas ou baterias junto ao console sem orientação.",
-      "itemIds": [
-        "aparelho-de-videogame",
-        "cartucho-de-videogame",
-        "console-de-videogame-portatil",
-        "jogo-de-videogame"
-      ]
-    },
-    {
-      "id": "refrigeradores",
-      "name": "Geladeiras e refrigeradores",
-      "emoji": "🧊",
-      "categoryIds": [
-        "eletrodomesticos",
-        "casa-cozinha"
-      ],
-      "description": "Geladeiras, frigobares, freezers e outros equipamentos de refrigeração doméstica.",
-      "tip": "Consulte opções de coleta para equipamentos volumosos e confirme previamente o recebimento.",
-      "step": "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte com o ponto de recebimento.",
-      "itemIds": [
-        "adega",
-        "cervejeira",
-        "miniadega",
-        "combinacao-de-refrigerador-e-congelador-freezer-munido-de-portas-exteriores-separadas",
-        "freezer-vertical",
-        "frigobar",
-        "refrigerador"
-      ]
-    },
-    {
-      "id": "lavadoras-roupas",
-      "name": "Lavadoras e cuidados com roupas",
-      "emoji": "🧺",
-      "categoryIds": [
-        "eletrodomesticos",
-        "pessoal",
-        "lazer-outros"
-      ],
-      "description": "Máquinas de lavar, secadoras, ferros, passadeiras e aparelhos para tratar roupas.",
-      "tip": "Confirme previamente o recebimento de eletrodomésticos grandes e esvazie reservatórios.",
-      "step": "Desconecte a energia e a água quando aplicável. Não tente desmontar motores ou componentes elétricos.",
-      "itemIds": [
-        "maquina-de-lava-e-seca",
-        "maquina-de-lavar-louca",
-        "maquina-de-lavar-roupa",
-        "maquina-de-lavar-roupa-semiautomatica",
-        "maquina-de-secar-secadora-de-roupas-ou-centrifuga",
-        "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
-        "ferro-de-engomar",
-        "passadeira-a-vapor",
-        "vaporizador-de-roupa",
-        "maquina-de-costura"
-      ]
-    },
-    {
-      "id": "cozinha-preparo",
-      "name": "Cozinha e preparo",
-      "emoji": "🍳",
-      "categoryIds": [
-        "casa-cozinha"
-      ],
-      "description": "Aparelhos usados no preparo, aquecimento e conservação de alimentos e bebidas.",
-      "tip": "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco.",
-      "step": "Retire resíduos e acessórios soltos. Não descarte óleo ou líquidos junto com o equipamento.",
-      "itemIds": [
-        "abridor-de-vinho-eletrico",
-        "abridor-eletrico-de-latas",
-        "adega",
-        "aparelho-para-preparacao-de-cafe-ou-cha",
-        "batedeira",
-        "bebedouro-refrigerado",
-        "blender",
-        "bule-eletrico",
-        "cafeteira",
-        "centrifuga-de-suco",
-        "cervejeira",
-        "chaleira-eletrica",
-        "chapa-grill",
-        "churrasqueira-a-gas",
-        "churrasqueira-eletrica-ou-eletronica",
-        "cooktop-eletrico-e-a-gas",
-        "crepeira",
-        "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
-        "espremedor-de-frutas",
-        "faca-eletrica",
-        "fechador-eletrico-de-latas",
-        "fogao",
-        "fogao-eletrico",
-        "forno-eletrico",
-        "fritadeira",
-        "liquidificador",
-        "maquina-de-algodao-doce",
-        "maquina-de-cafe",
-        "maquina-de-cupcake",
-        "maquina-de-pao-panificadora",
-        "maquina-de-sorvete",
-        "maquina-de-waffle",
-        "micro-ondas",
-        "miniadega",
-        "miniforno",
-        "miniprocessador-com-uma-ou-mais-funcoes",
-        "mixer",
-        "moedor-de-cafe",
-        "moedor-de-graos",
-        "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
-        "multifatiador",
-        "omeleteira",
-        "panela-de-arroz",
-        "panela-de-pressao-eletrica",
-        "panela-eletrica",
-        "panquequeira",
-        "pia-fogao",
-        "pipoqueira",
-        "processador-de-alimentos",
-        "purificador-de-agua",
-        "sanduicheira",
-        "torradeira",
-        "triturador"
-      ]
-    },
-    {
-      "id": "limpeza-domestica",
-      "name": "Limpeza doméstica",
-      "emoji": "🧹",
-      "categoryIds": [
-        "eletrodomesticos",
-        "ferramentas-jardim"
-      ],
-      "description": "Aspiradores e equipamentos elétricos usados na limpeza de ambientes e superfícies.",
-      "tip": "Esvazie reservatórios e retire resíduos soltos antes da entrega.",
-      "step": "Desconecte da energia e acondicione acessórios separadamente. Não tente desmontar o motor.",
-      "itemIds": [
-        "aspirador",
-        "aspirador-de-janela",
-        "enceradeira",
-        "limpadora-a-vapor",
-        "limpadora-de-carpete",
-        "lavadora-de-jato-de-agua"
-      ]
-    },
-    {
-      "id": "ventilacao-climatizacao",
-      "name": "Ventilação e climatização",
-      "emoji": "❄️",
-      "categoryIds": [
-        "eletrodomesticos",
-        "casa-cozinha"
-      ],
-      "description": "Ventiladores, aparelhos de ar-condicionado, aquecedores e climatizadores.",
-      "tip": "Equipamentos grandes podem exigir logística específica. Confirme a aceitação antes do transporte.",
-      "step": "Não corte tubulações nem tente liberar gases refrigerantes. Desconecte o equipamento da energia.",
-      "itemIds": [
-        "aparelho-de-aquecimento-eletrico-para-ambiente",
-        "aparelho-de-ar-condicionado-de-janela",
-        "aparelho-de-ar-condicionado-portatil",
-        "aparelho-de-ar-condicionado-split",
-        "circulador-de-ar",
-        "climatizador-de-ar-eletrico",
-        "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
-        "cortina-de-ar",
-        "depurador-de-ar",
-        "desumidificador-de-ar",
-        "umidificador",
-        "ventilador-de-coluna",
-        "ventilador-de-mesa",
-        "ventilador-de-teto",
-        "variador-de-ventilador"
-      ]
-    },
-    {
-      "id": "cuidados-pessoais",
-      "name": "Cuidados pessoais",
-      "emoji": "🪒",
-      "categoryIds": [
-        "pessoal"
-      ],
-      "description": "Barbeadores, depiladores, secadores, escovas elétricas e aparelhos de cuidado corporal.",
-      "tip": "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes.",
-      "step": "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança.",
-      "itemIds": [
-        "aparador-de-barba",
-        "aparelho-de-barbear",
-        "aparelho-de-depilar-e-aparar-pelos",
-        "aparelho-de-massagem-e-outros-aparelhos-para-o-cuidado-do-corpo",
-        "aparelho-para-cortar-o-cabelo",
-        "aparelho-para-engomar-alisar-e-tratar-o-vestuario",
-        "balanca",
-        "escova-de-dente-eletrica-airfloss",
-        "escova-modeladora",
-        "extrator-de-leite-eletrico",
-        "ferro-de-engomar",
-        "passadeira-a-vapor",
-        "prancha-de-cabelo",
-        "secador-de-cabelo",
-        "vaporizador-de-roupa"
-      ]
-    },
-    {
-      "id": "ferramentas-eletricas",
-      "name": "Ferramentas elétricas",
-      "emoji": "🛠️",
-      "categoryIds": [
-        "ferramentas-jardim"
-      ],
-      "description": "Furadeiras, parafusadeiras, serras, lixadeiras e outras ferramentas elétricas.",
-      "tip": "Desconecte da energia e proteja lâminas, brocas e partes móveis.",
-      "step": "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores.",
-      "itemIds": [
-        "esmerilhadeira",
-        "furadeira",
-        "lanterna-eletrica",
-        "lixadeira",
-        "parafusadeira",
-        "pistola-aplicadora-de-cola",
-        "serra-eletrica"
-      ]
-    },
-    {
-      "id": "jardim-area-externa",
-      "name": "Jardim e área externa",
-      "emoji": "🌱",
-      "categoryIds": [
-        "ferramentas-jardim"
-      ],
-      "description": "Aparadores de grama, podadores, bombas e equipamentos elétricos de jardinagem.",
-      "tip": "Retire resíduos de terra e confirme o porte aceito pelo ponto de coleta.",
-      "step": "Proteja lâminas e partes móveis. Retire baterias apenas quando isso for seguro.",
-      "itemIds": [
-        "aparador-de-grama",
-        "bomba-de-jardim",
-        "ferramenta-para-cortar-relva-ou-para-outra-atividade-de-jardinagem",
-        "podador-de-cerca-viva",
-        "pulverizador-eletrico"
       ]
     }
   ]
