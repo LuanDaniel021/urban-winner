@@ -35,7 +35,7 @@ function getCategoryEquipment(categoryId) {
 
     return [...itemIds].map(id => ({
         id,
-        ...DATA_EQUIPMENT.items[id]
+        ...DATA_EQUIPAMENT.equipaments[id]
     }));
 }
 
@@ -177,7 +177,7 @@ const selectedEquipmentItems = new Map();
         grid.replaceChildren();
         if (catalogMode === "simple") {
             const items = shortcuts.filter(item => {
-                const names = item.itemIds.map(id => DATA_EQUIPMENT.items[id].name);
+                const names = item.itemIds.map(id => DATA_EQUIPAMENT.equipaments[id].name);
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
             items.forEach(item => renderCard(item, categories.find(c => c.id === item.categoryId) || categories[0], true));
@@ -202,7 +202,7 @@ const selectedEquipmentItems = new Map();
 
     function openEquipmentDetail(item, category, simple = false) {
         if (!item || !category) return;
-        const linkedItems = simple ? item.itemIds.map(id => ({id, ...DATA_EQUIPMENT.items[id]})) : [];
+        const linkedItems = simple ? item.itemIds.map(id => ({id, ...DATA_EQUIPAMENT.equipaments[id]})) : [];
         const guidance = item.guidance || {};
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
