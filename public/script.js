@@ -20,28 +20,28 @@ function normalizeText(value) {
 }
 
 const equipmentCatalogPromise = Promise.resolve().then(() => {
-    const catalog = catalogData;
+    const catalog = DATA_CATALOG;
 
     if (
         !Array.isArray(catalog.categoryIds) ||
-        !categoriesData.categories || typeof categoriesData.categories !== "object" || Array.isArray(categoriesData.categories) ||
-        !shortcutsData.shortcuts || typeof shortcutsData.shortcuts !== "object" || Array.isArray(shortcutsData.shortcuts) ||
-        !equipmentData.items || typeof equipmentData.items !== "object" || Array.isArray(equipmentData.items)
+        !DATA_CATEGORIES.categories || typeof DATA_CATEGORIES.categories !== "object" || Array.isArray(DATA_CATEGORIES.categories) ||
+        !DATA_SHORTCUTS.shortcuts || typeof DATA_SHORTCUTS.shortcuts !== "object" || Array.isArray(DATA_SHORTCUTS.shortcuts) ||
+        !DATA_EQUIPMENT.items || typeof DATA_EQUIPMENT.items !== "object" || Array.isArray(DATA_EQUIPMENT.items)
     ) {
         throw new Error("Formato dos dados do catálogo inválido.");
     }
 
     const categoriesById = Object.fromEntries(
-        Object.entries(categoriesData.categories).map(([id, category]) => [
+        Object.entries(DATA_CATEGORIES.categories).map(([id, category]) => [
             id,
             {...category, id, items: [], shortcuts: []}
         ])
     );
     const shortcutsById = Object.fromEntries(
-        Object.entries(shortcutsData.shortcuts).map(([id, shortcut]) => [id, {...shortcut, id}])
+        Object.entries(DATA_SHORTCUTS.shortcuts).map(([id, shortcut]) => [id, {...shortcut, id}])
     );
     const equipmentById = Object.fromEntries(
-        Object.entries(equipmentData.items).map(([id, item]) => [id, {...item, id}])
+        Object.entries(DATA_EQUIPMENT.items).map(([id, item]) => [id, {...item, id}])
     );
 
     catalog.categoryIds.forEach(id => {
@@ -514,7 +514,7 @@ function showFeedback(message) {
         }
     });
 
-    const initial = checklistsData.default?.tasks || [];
+    const initial = DATA_CHECKLISTS.default?.tasks || [];
     tasks.splice(0, tasks.length, ...initial.map(text => ({ text, done: false })));
     renderTasks();
 
@@ -559,7 +559,7 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         openDrawer(pointDrawer);
     }
 
-    collectionPoints = collectionPointsData.points || {};
+    collectionPoints = DATA_COLLECTION_POINTS.points || {};
     Object.entries(collectionPoints).forEach(([id, point]) => {
         const marker = L.marker(point.position).addTo(map);
         marker.bindTooltip(point.name);
@@ -1009,9 +1009,9 @@ function renderDataCards(containerId, records, className) {
     });
 }
 
-renderDataCards("newsGrid", newsData.items || [], "news-card");
-renderDataCards("campaignsGrid", campaignsData.items || [], "social-card");
-renderDataCards("referencesGrid", referencesData.items || [], "reference-card");
+renderDataCards("newsGrid", DATA_NEWS.items || [], "news-card");
+renderDataCards("campaignsGrid", DATA_CAMPAIGNS.items || [], "social-card");
+renderDataCards("referencesGrid", DATA_REFERENCES.items || [], "reference-card");
 //#endregion
 
 })();
