@@ -5,49 +5,91 @@
       "id": "casa-cozinha",
       "name": "Cozinha e preparo de alimentos",
       "description": "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
-      "emoji": "🍳"
+      "emoji": "🍳",
+      "shortcutIds": [
+        "refrigeradores",
+        "cozinha-preparo",
+        "ventilacao-climatizacao"
+      ]
     },
     {
       "id": "eletrodomesticos",
       "name": "Eletrodomésticos e climatização",
       "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
-      "emoji": "🏠"
+      "emoji": "🏠",
+      "shortcutIds": [
+        "refrigeradores",
+        "lavadoras-roupas",
+        "limpeza-domestica",
+        "ventilacao-climatizacao",
+        "outros-eletrodomesticos"
+      ]
     },
     {
       "id": "informatica",
       "name": "Informática e componentes",
       "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
-      "emoji": "💻"
+      "emoji": "💻",
+      "shortcutIds": [
+        "computadores-perifericos",
+        "impressoras-scanners",
+        "cabos-carregadores",
+        "televisores-monitores",
+        "outros-informatica"
+      ]
     },
     {
       "id": "audio-video",
       "name": "Imagem, áudio e vídeo",
       "description": "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
-      "emoji": "📺"
+      "emoji": "📺",
+      "shortcutIds": [
+        "televisores-monitores",
+        "audio-video",
+        "videogames"
+      ]
     },
     {
       "id": "telefonia",
       "name": "Telefonia e comunicação",
       "description": "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
-      "emoji": "📱"
+      "emoji": "📱",
+      "shortcutIds": [
+        "celulares-smartphones",
+        "outros-telefonia"
+      ]
     },
     {
       "id": "pessoal",
       "name": "Cuidados pessoais e vestuário",
       "description": "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
-      "emoji": "🪒"
+      "emoji": "🪒",
+      "shortcutIds": [
+        "lavadoras-roupas",
+        "cuidados-pessoais"
+      ]
     },
     {
       "id": "ferramentas-jardim",
       "name": "Ferramentas e jardinagem",
       "description": "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
-      "emoji": "🛠️"
+      "emoji": "🛠️",
+      "shortcutIds": [
+        "limpeza-domestica",
+        "ferramentas-eletricas",
+        "jardim-area-externa"
+      ]
     },
     {
       "id": "lazer-outros",
       "name": "Lazer, esporte e outros",
       "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
-      "emoji": "🎮"
+      "emoji": "🎮",
+      "shortcutIds": [
+        "impressoras-scanners",
+        "lavadoras-roupas",
+        "outros-lazer-outros"
+      ]
     }
   ]
 }
