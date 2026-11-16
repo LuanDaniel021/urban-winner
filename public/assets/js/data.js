@@ -13,7 +13,7 @@ const DATA_READY = Promise.all(
 
         DATA_CATALOG           = data["catalog.json"];
         DATA_CATEGORIES        = data["categories.json"];
-        DATA_SHORTCUTS         = data["shortcuts.json"];
+        DATA_SUBCATEGORIES         = data["subcategories.json"];
         DATA_EQUIPAMENT        = data["equipment.json"];
         DATA_COLLECTION_POINTS = data["collection-points.json"];
         DATA_CHECKLISTS        = data["checklists.json"];
