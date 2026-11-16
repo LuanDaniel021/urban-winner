@@ -3096,3 +3096,21 @@ main > section[id],
     #equipmentGrid { grid-template-columns: 1fr; max-height: 62vh; }
     .catalog-toolbar .filter { font-size: .72rem; padding: 8px 10px; }
 }
+
+
+/* CATÁLOGO SELECIONÁVEL */
+.catalog-status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+.catalog-status-row .catalog-result-count{margin:0}
+.catalog-selection-count{color:var(--green);font-size:.8rem;font-weight:700;white-space:nowrap}
+#equipmentGrid .equipment-card{position:relative;width:100%;padding:15px;color:var(--text);text-align:left;cursor:pointer;transition:border-color .18s,background .18s,box-shadow .18s,transform .18s}
+#equipmentGrid .equipment-card:hover{border-color:var(--green);background:#f8fcf9;transform:translateY(-2px)}
+#equipmentGrid .equipment-card.selected{border-color:var(--green);background:#eff8f2;box-shadow:inset 0 0 0 1px var(--green)}
+#equipmentGrid .equipment-card-main{display:flex;align-items:center;gap:10px}
+#equipmentGrid .equipment-card-indicator{display:grid;place-items:center;flex:0 0 23px;width:23px;height:23px;margin-left:auto;border:1px solid #cbd8d0;border-radius:50%;color:transparent;background:white;font-size:.7rem}
+#equipmentGrid .equipment-card.selected .equipment-card-indicator{border-color:var(--green);color:white;background:var(--green)}
+.catalog-selection-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:white}
+.catalog-selection-actions>span{color:var(--muted);font-size:.82rem}
+.catalog-selection-actions .btn{flex:0 0 auto}
+.catalog-selection-actions .btn:disabled{opacity:.5;cursor:not-allowed}
+#guia .filter:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:600px){.catalog-status-row{align-items:flex-start;flex-direction:column;gap:4px}.catalog-selection-actions{align-items:stretch;flex-direction:column}.catalog-selection-actions .btn{width:100%}}
