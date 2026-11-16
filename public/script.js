@@ -9,6 +9,14 @@ function normalizeText(value) {
         .trim();
 }
 
+const equipmentCatalogPromise = fetch("./data/equipment-catalog.json").then(response => {
+    if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
+    return response.json();
+}).then(data => {
+    if (!Array.isArray(data.categories)) throw new Error("Formato de catálogo inválido.");
+    return data;
+});
+
 let _drawer = null;
 let _modal = null;
 
@@ -77,80 +85,12 @@ document.addEventListener("keydown", event => {
     const resultCount = document.getElementById("catalogResultCount");
     const simpleToggle = document.getElementById("catalogSimpleToggle");
     let categories = [];
+    let shortcuts = [];
     let activeFilter = "todos";
     let catalogMode = "simple";
 
-    const simpleCatalog = [
-        { name: "Celulares e smartphones", category: "informatica", emoji: "📱", examples: "Celulares, smartphones, tablets e acessórios.", tip: "Apague os dados pessoais e remova chip e cartão de memória." },
-        { name: "Computadores e periféricos", category: "informatica", emoji: "💻", examples: "Computadores, notebooks, teclados e mouses.", tip: "Faça backup e apague os dados antes da entrega." },
-        { name: "Impressoras e scanners", category: "informatica", emoji: "🖨️", examples: "Impressoras, scanners e equipamentos semelhantes.", tip: "Confirme se o ponto recebe equipamentos de maior porte." },
-        { name: "Cabos e carregadores", category: "informatica", emoji: "🔌", examples: "Cabos, carregadores, adaptadores e conectores.", tip: "Agrupe os acessórios para facilitar o transporte." },
-        { name: "Televisores e monitores", category: "imagem_audio_video", emoji: "📺", examples: "Televisores, monitores e telas eletrônicas.", tip: "Evite impactos e confirme os limites de tamanho do ponto." },
-        { name: "Áudio e vídeo", category: "imagem_audio_video", emoji: "🎧", examples: "Rádios, caixas de som, fones e amplificadores.", tip: "Separe controles e cabos e confirme a aceitação." },
-        { name: "Videogames", category: "imagem_audio_video", emoji: "🎮", examples: "Consoles, controles e acessórios de jogos.", tip: "Remova contas e dados pessoais antes da entrega." },
-        { name: "Geladeiras e refrigeradores", category: "eletrodomesticos", emoji: "🧊", examples: "Geladeiras, frigobares e refrigeradores domésticos.", tip: "Consulte opções de coleta para equipamentos volumosos." },
-        { name: "Lavadoras e cuidados com roupas", category: "eletrodomesticos", emoji: "🧺", examples: "Máquinas de lavar, secadoras e ferros elétricos.", tip: "Confirme previamente o recebimento de eletrodomésticos grandes." },
-        { name: "Cozinha e preparo", category: "casa-cozinha", emoji: "🍳", examples: "Liquidificadores, cafeteiras, torradeiras e micro-ondas.", tip: "Desligue e retire alimentos ou líquidos." },
-        { name: "Limpeza doméstica", category: "eletrodomesticos", emoji: "🧹", examples: "Aspiradores de pó e equipamentos elétricos de limpeza.", tip: "Esvazie reservatórios e acondicione acessórios separadamente." },
-        { name: "Ventilação e climatização", category: "eletrodomesticos", emoji: "❄️", examples: "Ventiladores, ar-condicionado e aquecedores.", tip: "Equipamentos grandes podem exigir logística específica." },
-        { name: "Cuidados pessoais", category: "cuidados_pessoais", emoji: "🪒", examples: "Barbeadores, depiladores e secadores.", tip: "Separe pilhas removíveis e proteja partes cortantes." },
-        { name: "Ferramentas elétricas", category: "ferramentas_jardinagem", emoji: "🛠️", examples: "Furadeiras, parafusadeiras e ferramentas elétricas.", tip: "Retire baterias somente quando isso for seguro." },
-        { name: "Jardim e área externa", category: "ferramentas_jardinagem", emoji: "🌱", examples: "Aparadores de grama e equipamentos elétricos de jardim.", tip: "Confirme o porte aceito pelo ponto de coleta." }
-    ];
-
-    const guidance = {
-        "casa-cozinha": {
-            emoji: "🍳",
-            description: "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
-            tip: "Desligue da tomada, esvazie líquidos e alimentos e entregue o aparelho limpo e seco. Não tente desmontar componentes elétricos.",
-            step: "Retire resíduos e acessórios soltos. Não descarte óleo, líquidos ou restos de alimentos junto com o equipamento."
-        },
-        eletrodomesticos: {
-            emoji: "🏠",
-            description: "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
-            tip: "Desconecte da energia e confirme previamente se o ponto recebe equipamentos grandes. Aparelhos de refrigeração e ar-condicionado podem exigir coleta especializada.",
-            step: "Não corte tubulações nem tente liberar gases refrigerantes. Combine o transporte de itens volumosos com o ponto de recebimento."
-        },
-        informatica: {
-            emoji: "💻",
-            description: "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
-            tip: "Faça backup, encerre sessões e remova dados pessoais. Retire chips e cartões de memória quando existirem.",
-            step: "Restaure o aparelho às configurações de fábrica quando possível. Não perfure, abra ou amasse baterias."
-        },
-        imagem_audio_video: {
-            emoji: "📺",
-            description: "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
-            tip: "Proteja telas e partes frágeis contra impactos. Em aparelhos inteligentes, encerre as contas e remova dados pessoais.",
-            step: "Separe controles e cabos sem forçar conectores. Confirme limites de tamanho e peso do ponto de coleta."
-        },
-        telefonia_comunicacao: {
-            emoji: "📡",
-            description: "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
-            tip: "Remova chips e cartões de memória e apague informações pessoais quando o aparelho permitir.",
-            step: "Retire baterias apenas quando forem removíveis sem ferramentas ou risco. Não force a abertura de aparelhos selados."
-        },
-        cuidados_pessoais: {
-            emoji: "🪒",
-            description: "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
-            tip: "Desligue e limpe o equipamento. Proteja lâminas, pontas e acessórios cortantes para evitar acidentes durante o transporte.",
-            step: "Separe acessórios e baterias removíveis apenas se isso puder ser feito com segurança."
-        },
-        ferramentas_jardinagem: {
-            emoji: "🛠️",
-            description: "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
-            tip: "Desconecte da energia e proteja lâminas, brocas e partes móveis. Retire resíduos de terra ou material solto.",
-            step: "Remova baterias somente quando forem projetadas para remoção simples. Não desmonte motores ou conjuntos elétricos."
-        },
-        lazer_esporte_outros: {
-            emoji: "🎮",
-            description: "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
-            tip: "Apague dados pessoais quando houver memória ou conexão. Separe acessórios e proteja peças pequenas.",
-            step: "Retire pilhas ou baterias removíveis quando for seguro e encaminhe-as conforme a orientação do ponto."
-        }
-    };
-
     function getGuidance(category) {
-        return guidance[category.id] || {
+        return category.guidance || {
             emoji: category.emoji || "♻️",
             description: "Equipamentos elétricos e eletrônicos desta categoria.",
             tip: "Desligue o equipamento, desconecte cabos e confirme com o ponto de coleta se ele recebe esse tipo de item.",
@@ -219,16 +159,18 @@ document.addEventListener("keydown", event => {
         grid.replaceChildren();
 
         if (catalogMode === "simple") {
-            const items = simpleCatalog.filter(item =>
-                normalizeText(`${item.name} ${item.examples}`).includes(query)
-            );
+            const items = shortcuts.filter(item => {
+                const linkedNames = item.itemIds.map(id =>
+                    categories.flatMap(category => category.items).find(equipment => equipment.id === id)?.name || ""
+                );
+                return normalizeText([item.name, item.description, ...linkedNames].join(" ")).includes(query);
+            });
+
             items.forEach(item => {
-                const category = categories.find(category => category.id === item.category) || {
-                    id: item.category, name: item.name, emoji: item.emoji
-                };
+                const category = categories.find(category => item.categoryIds.includes(category.id)) || categories[0];
                 renderCard(item, category, true);
             });
-            resultCount.textContent = `${items.length} grupos de equipamentos`;
+            resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
             simpleToggle.setAttribute("aria-label", "Catálogo simplificado ativo");
             return;
@@ -246,21 +188,26 @@ document.addEventListener("keydown", event => {
     }
 
     function openEquipmentDetail(item, category, simple = false) {
-        if (!item) return;
+        if (!item || !category) return;
         const info = getGuidance(category);
+        const linkedItems = simple
+            ? item.itemIds.map(id => categories.flatMap(group => group.items).find(equipment => equipment.id === id)).filter(Boolean)
+            : [];
+
         document.getElementById("equipmentDetailTitle").textContent = item.name;
-        document.getElementById("equipmentDetailCategory").textContent = category.name;
-        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : info.emoji;
+        document.getElementById("equipmentDetailCategory").textContent = simple
+            ? `${linkedItems.length} equipamentos relacionados`
+            : category.name;
+        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : info.emoji || category.emoji || "♻️";
         document.getElementById("equipmentDetailExamples").textContent = simple
-            ? item.examples
-            : `${item.name} está incluído nesta categoria do catálogo. ${info.description}`;
+            ? `${item.description} Inclui: ${linkedItems.slice(0, 6).map(equipment => equipment.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length - 6} itens` : ""}.`
+            : `${item.name} está incluído nesta categoria. ${info.description}`;
         document.getElementById("equipmentDetailTip").textContent = simple ? item.tip : info.tip;
 
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
         steps[0].textContent = "Desligue o equipamento e desconecte-o da tomada ou da fonte de energia.";
-        steps[1].textContent = info.step;
-        steps[2].textContent = "Acondicione o item para evitar danos e confirme com o ponto de coleta se ele recebe esse equipamento.";
-
+        steps[1].textContent = simple ? item.step : info.step;
+        steps[2].textContent = "Acondicione o item para evitar danos e confirme com o ponto de coleta se ele recebe este equipamento.";
         document.getElementById("compatiblePointsHint").textContent =
             "A aceitação pode variar conforme o ponto de coleta. Consulte os localizadores oficiais e confirme antes de se deslocar.";
         openDrawer(detailDrawer);
@@ -294,13 +241,10 @@ document.addEventListener("keydown", event => {
         showFeedback("Consulte os localizadores e confirme quais equipamentos são aceitos.");
     });
 
-    fetch("./data/equipment-catalog.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
-            return response.json();
-        })
+    equipmentCatalogPromise
         .then(data => {
-            categories = data.categories || [];
+            categories = data.categories;
+            shortcuts = data.shortcuts || [];
             renderFilters();
             renderCatalog();
         })
@@ -670,6 +614,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const clearMapSelection = document.getElementById("clearMapEquipmentSelection");
     const closeMapSelection = document.getElementById("closeMapEquipmentSelection");
     const selectedItems = new Map();
+    let categories = [];
     let mapSelectionDismissed = false;
 
     function normalize(value) {
@@ -769,16 +714,16 @@ document.getElementById("mapButton").addEventListener("click", () => {
     }
 
     search.addEventListener("input", () => {
-        if (tree.dataset.loaded === "true") {
-            renderEquipmentTree(JSON.parse(tree.dataset.categories));
+        if (categories.length) {
+            renderEquipmentTree(categories);
         }
     });
 
     clearMapSelection.addEventListener("click", () => {
         selectedItems.clear();
         mapSelectionDismissed = false;
-        if (tree.dataset.loaded === "true") {
-            renderEquipmentTree(JSON.parse(tree.dataset.categories));
+        if (categories.length) {
+            renderEquipmentTree(categories);
         }
         updateSelection();
     });
@@ -791,8 +736,8 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
     clearSelection.addEventListener("click", () => {
         selectedItems.clear();
-        if (tree.dataset.loaded === "true") {
-            renderEquipmentTree(JSON.parse(tree.dataset.categories));
+        if (categories.length) {
+            renderEquipmentTree(categories);
         }
         updateSelection();
     });
@@ -806,16 +751,10 @@ document.getElementById("mapButton").addEventListener("click", () => {
         showFeedback(`${selectedItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
     });
 
-    fetch("./data/equipment-catalog.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
-            return response.json();
-        })
+    equipmentCatalogPromise
         .then(data => {
-            if (!Array.isArray(data.categories)) throw new Error("Formato de catálogo inválido.");
-            tree.dataset.categories = JSON.stringify(data.categories);
-            tree.dataset.loaded = "true";
-            renderEquipmentTree(data.categories);
+            categories = data.categories;
+            renderEquipmentTree(categories);
             updateSelection();
         })
         .catch(() => {
