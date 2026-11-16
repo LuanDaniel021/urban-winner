@@ -1,8 +1,7 @@
 {
   "version": 1,
-  "categories": [
-    {
-      "id": "casa-cozinha",
+  "categories": {
+    "casa-cozinha": {
       "name": "Cozinha e preparo de alimentos",
       "description": "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
       "emoji": "🍳",
@@ -12,8 +11,7 @@
         "ventilacao-climatizacao"
       ]
     },
-    {
-      "id": "eletrodomesticos",
+    "eletrodomesticos": {
       "name": "Eletrodomésticos e climatização",
       "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
       "emoji": "🏠",
@@ -25,8 +23,7 @@
         "outros-eletrodomesticos"
       ]
     },
-    {
-      "id": "informatica",
+    "informatica": {
       "name": "Informática e componentes",
       "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
       "emoji": "💻",
@@ -38,8 +35,7 @@
         "outros-informatica"
       ]
     },
-    {
-      "id": "audio-video",
+    "audio-video": {
       "name": "Imagem, áudio e vídeo",
       "description": "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
       "emoji": "📺",
@@ -49,8 +45,7 @@
         "videogames"
       ]
     },
-    {
-      "id": "telefonia",
+    "telefonia": {
       "name": "Telefonia e comunicação",
       "description": "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
       "emoji": "📱",
@@ -59,8 +54,7 @@
         "outros-telefonia"
       ]
     },
-    {
-      "id": "pessoal",
+    "pessoal": {
       "name": "Cuidados pessoais e vestuário",
       "description": "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
       "emoji": "🪒",
@@ -69,8 +63,7 @@
         "cuidados-pessoais"
       ]
     },
-    {
-      "id": "ferramentas-jardim",
+    "ferramentas-jardim": {
       "name": "Ferramentas e jardinagem",
       "description": "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
       "emoji": "🛠️",
@@ -80,8 +73,7 @@
         "jardim-area-externa"
       ]
     },
-    {
-      "id": "lazer-outros",
+    "lazer-outros": {
       "name": "Lazer, esporte e outros",
       "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
       "emoji": "🎮",
@@ -91,5 +83,5 @@
         "outros-lazer-outros"
       ]
     }
-  ]
+  }
 }
