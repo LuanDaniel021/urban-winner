@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "category": "PROJETO",
+      "title": "Faça parte do projeto!",
+      "description": "Ajude a divulgar o descarte correto de eletrônicos.",
+      "href": "#referencias",
+      "linkText": "Conheça →"
+    },
+    {
+      "category": "REDES SOCIAIS",
+      "title": "Redes sociais",
+      "description": "Acompanhe nossas publicações e campanhas.",
+      "href": "#noticias",
+      "linkText": "Saiba mais →"
+    },
+    {
+      "category": "INFORMAÇÃO",
+      "title": "Notícias",
+      "description": "Informações, novidades e conteúdos educativos.",
+      "href": "#noticias",
+      "linkText": "Saiba mais →"
+    },
+    {
+      "category": "COLETA",
+      "title": "Ações de coleta",
+      "description": "Confira campanhas e atividades de coleta.",
+      "href": "#mapa",
+      "linkText": "Saiba mais →"
+    }
+  ]
+}
