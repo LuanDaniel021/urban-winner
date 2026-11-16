@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "description": "Equipamentos disponíveis no catálogo. Os atalhos definem quais itens disponibilizar.",
+    "description": "Equipamentos disponíveis no catálogo. As subcategorias definem quais itens disponibilizar.",
     "equipaments": {
         "abridor-de-vinho-eletrico": {
             "name": "Abridor de vinho elétrico",
