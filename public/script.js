@@ -75,8 +75,28 @@ document.addEventListener("keydown", event => {
     const grid = document.getElementById("equipmentGrid");
     const emptyState = document.getElementById("catalogEmptyState");
     const resultCount = document.getElementById("catalogResultCount");
+    const simpleToggle = document.getElementById("catalogSimpleToggle");
     let categories = [];
     let activeFilter = "todos";
+    let catalogMode = "simple";
+
+    const simpleCatalog = [
+        { name: "Celulares e smartphones", category: "informatica", emoji: "📱", examples: "Celulares, smartphones, tablets e acessórios.", tip: "Apague os dados pessoais e remova chip e cartão de memória." },
+        { name: "Computadores e periféricos", category: "informatica", emoji: "💻", examples: "Computadores, notebooks, teclados e mouses.", tip: "Faça backup e apague os dados antes da entrega." },
+        { name: "Impressoras e scanners", category: "informatica", emoji: "🖨️", examples: "Impressoras, scanners e equipamentos semelhantes.", tip: "Confirme se o ponto recebe equipamentos de maior porte." },
+        { name: "Cabos e carregadores", category: "informatica", emoji: "🔌", examples: "Cabos, carregadores, adaptadores e conectores.", tip: "Agrupe os acessórios para facilitar o transporte." },
+        { name: "Televisores e monitores", category: "imagem_audio_video", emoji: "📺", examples: "Televisores, monitores e telas eletrônicas.", tip: "Evite impactos e confirme os limites de tamanho do ponto." },
+        { name: "Áudio e vídeo", category: "imagem_audio_video", emoji: "🎧", examples: "Rádios, caixas de som, fones e amplificadores.", tip: "Separe controles e cabos e confirme a aceitação." },
+        { name: "Videogames", category: "imagem_audio_video", emoji: "🎮", examples: "Consoles, controles e acessórios de jogos.", tip: "Remova contas e dados pessoais antes da entrega." },
+        { name: "Geladeiras e refrigeradores", category: "eletrodomesticos", emoji: "🧊", examples: "Geladeiras, frigobares e refrigeradores domésticos.", tip: "Consulte opções de coleta para equipamentos volumosos." },
+        { name: "Lavadoras e cuidados com roupas", category: "eletrodomesticos", emoji: "🧺", examples: "Máquinas de lavar, secadoras e ferros elétricos.", tip: "Confirme previamente o recebimento de eletrodomésticos grandes." },
+        { name: "Cozinha e preparo", category: "casa-cozinha", emoji: "🍳", examples: "Liquidificadores, cafeteiras, torradeiras e micro-ondas.", tip: "Desligue e retire alimentos ou líquidos." },
+        { name: "Limpeza doméstica", category: "eletrodomesticos", emoji: "🧹", examples: "Aspiradores de pó e equipamentos elétricos de limpeza.", tip: "Esvazie reservatórios e acondicione acessórios separadamente." },
+        { name: "Ventilação e climatização", category: "eletrodomesticos", emoji: "❄️", examples: "Ventiladores, ar-condicionado e aquecedores.", tip: "Equipamentos grandes podem exigir logística específica." },
+        { name: "Cuidados pessoais", category: "cuidados_pessoais", emoji: "🪒", examples: "Barbeadores, depiladores e secadores.", tip: "Separe pilhas removíveis e proteja partes cortantes." },
+        { name: "Ferramentas elétricas", category: "ferramentas_jardinagem", emoji: "🛠️", examples: "Furadeiras, parafusadeiras e ferramentas elétricas.", tip: "Retire baterias somente quando isso for seguro." },
+        { name: "Jardim e área externa", category: "ferramentas_jardinagem", emoji: "🌱", examples: "Aparadores de grama e equipamentos elétricos de jardim.", tip: "Confirme o porte aceito pelo ponto de coleta." }
+    ];
 
     const guidance = {
         "casa-cozinha": {
@@ -140,70 +160,101 @@ document.addEventListener("keydown", event => {
 
     function renderFilters() {
         filters.replaceChildren();
-        const all = [{ id: "todos", name: "Todos", count: categories.reduce((sum, category) => sum + category.items.length, 0) }, ...categories.map(category => ({
-            id: category.id,
-            name: category.name,
-            count: category.items.length
-        }))];
 
-        all.forEach(category => {
+        const allButton = document.createElement("button");
+        allButton.type = "button";
+        allButton.className = "filter";
+        allButton.textContent = "Todos";
+        allButton.classList.toggle("active", catalogMode === "full" && activeFilter === "todos");
+        allButton.addEventListener("click", () => {
+            catalogMode = "full";
+            activeFilter = "todos";
+            renderFilters();
+            renderCatalog();
+        });
+        filters.append(allButton);
+
+        categories.forEach(category => {
             const button = document.createElement("button");
             button.type = "button";
             button.className = "filter";
-            button.dataset.filter = category.id;
             button.textContent = category.name;
-            button.classList.toggle("active", category.id === activeFilter);
+            button.classList.toggle("active", catalogMode === "full" && category.id === activeFilter);
             button.addEventListener("click", () => {
+                catalogMode = "full";
                 activeFilter = category.id;
                 renderFilters();
                 renderCatalog();
             });
             filters.append(button);
         });
+
+        simpleToggle.classList.toggle("active", catalogMode === "simple");
+        simpleToggle.setAttribute("aria-pressed", String(catalogMode === "simple"));
+    }
+
+    function renderCard(item, category, simple = false) {
+        const info = getGuidance(category);
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "equipment-card";
+        card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
+        card.innerHTML = `
+            <span class="equipment-category"></span>
+            <span class="equipment-card-main">
+                <span class="equipment-emoji"></span>
+                <strong class="equipment-name"></strong>
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
+        `;
+        card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
+        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : info.emoji;
+        card.querySelector(".equipment-name").textContent = item.name;
+        card.addEventListener("click", () => openEquipmentDetail(item, category, simple));
+        grid.append(card);
     }
 
     function renderCatalog() {
         const query = normalizeText(search.value);
+        grid.replaceChildren();
+
+        if (catalogMode === "simple") {
+            const items = simpleCatalog.filter(item =>
+                normalizeText(`${item.name} ${item.examples}`).includes(query)
+            );
+            items.forEach(item => {
+                const category = categories.find(category => category.id === item.category) || {
+                    id: item.category, name: item.name, emoji: item.emoji
+                };
+                renderCard(item, category, true);
+            });
+            resultCount.textContent = `${items.length} grupos de equipamentos`;
+            emptyState.hidden = items.length > 0;
+            simpleToggle.setAttribute("aria-label", "Catálogo simplificado ativo");
+            return;
+        }
+
         const items = categories.flatMap(category => category.items.map(item => ({ ...item, category })))
             .filter(item => {
                 const categoryMatch = activeFilter === "todos" || item.category.id === activeFilter;
                 return categoryMatch && normalizeText(`${item.name} ${item.category.name}`).includes(query);
             });
 
-        grid.replaceChildren();
-        items.forEach(item => {
-            const info = getGuidance(item.category);
-            const card = document.createElement("button");
-            card.type = "button";
-            card.className = "equipment-card";
-            card.setAttribute("aria-label", `Ver orientações para ${item.name}`);
-            card.innerHTML = `
-                <span class="equipment-category"></span>
-                <span class="equipment-card-main">
-                    <span class="equipment-emoji"></span>
-                    <strong class="equipment-name"></strong>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </span>
-            `;
-            card.querySelector(".equipment-category").textContent = item.category.name;
-            card.querySelector(".equipment-emoji").textContent = info.emoji;
-            card.querySelector(".equipment-name").textContent = item.name;
-            card.addEventListener("click", () => openEquipmentDetail(item));
-            grid.append(card);
-        });
-
+        items.forEach(item => renderCard(item, item.category));
         emptyState.hidden = items.length > 0;
         resultCount.textContent = `${items.length} equipamento${items.length === 1 ? "" : "s"} encontrado${items.length === 1 ? "" : "s"}`;
     }
 
-    function openEquipmentDetail(item) {
+    function openEquipmentDetail(item, category, simple = false) {
         if (!item) return;
-        const info = getGuidance(item.category);
+        const info = getGuidance(category);
         document.getElementById("equipmentDetailTitle").textContent = item.name;
-        document.getElementById("equipmentDetailCategory").textContent = item.category.name;
-        document.getElementById("equipmentDetailEmoji").textContent = info.emoji;
-        document.getElementById("equipmentDetailExamples").textContent = `${item.name} está incluído nesta categoria do catálogo. ${info.description}`;
-        document.getElementById("equipmentDetailTip").textContent = info.tip;
+        document.getElementById("equipmentDetailCategory").textContent = category.name;
+        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : info.emoji;
+        document.getElementById("equipmentDetailExamples").textContent = simple
+            ? item.examples
+            : `${item.name} está incluído nesta categoria do catálogo. ${info.description}`;
+        document.getElementById("equipmentDetailTip").textContent = simple ? item.tip : info.tip;
 
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
         steps[0].textContent = "Desligue o equipamento e desconecte-o da tomada ou da fonte de energia.";
@@ -215,11 +266,19 @@ document.addEventListener("keydown", event => {
         openDrawer(detailDrawer);
     }
 
+    simpleToggle.addEventListener("click", () => {
+        catalogMode = "simple";
+        activeFilter = "todos";
+        renderFilters();
+        renderCatalog();
+    });
+
     search.addEventListener("input", renderCatalog);
 
     document.getElementById("clear").addEventListener("click", () => {
         search.value = "";
         activeFilter = "todos";
+        catalogMode = "simple";
         renderFilters();
         renderCatalog();
     });
