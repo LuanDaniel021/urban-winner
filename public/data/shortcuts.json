@@ -16,63 +16,6 @@
                 "refrigerador"
             ]
         },
-        "cozinha-preparo": {
-            "name": "Cozinha e preparo",
-            "emoji": "🍳",
-            "description": "Aparelhos usados no preparo e aquecimento de alimentos e bebidas.",
-            "itemIds": [
-                "abridor-de-vinho-eletrico",
-                "abridor-eletrico-de-latas",
-                "aparelho-para-preparacao-de-cafe-ou-cha",
-                "batedeira",
-                "bebedouro-refrigerado",
-                "blender",
-                "bule-eletrico",
-                "cafeteira",
-                "centrifuga-de-suco",
-                "chaleira-eletrica",
-                "chapa-grill",
-                "churrasqueira-a-gas",
-                "churrasqueira-eletrica-ou-eletronica",
-                "cooktop-eletrico-e-a-gas",
-                "crepeira",
-                "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
-                "espremedor-de-frutas",
-                "faca-eletrica",
-                "fechador-eletrico-de-latas",
-                "fogao",
-                "fogao-eletrico",
-                "forno-eletrico",
-                "fritadeira",
-                "liquidificador",
-                "maquina-de-algodao-doce",
-                "maquina-de-cafe",
-                "maquina-de-cupcake",
-                "maquina-de-pao-panificadora",
-                "maquina-de-sorvete",
-                "maquina-de-waffle",
-                "micro-ondas",
-                "miniforno",
-                "miniprocessador-com-uma-ou-mais-funcoes",
-                "mixer",
-                "moedor-de-cafe",
-                "moedor-de-graos",
-                "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
-                "multifatiador",
-                "omeleteira",
-                "panela-de-arroz",
-                "panela-de-pressao-eletrica",
-                "panela-eletrica",
-                "panquequeira",
-                "pia-fogao",
-                "pipoqueira",
-                "processador-de-alimentos",
-                "purificador-de-agua",
-                "sanduicheira",
-                "torradeira",
-                "triturador"
-            ]
-        },
         "ventilacao-climatizacao": {
             "name": "Ventilação e climatização",
             "emoji": "❄️",
@@ -346,6 +289,91 @@
                 "instrumento-musical",
                 "maquina-de-escrever-eletrica-e-eletronica",
                 "piano"
+            ]
+        },
+        "preparo-processamento": {
+            "name": "Preparo e processamento",
+            "emoji": "🥣",
+            "description": "Equipamentos para triturar, misturar, cortar, moer e processar alimentos.",
+            "itemIds": [
+                "batedeira",
+                "blender",
+                "centrifuga-de-suco",
+                "espremedor-de-frutas",
+                "faca-eletrica",
+                "liquidificador",
+                "miniprocessador-com-uma-ou-mais-funcoes",
+                "mixer",
+                "moedor-de-graos",
+                "moedor-eletrico-de-graos-ou-de-carne-entre-outros",
+                "multifatiador",
+                "processador-de-alimentos",
+                "triturador"
+            ]
+        },
+        "coccao-aquecimento": {
+            "name": "Cocção e aquecimento",
+            "emoji": "🔥",
+            "description": "Equipamentos que cozinham, grelham, fritam ou aquecem alimentos.",
+            "itemIds": [
+                "chapa-grill",
+                "churrasqueira-a-gas",
+                "churrasqueira-eletrica-ou-eletronica",
+                "cooktop-eletrico-e-a-gas",
+                "fogao",
+                "fogao-eletrico",
+                "forno-eletrico",
+                "fritadeira",
+                "micro-ondas",
+                "miniforno",
+                "panela-de-arroz",
+                "panela-de-pressao-eletrica",
+                "panela-eletrica",
+                "pia-fogao"
+            ]
+        },
+        "cafe-bebidas": {
+            "name": "Café e bebidas",
+            "emoji": "☕",
+            "description": "Aparelhos para preparar café, chá, sucos e outras bebidas.",
+            "itemIds": [
+                "abridor-de-vinho-eletrico",
+                "aparelho-para-preparacao-de-cafe-ou-cha",
+                "bule-eletrico",
+                "cafeteira",
+                "chaleira-eletrica",
+                "distribuidor-automatico-de-bebida-quente-maquina-de-consumo",
+                "maquina-de-cafe",
+                "moedor-de-cafe"
+            ]
+        },
+        "agua-purificacao": {
+            "name": "Água e purificação",
+            "emoji": "🚰",
+            "description": "Equipamentos para fornecer, filtrar e purificar água para consumo.",
+            "itemIds": [
+                "bebedouro-refrigerado",
+                "purificador-de-agua"
+            ]
+        },
+        "lanches-e-preparos-especiais": {
+            "name": "Lanches e preparos especiais",
+            "emoji": "🍿",
+            "description": "Aparelhos dedicados a lanches, sobremesas e preparos culinários específicos.",
+            "itemIds": [
+                "abridor-eletrico-de-latas",
+                "fechador-eletrico-de-latas",
+                "crepeira",
+                "maquina-de-algodao-doce",
+                "maquina-de-cupcake",
+                "maquina-de-pao-panificadora",
+                "maquina-de-sorvete",
+                "maquina-de-waffle",
+                "omeleteira",
+                "panquequeira",
+                "pipoqueira",
+                "sanduicheira",
+                "torradeira"
             ]
         }
     }
