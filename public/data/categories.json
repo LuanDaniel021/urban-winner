@@ -13,7 +13,8 @@
                 "agua-purificacao",
                 "lanches-e-preparos-especiais",
                 "ventilacao-climatizacao"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "eletrodomesticos": {
             "name": "Eletrodomésticos e climatização",
@@ -25,7 +26,8 @@
                 "limpeza-domestica",
                 "ventilacao-climatizacao",
                 "outros-eletrodomesticos"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "informatica": {
             "name": "Informática e componentes",
@@ -37,7 +39,8 @@
                 "cabos-carregadores",
                 "televisores-monitores",
                 "outros-informatica"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "audio-video": {
             "name": "Imagem, áudio e vídeo",
@@ -47,7 +50,8 @@
                 "televisores-monitores",
                 "audio-video",
                 "videogames"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "telefonia": {
             "name": "Telefonia e comunicação",
@@ -56,7 +60,8 @@
             "shortcutIds": [
                 "celulares-smartphones",
                 "outros-telefonia"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "pessoal": {
             "name": "Cuidados pessoais e vestuário",
@@ -65,7 +70,8 @@
             "shortcutIds": [
                 "lavadoras-roupas",
                 "cuidados-pessoais"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "ferramentas-jardim": {
             "name": "Ferramentas e jardinagem",
@@ -75,7 +81,8 @@
                 "limpeza-domestica",
                 "ferramentas-eletricas",
                 "jardim-area-externa"
-            ]
+            ],
+            "excludedItemIds": []
         },
         "lazer-outros": {
             "name": "Lazer, esporte e outros",
@@ -85,7 +92,8 @@
                 "impressoras-scanners",
                 "lavadoras-roupas",
                 "outros-lazer-outros"
-            ]
+            ],
+            "excludedItemIds": []
         }
     }
 }
