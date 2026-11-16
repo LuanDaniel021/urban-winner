@@ -131,7 +131,6 @@ const selectedEquipmentItems = new Map();
     }
 
     function renderCard(item, category, simple = false) {
-        const info = getGuidance(category);
         const selected = !simple && selectedEquipmentItems.has(item.id);
         const card = document.createElement("button");
         card.type = "button";
@@ -147,7 +146,7 @@ const selectedEquipmentItems = new Map();
             </span>
         `;
         card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
-        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : info.emoji || category.emoji || "♻️";
+        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : category.emoji || "♻️";
         card.querySelector(".equipment-name").textContent = item.name;
         if (simple) {
             card.addEventListener("click", () => {
@@ -194,7 +193,6 @@ const selectedEquipmentItems = new Map();
 
     function openEquipmentDetail(item, category, simple = false) {
         if (!item || !category) return;
-        const info = getGuidance(category);
         const linkedItems = simple ? item.itemIds.map(id => categories.flatMap(group => group.items).find(e => e.id === id)).filter(Boolean) : [];
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
@@ -202,10 +200,14 @@ const selectedEquipmentItems = new Map();
         document.getElementById("equipmentDetailExamples").textContent = simple
             ? `${item.description} Inclui: ${linkedItems.slice(0,6).map(e => e.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length-6} itens` : ""}.`
             : `${item.name} está incluído nesta categoria. ${info.description}`;
-        document.getElementById("equipmentDetailTip").textContent = simple ? item.tip : info.tip;
+        document.getElementById("equipmentDetailTip").textContent = simple
+            ? "Os equipamentos relacionados serão exibidos no catálogo para que você escolha individualmente quais deseja selecionar."
+            : "Consulte as orientações de preparação e cuidado específicas deste equipamento.";
         const steps = document.querySelectorAll("#equipmentDetailSteps [data-step]");
-        steps[0].textContent = "Desligue o equipamento e desconecte-o da tomada ou da fonte de energia.";
-        steps[1].textContent = simple ? item.step : info.step;
+        steps[0].textContent = "Confira a descrição e os equipamentos relacionados a este atalho.";
+        steps[1].textContent = simple
+            ? "Selecione individualmente os itens que correspondem ao equipamento que você deseja descartar."
+            : "Consulte as orientações de preparação e cuidado específicas deste equipamento.";
         steps[2].textContent = "Acondicione o item para evitar danos e confirme com o ponto de coleta se ele recebe este equipamento.";
         document.getElementById("compatiblePointsHint").textContent = simple
             ? "Veja no catálogo os equipamentos que correspondem a esta descrição. A seleção poderá ser feita individualmente."
@@ -267,7 +269,11 @@ const selectedEquipmentItems = new Map();
     equipmentCatalogPromise
         .then(data => {
             categories = data.categories;
-            shortcuts = data.shortcuts || [];
+            shortcuts = categories.flatMap(category =>
+                category.shortcuts.map(shortcut => ({ ...shortcut, categoryId: category.id }))
+            ).filter((shortcut, index, all) =>
+                all.findIndex(item => item.id === shortcut.id) === index
+            );
             renderFilters();
             renderCatalog();
         })
