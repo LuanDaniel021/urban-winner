@@ -10,25 +10,25 @@ function normalizeText(value) {
 }
 
 const equipmentCatalogPromise = Promise.all([
+    fetch("./data/catalog.json"),
     fetch("./data/categories.json"),
-    fetch("./data/equipment-catalog.json"),
     fetch("./data/shortcuts.json"),
     fetch("./data/equipment.json")
-]).then(async ([categoriesResponse, catalogResponse, shortcutsResponse, equipmentResponse]) => {
-    if (!categoriesResponse.ok || !catalogResponse.ok || !shortcutsResponse.ok || !equipmentResponse.ok) {
+]).then(async ([catalogResponse, categoriesResponse, shortcutsResponse, equipmentResponse]) => {
+    if (!catalogResponse.ok || !categoriesResponse.ok || !shortcutsResponse.ok || !equipmentResponse.ok) {
         throw new Error("Não foi possível carregar os dados do catálogo.");
     }
 
-    const [categoriesData, catalog, shortcutsData, equipmentData] = await Promise.all([
-        categoriesResponse.json(),
+    const [catalog, categoriesData, shortcutsData, equipmentData] = await Promise.all([
         catalogResponse.json(),
+        categoriesResponse.json(),
         shortcutsResponse.json(),
         equipmentResponse.json()
     ]);
 
     if (
-        !Array.isArray(categoriesData.categories) ||
         !Array.isArray(catalog.categoryIds) ||
+        !Array.isArray(categoriesData.categories) ||
         !Array.isArray(shortcutsData.shortcuts) ||
         !Array.isArray(equipmentData.items)
     ) {
@@ -38,19 +38,36 @@ const equipmentCatalogPromise = Promise.all([
     const categoriesById = new Map(
         categoriesData.categories.map(category => [category.id, {...category, items: [], shortcuts: []}])
     );
+    const shortcutsById = new Map(
+        shortcutsData.shortcuts.map(shortcut => [shortcut.id, shortcut])
+    );
+    const equipmentById = new Map(
+        equipmentData.items.map(item => [item.id, item])
+    );
 
     catalog.categoryIds.forEach(id => {
-        if (!categoriesById.has(id)) throw new Error(`Categoria não encontrada: ${id}`);
-    });
+        const category = categoriesById.get(id);
+        if (!category) throw new Error(`Categoria não encontrada: ${id}`);
 
-    shortcutsData.shortcuts.forEach(shortcut => {
-        const category = categoriesById.get(shortcut.categoryId);
-        if (category) category.shortcuts.push(shortcut);
-    });
+        if (!Array.isArray(category.shortcutIds)) {
+            throw new Error(`Referências de atalhos inválidas na categoria: ${id}`);
+        }
 
-    equipmentData.items.forEach(item => {
-        const category = categoriesById.get(item.categoryId);
-        if (category) category.items.push(item);
+        const categoryItemIds = new Set();
+        category.shortcutIds.forEach(shortcutId => {
+            const shortcut = shortcutsById.get(shortcutId);
+            if (!shortcut) throw new Error(`Atalho não encontrado: ${shortcutId}`);
+            category.shortcuts.push(shortcut);
+
+            shortcut.itemIds.forEach(itemId => {
+                const item = equipmentById.get(itemId);
+                if (!item) throw new Error(`Equipamento não encontrado: ${itemId}`);
+                if (!categoryItemIds.has(itemId)) {
+                    category.items.push(item);
+                    categoryItemIds.add(itemId);
+                }
+            });
+        });
     });
 
     return {
