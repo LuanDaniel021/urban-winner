@@ -140,7 +140,7 @@ const selectedEquipmentItems = new Map();
             });
             filters.append(button);
         };
-        categories.forEach(category => addFilter(category.name, category.id));
+        categories.forEach(category => addFilter(`${category.emoji || ""} ${category.name}`.trim(), category.id));
         addFilter(`Selecionados (${selectedEquipmentItems.size})`, "selecionados", selectedEquipmentItems.size === 0);
         if (shortcutFilterIds && activeFilter === "atalho") addFilter(currentShortcut?.name || "Atalho", "atalho");
         simpleToggle.classList.toggle("active", catalogMode === "simple");
