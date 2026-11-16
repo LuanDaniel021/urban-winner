@@ -305,13 +305,7 @@ function showFeedback(message) {
 
 //#region : CHECKLIST
 {
-    const tasks = [
-        { text: "Verificar o estado do equipamento", done: false },
-        { text: "Desligar e desconectar", done: false },
-        { text: "Separar acessórios e componentes", done: false },
-        { text: "Proteger informações pessoais", done: false },
-        { text: "Confirmar o destino de entrega", done: false }
-    ];
+    const tasks = [];
 
     const list = document.getElementById("checklistItems");
     const form = document.getElementById("checklistForm");
@@ -495,6 +489,18 @@ function showFeedback(message) {
         }
     });
 
+    fetch("./data/checklists.json")
+        .then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar checklists.");
+            return response.json();
+        })
+        .then(data => {
+            const initial = data.default?.tasks || [];
+            tasks.splice(0, tasks.length, ...initial.map(text => ({ text, done: false })));
+            renderTasks();
+        })
+        .catch(() => showFeedback("Não foi possível carregar o checklist inicial."));
+
     updateMode();
     renderTasks();
 }
@@ -522,13 +528,7 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // Ponto fictício para demonstrar a interação com os drawers.
-    const collectionPoints = {
-        "ponto-demo": {
-            name: "Ponto demonstrativo",
-            position: [-26.24, -51.08]
-        }
-    };
+    let collectionPoints = {};
 
     const pointDrawer = document.getElementById("collectionPointDrawer");
 
@@ -541,11 +541,20 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         openDrawer(pointDrawer);
     }
 
-    Object.entries(collectionPoints).forEach(([id, point]) => {
-        const marker = L.marker(point.position).addTo(map);
-        marker.bindTooltip(point.name);
-        marker.on("click", () => openCollectionPoint(id));
-    });
+    fetch("./data/collection-points.json")
+        .then(response => {
+            if (!response.ok) throw new Error("Falha ao carregar pontos.");
+            return response.json();
+        })
+        .then(data => {
+            collectionPoints = data.points || {};
+            Object.entries(collectionPoints).forEach(([id, point]) => {
+                const marker = L.marker(point.position).addTo(map);
+                marker.bindTooltip(point.name);
+                marker.on("click", () => openCollectionPoint(id));
+            });
+        })
+        .catch(() => showFeedback("Não foi possível carregar os pontos de coleta."));
 
     document.querySelectorAll("[data-open-point]").forEach(button => {
         button.addEventListener("click", () => openCollectionPoint(button.dataset.openPoint));
@@ -987,4 +996,52 @@ document.querySelectorAll(".step[data-modal]")
         .addEventListener( "click", openVideoModal);
     
 }
+//#endregion
+
+
+//#region : CONTEÚDO DINÂMICO
+function loadDataFile(file) {
+    return fetch(`./data/${file}.json`).then(response => {
+        if (!response.ok) throw new Error(`Falha ao carregar ${file}.json`);
+        return response.json();
+    });
+}
+
+function renderDataCards(containerId, records, className, type) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.replaceChildren();
+    records.forEach(record => {
+        const article = document.createElement("article");
+        article.className = className;
+        const label = document.createElement("small");
+        label.textContent = record.category || record.type || "";
+        const title = document.createElement("h3");
+        title.textContent = record.title || record.name || "";
+        const description = document.createElement("p");
+        description.textContent = record.description || "";
+        const link = document.createElement("a");
+        link.href = record.url || record.href || "#referencias";
+        link.textContent = record.linkText || "Saiba mais →";
+        if (record.url) {
+            link.target = "_blank";
+            link.rel = "noopener";
+        }
+        article.append(label, title, description, link);
+        container.append(article);
+    });
+}
+
+Promise.all([
+    loadDataFile("news"),
+    loadDataFile("campaigns"),
+    loadDataFile("references")
+]).then(([news, campaigns, references]) => {
+    renderDataCards("newsGrid", news.items || [], "news-card", "news");
+    renderDataCards("campaignsGrid", campaigns.items || [], "social-card", "campaigns");
+    renderDataCards("referencesGrid", references.items || [], "reference-card", "references");
+}).catch(error => {
+    console.error(error);
+    showFeedback("Alguns conteúdos não puderam ser carregados.");
+});
 //#endregion
