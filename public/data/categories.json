@@ -1,38 +1,151 @@
 {
     "version": 1,
     "categories": {
+        "todos": {
+            "name": "Todos",
+            "description": "Todos os equipamentos disponíveis no catálogo, reunidos em uma única categoria.",
+            "emoji": "♻️",
+            "shortcutIds": [
+                "refrigeradores",
+                "lavagem-loucas",
+                "exaustao-ar",
+                "preparo-processamento",
+                "coccao-aquecimento",
+                "cafe-bebidas",
+                "agua-purificacao",
+                "lanches-especiais",
+                "acessorios-cozinha",
+                "climatizacao",
+                "ventilacao",
+                "tratamento-ar",
+                "lavagem-roupas",
+                "secagem-roupas",
+                "passadoria-roupas",
+                "costura-reparos",
+                "aspiracao",
+                "limpeza-superficies",
+                "limpeza-pressao",
+                "aquecimento-agua",
+                "resistencias-eletricas",
+                "computadores",
+                "dispositivos-portateis",
+                "perifericos-entrada",
+                "impressao",
+                "digitalizacao-copiacao",
+                "acabamento-documentos",
+                "suprimentos-impressao",
+                "cabos-adaptadores",
+                "fontes-carregadores",
+                "telas-monitores",
+                "armazenamento-dados",
+                "redes-conectividade",
+                "energia-protecao",
+                "acessorios-computador",
+                "equipamentos-eletronicos-gerais",
+                "calculadoras",
+                "equipamentos-escritorio",
+                "projecao",
+                "audio",
+                "captura-gravacao",
+                "reproducao-midias",
+                "sinais-transmissao",
+                "controles-remotos",
+                "videogames",
+                "celulares",
+                "telefonia-fixa",
+                "comunicacao-monitoramento",
+                "sinalizacao-eletronica",
+                "relogios-tempo",
+                "barbear-depilacao",
+                "cuidado-cabelo",
+                "saude-cuidado-corporal",
+                "ferramentas-oficina",
+                "aplicacao-cola",
+                "iluminacao-portatil",
+                "corte-jardinagem",
+                "irrigacao-pulverizacao",
+                "energia-solar",
+                "controle-iluminacao",
+                "brinquedos-eletronicos",
+                "equipamentos-esportivos",
+                "instrumentos-musicais"
+            ],
+            "excludedItemIds": []
+        },
         "casa-cozinha": {
             "name": "Cozinha e preparo de alimentos",
             "description": "Pequenos e grandes aparelhos usados no preparo, conservação e consumo de alimentos.",
             "emoji": "🍳",
             "shortcutIds": [
                 "refrigeradores",
-                "cozinha-preparo",
-                "ventilacao-climatizacao"
+                "lavagem-loucas",
+                "exaustao-ar",
+                "preparo-processamento",
+                "coccao-aquecimento",
+                "cafe-bebidas",
+                "agua-purificacao",
+                "lanches-especiais",
+                "acessorios-cozinha"
+            ],
+            "excludedItemIds": [
+                "variador-de-ventilador"
             ]
         },
         "eletrodomesticos": {
-            "name": "Eletrodomésticos e climatização",
-            "description": "Eletrodomésticos, aparelhos de limpeza, refrigeração, lavagem e climatização.",
+            "name": "Eletrodomésticos e equipamentos domésticos",
+            "description": "Aparelhos domésticos de refrigeração, climatização, lavanderia, limpeza, passadoria e costura.",
             "emoji": "🏠",
             "shortcutIds": [
                 "refrigeradores",
-                "lavadoras-roupas",
-                "limpeza-domestica",
-                "ventilacao-climatizacao",
-                "outros-eletrodomesticos"
+                "climatizacao",
+                "ventilacao",
+                "tratamento-ar",
+                "exaustao-ar",
+                "lavagem-roupas",
+                "secagem-roupas",
+                "passadoria-roupas",
+                "lavagem-loucas",
+                "costura-reparos",
+                "aspiracao",
+                "limpeza-superficies",
+                "limpeza-pressao",
+                "aquecimento-agua",
+                "resistencias-eletricas"
+            ],
+            "excludedItemIds": [
+                "coifa-com-dimensao-horizontal-de-no-maximo-120-cm",
+                "depurador-de-ar"
             ]
         },
         "informatica": {
-            "name": "Informática e componentes",
-            "description": "Computadores, periféricos, componentes, cabos, fontes e acessórios de informática.",
+            "name": "Informática e escritório",
+            "description": "Computadores, dispositivos digitais, periféricos, impressão, comunicação de dados e equipamentos eletrônicos de escritório.",
             "emoji": "💻",
             "shortcutIds": [
-                "computadores-perifericos",
-                "impressoras-scanners",
-                "cabos-carregadores",
-                "televisores-monitores",
-                "outros-informatica"
+                "computadores",
+                "dispositivos-portateis",
+                "perifericos-entrada",
+                "impressao",
+                "digitalizacao-copiacao",
+                "acabamento-documentos",
+                "suprimentos-impressao",
+                "cabos-adaptadores",
+                "fontes-carregadores",
+                "telas-monitores",
+                "armazenamento-dados",
+                "redes-conectividade",
+                "energia-protecao",
+                "acessorios-computador",
+                "equipamentos-eletronicos-gerais",
+                "calculadoras",
+                "equipamentos-escritorio"
+            ],
+            "excludedItemIds": [
+                "aparelho-de-televisao",
+                "projetor-de-video",
+                "tela-de-projecao",
+                "oculos-3d",
+                "relogio-smart"
             ]
         },
         "audio-video": {
@@ -40,9 +153,19 @@
             "description": "Televisores, monitores, equipamentos de som, vídeo e acessórios.",
             "emoji": "📺",
             "shortcutIds": [
-                "televisores-monitores",
-                "audio-video",
+                "telas-monitores",
+                "projecao",
+                "audio",
+                "captura-gravacao",
+                "reproducao-midias",
+                "sinais-transmissao",
+                "controles-remotos",
                 "videogames"
+            ],
+            "excludedItemIds": [
+                "computador-para-ciclismo-mergulho-corrida-remo-e-outras-atividades-desportivas",
+                "equipamento-informatico-pessoal-e-reader",
+                "tablet"
             ]
         },
         "telefonia": {
@@ -50,8 +173,18 @@
             "description": "Telefones, aparelhos de comunicação, sinalização e acessórios relacionados.",
             "emoji": "📱",
             "shortcutIds": [
-                "celulares-smartphones",
-                "outros-telefonia"
+                "celulares",
+                "telefonia-fixa",
+                "comunicacao-monitoramento",
+                "sinalizacao-eletronica",
+                "relogios-tempo",
+                "redes-conectividade"
+            ],
+            "excludedItemIds": [
+                "relogio-de-sala-de-pulso-ou-de-mesa-e-aparelho-para-medir-indicar-ou-registrar-o-tempo",
+                "modem",
+                "modulo-de-gerenciamento-e-processamento-de-dados-switch-de-rede-de-internet",
+                "roteador"
             ]
         },
         "pessoal": {
@@ -59,8 +192,16 @@
             "description": "Aparelhos elétricos de higiene, beleza, cuidado corporal e vestuário.",
             "emoji": "🪒",
             "shortcutIds": [
-                "lavadoras-roupas",
-                "cuidados-pessoais"
+                "lavagem-roupas",
+                "secagem-roupas",
+                "passadoria-roupas",
+                "costura-reparos",
+                "barbear-depilacao",
+                "cuidado-cabelo",
+                "saude-cuidado-corporal"
+            ],
+            "excludedItemIds": [
+                "maquina-de-lavar-louca"
             ]
         },
         "ferramentas-jardim": {
@@ -68,20 +209,48 @@
             "description": "Ferramentas elétricas, equipamentos de oficina, jardinagem e área externa.",
             "emoji": "🛠️",
             "shortcutIds": [
-                "limpeza-domestica",
-                "ferramentas-eletricas",
-                "jardim-area-externa"
+                "limpeza-superficies",
+                "limpeza-pressao",
+                "ferramentas-oficina",
+                "aplicacao-cola",
+                "iluminacao-portatil",
+                "corte-jardinagem",
+                "irrigacao-pulverizacao"
+            ],
+            "excludedItemIds": [
+                "aspirador",
+                "aspirador-de-janela"
             ]
         },
         "lazer-outros": {
-            "name": "Lazer, esporte e outros",
-            "description": "Brinquedos, equipamentos de lazer, esporte, medição e outros itens eletrônicos.",
+            "name": "Lazer, esporte e entretenimento",
+            "description": "Equipamentos eletrônicos destinados ao lazer, à prática esportiva, aos jogos e ao entretenimento.",
             "emoji": "🎮",
             "shortcutIds": [
-                "impressoras-scanners",
-                "lavadoras-roupas",
-                "outros-lazer-outros"
+                "videogames",
+                "celulares",
+                "dispositivos-portateis",
+                "relogios-tempo",
+                "brinquedos-eletronicos",
+                "equipamentos-esportivos",
+                "instrumentos-musicais"
+            ],
+            "excludedItemIds": [
+                "celular-portatil-com-capa-traseira-com-bateria-ou-placa-de-circuito-impresso",
+                "telefone-celular",
+                "equipamento-informatico-pessoal-e-reader",
+                "tablet"
             ]
+        },
+        "energia-instalacoes": {
+            "name": "Energia e instalações elétricas",
+            "description": "Equipamentos para geração de energia solar e controle de instalações elétricas.",
+            "emoji": "⚡",
+            "shortcutIds": [
+                "energia-solar",
+                "controle-iluminacao"
+            ],
+            "excludedItemIds": []
         }
     }
 }

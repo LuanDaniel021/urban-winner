@@ -19,61 +19,35 @@ function normalizeText(value) {
         .trim();
 }
 
-const equipmentCatalogPromise = Promise.resolve().then(() => {
-    const catalog = DATA_CATALOG;
+function getCatalogCategories() {
+    return DATA_CATALOG.categoryIds.map(id => ({
+        id,
+        ...DATA_CATEGORIES.categories[id]
+    }));
+}
 
-    if (
-        !Array.isArray(catalog.categoryIds) ||
-        !DATA_CATEGORIES.categories || typeof DATA_CATEGORIES.categories !== "object" || Array.isArray(DATA_CATEGORIES.categories) ||
-        !DATA_SHORTCUTS.shortcuts || typeof DATA_SHORTCUTS.shortcuts !== "object" || Array.isArray(DATA_SHORTCUTS.shortcuts) ||
-        !DATA_EQUIPMENT.items || typeof DATA_EQUIPMENT.items !== "object" || Array.isArray(DATA_EQUIPMENT.items)
-    ) {
-        throw new Error("Formato dos dados do catálogo inválido.");
-    }
+function getCategoryEquipment(categoryId) {
+    const category = DATA_CATEGORIES.categories[categoryId];
+    if (!category) return [];
+    const excludedItemIds = new Set(category.excludedItemIds || []);
+    const itemShortcuts = new Map();
 
-    const categoriesById = Object.fromEntries(
-        Object.entries(DATA_CATEGORIES.categories).map(([id, category]) => [
-            id,
-            {...category, id, items: [], shortcuts: []}
-        ])
-    );
-    const shortcutsById = Object.fromEntries(
-        Object.entries(DATA_SHORTCUTS.shortcuts).map(([id, shortcut]) => [id, {...shortcut, id}])
-    );
-    const equipmentById = Object.fromEntries(
-        Object.entries(DATA_EQUIPMENT.items).map(([id, item]) => [id, {...item, id}])
-    );
+    category.shortcutIds.forEach(shortcutId => {
+        const shortcut = DATA_SHORTCUTS.shortcuts[shortcutId];
 
-    catalog.categoryIds.forEach(id => {
-        const category = categoriesById[id];
-        if (!category) throw new Error(`Categoria não encontrada: ${id}`);
-
-        if (!Array.isArray(category.shortcutIds)) {
-            throw new Error(`Referências de atalhos inválidas na categoria: ${id}`);
-        }
-
-        const categoryItemIds = new Set();
-        category.shortcutIds.forEach(shortcutId => {
-            const shortcut = shortcutsById[shortcutId];
-            if (!shortcut) throw new Error(`Atalho não encontrado: ${shortcutId}`);
-            category.shortcuts.push(shortcut);
-
-            shortcut.itemIds.forEach(itemId => {
-                const item = equipmentById[itemId];
-                if (!item) throw new Error(`Equipamento não encontrado: ${itemId}`);
-                if (!categoryItemIds.has(itemId)) {
-                    category.items.push(item);
-                    categoryItemIds.add(itemId);
-                }
-            });
+        shortcut.itemIds.forEach(id => {
+            if (!excludedItemIds.has(id) && !itemShortcuts.has(id)) {
+                itemShortcuts.set(id, shortcut);
+            }
         });
     });
 
-    return {
-        ...catalog,
-        categories: catalog.categoryIds.map(id => categoriesById[id])
-    };
-});
+    return [...itemShortcuts].map(([id, shortcut]) => ({
+        id,
+        ...DATA_EQUIPAMENT.equipaments[id],
+        shortcut
+    }));
+}
 
 
 function updateOverlay() {
@@ -151,15 +125,6 @@ const selectedEquipmentItems = new Map();
     let shortcutFilterIds = null;
     let currentShortcut = null;
 
-    function getGuidance(category) {
-        return category.guidance || {
-            emoji: category.emoji || "♻️",
-            description: "Equipamentos elétricos e eletrônicos desta categoria.",
-            tip: "Desligue o equipamento, desconecte cabos e confirme com o ponto de coleta se ele recebe esse tipo de item.",
-            step: "Retire acessórios e componentes removíveis apenas quando isso for seguro. Não abra nem danifique baterias."
-        };
-    }
-
     function renderFilters() {
         filters.replaceChildren();
         const addFilter = (label, value, disabled = false) => {
@@ -176,8 +141,7 @@ const selectedEquipmentItems = new Map();
             });
             filters.append(button);
         };
-        addFilter("Todos", "todos");
-        categories.forEach(category => addFilter(category.name, category.id));
+        categories.forEach(category => addFilter(`${category.emoji || ""} ${category.name}`.trim(), category.id));
         addFilter(`Selecionados (${selectedEquipmentItems.size})`, "selecionados", selectedEquipmentItems.size === 0);
         if (shortcutFilterIds && activeFilter === "atalho") addFilter(currentShortcut?.name || "Atalho", "atalho");
         simpleToggle.classList.toggle("active", catalogMode === "simple");
@@ -191,7 +155,7 @@ const selectedEquipmentItems = new Map();
         card.setAttribute("aria-pressed", String(selected));
         card.setAttribute("aria-label", simple ? `Ver orientações para ${item.name}` : `${selected ? "Desmarcar" : "Selecionar"} ${item.name}`);
         card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
-        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : category.emoji || "♻️";
+        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : item.shortcut?.emoji || "♻️";
         card.querySelector(".equipment-name").textContent = item.name;
         if (simple) {
             card.addEventListener("click", () => {
@@ -213,18 +177,29 @@ const selectedEquipmentItems = new Map();
         grid.replaceChildren();
         if (catalogMode === "simple") {
             const items = shortcuts.filter(item => {
-                const names = item.itemIds.map(id => categories.flatMap(category => category.items).find(e => e.id === id)?.name || "");
+                const names = item.itemIds.map(id => DATA_EQUIPAMENT.equipaments[id].name);
                 return normalizeText([item.name, item.description, ...names].join(" ")).includes(query);
             });
-            items.forEach(item => renderCard(item, categories.find(c => c.id === item.categoryId) || categories[0], true));
+            items.forEach(item => renderCard(item, allCategory, true));
             resultCount.textContent = `${items.length} atalhos de equipamentos`;
             emptyState.hidden = items.length > 0;
         } else {
-            const items = categories.flatMap(category => category.items.map(item => ({...item, category}))).filter(item => {
+            const category = categories.find(item =>
+                item.id === (["selecionados", "atalho"].includes(activeFilter) ? allCategory.id : activeFilter)
+            );
+            if (!category) {
+                emptyState.hidden = false;
+                emptyState.textContent = "Categoria não encontrada.";
+                resultCount.textContent = "0 equipamentos encontrados";
+                return;
+            }
+            const items = getCategoryEquipment(category.id).map(item => ({
+                ...item,
+                category
+            })).filter(item => {
                 if (activeFilter === "selecionados" && !selectedEquipmentItems.has(item.id)) return false;
                 if (activeFilter === "atalho" && !shortcutFilterIds?.has(item.id)) return false;
-                if (!["todos","selecionados","atalho"].includes(activeFilter) && item.category.id !== activeFilter) return false;
-                return normalizeText(`${item.name} ${item.category.name}`).includes(query);
+                return normalizeText(`${item.name} ${category.name}`).includes(query);
             });
             items.forEach(item => renderCard(item, item.category));
             resultCount.textContent = `${items.length} equipamento${items.length === 1 ? "" : "s"} encontrado${items.length === 1 ? "" : "s"}`;
@@ -238,11 +213,11 @@ const selectedEquipmentItems = new Map();
 
     function openEquipmentDetail(item, category, simple = false) {
         if (!item || !category) return;
-        const linkedItems = simple ? item.itemIds.map(id => categories.flatMap(group => group.items).find(e => e.id === id)).filter(Boolean) : [];
+        const linkedItems = simple ? item.itemIds.map(id => ({id, ...DATA_EQUIPAMENT.equipaments[id]})) : [];
         const guidance = item.guidance || {};
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
-        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : category.emoji || "♻️";
+        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : item.shortcut?.emoji || "♻️";
         document.getElementById("equipmentDetailExamples").textContent = simple
             ? `${item.description} Inclui: ${linkedItems.slice(0,6).map(e => e.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length-6} itens` : ""}.`
             : item.description;
@@ -314,22 +289,20 @@ const selectedEquipmentItems = new Map();
         renderCatalog();
     });
 
-    equipmentCatalogPromise
-        .then(data => {
-            categories = data.categories;
-            shortcuts = categories.flatMap(category =>
-                category.shortcuts.map(shortcut => ({ ...shortcut, categoryId: category.id }))
-            ).filter((shortcut, index, all) =>
-                all.findIndex(item => item.id === shortcut.id) === index
-            );
-            renderFilters();
-            renderCatalog();
-        })
-        .catch(() => {
-            emptyState.hidden = false;
-            emptyState.textContent = "Não foi possível carregar o catálogo de equipamentos. Tente atualizar a página.";
-            resultCount.textContent = "";
-        });
+    categories = getCatalogCategories();
+    const allCategory = categories.find(category => category.id === "todos");
+
+    if (!allCategory) {
+        throw new Error('A categoria agregadora "todos" não foi encontrada no catálogo.');
+    }
+
+    shortcuts = allCategory.shortcutIds.map(id => ({
+        id,
+        ...DATA_SHORTCUTS.shortcuts[id]
+    }));
+
+    renderFilters();
+    renderCatalog();
 }
 //#endregion
 
@@ -516,7 +489,6 @@ function showFeedback(message) {
 
     const initial = DATA_CHECKLISTS.default?.tasks || [];
     tasks.splice(0, tasks.length, ...initial.map(text => ({ text, done: false })));
-    renderTasks();
 
     updateMode();
     renderTasks();
@@ -536,19 +508,9 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
 
 //#region : MAPA LEAFLET
 {
-
-    const map = L.map("map", {
-        scrollWheelZoom: false
-    }).setView([-26.25, -51.07], 7);
-
-    const attribution = document.getElementById("mapAttributionTemplate").innerHTML;
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution
-    }).addTo(map);
-
-    let collectionPoints = {};
-
+    const collectionPoints = DATA_COLLECTION_POINTS.points || {};
     const pointDrawer = document.getElementById("collectionPointDrawer");
+    let map = null;
 
     function openCollectionPoint(pointId) {
         const point = collectionPoints[pointId];
@@ -559,35 +521,59 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         openDrawer(pointDrawer);
     }
 
-    collectionPoints = DATA_COLLECTION_POINTS.points || {};
-    Object.entries(collectionPoints).forEach(([id, point]) => {
-        const marker = L.marker(point.position).addTo(map);
-        marker.bindTooltip(point.name);
-        marker.on("click", () => openCollectionPoint(id));
-    });
-
     document.querySelectorAll("[data-open-point]").forEach(button => {
         button.addEventListener("click", () => openCollectionPoint(button.dataset.openPoint));
     });
 
     document.getElementById("focusCollectionPoint").addEventListener("click", () => {
         const point = collectionPoints["ponto-demo"];
+        if (!point) return;
+
         closeDrawer(pointDrawer);
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
+        if (!map) return;
+
         map.setView(point.position, 13);
         setTimeout(() => map.invalidateSize(), 200);
     });
 
-    const mapObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(() => map.invalidateSize(), 150);
+    if (!window.L) {
+        console.warn("Leaflet não foi carregado. Os recursos do mapa foram desativados.");
+    } else {
+        try {
+            const mapLibrary = window.L;
+            map = mapLibrary.map("map", {
+                scrollWheelZoom: false
+            }).setView([-26.25, -51.07], 7);
+
+            const attribution = document.getElementById("mapAttributionTemplate").innerHTML;
+            mapLibrary.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution
+            }).addTo(map);
+
+            Object.entries(collectionPoints).forEach(([id, point]) => {
+                const marker = mapLibrary.marker(point.position).addTo(map);
+                marker.bindTooltip(point.name);
+                marker.on("click", () => openCollectionPoint(id));
+            });
+
+            if ("IntersectionObserver" in window) {
+                const mapObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => map.invalidateSize(), 150);
+                        }
+                    });
+                });
+
+                mapObserver.observe(document.getElementById("map"));
             }
-        });
-    });
-
-    mapObserver.observe(document.getElementById("map"));
-
+        } catch (error) {
+            console.error("Não foi possível inicializar o mapa:", error);
+            map?.remove();
+            map = null;
+        }
+    }
 }
 //#endregion
 
@@ -666,10 +652,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
     let categories = [];
     let mapSelectionDismissed = false;
 
-    function normalize(value) {
-        return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-    }
-
     function updateSelection() {
         const count = selectedEquipmentItems.size;
         selectionCount.textContent = count === 1 ? "1 selecionado" : `${count} selecionados`;
@@ -695,7 +677,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
         categories.forEach((category, index) => {
             const categoryMatches = normalizeText(category.name).includes(query);
-            const matches = category.items.filter(item =>
+            const matches = getCategoryEquipment(category.id).filter(item =>
                 categoryMatches || normalizeText(item.name).includes(query)
             );
             if (!matches.length) return;
@@ -724,7 +706,6 @@ document.getElementById("mapButton").addEventListener("click", () => {
                     else selectedEquipmentItems.delete(item.id);
                     mapSelectionDismissed = false;
                     document.dispatchEvent(new Event("equipment-selection-change"));
-                    updateSelection();
                 });
                 children.append(label);
             });
@@ -756,9 +737,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
     clearMapSelection.addEventListener("click", () => {
         selectedEquipmentItems.clear();
         mapSelectionDismissed = false;
-        if (categories.length) renderEquipmentTree(categories);
         document.dispatchEvent(new Event("equipment-selection-change"));
-        updateSelection();
     });
 
     closeMapSelection.addEventListener("click", () => {
@@ -769,9 +748,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
     clearSelection.addEventListener("click", () => {
         selectedEquipmentItems.clear();
-        if (categories.length) renderEquipmentTree(categories);
         document.dispatchEvent(new Event("equipment-selection-change"));
-        updateSelection();
     });
 
     searchMapButton.addEventListener("click", () => {
@@ -783,18 +760,9 @@ document.getElementById("mapButton").addEventListener("click", () => {
         showFeedback(`${selectedEquipmentItems.size} equipamento(s) enviado(s) para a consulta do mapa.`);
     });
 
-    equipmentCatalogPromise
-        .then(data => {
-            categories = data.categories;
-            renderEquipmentTree(categories);
-            updateSelection();
-        })
-        .catch(() => {
-            tree.replaceChildren();
-            const error = cloneTemplate("equipmentTreeEmptyTemplate").querySelector(".tree-empty");
-            error.textContent = "Não foi possível carregar os equipamentos.";
-            tree.append(error);
-        });
+    categories = getCatalogCategories().filter(category => category.id !== "todos");
+    renderEquipmentTree(categories);
+    updateSelection();
 }
 //#endregion
 
