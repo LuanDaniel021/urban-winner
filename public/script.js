@@ -662,6 +662,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
 
     searchMapButton.addEventListener("click", () => {
         if (!selectedItems.size) return;
+        mapSelectionDismissed = false;
         updateSelection();
         closeDrawer(document.getElementById("equipmentDrawer"));
         document.getElementById("mapa").scrollIntoView({ behavior: "smooth", block: "start" });
