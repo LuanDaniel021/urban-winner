@@ -532,7 +532,10 @@ document.getElementById("mapButton").addEventListener("click", () => {
     const mapSelection = document.getElementById("mapEquipmentSelection");
     const mapEquipmentList = document.getElementById("mapEquipmentList");
     const mapEquipmentCount = document.getElementById("mapEquipmentCount");
+    const clearMapSelection = document.getElementById("clearMapEquipmentSelection");
+    const closeMapSelection = document.getElementById("closeMapEquipmentSelection");
     const selectedItems = new Map();
+    let mapSelectionDismissed = false;
 
     function normalize(value) {
         return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
@@ -544,7 +547,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
         clearSelection.disabled = count === 0;
         searchMapButton.disabled = count === 0;
 
-        mapSelection.hidden = count === 0;
+        mapSelection.hidden = count === 0 || mapSelectionDismissed;
         mapEquipmentCount.textContent = String(count);
         mapEquipmentList.replaceChildren();
 
@@ -603,6 +606,7 @@ document.getElementById("mapButton").addEventListener("click", () => {
                 checkbox.addEventListener("change", () => {
                     if (checkbox.checked) selectedItems.set(item.id, item);
                     else selectedItems.delete(item.id);
+                    mapSelectionDismissed = false;
                     updateSelection();
                 });
 
@@ -632,6 +636,20 @@ document.getElementById("mapButton").addEventListener("click", () => {
         if (tree.dataset.loaded === "true") {
             renderEquipmentTree(JSON.parse(tree.dataset.categories));
         }
+    });
+
+    clearMapSelection.addEventListener("click", () => {
+        selectedItems.clear();
+        mapSelectionDismissed = false;
+        if (tree.dataset.loaded === "true") {
+            renderEquipmentTree(JSON.parse(tree.dataset.categories));
+        }
+        updateSelection();
+    });
+
+    closeMapSelection.addEventListener("click", () => {
+        mapSelectionDismissed = true;
+        mapSelection.hidden = true;
     });
 
     clearSelection.addEventListener("click", () => {
