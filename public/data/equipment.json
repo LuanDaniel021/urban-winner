@@ -1,7 +1,7 @@
 {
     "version": 1,
     "description": "Equipamentos disponíveis no catálogo. Os atalhos definem quais itens disponibilizar.",
-    "items": {
+    "equipaments": {
         "abridor-de-vinho-eletrico": {
             "name": "Abridor de vinho elétrico",
             "description": "Abridor de vinho elétrico: equipamento elétrico ou eletrônico da categoria cozinha e preparo de alimentos.",
