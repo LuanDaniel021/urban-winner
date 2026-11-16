@@ -1,3 +1,13 @@
+import catalogData from "./data/catalog.js";
+import categoriesData from "./data/categories.js";
+import shortcutsData from "./data/shortcuts.js";
+import equipmentData from "./data/equipment.js";
+import collectionPointsData from "./data/collection-points.js";
+import checklistsData from "./data/checklists.js";
+import newsData from "./data/news.js";
+import campaignsData from "./data/campaigns.js";
+import referencesData from "./data/references.js";
+
 //#region : INTERFACE - MODAIS, PAINÉIS E OVERLAY
 const overlay = document.getElementById("overlay");
 
@@ -15,22 +25,8 @@ function normalizeText(value) {
         .trim();
 }
 
-const equipmentCatalogPromise = Promise.all([
-    fetch("./data/catalog.json"),
-    fetch("./data/categories.json"),
-    fetch("./data/shortcuts.json"),
-    fetch("./data/equipment.json")
-]).then(async ([catalogResponse, categoriesResponse, shortcutsResponse, equipmentResponse]) => {
-    if (!catalogResponse.ok || !categoriesResponse.ok || !shortcutsResponse.ok || !equipmentResponse.ok) {
-        throw new Error("Não foi possível carregar os dados do catálogo.");
-    }
-
-    const [catalog, categoriesData, shortcutsData, equipmentData] = await Promise.all([
-        catalogResponse.json(),
-        categoriesResponse.json(),
-        shortcutsResponse.json(),
-        equipmentResponse.json()
-    ]);
+const equipmentCatalogPromise = Promise.resolve().then(() => {
+    const catalog = catalogData;
 
     if (
         !Array.isArray(catalog.categoryIds) ||
@@ -526,17 +522,9 @@ function showFeedback(message) {
         }
     });
 
-    fetch("./data/checklists.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Falha ao carregar checklists.");
-            return response.json();
-        })
-        .then(data => {
-            const initial = data.default?.tasks || [];
-            tasks.splice(0, tasks.length, ...initial.map(text => ({ text, done: false })));
-            renderTasks();
-        })
-        .catch(() => showFeedback("Não foi possível carregar o checklist inicial."));
+    const initial = checklistsData.default?.tasks || [];
+    tasks.splice(0, tasks.length, ...initial.map(text => ({ text, done: false })));
+    renderTasks();
 
     updateMode();
     renderTasks();
@@ -579,20 +567,12 @@ document.querySelectorAll(".brochure-preview-image").forEach(image => {
         openDrawer(pointDrawer);
     }
 
-    fetch("./data/collection-points.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Falha ao carregar pontos.");
-            return response.json();
-        })
-        .then(data => {
-            collectionPoints = data.points || {};
-            Object.entries(collectionPoints).forEach(([id, point]) => {
-                const marker = L.marker(point.position).addTo(map);
-                marker.bindTooltip(point.name);
-                marker.on("click", () => openCollectionPoint(id));
-            });
-        })
-        .catch(() => showFeedback("Não foi possível carregar os pontos de coleta."));
+    collectionPoints = collectionPointsData.points || {};
+    Object.entries(collectionPoints).forEach(([id, point]) => {
+        const marker = L.marker(point.position).addTo(map);
+        marker.bindTooltip(point.name);
+        marker.on("click", () => openCollectionPoint(id));
+    });
 
     document.querySelectorAll("[data-open-point]").forEach(button => {
         button.addEventListener("click", () => openCollectionPoint(button.dataset.openPoint));
@@ -1014,14 +994,7 @@ document.querySelectorAll(".step[data-modal]")
 //#endregion
 
 //#region : CONTEÚDO DINÂMICO
-function loadDataFile(file) {
-    return fetch(`./data/${file}.json`).then(response => {
-        if (!response.ok) throw new Error(`Falha ao carregar ${file}.json`);
-        return response.json();
-    });
-}
-
-function renderDataCards(containerId, records, className, type) {
+function renderDataCards(containerId, records, className) {
     const container = document.getElementById(containerId);
     if (!container) return;
     container.replaceChildren();
@@ -1044,16 +1017,7 @@ function renderDataCards(containerId, records, className, type) {
     });
 }
 
-Promise.all([
-    loadDataFile("news"),
-    loadDataFile("campaigns"),
-    loadDataFile("references")
-]).then(([news, campaigns, references]) => {
-    renderDataCards("newsGrid", news.items || [], "news-card", "news");
-    renderDataCards("campaignsGrid", campaigns.items || [], "social-card", "campaigns");
-    renderDataCards("referencesGrid", references.items || [], "reference-card", "references");
-}).catch(error => {
-    console.error(error);
-    showFeedback("Alguns conteúdos não puderam ser carregados.");
-});
+renderDataCards("newsGrid", newsData.items || [], "news-card");
+renderDataCards("campaignsGrid", campaignsData.items || [], "social-card");
+renderDataCards("referencesGrid", referencesData.items || [], "reference-card");
 //#endregion
