@@ -29,17 +29,22 @@ function getCatalogCategories() {
 function getCategoryEquipment(categoryId) {
     const category = DATA_CATEGORIES.categories[categoryId];
     const excludedItemIds = new Set(category.excludedItemIds || []);
-    const itemIds = new Set();
+    const itemShortcuts = new Map();
 
     category.shortcutIds.forEach(shortcutId => {
-        DATA_SHORTCUTS.shortcuts[shortcutId].itemIds.forEach(id => {
-            if (!excludedItemIds.has(id)) itemIds.add(id);
+        const shortcut = DATA_SHORTCUTS.shortcuts[shortcutId];
+
+        shortcut.itemIds.forEach(id => {
+            if (!excludedItemIds.has(id) && !itemShortcuts.has(id)) {
+                itemShortcuts.set(id, shortcut);
+            }
         });
     });
 
-    return [...itemIds].map(id => ({
+    return [...itemShortcuts].map(([id, shortcut]) => ({
         id,
-        ...DATA_EQUIPAMENT.equipaments[id]
+        ...DATA_EQUIPAMENT.equipaments[id],
+        shortcut
     }));
 }
 
@@ -119,15 +124,6 @@ const selectedEquipmentItems = new Map();
     let shortcutFilterIds = null;
     let currentShortcut = null;
 
-    function getGuidance(category) {
-        return category.guidance || {
-            emoji: category.emoji || "♻️",
-            description: "Equipamentos elétricos e eletrônicos desta categoria.",
-            tip: "Desligue o equipamento, desconecte cabos e confirme com o ponto de coleta se ele recebe esse tipo de item.",
-            step: "Retire acessórios e componentes removíveis apenas quando isso for seguro. Não abra nem danifique baterias."
-        };
-    }
-
     function renderFilters() {
         filters.replaceChildren();
         const addFilter = (label, value, disabled = false) => {
@@ -159,7 +155,7 @@ const selectedEquipmentItems = new Map();
         card.setAttribute("aria-pressed", String(selected));
         card.setAttribute("aria-label", simple ? `Ver orientações para ${item.name}` : `${selected ? "Desmarcar" : "Selecionar"} ${item.name}`);
         card.querySelector(".equipment-category").textContent = simple ? "Guia rápido" : category.name;
-        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : category.emoji || "♻️";
+        card.querySelector(".equipment-emoji").textContent = simple ? item.emoji : item.shortcut?.emoji || "♻️";
         card.querySelector(".equipment-name").textContent = item.name;
         if (simple) {
             card.addEventListener("click", () => {
@@ -210,7 +206,7 @@ const selectedEquipmentItems = new Map();
         const guidance = item.guidance || {};
         document.getElementById("equipmentDetailTitle").textContent = item.name;
         document.getElementById("equipmentDetailCategory").textContent = simple ? `${linkedItems.length} equipamentos relacionados` : category.name;
-        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : category.emoji || "♻️";
+        document.getElementById("equipmentDetailEmoji").textContent = simple ? item.emoji : item.shortcut?.emoji || "♻️";
         document.getElementById("equipmentDetailExamples").textContent = simple
             ? `${item.description} Inclui: ${linkedItems.slice(0,6).map(e => e.name).join(", ")}${linkedItems.length > 6 ? ` e outros ${linkedItems.length-6} itens` : ""}.`
             : item.description;
